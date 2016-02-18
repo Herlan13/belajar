@@ -1,0 +1,337 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Fungsi Matematika</title>
+<link rel="stylesheet" href="matematika_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%"><font face="Arial" size="4">www.coding</font><font color="#CCCCCC" face="Arial Black" size="4">wear</font><font face="Arial" size="4">.com</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="61%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)</p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>11. Fungsi Matematika</h2>
+
+<ol>
+<li><a href="#abs">abs</a> - Nilai absolut</li>
+<li><a href="#acos">acos</a> - Arc cosine</li>
+<li><a href="#acosh">acosh</a> - Kebalikan hyperbolic cosine</li>
+<li><a href="#asin">asin</a> - Arc sine</li>
+<li><a href="#asinh">asinh</a> - Kebalikan dari hyperbolic sine</li>
+<li><a href="#atan2">atan2</a> - Arc tangent dari dua variabel</li>
+<li><a href="#atan">atan</a> - Arc tangent</li>
+<li><a href="#ceil">ceil</a> - Pembulatan ke atas</li>
+<li><a href="#cos">cos</a> - Cosine</li>
+<li><a href="#cosh">cosh</a> - Hyperbolic cosine</li>
+<li><a href="#deg2rad">deg2rad</a> - Mengubah derajat ke radians</li>
+<li><a href="#exp">exp</a> - Menghitung exponent dari e</li>
+<li><a href="#floor">floor</a> - Pembulatan ke bawah</li>
+<li><a href="#log10">log10</a> - Logaritma berbasis 10</li>
+<li><a href="#log">log</a> - Natural logarithm</li>
+<li><a href="#max">max</a> - Mencari nilai tertinggi dari suatu list atau array angka</li>
+<li><a href="#min">min</a> - Mencari nilai terkecil dari suatu list atau array angka</li>
+<li><a href="#pi">pi</a> - Mendapatkan nilai pi</li>
+<li><a href="#pow">pow</a> - Menghasilkan pangkat atau eksponen</li>
+<li><a href="#rad2deg">rad2deg</a> - Mengubah radian ke derajat</li>
+<li><a href="#rand">rand</a> - Menghasilkan angka random bertipe integer</li>
+<li><a href="#round">round</a> - Membulatkan nilai float</li>
+<li><a href="#sin">sin</a> - Menghasilkan Sin</li>
+<li><a href="#sinh">sinh</a> - Hyperbolic sine</li>
+<li><a href="#sqrt">sqrt</a> - Akar kuadrat</li>
+<li><a href="#tan">tan</a> - Tangent</li>
+<li><a href="#tanh">tanh</a> - Hyperbolic tangent
+</li>
+</ol>
+<h3><a name="abs">abs</a></h3>
+
+<p>Fungsi: Nilai absolut</p>
+
+<p>Sintaks:</p>
+<p>
+</p><pre><b>abs</b> ( mixed $number )
+</pre>
+<p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$abs</span> <span class="hl opt">=</span> <span class="hl kwd">abs</span><span class="hl opt">(-</span><span class="hl num">4.2</span><span class="hl opt">);</span>
+<span class="hl kwc">$abs2</span> <span class="hl opt">=</span> <span class="hl kwd">abs</span><span class="hl opt">(</span><span class="hl num">5</span><span class="hl opt">);</span>
+<span class="hl kwc">$abs3</span> <span class="hl opt">=</span> <span class="hl kwd">abs</span><span class="hl opt">(-</span><span class="hl num">5</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$abs</span><span class="hl opt">.</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">.</span><span class="hl kwc">$abs2</span><span class="hl opt">.</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">.</span><span class="hl kwc">$abs3</span><span class="hl opt">;</span>
+<span class="hl slc">//hasilnya :</span>
+<span class="hl slc">//4.2</span>
+<span class="hl slc">//5</span>
+<span class="hl slc">//5</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="acos">acos</a></h3>
+<p>
+Fungsi: Menghasilkan Arc cosine, $arg dalam radians</p><p>
+Sintaks:</p><p>
+</p><pre><b>acos</b> ( float $arg )
+</pre><h3>
+<a name="acosh">acosh</a></h3>
+<p>
+Fungsi: Menghasilkan kebalikan hyperbolic cosine</p><p>
+Sintaks:</p><p>
+</p><pre><b>acosh </b>( float $arg )
+</pre>
+<h3>
+<a name="asin">asin</a></h3>
+<p>
+Fungsi: Menghasilkan Arc sine, $arg dalam radians</p><p>
+Sintaks:</p><p>
+</p><pre><b>asin</b> ( float $arg )
+</pre>
+<h3>
+<a name="asinh">asinh</a></h3>
+<p>
+Fungsi: Kebalikan dari hyperbolic sine</p><p>
+Sintaks:</p><p>
+</p><pre><b>asinh</b> ( float $arg )
+</pre><h3>
+<a name="atan2">atan2</a></h3>
+<p>
+Fugsi: Menghasilkan Arc tangent dari dua variabel, $x dan $y dalam radians</p><p>
+Sintaks:</p><p>
+</p><pre><b>atan2</b> ( float $y , float $x )
+</pre>
+<h3>
+<a name="atan">atan</a></h3>
+<p>
+Fungsi: Menghasilkan Arc tangent</p><p>
+Sintaks:</p><p>
+</p><pre><b>atan</b> ( float $arg )
+</pre><h3>
+<a name="ceil">ceil</a></h3>
+<p>
+Fungsi: Pembulatan ke atas</p><p>
+Sintaks:</p><p>
+</p><pre><b>ceil </b>( float $value )</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">ceil</span><span class="hl opt">(</span><span class="hl num">4.3</span><span class="hl opt">);</span>    <span class="hl slc">//hasilnya 5</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">ceil</span><span class="hl opt">(</span><span class="hl num">9.999</span><span class="hl opt">);</span>  <span class="hl slc">//hasilnya 10</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">ceil</span><span class="hl opt">(-</span><span class="hl num">3.14</span><span class="hl opt">);</span>  <span class="hl slc">//hasilnya -3</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="cos">cos </a></h3>
+<p>
+Fungsi: Menghasilkan cosinus</p><p>
+Sintaks:</p><p>
+</p><pre><b>cos</b> ( float $arg )
+</pre><p>
+$arg adalah dalam radians</p><h3>
+<a name="cosh">cosh</a> </h3>
+<p>
+Fungsi: Menghasilkan hyperbolic cosine</p><p>
+Sintaks:</p><p>
+</p><pre><b>cosh</b> ( float $arg )
+</pre><h3>
+<a name="deg2rad">deg2rad </a></h3>
+<p>
+Fungsi: Mengubah derajat ke radians, fungsi-fungsi matematika di PHP kebanyakan 
+menggunakan radian, jadi misal anda mencari cos 60<sup>o</sup> maka anda perlu 
+mengubah 60<sup>o</sup> menjadi radians</p><p>
+Sintaks:</p><p>
+</p><pre><b>deg2rad </b>( float $number )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">deg2rad</span><span class="hl opt">(</span><span class="hl num">45</span><span class="hl opt">);</span> <span class="hl slc">//hasilnya 0.785398163397</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="exp">exp</a></h3>
+<p>
+Fungsi: Menghitung exponent dari e, di mana e adalah bilangan logaritma natural, 
+yaitu: 2.718282</p><p>
+Sintaks:</p><p>
+</p><pre><b>exp</b> ( float $arg )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">exp</span><span class="hl opt">(</span><span class="hl num">12</span><span class="hl opt">) .</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">exp</span><span class="hl opt">(</span><span class="hl num">5.7</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>1.6275E+005
+298.87
+</pre><h3>
+<a name="floor">floor</a></h3>
+<p>
+Fungsi: Pembulatan ke bawah</p><p>
+Sintaks:</p><p>
+</p><pre><b>floor</b> ( float $value )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">floor</span><span class="hl opt">(</span><span class="hl num">4.3</span><span class="hl opt">);</span>   <span class="hl slc">// hasilnya 4</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">floor</span><span class="hl opt">(</span><span class="hl num">9.999</span><span class="hl opt">);</span> <span class="hl slc">// hasilnya 9</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">floor</span><span class="hl opt">(-</span><span class="hl num">3.14</span><span class="hl opt">);</span> <span class="hl slc">// hasilnya -4</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3><a name="log10">log10</a></h3>
+<p>Fungsi: Logaritma berbasis 10</p>
+<p>
+Sintaks:</p><p>
+</p><pre><b>log10</b> ( float $arg )
+</pre><h3>
+<a name="log">log</a></h3>
+<p>
+Fungsi: Natural logarithm</p><p>
+Sintaks:</p><p>
+</p><pre><b>log </b>( float $arg )</pre><h3>
+<a name="max">max</a></h3>
+<p>
+Fungsi: Mencari nilai tertinggi dari suatu list atau array angka</p><p>
+Sintaks:</p><p>
+</p><pre><b>max</b> ( array $values )
+<b>max</b> ( mixed $value1 , mixed $value2 [, mixed $value3... ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">max</span><span class="hl opt">(</span><span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">3</span><span class="hl opt">,</span> <span class="hl num">5</span><span class="hl opt">,</span> <span class="hl num">6</span><span class="hl opt">,</span> <span class="hl num">7</span><span class="hl opt">);</span>  <span class="hl slc">//Hasilnya 7</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">max</span><span class="hl opt">(</span><span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl num">2</span><span class="hl opt">,</span> <span class="hl num">4</span><span class="hl opt">,</span> <span class="hl num">5</span><span class="hl opt">));</span> <span class="hl slc">//Hasilnya 5</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="min">min</a></h3>
+<p>
+Fungsi: Mencari nilai terkecil dari suatu list atau array angka</p><p>
+Sintaks:</p><p>
+</p><pre><b>min</b> ( array $values )
+<b>min</b> ( mixed $value1 , mixed $value2 [, mixed $value3... ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">min</span><span class="hl opt">(</span><span class="hl num">2</span><span class="hl opt">,</span> <span class="hl num">3</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">6</span><span class="hl opt">,</span> <span class="hl num">7</span><span class="hl opt">);</span>  <span class="hl slc">//hasilnya 1</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">min</span><span class="hl opt">(</span><span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl num">2</span><span class="hl opt">,</span> <span class="hl num">4</span><span class="hl opt">,</span> <span class="hl num">5</span><span class="hl opt">));</span> <span class="hl slc">//hasilnya 2</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="pi">pi</a> </h3>
+<p>
+Fungsi: Mendapatkan nilai pi</p><p>
+Sintaks:</p><p>
+</p><pre><b>pi</b> ( void )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">pi</span><span class="hl opt">();</span> <span class="hl slc">// 3.1415926535898</span>
+<span class="hl kwa">echo</span> M_PI<span class="hl opt">;</span> <span class="hl slc">// 3.1415926535898</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="pow">pow</a></h3>
+<p>
+Fungsi: Menghasilkan pangkat atau eksponen</p><p>
+</p><pre><b>pow</b> ( number $base , number $exp )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl str">"2 pangkat 3 = "</span><span class="hl opt">.</span><span class="hl kwd">pow</span><span class="hl opt">(</span><span class="hl num">2</span><span class="hl opt">,</span><span class="hl num">3</span><span class="hl opt">);</span>
+<span class="hl slc">//2 pangkat 3 = 8</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="rad2deg">rad2deg</a></h3>
+<p>
+Fungsi: Mengubah radian ke derajat</p><p>
+Sintaks:</p><p>
+</p><pre><b>rad2deg</b> ( float $number )
+</pre><h3>
+<a name="rand">rand</a></h3>
+<p>
+Fungsi: Menghasilkan angka random bertipe integer</p><p>
+Sintaks:</p><p>
+</p><pre><b>rand</b> ( void )
+<b>rand</b> ( int $min , int $max )
+</pre><p>
+Parameter $min, untuk mengeset nilai terendah angka random, $max untuk mengeset 
+nilai tertinggi angka random</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">rand</span><span class="hl opt">() .</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">rand</span><span class="hl opt">() .</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">rand</span><span class="hl opt">(</span><span class="hl num">5</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+
+</pre><h3>
+<a name="round">round</a></h3>
+<p>
+Fungsi: Membulatkan nilai float</p><p>
+Sintaks:</p><p>
+</p><pre><b>round</b> ( float $val ,<span class="methodparam"><span class="type">[int</span> <tt class="parameter">$precision]</tt></span>)
+</pre><p>
+$precision untuk me-set dibulatkan sampai berapa angka di belakang koma, 
+defaultnya adalah 0</p><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">3.4</span><span class="hl opt">);</span>         <span class="hl slc">// 3</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">3.5</span><span class="hl opt">);</span>         <span class="hl slc">// 4</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">3.6</span><span class="hl opt">);</span>         <span class="hl slc">// 4</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">3.6</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">);</span>      <span class="hl slc">// 4</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">1.95583</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">);</span>  <span class="hl slc">// 1.96</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">1241757</span><span class="hl opt">, -</span><span class="hl num">3</span><span class="hl opt">);</span> <span class="hl slc">// 1242000</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">5.045</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">);</span>    <span class="hl slc">// 5.05</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">round</span><span class="hl opt">(</span><span class="hl num">5.055</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">);</span>    <span class="hl slc">// 5.06</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="sin">sin</a></h3>
+<p>
+Fungsi: Menghasilkan Sin</p><p>
+Sintaks:</p><p>
+</p><pre><b>sin</b> ( float $arg )
+</pre><p>
+$arg dalam radian</p><h3>
+<a name="sinh">sinh</a> </h3>
+<p>
+Fungsi: Menghasilkan hyperbolic sine</p><p>
+Sintaks:</p><p>
+</p><pre><b>sinh</b> ( float $arg )
+</pre><h3>
+<a name="sqrt">sqrt</a></h3>
+<p>
+Fungsi: Menghaslikan akar kuadrat</p><p>
+Sintaks:</p><p>
+</p><pre><b>sqrt</b> ( float $arg )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">sqrt</span><span class="hl opt">(</span><span class="hl num">9</span><span class="hl opt">);</span> <span class="hl slc">// 3</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">sqrt</span><span class="hl opt">(</span><span class="hl num">10</span><span class="hl opt">);</span> <span class="hl slc">// 3.16227766 ...</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="tan">tan</a></h3>
+<p>
+Fungsi: Menghasilkan tangent</p><p>
+Sintaks:</p><p>
+</p><pre>tan ( float $arg )
+</pre><p>
+$arg dalam radian</p><h3>
+<a name="tanh">tanh</a></h3>
+<p>
+Fungsi: Menghasilkan Hyperbolic tangent</p><p>
+Sintaks:</p><p>
+</p><pre>tanh ( float $arg )
+</pre><p>&nbsp;
+</p><p>&nbsp;
+</p></div>
+</center></td>
+  </tr>
+  </tbody></table>
+
+</body></html>

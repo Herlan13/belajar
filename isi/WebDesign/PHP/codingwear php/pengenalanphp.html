@@ -1,0 +1,453 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Pengenalan PHP</title>
+<link rel="stylesheet" href="gaya.css" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0" >
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" height="5078" width="95%">
+  <tbody>
+  <tr>
+    <td colspan="2"height="29" width="100%">
+</td>
+  </tr>
+  <tr>
+    <td height="113" width="57%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p><p>&nbsp;</p></td>
+   
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>1. Pengenalan PHP</h2>
+    <ol>
+    <li><a href="#apa">Apa Itu PHP? </a>
+    </li><li><a href="#instalasi">Instalasi PHP</a></li><li><a href="#sintaks">Sintaks PHP</a></li><li>
+    <a href="#variabel">Variabel di PHP</a></li><li><a href="#operator">Operator di PHP</a></li><li>
+    <a href="#kondisional">Kondisional di PHP</a></li><li><a href="#looping">Looping (Pengulangan) di PHP</a></li></ol>
+<h3>1. <a name="apa">Apa Itu PHP?</a></h3>
+<ul>
+  <li>PHP adalah singkatan dari PHP : Hypertext Preprocessor</li>
+  <li>PHP adalah bahasa scripting server-side, artinya di jalankan di server, 
+  kemudian outputnya dikirim ke client (browser)</li>
+  <li>PHP digunakan untuk membuat aplikasi web</li>
+  <li>PHP mendukung banyak database (MySQL, Informix, Oracle, Sybase, Solid, 
+  PostgreSQL, Generic ODBC, dll.)</li>
+</ul>
+<h3>2. <a name="instalasi">Instalasi PHP</a></h3>
+<p>Untuk menjalankan PHP anda perlu Web Server seperti Apache, PHP Interpreter, 
+MySQL sebagai database. Saat ini ada banyak paket PHP+Apache+MySQL yang 
+memudahkan anda untuk instal PHP dengan mudah. Silahkan Download di salah satu 
+situs-situs berikut, kemudian ikuti petunjuk instalasi masing-masing paket.</p>
+<ul>
+  <li>WAMP (<a href="http://www.wampserver.com/en/download.php">http://www.wampserver.com/en/download.php</a>)</li>
+  <li>XAMP (<a href="http://www.apachefriends.org/en/xampp.html">http://www.apachefriends.org/en/xampp.html</a>)</li>
+</ul>
+<p>Kode PHP di jalankan di browser, terlebih dahulu harus dijalankan Apache Web 
+Server, kemudian di browser dijalankan di<b> localhost</b>. </p>
+<p>Misal kita buat file php, yaitu : <b>tes.php</b>, yang disimpan di document 
+root&nbsp; atau folder www maka di browser kita ketik url di alamatnya adalah : 
+http://localhost/tes.php</p>
+<h3><a name="sintaks">3. Sintaks PHP</a></h3>
+<p>Kode PHP di tulis di teks editor, sama halnya seperti HTML. Kode PHP bisa 
+digabung atau disisipkan dengan kode HTML, Javascript, CSS dan script lainnya 
+untuk membuat halaman web. 
+</p><ul>
+  <li>Penulisan kode PHP harus di awali dengan <font face="Courier New" size="2">&lt;?php</font> dan 
+diakhiri dengan <font face="Courier New" size="2">?&gt;</font></li>
+  <li>Untuk mengakhiri baris kode PHP harus diberi tanda titik koma (;) di akhir 
+  baris kode PHP</li>
+  <li>Untuk penulisan komentar di awali tanda // atau antara /* dan */</li>
+  </ul>
+  <p>Contoh :</p><p>
+</p><pre>&lt;html&gt;
+&lt;body&gt;
+<font color="#0000FF">&lt;?php</font> 
+<font color="#008000">echo</font> <font color="#FF0000">"Hello World"</font>;
+<font color="#FF9900">//ini komentar, tidak akan dieksekusi</font>
+<font color="#0000FF">?&gt;</font>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>Pada contoh di atas, di browser akan tercetak tulisan Hello World</p><h3>
+<a name="variabel">4. Variabel di PHP</a></h3>
+<p>Variabel di PHP diawali dengan tanda dollar ($) diikuti dengan nama variabel. 
+Nama variabel adalah case-sensitive, artinya huruf besar dan huruf kecil adalah 
+berbeda. Contoh :</p><p>
+</p><pre>&lt;html&gt;
+&lt;body&gt;
+<font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$teks</font>=<font color="#FF0000">"Hello World"</font>;
+<font color="#008000">echo</font> <font color="#0000FF">$teks</font>;                   <font color="#FF9900">//Hasilnya Hello World</font>
+<font color="#0000FF">?&gt;</font>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+Untuk menggabungkan dua variabel atau lebih gunakan operator titik (.) atau 
+langsung ditulis diantara tanda kutip, contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$txt1</font> = <font color="#FF0000">"Hello World"</font>;
+<font color="#0000FF">$txt2</font> = <font color="#FF0000">"1234"</font>;
+<font color="#0000FF">$nama</font> = <font color="#FF0000">"Desrizal"</font>;
+<font color="#008000">echo</font> <font color="#0000FF">$txt1</font>.<font color="#FF0000">"-"</font>.<font color="#0000FF">$txt2</font> ;         <font color="#FF9900">//Hasilnya Hello World-1234</font>
+<font color="#008000">echo</font> <font color="#FF0000">"Nama saya : $nama"</font>;      <font color="#FF9900">//hasilnya Nama saya : Desrizal</font>
+?&gt;</pre>
+<h3>
+<a name="operator">5. Operator di PHP</a></h3>
+<h4>
+Operator Aritmatika</h4>
+<table style="border-collapse: collapse;" border="1" bordercolor="#111111" cellpadding="3" cellspacing="0" width="534">
+  <tbody><tr>
+    <td bgcolor="#C2D699" width="92"><b>Operator</b></td>
+    <td bgcolor="#C2D699" width="222"><b>Deskripsi</b></td>
+    <td bgcolor="#C2D699" width="125"><b>Contoh</b></td>
+    <td bgcolor="#C2D699" width="63"><b>Hasil</b></td>
+  </tr>
+  <tr>
+    <td width="92">+</td>
+    <td width="222">Penambahan</td>
+    <td width="125">3 + 4</td>
+    <td width="63">7</td>
+  </tr>
+  <tr>
+    <td width="92">-</td>
+    <td width="222">Pengurangan</td>
+    <td width="125">12 - 6</td>
+    <td width="63">6</td>
+  </tr>
+  <tr>
+    <td width="92">*</td>
+    <td width="222">Pengalian</td>
+    <td width="125">3 * 3</td>
+    <td width="63">9</td>
+  </tr>
+  <tr>
+    <td width="92">/</td>
+    <td width="222">Pembagian</td>
+    <td width="125">4 / 2</td>
+    <td width="63">2</td>
+  </tr>
+  <tr>
+    <td valign="top" width="92">%</td>
+    <td valign="top" width="222">Modulus (sisa hasil pembagian)</td>
+    <td valign="top" width="125">5 % 2<br>
+    10 % 8<br>
+    10 % 2</td>
+    <td valign="top" width="63">1<br>
+    2<br>
+    0</td>
+  </tr>
+  <tr>
+    <td valign="top" width="92">++</td>
+    <td valign="top" width="222">Penambahan satu satu</td>
+    <td valign="top" width="125">x = 6<br>
+    x++</td>
+    <td valign="top" width="63">x = 7</td>
+  </tr>
+  <tr>
+    <td valign="top" width="92">--</td>
+    <td valign="top" width="222">Pengurangan satu satu</td>
+    <td valign="top" width="125">x = 9<br>
+    x--</td>
+    <td valign="top" width="63">x = 8</td>
+  </tr>
+</tbody></table>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$x</font> = 10;
+<font color="#0000FF">$y</font> = 4;
+
+<font color="#0000FF">$a</font> = <font color="#0000FF">$x</font> + <font color="#0000FF">$y</font>;
+<font color="#008000">echo</font> <font color="#0000FF">$a</font>.<font color="#FF0000">"&lt;br&gt;"</font>;        <font color="#FF9900">//hasilnya 14</font>
+
+<font color="#0000FF">$b</font> = <font color="#0000FF">$x</font> - <font color="#0000FF">$y</font>;
+<font color="#008000">echo</font> <font color="#0000FF">$b</font>.<font color="#FF0000">"&lt;br&gt;"</font>;        <font color="#FF9900">//hasilnya 6</font>
+
+<font color="#0000FF">$c</font> = <font color="#0000FF">$x</font> * <font color="#0000FF">$y</font>;
+<font color="#008000">echo</font> <font color="#0000FF">$c</font>.<font color="#FF0000">"&lt;br&gt;"</font>;        <font color="#FF9900">//hasilnya 40</font>
+
+<font color="#0000FF">$d</font> = <font color="#0000FF">$x</font> / <font color="#0000FF">$y</font>;
+<font color="#008000">echo</font> <font color="#0000FF">$d</font>.<font color="#FF0000">"&lt;br&gt;"</font>;        <font color="#FF9900">//hasilnya 2.5</font>
+
+<font color="#0000FF">$e</font> = <font color="#0000FF">$x</font> % <font color="#0000FF">$y</font>;
+<font color="#008000">echo</font> <font color="#0000FF">$e</font>.<font color="#FF0000">"&lt;br&gt;"</font>;        <font color="#FF9900">//hasilnya 2</font>
+<font color="#0000FF">?&gt;</font>
+</pre>
+
+<p>
+</p><h4>Operator Pembanding</h4><table style="border-collapse: collapse;" border="1" bordercolor="#111111" cellpadding="3" cellspacing="0" width="535">
+  <tbody><tr>
+    <td bgcolor="#C2D699" width="166"><b>Operator</b></td>
+    <td bgcolor="#C2D699" width="366"><b>Deskripsi</b></td>
+  </tr>
+  <tr>
+    <td width="166">==</td>
+    <td width="366">Sama dengan</td>
+  </tr>
+  <tr>
+    <td width="166">!=</td>
+    <td width="366">Tidak sama dengan</td>
+  </tr>
+  <tr>
+    <td width="166">&gt;</td>
+    <td width="366">Lebih besar dari</td>
+  </tr>
+  <tr>
+    <td width="166">&lt;</td>
+    <td width="366">Lebih kecil dari</td>
+  </tr>
+  <tr>
+    <td width="166">&gt;=</td>
+    <td width="366">Lebih besar sama dengan</td>
+  </tr>
+  <tr>
+    <td width="166">&lt;=</td>
+    <td width="366">Lebih kecil sama dengan</td>
+  </tr>
+</tbody></table>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$x</font> = 10;
+
+<font color="#008000">if</font>(<font color="#0000FF">$x</font> &gt; 10){
+    <font color="#008000">echo</font> <font color="#FF0000">"X lebih besar dari 10"</font>;
+}<font color="#008000">else if</font>(<font color="#0000FF">$x</font> == 10){
+    <font color="#008000">echo</font> <font color="#FF0000">"X sama dengan 10"</font>;
+}<font color="#008000">else if</font>(<font color="#0000FF">$x</font> &lt; 10){
+    <font color="#008000">echo</font> <font color="#FF0000">"X kecil dari 10"</font>;
+}
+<font color="#FF9900">//Hasil X sama dengan 10</font>
+<font color="#0000FF">?&gt;</font>
+</pre>
+
+<h4>
+Operator Logikal</h4>
+<table style="border-collapse: collapse;" border="1" bordercolor="#111111" cellpadding="3" cellspacing="0" width="362">
+  <tbody><tr>
+    <td bgcolor="#C2D699" width="55"><b>Operator</b></td>
+    <td bgcolor="#C2D699" width="136"><b>Deskripsi</b></td>
+  </tr>
+  <tr>
+    <td valign="top" width="55">&amp;&amp;</td>
+    <td valign="top" width="136">Dan</td>
+  </tr>
+  <tr>
+    <td valign="top" width="55">||</td>
+    <td valign="top" width="136">Atau</td>
+
+  </tr>
+  <tr>
+    <td valign="top" width="55">!</td>
+    <td valign="top" width="136">Bukan</td>
+  </tr>
+</tbody></table>
+<p>
+Contoh :
+</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$x</font> = 10;
+<font color="#0000FF">$y</font> = 5;
+<font color="#008000">if</font>(<font color="#0000FF">$x</font> &gt; 8 &amp;&amp; <font color="#0000FF">$y</font> &lt; 6){
+    <font color="#008000">echo</font> <font color="#FF0000">"TRUE"</font>;
+}<font color="#008000">else</font>{
+    <font color="#008000">echo</font> <font color="#FF0000">"FALSE"</font>;
+}
+<font color="#FF9900">//Hasilnya TRUE</font>
+<font color="#0000FF">?&gt;</font>
+</pre>
+<h3><a name="kondisional">6. Kondisional di PHP</a></h3>
+<p>Kondisional berguna untuk mengecek suatu kondisi dan melakukan suatu kode 
+jika kondisi tersebut benar atau salah.</p>
+<h4>if</h4>
+<p>Sintaks :</p>
+<p>
+</p><pre>if(kondisi){
+    kode yang dijalankan jika benar
+}
+</pre>
+
+<p></p>
+<p>Contoh :</p>
+<p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$x</font> = 10;
+<font color="#008000">if</font>(<font color="#0000FF">$x</font> == 10){
+    <font color="#008000">echo</font> <font color="#FF0000">"Hai Apa kabar"</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+<h4>
+if - else </h4>
+<p>
+Sintaks :</p><p>
+</p><pre>if(kondisi){
+    kode yang dijalankan jika benar
+}else{
+    kode yang dijalankan jika salah
+}
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$x</font> = 5;
+<font color="#008000">if</font>(<font color="#0000FF">$x</font> == 10){
+    <font color="#008000">echo</font> <font color="#FF0000">"Hai Apa kabar"</font>;
+}<font color="#008000">else</font>{
+    <font color="#008000">echo</font> <font color="#FF0000">"X tidak sama dengan 10"</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+<h4>
+if - else if - else</h4>
+<p>
+Jika anda membutuhkan kondisi yang banyak</p><p>
+Sintaks :</p><p>
+</p><pre>if(kondisi 1){
+    kode yang dijalankan jika kondisi 1 benar
+}else if(kondisi 2){
+    kode yang dijalankan jika kondisi 2 benar
+}else if(kondisi 3){
+    kode yang dijalankan jika kondisi 3 benar
+}else{
+    kode jika salah satu kondisi di atas tidak ada yang benar
+}
+</pre>
+
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$nilai</font> = 80;
+
+<font color="#008000">if</font>(<font color="#0000FF">$nilai</font> &gt;= 85){
+    <font color="#008000">echo</font> <font color="#FF0000">"A"</font>;
+}<font color="#008000">else if</font>(<font color="#0000FF">$nilai</font> &gt;= 70 &amp;&amp; <font color="#0000FF">$nilai</font> &lt; 85){
+    echo <font color="#FF0000">"B"</font>;
+}<font color="#008000">else if</font>(<font color="#0000FF">$nilai</font> &gt;= 60 &amp;&amp; <font color="#0000FF">$nilai</font> &lt; 70){
+    <font color="#008000">echo</font> <font color="#FF0000">"C"</font>;
+}<font color="#008000">else</font>{
+    <font color="#008000">echo</font> <font color="#FF0000">"D"</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+<h4>
+switch</h4>
+<p>
+Sama seperti if - else if - else, berguna jika membutuhkan kondisi yang banyak</p><p>
+Sintaks :</p><p>
+</p><pre>switch(ekspresi){
+    case kondisi1 :
+        kode yang dijalankan jika kondisi1 benar;
+        break;
+    case kondisi2 :
+        kode yang dijalankan jika kondisi2 benar;
+        break;
+    case kondisi3 :
+        kode yang dijalankan jika kondisi3 benar;
+        break;
+}
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$buah</font> = <font color="#FF0000">"mangga"</font>;
+<font color="#008000">switch</font> (<font color="#0000FF">$buah</font>) {
+    <font color="#008000">case</font> <font color="#FF0000">"apple"</font>:
+        <font color="#008000">echo</font> <font color="#FF0000">"buahnya adalah apple"</font>;
+        <font color="#008000">break</font>;
+    <font color="#008000">case</font> <font color="#FF0000">"mangga"</font>:
+        <font color="#008000">echo</font> <font color="#FF0000">"buahnya adalah mangga"</font>;
+        <font color="#008000">break</font>;
+    <font color="#008000">case</font> <font color="#FF0000">"jambu"</font>:
+        <font color="#008000">echo</font> <font color="#FF0000">"buahnya adalah jambu"</font>;
+        <font color="#008000">break</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+<h3>
+<a name="looping">7. Looping (Pengulangan) di PHP</a></h3>
+<h4>
+for</h4>
+<p>
+Berguna untuk pengulangan yang sudah ditentukan terlebih dahulu awalnya berapa, 
+dijalankan sampai kondisi bagaimana.</p>
+<p>
+Sintaks :</p><p>
+</p><pre>for(awal; kondisi; penambahan){
+    kode untuk dijalankan
+}
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#008000">for</font> (<font color="#0000FF">$i</font> = 1; <font color="#0000FF">$i</font> &lt;= 10; <font color="#0000FF">$i</font>++) {
+    <font color="#008000">echo</font> <font color="#0000FF">$i</font>.<font color="#FF0000">"&lt;br&gt;"</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+<p>
+<b>while</b></p><p>
+Berguna untuk menjalankan suatu kode terus menerus selama
+<font face="Courier New" size="2">kondisi</font> bernilai TRUE</p><p>
+Sintaks :</p><p>
+</p><pre>while(kondisi){
+    kode untuk dijalankan;
+}
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$i</font>=1;
+<font color="#008000">while</font>(<font color="#0000FF">$i</font>&lt;=5)
+{
+<font color="#008000">    echo</font> <font color="#FF0000">"Nomor : "</font> . <font color="#0000FF">$i</font> . <font color="#FF0000">"&lt;br /&gt;"</font>;
+<font color="#0000FF">    $i</font>++;
+}
+<font color="#0000FF">?&gt;</font>
+</pre><h4>
+foreach</h4>
+<p>
+Perulangan untuk array yang mempunyai nilai</p><p>
+Sintaks :</p><p>
+</p><pre>foreach (array as $value){
+    statement
+}
+</pre>
+atau
+<br>
+<pre>foreach (array as $key =&gt; $value){
+    statement
+}
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#0000FF">$arr</font> = <font color="#008000">array</font>(<font color="#FF0000">"satu"</font>, <font color="#FF0000">"dua"</font>, <font color="#FF0000">"tiga"</font>);
+
+<font color="#008000">foreach</font>(<font color="#0000FF">$arr</font> <font color="#008000">as</font> <font color="#0000FF">$key</font> =&gt; <font color="#0000FF">$value</font>) {
+    <font color="#008000">echo</font> <font color="#FF0000">"Key: $key; Value: $value&lt;br /&gt;\n"</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+</div>
+<p>
+
+
+</p></center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

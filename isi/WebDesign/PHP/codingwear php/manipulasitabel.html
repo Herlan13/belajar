@@ -1,0 +1,411 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Manipulasi Tabel MySQL</title>
+<link rel="stylesheet" href="manipulasitabel_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="51%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p><p>
+      <font size="4"><b>Home/Daftar Isi</b></font></p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>3. Manipulasi Tabel MySQL</h2>
+
+<ol>
+<li><a href="#insert">Cara Insert ke Tabel MySQL</a></li>
+<li><a href="#select">Cara Menampilkan Rows Tabel MySQL</a></li>
+<li><a href="#delete">Cara Delete Rows Tabel MySQL</a></li>
+<li><a href="#update">Cara Update Tabel MySQL</a></li>
+<li><a href="#mysql_num_rows">mysql_num_rows</a> - Menghitung jumlah baris dari query yang dihasilkan</li>
+<li><a href="#bukutamu">Contoh Buku Tamu</a></li>
+</ol>
+
+<h3><a name="insert">1. Cara Insert ke Tabel MySQL</a></h3>
+<p>Pada tutorial sebelumnya kita telah belajar
+<a href="http://blog.codingwear.com/panduanphp/pengenalanmysql.html#buattabel">membuat tabel di MySQL</a>. Sekarang 
+mari kita belajar mengisi tabel tersebut, di mana inputan berasal dari form 
+HTML.</p>
+<p><b>forminput.html</b></p>
+<p>
+</p><pre>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Input data&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Input Data Karyawan&lt;/h2&gt;
+&lt;form action="inputdata.php" method="post"&gt;
+Nama : &lt;br&gt;
+&lt;input type="text" name="nama"&gt;&lt;p&gt;
+Tanggal Lahir :&lt;br&gt;
+&lt;input type="text" name="tgl"&gt;Format yyyy-mm-dd&lt;p&gt;
+Jenis Kelamin :&lt;br&gt;
+&lt;select name="kelamin"&gt;
+&lt;option&gt;Laki-laki&lt;/option&gt;
+&lt;option&gt;Perempuan&lt;/option&gt;
+&lt;/select&gt;
+&lt;p&gt;
+Alamat :&lt;br&gt;
+&lt;textarea cols="30" rows="5" name="alamat"&gt;&lt;/textarea&gt;&lt;p&gt;
+&lt;input type="submit"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+Kode di atas adalah kode HTML untuk membuat form inputan, yang nantinya akan 
+kita masukkan ke database.</p><p>
+Pada tag&nbsp; <font face="Courier New" size="2">&lt;form action="inputdata.php" method="post"&gt;</font>, 
+action berarti kode PHP yang akan memproses inputan jika diklik tombol submit. 
+Methode yang digunakan adalah POST. Secara umum ada 2 metode pengiriman data ke 
+server, yaitu POST dan GET. Bedanya jika metode GET, parameter akan ditampilkan 
+di URL.</p><h4>
+Query INSERT</h4>
+<p>
+Query INSERT adalah perintah SQL untuk memasukkan data ke tabel di database 
+MySQL</p><p>
+Sintaks SQL :</p><p>
+</p><pre>INSERT INTO nama_tabel [(col_name,...)] VALUES(nilai1, nilai2,...)
+</pre>
+
+<p>
+Contoh :</p><p>
+</p><pre>INSERT INTO datakaryawan VALUES(null,'Desrizal','1981-12-13','Laki-laki','Jl. raya No. 12, Pekanbaru')
+</pre>
+<p>
+Kode di atas adalah SQL, cara menjalankannya melalui PHP adalah dengan 
+menggunakan fungsi <b>mysql_query()</b>. Untuk lebih jelas kita lihat contoh di 
+bawah :</p><p>
+<b>inputdata.php</b></p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#FF9900">//lakukan koneksi ke MySQL</font>
+<font color="#0000FF">mysql_connect</font>(<font color="#FF0000">"localhost"</font>,<font color="#FF0000">"root"</font>,<font color="#FF0000">""</font>);
+
+<font color="#FF9900">//Pilih database tempat tabel akan dibuat</font>
+<font color="#0000FF">mysql_select_db</font>(<font color="#FF0000">"databaseku"</font>);
+
+<font color="#FF9900">//ambil data dari form method POST</font>
+<font color="#0000FF">$nama</font> = <font color="#0000FF">htmlspecialchars</font>(<font color="#0000FF">$_POST</font>[<font color="#FF0000">'nama'</font>]);
+<font color="#0000FF">$tgl</font> = <font color="#0000FF">htmlspecialchars</font>(<font color="#0000FF">$_POST</font>[<font color="#FF0000">'tgl'</font>]);
+<font color="#0000FF">$kelamin</font> = <font color="#0000FF">htmlspecialchars</font>(<font color="#0000FF">$_POST</font>[<font color="#FF0000">'kelamin'</font>]);
+<font color="#0000FF">$alamat</font> = <font color="#0000FF">htmlspecialchars</font>(<font color="#0000FF">$_POST</font>[<font color="#FF0000">'alamat'</font>]);
+
+
+<font color="#0000FF">$masuk</font> = <font color="#0000FF">mysql_query</font>(<font color="#FF0000">"INSERT INTO datakaryawan VALUES(null,
+    '$nama','$tgl','$kelamin','$alamat')"</font>);
+
+<font color="#008000">if</font>(<font color="#0000FF">$masuk</font>){
+    <font color="#008000">echo</font> <font color="#FF0000">"Data berhasil diinput"</font>;
+}<font color="#008000">else</font>{
+   <font color="#008000"> echo </font><font color="#FF0000">"Gagal"</font>;
+}
+?&gt;
+</pre>
+<ul>
+  <li>Untuk mengambil data dari form HTML dengan metode POST adalah
+  <font face="Courier New" size="2">$_POST['namafield']</font></li>
+  <li>Untuk mengambil data dari form HTML dengan metode GET adalah
+  <font face="Courier New" size="2">$_GET['namafield']</font></li>
+  <li><font face="Courier New" size="2">htmlspecialchars() </font>berguna untuk 
+  mengubah kode HTML &lt; dan &gt; menjadi <font face="Courier New" size="2">&amp;lt;</font> 
+  dan <font face="Courier New" size="2">&amp;gt;</font> gunanya untuk keamanan, jika 
+  ada user yang nakal mengetikkan kode HTML yang merusak penampilan web kita.</li>
+  <li><b>null </b>artinya tidak ada nilai, karena pada saat kita buat create 
+  tabel <b>datakaryawan</b>, field <b>karyawanid</b> diset <b>auto_incerement</b>, 
+  artinya akan otomatis berisi nilai integer yang berurut</li>
+  </ul>
+  <h3><a name="select">2. Cara Menampilkan Rows Tabel MySQL</a></h3>
+<p>Setelah kita belajar bagaimana menginput data dari form ke tabel di database 
+mysql, sekarang kita belajar mengambil data dari tabel di MySQL. 
+Langkah-langkahnya adalah sebagai berikut :</p>
+<ol>
+  <li>Koneksi ke database MySQL, gunakan fungsi 
+  <font face="Courier New" size="2">mysql_connect()</font></li>
+  <li>Pilih database, gunakan fungsi <font face="Courier New" size="2">
+  mysql_select_db()</font></li>
+  <li>Lakukan <b>query SELECT, </b>gunakan fungsi
+  <font face="Courier New" size="2">mysql_query()</font><p>
+  Sintaks SQL :</p><p>
+</p><pre>SELECT nama_field FROM nama_tabel
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre>SELECT nama, tgl_lahir FROM datakaryawan
+</pre>
+<p>
+Atau, jika ingin memilih seluruh field, gunakan tanda bintang (*)
+</p><p>
+</p><pre>SELECT * FROM datakaryawan
+</pre>
+</li>
+<li>Masukkan hasil query ke dalam array, gunakan fungsi
+<font face="Courier New" size="2">mysql_fetch_array()</font></li><li>Print data dari 
+  array, gunakan fungsi <font face="Courier New" size="2">echo</font></li></ol>
+<p>Sekarang kita lihat contoh kodenya :</p>
+<p><b>tampil.php</b></p>
+<p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//lakukan koneksi ke MySQL</span>
+<span class="hl kwd">mysql_connect</span><span class="hl opt">(</span><span class="hl str">"localhost"</span><span class="hl opt">,</span><span class="hl str">"root"</span><span class="hl opt">,</span><span class="hl str">""</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Pilih database tempat tabel akan dibuat</span>
+<span class="hl kwd">mysql_select_db</span><span class="hl opt">(</span><span class="hl str">"databaseku"</span><span class="hl opt">);</span>
+
+<span class="hl slc">//lakukan query select</span>
+
+<span class="hl kwc">$ambildata</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_query</span><span class="hl opt">(</span><span class="hl str">"SELECT * FROM datakaryawan"</span><span class="hl opt">);</span>
+<span class="hl kwa">while</span><span class="hl opt">(</span><span class="hl kwc">$data</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_fetch_array</span><span class="hl opt">(</span><span class="hl kwc">$ambildata</span><span class="hl opt">)){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;a href=detail.php?no="</span><span class="hl opt">.</span><span class="hl kwc">$data</span><span class="hl opt">[</span><span class="hl str">'karyawanid'</span><span class="hl opt">].</span><span class="hl str">"&gt;"</span><span class="hl opt">.</span><span class="hl kwc">$data</span><span class="hl opt">[</span><span class="hl str">'nama'</span><span class="hl opt">].</span><span class="hl str">"&lt;/a&gt; | "</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;a href=delete.php?no="</span><span class="hl opt">.</span><span class="hl kwc">$data</span><span class="hl opt">[</span><span class="hl str">'karyawanid'</span><span class="hl opt">].</span><span class="hl str">"&gt;delete&lt;/a&gt;&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+
+<p></p>
+<h3><a name="delete">3. Cara Delete Rows Tabel MySQL</a></h3>
+<p>Untuk mendelete data yang ada di database adalah dengan cara melakukan query 
+DELETE</p><p>Sintaks SQL:</p><p>
+</p><pre>DELETE FROM nama_tabel WHERE namafield=kondisi
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre>DELETE FROM datakaryawan WHERE karyawanid=2
+</pre> 
+<p>
+Pada contoh tampil di atas, jika anda jalankan akan ada link delete, yang kalau 
+diklik akan mengarah file delete php, misal : delete.php?no=1</p><p>
+Sekarang mari kita buat kode PHPnya</p><p>
+<b>delete.php</b></p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//lakukan koneksi ke MySQL</span>
+<span class="hl kwd">mysql_connect</span><span class="hl opt">(</span><span class="hl str">"localhost"</span><span class="hl opt">,</span><span class="hl str">"root"</span><span class="hl opt">,</span><span class="hl str">""</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Pilih database tempat tabel akan dibuat</span>
+<span class="hl kwd">mysql_select_db</span><span class="hl opt">(</span><span class="hl str">"databaseku"</span><span class="hl opt">);</span>
+
+<span class="hl slc">//ambil nilai variabel no yang diambil dari URL</span>
+<span class="hl kwc">$nomor</span> <span class="hl opt">=</span> <span class="hl kwc">$_GET</span><span class="hl opt">[</span><span class="hl str">'no'</span><span class="hl opt">];</span>
+
+<span class="hl slc">//lakukan query DELETE</span>
+<span class="hl kwc">$del</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_query</span><span class="hl opt">(</span><span class="hl str">"DELETE FROM datakaryawan WHERE karyawanid=$nomor"</span><span class="hl opt">);</span>
+<span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwc">$del</span><span class="hl opt">){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Data berhasil di delete"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Gagal"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3>
+<a name="update">4. Cara Update Tabel MySQL</a></h3>
+<p>
+Untuk melakukan update database mysql kita harus melakukan query UPDATE</p><p>
+Sintaks SQL :</p><p>
+</p><pre>UPDATE nama_tabel SET nama_field=nilai, nama_field2=nilai2,...
+WHERE nama_field=kondisi
+</pre><p>
+Contoh :</p><p>
+</p><pre>UPDATE datakarayawan SET nama='Desrizal', alamat='Tembagapura'
+WHERE karyawanid=1
+</pre><p>
+Oke mari sekarang kita buat program untuk update data karyawan. Pada contoh <b>
+tampil.php</b>, jika nama karyawan diklik akan menuju file <b>detail.php</b></p><p>
+<b>Buat form untuk Update, detail.php</b></p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>form action<span class="hl opt">=</span><span class="hl str">"update.php"</span> method<span class="hl opt">=</span><span class="hl str">"post"</span><span class="hl opt">&gt;</span>
+
+<span class="hl opt">&lt;</span>?php
+<span class="hl slc">//lakukan koneksi ke MySQL</span>
+<span class="hl kwd">mysql_connect</span><span class="hl opt">(</span><span class="hl str">"localhost"</span><span class="hl opt">,</span><span class="hl str">"root"</span><span class="hl opt">,</span><span class="hl str">""</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Pilih database tempat tabel akan dibuat</span>
+<span class="hl kwd">mysql_select_db</span><span class="hl opt">(</span><span class="hl str">"databaseku"</span><span class="hl opt">);</span>
+
+<span class="hl slc">//ambil nilai variabel no yang diambil dari URL</span>
+<span class="hl kwc">$nomor</span> <span class="hl opt">=</span> <span class="hl kwc">$_GET</span><span class="hl opt">[</span><span class="hl str">'no'</span><span class="hl opt">];</span>
+
+<span class="hl slc">//lakukan query SELECT</span>
+<span class="hl kwc">$data</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_query</span><span class="hl opt">(</span><span class="hl str">"SELECT * FROM datakaryawan WHERE karyawanid=$nomor"</span><span class="hl opt">);</span>
+<span class="hl kwa">while</span><span class="hl opt">(</span><span class="hl kwc">$d</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_fetch_array</span><span class="hl opt">(</span><span class="hl kwc">$data</span><span class="hl opt">)){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Karyawan id : "</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'karyawanid'</span><span class="hl opt">].</span><span class="hl str">"&lt;p&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;input type=</span><span class="hl esc">\"</span><span class="hl str">hidden</span><span class="hl esc">\"</span> <span class="hl str">name=</span><span class="hl esc">\"</span><span class="hl str">id</span><span class="hl esc">\"</span> <span class="hl str">value=</span><span class="hl esc">\"</span><span class="hl str">"</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'karyawanid'</span><span class="hl opt">].</span><span class="hl str">"</span><span class="hl esc">\"</span><span class="hl str">&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Nama :&lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;input type=</span><span class="hl esc">\"</span><span class="hl str">text</span><span class="hl esc">\"</span> <span class="hl str">name=nama value=</span><span class="hl esc">\"</span><span class="hl str">"</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'nama'</span><span class="hl opt">].</span><span class="hl str">"</span><span class="hl esc">\"</span><span class="hl str">&gt;&lt;p&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Jenis Kelamin :&lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;select name=kelamin&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'kelamin'</span><span class="hl opt">]==</span><span class="hl str">"Laki-laki"</span><span class="hl opt">){</span>
+        <span class="hl kwa">echo</span> <span class="hl str">"&lt;option selected&gt;Laki-laki&lt;/option&gt;</span>
+<span class="hl str">            &lt;option&gt;Perempuan&lt;/option&gt;</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+        <span class="hl kwa">echo</span> <span class="hl str">"&lt;option&gt;Laki-laki&lt;/option&gt;</span>
+<span class="hl str">            &lt;option selected&gt;Perempuan&lt;/option&gt;</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;/select&gt;&lt;p&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Alamat :&lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;textarea name=alamat&gt;"</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'alamat'</span><span class="hl opt">].</span><span class="hl str">"&lt;/textarea&gt;&lt;p&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span>submit value<span class="hl opt">=</span>update<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;/</span>form<span class="hl opt">&gt;</span>
+</pre>
+<p>
+Jika form pada kode diatas diklik, maka akan menjalankan file <b>update.php</b></p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//lakukan koneksi ke MySQL</span>
+<span class="hl kwd">mysql_connect</span><span class="hl opt">(</span><span class="hl str">"localhost"</span><span class="hl opt">,</span><span class="hl str">"root"</span><span class="hl opt">,</span><span class="hl str">""</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Pilih database tempat tabel akan dibuat</span>
+<span class="hl kwd">mysql_select_db</span><span class="hl opt">(</span><span class="hl str">"databaseku"</span><span class="hl opt">);</span>
+
+<span class="hl slc">//ambil nilai variabel no yang diambil dari form POST</span>
+<span class="hl kwc">$id</span> <span class="hl opt">=</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$_POST</span><span class="hl opt">[</span><span class="hl str">'id'</span><span class="hl opt">]);</span>
+<span class="hl kwc">$nama</span> <span class="hl opt">=</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$_POST</span><span class="hl opt">[</span><span class="hl str">'nama'</span><span class="hl opt">]);</span>
+<span class="hl kwc">$kelamin</span> <span class="hl opt">=</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$_POST</span><span class="hl opt">[</span><span class="hl str">'kelamin'</span><span class="hl opt">]);</span>
+<span class="hl kwc">$alamat</span> <span class="hl opt">=</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$_POST</span><span class="hl opt">[</span><span class="hl str">'alamat'</span><span class="hl opt">]);</span>
+
+<span class="hl slc">//lakukan query update</span>
+
+<span class="hl kwc">$update</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_query</span><span class="hl opt">(</span><span class="hl str">"UPDATE datakaryawan</span>
+<span class="hl str">    SET nama='$nama',</span>
+<span class="hl str">    kelamin='$kelamin',</span>
+<span class="hl str">    alamat='$kelamin'</span>
+<span class="hl str">    WHERE karyawanid=$id"</span><span class="hl opt">);</span>
+    
+<span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwc">$update</span><span class="hl opt">){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Data berhasil diupdate"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"gagal"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+
+</pre><h3>
+<a name="mysql_num_rows">mysql_num_rows</a></h3>
+<p>
+Fungsi : Menghitung jumlah baris dari query yang dihasilkan</p><p>
+Sintaks :</p><p>
+</p><pre><b>mysql_num_rows</b> ( resource $result )
+</pre><p>
+Parameter :</p><p>
+$result, hasil dari query yang sudah dijalankan.</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//lakukan koneksi ke MySQL</span>
+<span class="hl kwd">mysql_connect</span><span class="hl opt">(</span><span class="hl str">"localhost"</span><span class="hl opt">,</span><span class="hl str">"root"</span><span class="hl opt">,</span><span class="hl str">""</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Pilih database tempat tabel akan dibuat</span>
+<span class="hl kwd">mysql_select_db</span><span class="hl opt">(</span><span class="hl str">"databaseku"</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$query</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_query</span><span class="hl opt">(</span><span class="hl str">"SELECT * FROM datakaryawan WHERE kelamin='Perempuan'"</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$jumlah</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_num_rows</span><span class="hl opt">(</span><span class="hl kwc">$query</span><span class="hl opt">);</span>
+
+<span class="hl kwa">echo</span> <span class="hl str">"Jumlah karyawan Perempuan adalah : $jumlah orang"</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="bukutamu">6. Contoh Buku Tamu</a></h3>
+<p>
+Sekarang mari kita lihat contoh lainnya, yaitu buku tamu.</p><p>
+<b>Struktur tabel bukutamu di MySQL</b></p><p>
+</p><pre>CREATE TABLE `bukutamu` (
+  `nomor` int(10) NOT NULL auto_increment,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `waktu` varchar(30) NOT NULL,
+  `komentar` text NOT NULL,
+  PRIMARY KEY  (`nomor`)
+)
+</pre>
+<p>
+<b>bukutamu.php</b></p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>html<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>head<span class="hl opt">&gt;&lt;</span>title<span class="hl opt">&gt;</span>Buku Tamu<span class="hl opt">&lt;/</span>title<span class="hl opt">&gt;&lt;/</span>head<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>body<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>font face<span class="hl opt">=</span>arial size<span class="hl opt">=</span><span class="hl num">2</span><span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>h2<span class="hl opt">&gt;</span>Buku Tamu<span class="hl opt">&lt;/</span>h2<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>form action<span class="hl opt">=</span><span class="hl str">"isibukutamu.php"</span> method<span class="hl opt">=</span><span class="hl str">"post"</span><span class="hl opt">&gt;</span>
+Nama<span class="hl opt">:&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"text"</span> name<span class="hl opt">=</span><span class="hl str">"nama"</span><span class="hl opt">&gt;&lt;</span>p<span class="hl opt">&gt;</span>
+Email<span class="hl opt">:&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"text"</span> name<span class="hl opt">=</span><span class="hl str">"email"</span><span class="hl opt">&gt;&lt;</span>p<span class="hl opt">&gt;</span>
+Komentar<span class="hl opt">:&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>textarea name<span class="hl opt">=</span><span class="hl str">"komentar"</span> cols<span class="hl opt">=</span><span class="hl num">40</span> rows<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">&gt;&lt;/</span>textarea<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>p<span class="hl opt">&gt;&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"submit"</span> value<span class="hl opt">=</span><span class="hl str">"Kirim"</span><span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;/</span>form<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>hr<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;!---</span>kode PHP untuk menampilkan bukutamu<span class="hl opt">-------&gt;</span>
+<span class="hl opt">&lt;</span>?php
+<span class="hl slc">//lakukan koneksi ke MySQL</span>
+<span class="hl kwd">mysql_connect</span><span class="hl opt">(</span><span class="hl str">"localhost"</span><span class="hl opt">,</span><span class="hl str">"root"</span><span class="hl opt">,</span><span class="hl str">""</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Pilih database tempat tabel akan dibuat</span>
+<span class="hl kwd">mysql_select_db</span><span class="hl opt">(</span><span class="hl str">"databaseku"</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$data</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_query</span><span class="hl opt">(</span><span class="hl str">"SELECT * FROM bukutamu ORDER BY nomor DESC"</span><span class="hl opt">);</span>
+<span class="hl kwc">$w</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+<span class="hl kwa">while</span><span class="hl opt">(</span><span class="hl kwc">$d</span><span class="hl opt">=</span><span class="hl kwd">mysql_fetch_array</span><span class="hl opt">(</span><span class="hl kwc">$data</span><span class="hl opt">)){</span>
+    <span class="hl slc">//buat warna selang-seling</span>
+    <span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwc">$w</span> <span class="hl opt">==</span> <span class="hl num">1</span><span class="hl opt">){</span>
+        <span class="hl kwc">$warna</span> <span class="hl opt">=</span> <span class="hl str">"#ffffff"</span><span class="hl opt">;</span>
+        <span class="hl kwc">$w</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+        <span class="hl kwc">$warna</span> <span class="hl opt">=</span> <span class="hl str">"#efefef"</span><span class="hl opt">;</span>
+        <span class="hl kwc">$w</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;div style=</span><span class="hl esc">\"</span><span class="hl str">background-color:$warna;padding:5</span><span class="hl esc">\"</span><span class="hl str">&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Nama : "</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'nama'</span><span class="hl opt">].</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Email : "</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'email'</span><span class="hl opt">].</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;font size=1&gt;Waktu : "</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'waktu'</span><span class="hl opt">].</span><span class="hl str">"&lt;/font&gt;&lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;b&gt;Komentar :&lt;/b&gt;&lt;br&gt;"</span><span class="hl opt">.</span><span class="hl kwc">$d</span><span class="hl opt">[</span><span class="hl str">'komentar'</span><span class="hl opt">];</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;/div&gt;&lt;p&gt;</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;/</span>font<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;/</span>body<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;/</span>html<span class="hl opt">&gt;</span>
+</pre><p>
+<b>isibukutamu.php</b></p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//lakukan koneksi ke MySQL</span>
+<span class="hl kwd">mysql_connect</span><span class="hl opt">(</span><span class="hl str">"localhost"</span><span class="hl opt">,</span><span class="hl str">"root"</span><span class="hl opt">,</span><span class="hl str">""</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Pilih database tempat tabel akan dibuat</span>
+<span class="hl kwd">mysql_select_db</span><span class="hl opt">(</span><span class="hl str">"databaseku"</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$nama</span> <span class="hl opt">=</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$_POST</span><span class="hl opt">[</span><span class="hl str">'nama'</span><span class="hl opt">]);</span>
+<span class="hl kwc">$email</span> <span class="hl opt">=</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$_POST</span><span class="hl opt">[</span><span class="hl str">'email'</span><span class="hl opt">]);</span>
+<span class="hl kwc">$komentar</span> <span class="hl opt">=</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$_POST</span><span class="hl opt">[</span><span class="hl str">'komentar'</span><span class="hl opt">]);</span>
+<span class="hl kwc">$waktu</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"H:i d M Y"</span><span class="hl opt">);</span>
+<span class="hl slc">//jika user tekan enter atau barisbaru, kasih tag &lt;br&gt;</span>
+<span class="hl kwc">$komentar</span> <span class="hl opt">=</span> <span class="hl kwd">nl2br</span><span class="hl opt">(</span><span class="hl kwc">$komentar</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$isi</span> <span class="hl opt">=</span> <span class="hl kwd">mysql_query</span><span class="hl opt">(</span><span class="hl str">"INSERT INTO bukutamu VALUES(null,'$nama','$email','$waktu','$komentar')"</span><span class="hl opt">);</span>
+<span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwc">$isi</span><span class="hl opt">){</span>
+    <span class="hl kwd">header</span><span class="hl opt">(</span><span class="hl str">"location:bukutamu.php"</span><span class="hl opt">);</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Gagal"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>&nbsp;
+</p></div>
+</center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

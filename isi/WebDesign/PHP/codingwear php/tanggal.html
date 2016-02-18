@@ -1,0 +1,482 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Fungsi Tanggal dan Waktu di PHP</title>
+<link rel="stylesheet" href="tanggal_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%"><font face="Arial" size="4">www.coding</font><font color="#CCCCCC" face="Arial Black" size="4">wear</font><font face="Arial" size="4">.com</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="57%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p><p>&nbsp;</p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>6. Fungsi Tanggal dan Waktu (Date/Time)</h2>
+<ol>
+<li><a href="#date">date</a> - Format tanggal dan waktu lokal</li><li>
+<a href="#getdate">getdate</a> - 
+Mendapatkan informasi tanggal/waktu</li><li><a href="#mktime">mktime</a> - Mendapatkan timestamp Unix untuk 
+suatu tanggal</li><li><a href="#strtotime">strtotime</a> - Mengubah string tanggal/waktu (bahasa inggris) ke 
+timestamp Unix.</li><li><a href="#time">time</a> - Menghasilkan timestamp Unix saat ini</li><li>
+<a href="#selisih">Contoh : Mencari selisih hari antara 2 tanggal</a></li></ol>
+<h3><a name="date">date</a></h3>
+<p>Format tanggal dan waktu lokal</p>
+<p>Sintaks :</p>
+<p></p><pre><b>date</b> ( string $format [, int $timestamp ] )
+</pre>
+<p></p>
+<p>
+Parameter :</p><p>
+$format, adalah format-format tanggal dan waktu yang ingin ditampilkan, berikut 
+adalah format-format untuk tanggal dan waktu :<table class="doctable table" style="border-collapse: collapse;" border="4" bordercolor="#FFFFFF" cellpadding="5" width="874">
+  <thead valign="center">
+    <tr valign="center">
+      <th bgcolor="#99CC00" valign="middle" width="95"><i><tt class="parameter">
+      format</tt></i> karakter</th>
+      <th bgcolor="#99CC00" valign="middle" width="523">Deskripsi</th>
+      <th bgcolor="#99CC00" valign="middle" width="242">Contoh Hasil</th>
+    </tr>
+  </thead>
+  <tbody class="tbody" valign="center">
+    <tr valign="center">
+      <td align="center" bgcolor="#EFEFEF" valign="middle" width="95">
+      <em><b>Hari/Tanggal</b></em></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">---</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">---</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>d</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Tanggal dua 
+      digit dalam 1 bulan, jika 1 digit ada nol depannya</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>01</i> 
+      to <i>31</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>D</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Nama hari 
+      dalam 1 minggu, 3 huruf</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>Mon</i> 
+      sampai <i>Sun</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>j</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Tanggal 
+      dalam 1 bulan, tanpa nol depannya</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>1</i> to
+      <i>31</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>l</i> <br>
+      (huruf kecil 'L')</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Nama hari 
+      dalam 1 minggu</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>Sunday</i> 
+      sampai <i>Saturday</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>N</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">ISO-8601 
+      angka yang menunjukkan hari (PHP 5.1.0)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>1</i> 
+      (untuk Senin) sampai <i>7</i> (untuk Minggu)</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>S</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">suffix 
+      bahasa inggris untuk tanggal, 2 karakter</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>st</i>,
+      <i>nd</i>, <i>rd</i> or <i>th</i>. disatukan dengan <i>j</i> </td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>w</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Angka yang 
+      menunjukkan hari seminggu</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>0</i> 
+      (Untuk Minggu) sampai <i>6</i> (untuk sabtu)</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>z</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Tanggal 
+      dalam 1 tahun (dimulai dari 0)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>0</i> 
+      sampai <i>365</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="center" bgcolor="#EFEFEF" valign="middle" width="95">
+      <em><b>Minggu</b></em></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">---</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">---</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>W</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">ISO-8601 
+      nomor minggu dalam 1 tahun, mingguan/week dimulai dari hari Senin</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh: <i>
+      42</i> (Minggu ke 42 dalam tahun)</td>
+    </tr>
+    <tr valign="center">
+      <td align="center" bgcolor="#EFEFEF" valign="middle" width="95">
+      <em><b>Bulan</b></em></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">---</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">---</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>F</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Nama bulan, 
+      seperti January atau March</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>January</i> 
+      sampai <i>December</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>m</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Angka yang 
+      menunjukkan bulan, 2 digit</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>01</i> 
+      sampai <i>12</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>M</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Nama bulan, 
+      3 huruf</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>Jan</i> 
+      sampai <i>Dec</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>n</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Angka yang 
+      menunjukkan bulan</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>1</i> 
+      sampai <i>12</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>t</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Jumlah hari 
+      bulan yang ditentukan</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>28</i> 
+      sampai <i>31</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="center" bgcolor="#EFEFEF" valign="middle" width="95">
+      <em><b>Tahun</b></em></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">---</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">---</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>Y</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Tahun 4 
+      digit</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh:
+      <i>1999</i> atau <i>2003</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>y</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">tahun 2 
+      digit</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh:
+      <i>99</i> atau <i>03</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="center" bgcolor="#EFEFEF" valign="middle" width="95">
+      <em><b>Waktu</b></em></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">---</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">---</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>a</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Huruf kecil 
+      Ante meridiem (am) dan Post meridiem (pm)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>am</i> 
+      atau <i>pm</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>A</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Huruf besar 
+      Ante meridiem (am) dan Post meridiem (pm)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>AM</i> 
+      atau <i>PM</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>B</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Swatch 
+      Internet time</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>000</i> 
+      sampai <i>999</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>g</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Format 12 
+      jam, tanpa 0</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>1</i> 
+      sampai <i>12</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>G</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Format 24 
+      jam, tanpa 0</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>0</i> 
+      sampai <i>23</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>h</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Format 12 
+      jam, 2 digit, dengan 0 depannya</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>01</i> 
+      sampai <i>12</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>H</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Format 24 
+      jam, 2 digit, dengan 0 depannya</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>00</i> 
+      sampai <i>23</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>i</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Menit</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>00</i> 
+      sampai <i>59</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>s</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Detik</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242"><i>00</i> 
+      sampai <i>59</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>u</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">
+      Microseconds (PHP 5.2.2)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh: <i>
+      54321</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="center" bgcolor="#EFEFEF" valign="middle" width="95">
+      <b>
+      <em class="emphasis">Timezone</em></b></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">---</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">---</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>e</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">
+      Pengidentifikasi Timezone (PHP 5.1.0)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh:
+      <i>UTC</i>, <i>GMT</i>, <i>Atlantic/Azores</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>O</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">perbedaan 
+      terhadap waktu Greenwich (GMT) dalam jam</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh: <i>
+      +0200</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>P</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">perbedaan 
+      terhadap waktu Greenwich (GMT) dalam jam ada titik dua antara jam dan 
+      menit (PHP 
+      5.1.3)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh: <i>
+      +02:00</i></td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>T</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Singkatan Timezone</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh:
+      <i>EST</i>, <i>MDT</i> ...</td>
+    </tr>
+    <tr valign="center">
+      <td align="center" bgcolor="#EFEFEF" valign="middle" width="95">
+      <b>
+      <em class="emphasis">Full Date/Time</em></b></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">---</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">---</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>c</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">Tanggal ISO 
+      8601&nbsp; (PHP 5)</td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">
+      2004-02-12T15:19:21+00:00</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="95"><i>r</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="523">
+      Format tanggal RFC 
+      2822 </td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle" width="242">Contoh: <i>
+      Thu, 21 Dec 2000 16:01:07 +0200</i></td>
+    </tr>
+    </tbody></table>
+</p><p>
+<br>
+$timestamp, timestamp Unix (integer)</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">// Misal sekarang adalah tanggal 10 Maret, 2001, 5:16:18 pm</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"F j, Y, g:i a"</span><span class="hl opt">);</span>                 <span class="hl slc">// March 10, 2001, 5:16 pm</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"m.d.y"</span><span class="hl opt">);</span>                         <span class="hl slc">// 03.10.01</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"j, n, Y"</span><span class="hl opt">);</span>                       <span class="hl slc">// 10, 3, 2001</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"Ymd"</span><span class="hl opt">);</span>                           <span class="hl slc">// 20010310</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">'h-i-s, j-m-y, it is w Day'</span><span class="hl opt">);</span>     <span class="hl slc">// 05-16-18, 10-03-01, 1631 1618 6 Satpm01</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">'\i</span><span class="hl esc">\t</span> <span class="hl str">\i\s</span> <span class="hl esc">\t</span><span class="hl str">\h\e jS \d</span><span class="hl esc">\a</span><span class="hl str">\y.'</span><span class="hl opt">);</span>   <span class="hl slc">// it is the 10th day.</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"D M j G:i:s T Y"</span><span class="hl opt">);</span>               <span class="hl slc">// Sat Mar 10 17:16:18 MST 2001</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">'H:m:s \m \i\s\ \m\o</span><span class="hl esc">\n\t</span><span class="hl str">\h'</span><span class="hl opt">);</span>     <span class="hl slc">// 17:03:18 m is month</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"H:i:s"</span><span class="hl opt">);</span>                         <span class="hl slc">// 17:16:18</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$today</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+
+</pre><h3>
+<a name="getdate">getdate</a></h3>
+<p>
+Fungsi : Mendapatkan informasi tanggal/waktu, hasilnya dalam bentuk array</p><p>
+Sintaks :</p><p>
+</p><pre><b>getdate</b> ([ int $timestamp= time() ] )
+</pre><p>
+Parameter :</p><p>
+$timestamp, adalah timestamp UNIX (integer), jika dikosongkan akan mengambil 
+waktu saat ini.</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$today</span> <span class="hl opt">=</span> <span class="hl kwd">getdate</span><span class="hl opt">();</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$today</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<p>
+Hasilnya :</p><p>
+</p><pre>Array
+(
+    [seconds] =&gt; 11
+    [minutes] =&gt; 25
+    [hours] =&gt; 21
+    [mday] =&gt; 29
+    [wday] =&gt; 5
+    [mon] =&gt; 10
+    [year] =&gt; 2010
+    [yday] =&gt; 301
+    [weekday] =&gt; Friday
+    [month] =&gt; October
+    [0] =&gt; 1288358711
+)
+</pre><h3>
+<a name="mktime">mktime</a></h3>
+<p>
+Fungsi : Mendapatkan timestamp Unix untuk suatu tanggal</p><p>
+Sintaks :</p><p>
+</p><pre><b>mktime</b> ([ int $hour= date("H") [, int $minute= date("i") [, int $second= date("s") [, int $month= date("n") [, 
+int $day= date("j") [, int $year= date("Y") [, int $is_dst= -1 ]]]]]]] )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"M-d-Y"</span><span class="hl opt">,</span> <span class="hl kwd">mktime</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">12</span><span class="hl opt">,</span> <span class="hl num">32</span><span class="hl opt">,</span> <span class="hl num">1997</span><span class="hl opt">)).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"M-d-Y"</span><span class="hl opt">,</span> <span class="hl kwd">mktime</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">13</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">1997</span><span class="hl opt">)).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"M-d-Y"</span><span class="hl opt">,</span> <span class="hl kwd">mktime</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">1998</span><span class="hl opt">)).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"M-d-Y"</span><span class="hl opt">,</span> <span class="hl kwd">mktime</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">98</span><span class="hl opt">)).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+
+<span class="hl slc">//Hasilnya semua sama : Jan-01-1998</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Contoh 2 :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$besok</span>  <span class="hl opt">=</span> <span class="hl kwd">mktime</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"m"</span><span class="hl opt">)  ,</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"d"</span><span class="hl opt">)</span>+<span class="hl num">1</span><span class="hl opt">,</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"Y"</span><span class="hl opt">));</span>
+<span class="hl kwc">$bulankemaren</span> <span class="hl opt">=</span> <span class="hl kwd">mktime</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"m"</span><span class="hl opt">)-</span><span class="hl num">1</span><span class="hl opt">,</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"d"</span><span class="hl opt">),</span>   <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"Y"</span><span class="hl opt">));</span>
+<span class="hl kwc">$tahundepan</span>  <span class="hl opt">=</span> <span class="hl kwd">mktime</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"m"</span><span class="hl opt">),</span>   <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"d"</span><span class="hl opt">),</span>   <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"Y"</span><span class="hl opt">)</span>+<span class="hl num">1</span><span class="hl opt">);</span>
+
+<span class="hl kwa">echo</span> <span class="hl str">"Besok : "</span><span class="hl opt">.</span><span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"d M Y"</span><span class="hl opt">,</span><span class="hl kwc">$besok</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl str">"Bulan kemaren : "</span><span class="hl opt">.</span><span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"M Y"</span><span class="hl opt">,</span> <span class="hl kwc">$bulankemaren</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl str">"Tahun depan: "</span><span class="hl opt">.</span><span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"Y"</span><span class="hl opt">,</span> <span class="hl kwc">$tahundepan</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="strtotime">strtotime</a></h3>
+<p>
+Fungsi : Mengubah string tanggal/waktu (bahasa inggris) ke timestamp Unix.</p><p>
+Sintaks :</p><p>
+</p><pre><b>strtotime</b> ( string $time [, int $now ] )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">"now"</span><span class="hl opt">),</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">"10 September 2000"</span><span class="hl opt">),</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">"+1 day"</span><span class="hl opt">),</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">"+1 week"</span><span class="hl opt">),</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">"+1 week 2 days 4 hours 2 seconds"</span><span class="hl opt">),</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">"next Thursday"</span><span class="hl opt">),</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">"last Monday"</span><span class="hl opt">),</span> <span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="time">time</a></h3>
+<p>
+Fungsi : Menghasilkan timestamp Unix saat ini</p><p>
+Sintaks :</p><p>
+</p><pre><b>time</b> ( void )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$minggudepan</span> <span class="hl opt">=</span> <span class="hl kwd">time</span><span class="hl opt">()</span> + <span class="hl opt">(</span><span class="hl num">7</span> <span class="hl opt">*</span> <span class="hl num">24</span> <span class="hl opt">*</span> <span class="hl num">60</span> <span class="hl opt">*</span> <span class="hl num">60</span><span class="hl opt">);</span>
+                   <span class="hl slc">// 7 hari; 24 jam; 60 menit; 60 detik</span>
+<span class="hl kwa">echo</span> <span class="hl str">'Sekarang:       '</span><span class="hl opt">.</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">'Y-m-d'</span><span class="hl opt">) .</span><span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl str">'Minggu Depan: '</span><span class="hl opt">.</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">'Y-m-d'</span><span class="hl opt">,</span> <span class="hl kwc">$minggudepan</span><span class="hl opt">) .</span><span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl slc">// atau menggunakan strtotime():</span>
+<span class="hl kwa">echo</span> <span class="hl str">'Minggu Depan: '</span><span class="hl opt">.</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">'Y-m-d'</span><span class="hl opt">,</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl str">'+1 week'</span><span class="hl opt">)) .</span><span class="hl str">"</span><span class="hl esc">\n</span><span class="hl str">&lt;br&gt;"</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya :</p><p>
+</p><pre>Sekarang: 2010-10-29
+Minggu Depan: 2010-11-05
+Minggu Depan: 2010-11-05 
+</pre><h3>
+<a name="selisih">6. Contoh : Mencari selisih hari antara 2 tanggal</a></h3>
+<p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$tgl1</span> <span class="hl opt">=</span> <span class="hl str">"25-10-2010"</span><span class="hl opt">;</span>
+<span class="hl kwc">$tgl2</span> <span class="hl opt">=</span> <span class="hl str">"27-10-2010"</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$selisih</span> <span class="hl opt">=</span> <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl kwc">$tgl2</span><span class="hl opt">) -</span>  <span class="hl kwd">strtotime</span><span class="hl opt">(</span><span class="hl kwc">$tgl1</span><span class="hl opt">);</span>
+<span class="hl kwc">$hari</span> <span class="hl opt">=</span> <span class="hl kwc">$selisih</span><span class="hl opt">/(</span><span class="hl num">60</span><span class="hl opt">*</span><span class="hl num">60</span><span class="hl opt">*</span><span class="hl num">24</span><span class="hl opt">);</span>
+                <span class="hl slc">//60 detik * 60 menit * 24 jam = 1 hari</span>
+
+<span class="hl kwa">echo</span> <span class="hl str">"Selisih tanggal $tgl2 dan $tgl1 adalah $hari hari"</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>&nbsp;
+</p></div>
+</center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

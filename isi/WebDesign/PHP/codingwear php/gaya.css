@@ -1,0 +1,23 @@
+pre{background-color:#efefef;border:#ababab 1px solid;width:97%;padding:3;
+font-family:'Lucida Console'; font-size:10pt;}
+pre.hl  { color:#000000; background-color:#efefef; font-size:10pt;
+ font-family:'Lucida Console';width:97%;border:#ababab 1px solid;padding:3}
+.hl.num { color:#880022; }
+.hl.esc { color:#ff00ff;}
+.hl.str { color:#ff0000; }
+.hl.pps { color:#008800; }
+.hl.slc { color:#ee7700; }
+.hl.com { color:#ff8800; }
+.hl.ppc { color:#008844;}
+.hl.opt { color:#0000ff;}
+.hl.lin { color:#333333; }
+.hl.kwa { color:#661111;}
+.hl.kwb { color:#000066;}
+.hl.kwc { color:#009900; }
+.hl.kwd { color:#0000ff; }
+h3{color:#990000}
+body
+{background-color:#efefef;	
+	padding: 20px;
+	
+}

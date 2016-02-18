@@ -1,0 +1,169 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Pengenalan MySQL</title>
+<link rel="stylesheet" href="pengenalanmysql_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="96%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%">&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td height="113" width="54%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>2. Pengenalan MySQL</h2>
+<ol>
+<li><a href="#apa">Apa Itu MySQL</a></li>
+<li><a href="#koneksi">Koneksi ke MySQL Melalui PHP</a></li>
+<li><a href="#buatdb">Cara Membuat Database di MySQL</a></li>
+<li><a href="#buattabel">Cara Membuat Tabel</a></li>
+</ol>
+<h3><a name="apa">1. Apa Itu MySQL</a></h3>
+<p>MySQL adalah salah satu jenis database, tempat meletakkan data secara 
+terstruktur berupa tabel-tabel dan kita bisa melakukan query atau mengolah data 
+tersebut dengan SQL (Structured Query Languange)</p>
+<h3><a name="koneksi">2. Koneksi ke MySQL Melalui PHP</a></h3>
+<p>Untuk melakukan koneksi ke MySQL kita menggunakan fungsi mysql_connect()</p>
+<p>Sintaks :</p>
+<p></p><pre>mysql_connect(host, username, password)
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php
+$koneksi</font> = <font color="#0000FF">mysql_connect</font>(<font color="#FF0000">"localhost"</font>,<font color="#FF0000">"root"</font>,<font color="#FF0000">""</font>);
+
+<font color="#008000">if</font>(<font color="#0000FF">$koneksi</font>){
+    <font color="#008000">echo</font> <font color="#FF0000">"Koneksi berhasil"</font>;
+}<font color="#008000">else</font>{
+    <font color="#008000">echo</font> <font color="#FF0000">"Gagal"</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+<p>
+Jika anda telah berhasil koneksi ke MySQL, anda bisa melakukan apapun terhadap 
+database tersebut tergantung hak-hak anda, anda bisa buat database, buat tabel 
+dan melakukan query</p><h3>
+<a name="buatdb">3. Cara Membuat Database di MySQL</a></h3>
+<p>
+<b>Membuat Database Melalui phpmyadmin</b></p><p>
+Ketika anda menginstal paket Web Server + PHP + MySQL seperti
+<a href="http://www.apachefriends.org/en/xampp.html">XAMP</a> atau
+<a href="http://www.wampserver.com/en/download.php">WAMP </a>anda akan di beri 
+phpmyadmin, yaitu semacam aplikasi berbasis web untuk mengatur database MySQL</p><ol>
+  <li>Buka phpmyadmin di <a href="http://localhost/phpmyadmin">
+  http://localhost/phpmyadmin</a>, berikut tampilan phpmyadmin<p>
+  <img src="pengenalanmysql_files/phpmyadmin.jpg" border="0" height="365" width="800"></p></li>
+  <li>Ketik nama database yang anda inginkan di textfield <b>Create new database</b>, 
+  misal : databaseku</li>
+  <li>Klik tombol <b>create</b></li>
+  <li>Database berhasil dibuat</li>
+  </ol>
+  <h3>
+  <a name="buattabel">4. Cara Membuat Tabel</a></h3>
+  <p>
+  Misal anda ingin membuat tabel : datakaryawan dengan struktur tabel sebagai 
+  berikut :<table style="border-collapse: collapse;" border="1" bordercolor="#111111" cellpadding="3" cellspacing="0" width="500">
+    <tbody><tr>
+      <td bgcolor="#C2D699" width="33%"><b>Field</b></td>
+      <td bgcolor="#C2D699" width="33%"><b>Type</b></td>
+      <td bgcolor="#C2D699" width="34%"><b>Length</b></td>
+    </tr>
+    <tr>
+      <td width="33%">karyawanid</td>
+      <td width="33%">INTEGER</td>
+      <td width="34%">5</td>
+    </tr>
+    <tr>
+      <td width="33%">nama</td>
+      <td width="33%">VARCHAR</td>
+      <td width="34%">30</td>
+    </tr>
+    <tr>
+      <td width="33%">tgl_lahir</td>
+      <td width="33%">DATE</td>
+      <td width="34%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="33%">kelamin</td>
+      <td width="33%">VARCHAR</td>
+      <td width="34%">10</td>
+    </tr>
+    <tr>
+      <td width="33%">alamat</td>
+      <td width="33%">TINYTEXT</td>
+      <td width="34%">&nbsp;</td>
+    </tr>
+  </tbody></table>
+  </p><p>
+  <b>Membuat Tabel di phpmyadmin</b></p><ol>
+    <li>Buka phpmyadmin</li>
+    <li>Pilih database yang anda buat tadi<p>
+    <img src="pengenalanmysql_files/tabel1.jpg" border="0" height="353" width="800"></p></li>
+    <li>Pada bagian bawah <b>Create new table on database</b>, di textfield <b>
+    Name</b>, masukkan nama tabel yang ingin dibuat, misal : datakaryawan</li>
+    <li>Pada textfield <b>Number of fields</b>, masukkan jumlah field atau kolom 
+    yang ingin dibuat. misal : 5</li>
+    <li>Klik tombol <b>GO</b></li>
+    <li>Akan muncul form untuk membuat tabel, seperti berikut :<br>
+    <img src="pengenalanmysql_files/tabel2.jpg" border="0" height="229" width="900"></li>
+    <li>Isi field-field seperti di atas</li>
+    <li>Klik Tombol <b>Save</b></li>
+    <li>Tabel datakaryawan berhasil dibuat</li>
+    </ol>
+    <h4>
+    Membuat Tabel Melalui PHP dan Query</h4>
+    <p>
+    Selain melalui phpmyadmin, kita juga bisa membuat tabel langsung melalui PHP, 
+    dimana kita mengeksekusi query CREATE TABLE, contoh :</p><p>
+</p><pre><font color="#0000FF">&lt;?php</font>
+<font color="#FF9900">//lakukan koneksi ke MySQL</font>
+<font color="#0000FF">mysql_connect</font>(<font color="#FF0000">"localhost"</font>,<font color="#FF0000">"root"</font>,<font color="#FF0000">""</font>);
+
+<font color="#FF9900">//Pilih database tempat tabel akan dibuat</font>
+<font color="#0000FF">mysql_select_db</font>(<font color="#FF0000">"databaseku"</font>);
+
+<font color="#0000FF">$query</font> = <font color="#FF0000">"CREATE TABLE datakaryawan(
+  karyawanid int(5) auto_increment primary key,
+  nama varchar(30),
+  tgl_lahir date,
+  kelamin varchar(10),
+  alamat tinytext
+)"</font>;
+
+<font color="#FF9900">//jalankan query</font>
+<font color="#0000FF">$buat</font> = <font color="#0000FF">mysql_query</font>(<font color="#0000FF">$query</font>);
+
+<font color="#008000">if</font>(<font color="#0000FF">$buat</font>){
+    <font color="#008000">echo </font><font color="#FF0000">"Tabel datakaryawan berhasil dibuat"</font>;
+}<font color="#008000">else</font>{
+    <font color="#008000">echo</font> <font color="#FF0000">"Gagal"</font>;
+}
+<font color="#0000FF">?&gt;</font>
+</pre>
+<p>&nbsp;</p>
+</div>
+<p>
+
+    </p></center></td>
+  </tr>
+  </tbody></table>
+
+
+
+</body></html>

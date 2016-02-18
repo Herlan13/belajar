@@ -1,0 +1,599 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Array di PHP</title>
+<link rel="stylesheet" href="array_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%"><font face="Arial" size="4">www.coding</font><font color="#CCCCCC" face="Arial Black" size="4">wear</font><font face="Arial" size="4">.com</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" valign="top" width="54%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+</p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left; height:3342">
+<h2>9. Array</h2>
+<ol>
+  <li><a href="#Pendahuluan">Pendahuluan</a></li>
+  <li><a href="#array_combine">array_combine</a> - Membuat array baru dengan menggunakan array sebagai key 
+  dan array lainnya sebagai nilai.</li>
+  <li><a href="#array_diff_key">array_diff_key</a> -  Mengurangi array dengan array lainnya dengan menggunakan key sebagai pembanding</li>
+  <li><a href="#array_diff">array_diff</a> - Menghitung beda dari suatu array dengan menggunakan nilainya 
+  sebagai pembanding</li>
+  <li><a href="#array_merge">array_merge</a> - Menyatukan array-array</li>
+  <li><a href="#array_pop">array_pop</a> - Mendelete elemen terakhir suatu array</li>
+  <li><a href="#array_push">array_push</a> - Menambah satu atau lebih elemen baru di akhir array</li>
+  <li><a href="#array_rand">array_rand</a> - Mengambil satu atau lebih secara random nilai suatu array</li>
+  <li><a href="#array_reverse">array_reverse</a> - Menghasilkan array dengan 
+  susuan elemen terbalik</li>
+  <li><a href="#array_search">array_search</a> - Mencari nilai pada nilai elemen-elemen array, jika sukses 
+  hasilnya berupa key</li>
+  <li><a href="#array_shift">array_shift</a> - Mendelete elemen awal suatu array</li>
+  <li><a href="#array_unique">array_unique</a> - Menghapus elemen array yang nilainya sama</li>
+  <li><a href="#array_unshift">array_unshift</a> - Menambah satu atau lebih elemen array di awal</li>
+  <li><a href="#array">array</a> - Membuat array</li>
+  <li><a href="#count">count</a> - Menghitung jumlah elemen suatu array</li>
+  <li><a href="#each">each</a> - Menghasilkan key dan nilai elemen saat ini dari suatu array</li>
+  <li><a href="#in_array">in_array</a> - Cek apakah suatu nilai ada atau tidak di elemen-elemen suatu 
+  array</li>
+  <li><a href="#rsort">rsort</a> - Menyusun array terbalik</li>
+  <li><a href="#shuffle">shuffle</a> - Mengacak array</li>
+  <li><a href="#sort">sort</a> - Menyusun array</li>
+</ol>
+<h3><a name="Pendahuluan">Pendahuluan</a></h3>
+<p>Array adalah semacam variabel yang mempunyai index/key, karena terindex, maka 
+mudah bagi kita untuk mengolah variabel yang bertipe array.</p>
+<p>Index/key array secara default dimulai dari nol (0), kecuali anda langsung 
+menentukannya sendiri, seperti contoh #1 di bawah</p>
+<p><b>Bagaimana cara membuat dan menampilkan array?</b></p>
+<p>Ada berbagai macam cara membuat dan menampilkan array</p>
+<p>Contoh #1</p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//membuat variabel $buah bertipe array, index/key ditentukan</span>
+<span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl num">2</span><span class="hl opt">] =</span> <span class="hl str">"Apel"</span><span class="hl opt">;</span>
+<span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl num">3</span><span class="hl opt">] =</span> <span class="hl str">"Mangga"</span><span class="hl opt">;</span>
+<span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl num">5</span><span class="hl opt">] =</span> <span class="hl str">"Jambu"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl num">3</span><span class="hl opt">];</span>   <span class="hl slc">//Hasilnya Mangga</span>
+
+?<span class="hl opt">&gt;</span>
+</pre><p></p>
+<p>Contoh #2</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//membuat variabel $buah bertipe array, index/key tidak ditentukan</span>
+<span class="hl kwc">$buah</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"Mangga"</span><span class="hl opt">,</span><span class="hl str">"Apel"</span><span class="hl opt">,</span><span class="hl str">"jeruk"</span><span class="hl opt">,</span><span class="hl str">"Nenas"</span><span class="hl opt">);</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">];</span>   <span class="hl slc">//Hasilnya Mangga</span>
+<span class="hl kwa">echo</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl num">3</span><span class="hl opt">];</span>   <span class="hl slc">//Nenas</span>
+
+?<span class="hl opt">&gt;</span>
+</pre>
+<p>
+Contoh #3</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//membuat variabel $buah bertipe array, index/key tidak ditentukan</span>
+<span class="hl kwc">$buah</span><span class="hl opt">[] =</span> <span class="hl str">"Mangga"</span><span class="hl opt">;</span>
+<span class="hl kwc">$buah</span><span class="hl opt">[] =</span> <span class="hl str">"Jeruk"</span><span class="hl opt">;</span>
+<span class="hl kwc">$buah</span><span class="hl opt">[] =</span> <span class="hl str">"Durian"</span><span class="hl opt">;</span>
+<span class="hl kwc">$buah</span><span class="hl opt">[] =</span> <span class="hl str">"Nenas"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">];</span>  <span class="hl slc">//Hasilnya jeruk</span>
+<span class="hl kwa">echo</span> <span class="hl str">"&lt;p&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">for</span><span class="hl opt">(</span><span class="hl kwc">$i</span><span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span><span class="hl kwc">$i</span><span class="hl opt">&lt;</span><span class="hl kwd">count</span><span class="hl opt">(</span><span class="hl kwc">$buah</span><span class="hl opt">);</span><span class="hl kwc">$i</span>++<span class="hl opt">){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"buah #$i: "</span><span class="hl opt">.</span><span class="hl kwc">$buah</span><span class="hl opt">[</span><span class="hl kwc">$i</span><span class="hl opt">].</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasil kode di atas :</p><p>
+</p><pre>Jeruk
+
+buah #0: Mangga
+buah #1: Jeruk
+buah #2: Durian
+buah #3: Nenas
+</pre><p>
+Index/key array juga bisa berupa teks</p><p>
+Contoh #4</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$alamat</span><span class="hl opt">[</span><span class="hl str">'desrizal'</span><span class="hl opt">] =</span> <span class="hl str">"Papua"</span><span class="hl opt">;</span>
+<span class="hl kwc">$alamat</span><span class="hl opt">[</span><span class="hl str">'nurmi'</span><span class="hl opt">] =</span> <span class="hl str">"Belitung"</span><span class="hl opt">;</span>
+<span class="hl kwc">$alamat</span><span class="hl opt">[</span><span class="hl str">'budi'</span><span class="hl opt">] =</span> <span class="hl str">"Bandung"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$alamat</span><span class="hl opt">[</span><span class="hl str">'desrizal'</span><span class="hl opt">];</span>       <span class="hl slc">//hasilnya Papua</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Contoh #5</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$arr</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"foo"</span> <span class="hl opt">=&gt;</span> <span class="hl str">"bar"</span><span class="hl opt">,</span> <span class="hl num">12</span> <span class="hl opt">=&gt;</span> true<span class="hl opt">);</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$arr</span><span class="hl opt">[</span><span class="hl str">"foo"</span><span class="hl opt">];</span> <span class="hl slc">// bar</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$arr</span><span class="hl opt">[</span><span class="hl num">12</span><span class="hl opt">];</span>    <span class="hl slc">// 1</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Multiple Array</p><p>
+Contoh #6</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$mobil</span><span class="hl opt">[</span><span class="hl str">'toyota'</span><span class="hl opt">][</span><span class="hl num">0</span><span class="hl opt">] =</span> <span class="hl str">"Land Cruisher"</span><span class="hl opt">;</span>
+<span class="hl kwc">$mobil</span><span class="hl opt">[</span><span class="hl str">'toyota'</span><span class="hl opt">][</span><span class="hl num">1</span><span class="hl opt">] =</span> <span class="hl str">"Fortuner"</span><span class="hl opt">;</span>
+<span class="hl kwc">$mobil</span><span class="hl opt">[</span><span class="hl str">'toyota'</span><span class="hl opt">][</span><span class="hl num">2</span><span class="hl opt">] =</span> <span class="hl str">"Rush"</span><span class="hl opt">;</span>
+<span class="hl kwc">$mobil</span><span class="hl opt">[</span><span class="hl str">'daihatsu'</span><span class="hl opt">][</span><span class="hl num">0</span><span class="hl opt">] =</span> <span class="hl str">"Xenia"</span><span class="hl opt">;</span>
+<span class="hl kwc">$mobil</span><span class="hl opt">[</span><span class="hl str">'daihatsu'</span><span class="hl opt">][</span><span class="hl num">1</span><span class="hl opt">] =</span> <span class="hl str">"Terios"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">for</span><span class="hl opt">(</span><span class="hl kwc">$i</span><span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span><span class="hl kwc">$i</span><span class="hl opt">&lt;</span><span class="hl kwd">count</span><span class="hl opt">(</span><span class="hl kwc">$mobil</span><span class="hl opt">[</span><span class="hl str">'toyota'</span><span class="hl opt">]);</span><span class="hl kwc">$i</span>++<span class="hl opt">){</span>
+    <span class="hl kwa">echo</span> <span class="hl kwc">$mobil</span><span class="hl opt">[</span><span class="hl str">'toyota'</span><span class="hl opt">][</span><span class="hl kwc">$i</span><span class="hl opt">];</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="array_combine">array_combine</a></h3>
+<p>
+Fungsi: Membuat array baru dengan menggunakan array sebagai key dan array 
+lainnya sebagai nilai.</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_combine</b> ( array $keys , array $values )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$a</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">'green'</span><span class="hl opt">,</span> <span class="hl str">'red'</span><span class="hl opt">,</span> <span class="hl str">'yellow'</span><span class="hl opt">);</span>
+<span class="hl kwc">$b</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">'avocado'</span><span class="hl opt">,</span> <span class="hl str">'apple'</span><span class="hl opt">,</span> <span class="hl str">'banana'</span><span class="hl opt">);</span>
+<span class="hl kwc">$c</span> <span class="hl opt">=</span> <span class="hl kwd">array_combine</span><span class="hl opt">(</span><span class="hl kwc">$a</span><span class="hl opt">,</span> <span class="hl kwc">$b</span><span class="hl opt">);</span>
+
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$c</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [green] =&gt; avocado
+    [red] =&gt; apple
+    [yellow] =&gt; banana
+)
+</pre><h3>
+<a name="array_diff_key">array_diff_key</a></h3>
+<p>
+Fungsi: Mengurangi array dengan array lainnya dengan menggunakan key sebagai pembanding</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_diff_key</b> ( array $array1 , array $array2 [, array $... ] )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$array1</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl num">1</span><span class="hl opt">=&gt;</span><span class="hl str">'merah'</span><span class="hl opt">,</span> <span class="hl num">3</span><span class="hl opt">=&gt;</span><span class="hl str">'hijau'</span><span class="hl opt">,</span> <span class="hl num">5</span><span class="hl opt">=&gt;</span><span class="hl str">'kuning'</span><span class="hl opt">);</span>
+<span class="hl kwc">$array2</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl num">3</span><span class="hl opt">=&gt;</span><span class="hl str">'orange'</span><span class="hl opt">,</span> <span class="hl num">4</span><span class="hl opt">=&gt;</span><span class="hl str">'pink'</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$array3</span> <span class="hl opt">=</span> <span class="hl kwd">array_diff_key</span><span class="hl opt">(</span><span class="hl kwc">$array1</span><span class="hl opt">,</span> <span class="hl kwc">$array2</span><span class="hl opt">);</span>
+
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$array3</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [1] =&gt; merah
+    [5] =&gt; kuning
+)
+</pre><h3>
+<a name="array_diff">array_diff</a></h3>
+<p>
+Fungsi: Menghitung beda dari suatu array dengan menggunakan nilainya sebagai 
+pembanding</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_diff </b>( array $array1 , array $array2 [, array $ ... ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$array1</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">'merah'</span><span class="hl opt">,</span><span class="hl str">'hijau'</span><span class="hl opt">,</span><span class="hl str">'kuning'</span><span class="hl opt">);</span>
+<span class="hl kwc">$array2</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">'orange'</span><span class="hl opt">,</span><span class="hl str">'merah'</span><span class="hl opt">,</span><span class="hl str">'pink'</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$array3</span> <span class="hl opt">=</span> <span class="hl kwd">array_diff</span><span class="hl opt">(</span><span class="hl kwc">$array1</span><span class="hl opt">,</span> <span class="hl kwc">$array2</span><span class="hl opt">);</span>
+
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$array3</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [1] =&gt; hijau
+    [2] =&gt; kuning
+</pre><h3>
+<a name="array_merge">array_merge</a></h3>
+<p>
+Fungsi: Menyatukan array-array</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_merge</b> ( array $array1 [, array $array2 [, array $... ]] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$array1</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">'merah'</span><span class="hl opt">,</span><span class="hl str">'hijau'</span><span class="hl opt">,</span><span class="hl str">'kuning'</span><span class="hl opt">);</span>
+<span class="hl kwc">$array2</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">'orange'</span><span class="hl opt">,</span><span class="hl str">'merah'</span><span class="hl opt">,</span><span class="hl str">'pink'</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$array3</span> <span class="hl opt">=</span> <span class="hl kwd">array_merge</span><span class="hl opt">(</span><span class="hl kwc">$array1</span><span class="hl opt">,</span> <span class="hl kwc">$array2</span><span class="hl opt">);</span>
+
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$array3</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; merah
+    [1] =&gt; hijau
+    [2] =&gt; kuning
+    [3] =&gt; orange
+    [4] =&gt; merah
+    [5] =&gt; pink
+)
+</pre><h3>
+<a name="array_pop">array_pop</a></h3>
+<p>
+Fungsi: Mendelete elemen terakhir suatu array</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_pop</b> ( array &amp;$array )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$buah</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"orange"</span><span class="hl opt">,</span> <span class="hl str">"banana"</span><span class="hl opt">,</span> <span class="hl str">"apple"</span><span class="hl opt">,</span> <span class="hl str">"raspberry"</span><span class="hl opt">);</span>
+<span class="hl kwd">array_pop</span><span class="hl opt">(</span><span class="hl kwc">$buah</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$buah</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; orange
+    [1] =&gt; banana
+    [2] =&gt; apple
+)
+</pre>
+<h3>
+<a name="array_push">array_push</a></h3>
+<p>
+Fungsi: Menambah satu atau lebih elemen baru di akhir array</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_push</b> ( array &amp;$array , mixed $var [, mixed $... ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$stack</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"orange"</span><span class="hl opt">,</span> <span class="hl str">"banana"</span><span class="hl opt">);</span>
+<span class="hl kwd">array_push</span><span class="hl opt">(</span><span class="hl kwc">$stack</span><span class="hl opt">,</span> <span class="hl str">"apple"</span><span class="hl opt">,</span> <span class="hl str">"raspberry"</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$stack</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; orange
+    [1] =&gt; banana
+    [2] =&gt; apple
+    [3] =&gt; raspberry
+)
+</pre><h3>
+<a name="array_rand">array_rand</a></h3>
+<p>
+Fungsi: Mengambil satu atau lebih secara random nilai suatu array</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_rand</b> ( array $input [, int $num_req= 1 ] )
+</pre><p>
+Parameter:</p><p>
+$input, array yang akan diambil elemennya secara random</p><p>
+$num_req, adalah jumlah elemen yang akan diambil</p><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$input</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"Neo"</span><span class="hl opt">,</span> <span class="hl str">"Morpheus"</span><span class="hl opt">,</span> <span class="hl str">"Trinity"</span><span class="hl opt">,</span> <span class="hl str">"Cypher"</span><span class="hl opt">,</span> <span class="hl str">"Tank"</span><span class="hl opt">);</span>
+<span class="hl kwc">$rand_keys</span> <span class="hl opt">=</span> <span class="hl kwd">array_rand</span><span class="hl opt">(</span><span class="hl kwc">$input</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$input</span><span class="hl opt">[</span><span class="hl kwc">$rand_keys</span><span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">]] .</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$input</span><span class="hl opt">[</span><span class="hl kwc">$rand_keys</span><span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">]] .</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="array_reverse">array_reverse</a></h3>
+<p>
+Fungsi: Menghasilkan array dengan susuan elemen terbalik</p><p>
+Sintaks:</p><p>
+</p><pre>array_reverse ( array $array [, bool $preserve_keys= false ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$input</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"satu"</span><span class="hl opt">,</span><span class="hl str">"dua"</span><span class="hl opt">,</span><span class="hl str">"tiga"</span><span class="hl opt">,</span><span class="hl str">"empat"</span><span class="hl opt">);</span>
+<span class="hl kwc">$output</span> <span class="hl opt">=</span> <span class="hl kwd">array_reverse</span><span class="hl opt">(</span><span class="hl kwc">$input</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$output</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; empat
+    [1] =&gt; tiga
+    [2] =&gt; dua
+    [3] =&gt; satu
+)
+</pre>
+<h3>
+<a name="array_search">array_search</a></h3>
+<p>
+Fungsi: Mencari nilai pada nilai elemen-elemen array, jika sukses hasilnya 
+berupa key</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_search</b> ( mixed $needle , array $haystack [, bool $strict ] )
+</pre><p>
+Parameter:</p><p>
+$needle, adalah nilai yang akan dicari</p><p>
+$haystack, adalah array yang nilai elemennya akan dicari</p><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$array</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl num">0</span> <span class="hl opt">=&gt;</span> <span class="hl str">'blue'</span><span class="hl opt">,</span> <span class="hl num">1</span> <span class="hl opt">=&gt;</span> <span class="hl str">'red'</span><span class="hl opt">,</span> <span class="hl num">2</span> <span class="hl opt">=&gt;</span> <span class="hl str">'green'</span><span class="hl opt">,</span> <span class="hl num">3</span> <span class="hl opt">=&gt;</span> <span class="hl str">'red'</span><span class="hl opt">);</span>
+
+<span class="hl kwc">$key</span> <span class="hl opt">=</span> <span class="hl kwd">array_search</span><span class="hl opt">(</span><span class="hl str">'green'</span><span class="hl opt">,</span> <span class="hl kwc">$array</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$key</span><span class="hl opt">.</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>                              <span class="hl slc">// $key = 2;</span>
+<span class="hl kwc">$key</span> <span class="hl opt">=</span> <span class="hl kwd">array_search</span><span class="hl opt">(</span><span class="hl str">'red'</span><span class="hl opt">,</span> <span class="hl kwc">$array</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$key</span><span class="hl opt">;</span>                                     <span class="hl slc">// $key = 1;</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3>
+<a name="array_shift">array_shift</a></h3>
+<p>
+Fungsi: Mendelete elemen awal suatu array</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_shift</b> ( array &amp;$array )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$stack</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"orange"</span><span class="hl opt">,</span> <span class="hl str">"banana"</span><span class="hl opt">,</span> <span class="hl str">"apple"</span><span class="hl opt">,</span> <span class="hl str">"raspberry"</span><span class="hl opt">);</span>
+<span class="hl kwc">$fruit</span> <span class="hl opt">=</span> <span class="hl kwd">array_shift</span><span class="hl opt">(</span><span class="hl kwc">$stack</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$stack</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; banana
+    [1] =&gt; apple
+    [2] =&gt; raspberry
+)
+</pre><h3>
+<a name="array_unique">array_unique</a></h3>
+<p>
+Fungsi: Menghapus elemen array yang nilainya sama</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_unique</b> ( array $array)
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$warna</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"orange"</span><span class="hl opt">,</span> <span class="hl str">"merah"</span><span class="hl opt">,</span> <span class="hl str">"hijau"</span><span class="hl opt">,</span> <span class="hl str">"merah"</span><span class="hl opt">);</span>
+<span class="hl kwc">$warna2</span> <span class="hl opt">=</span> <span class="hl kwd">array_unique</span><span class="hl opt">(</span><span class="hl kwc">$warna</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$warna2</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; orange
+    [1] =&gt; merah
+    [2] =&gt; hijau
+)
+</pre><h3>
+<a name="array_unshift">array_unshift</a></h3>
+<p>
+Fungsi: Menambah satu atau lebih elemen array di awal</p><p>
+Sintaks:</p><p>
+</p><pre><b>array_unshift </b>( array &amp;$array , mixed $var [, mixed $... ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$queue</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"orange"</span><span class="hl opt">,</span> <span class="hl str">"banana"</span><span class="hl opt">);</span>
+<span class="hl kwd">array_unshift</span><span class="hl opt">(</span><span class="hl kwc">$queue</span><span class="hl opt">,</span> <span class="hl str">"apple"</span><span class="hl opt">,</span> <span class="hl str">"raspberry"</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$queue</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; apple
+    [1] =&gt; raspberry
+    [2] =&gt; orange
+    [3] =&gt; banana
+)
+</pre><h3>
+<a name="array">array</a></h3>
+<p>
+Fungsi: Membuat array</p><p>
+Sintaks:</p><p>
+</p><pre><b>array</b> ([ mixed $... ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$array</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">,</span>  <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">8</span> <span class="hl opt">=&gt;</span> <span class="hl num">1</span><span class="hl opt">,</span>  <span class="hl num">4</span> <span class="hl opt">=&gt;</span> <span class="hl num">1</span><span class="hl opt">,</span> <span class="hl num">19</span><span class="hl opt">,</span> <span class="hl num">3</span> <span class="hl opt">=&gt;</span> <span class="hl num">13</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$array</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; 1
+    [1] =&gt; 1
+    [2] =&gt; 1
+    [3] =&gt; 13
+    [4] =&gt; 1
+    [8] =&gt; 1
+    [9] =&gt; 19
+)
+</pre><h3>
+<a name="count">count</a></h3>
+<p>
+Fungsi: Menghitung jumlah elemen suatu array</p><p>
+Sintaks:</p><p>
+</p><pre><b>count</b> ($array)
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$array</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"halo"</span><span class="hl opt">,</span><span class="hl str">"apa"</span><span class="hl opt">,</span><span class="hl str">"kabar"</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">count</span><span class="hl opt">(</span><span class="hl kwc">$array</span><span class="hl opt">);</span>                 <span class="hl slc">//Hasilnya 3</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="each">each</a></h3>
+<p>
+Fungsi: Menghasilkan key dan nilai elemen saat ini dari suatu array, defaultnya 
+adalah elemen yang pertaman/key=0, untuk memindahkannya gunakan fungsi <b>next</b>, 
+<b>end, prev</b></p><p>
+Sintaks:</p><p>
+</p><pre><b>each </b>( array &amp;$array )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$foo</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"bob"</span><span class="hl opt">,</span> <span class="hl str">"fred"</span><span class="hl opt">,</span> <span class="hl str">"jussi"</span><span class="hl opt">,</span> <span class="hl str">"jouni"</span><span class="hl opt">,</span> <span class="hl str">"egon"</span><span class="hl opt">,</span> <span class="hl str">"marliese"</span><span class="hl opt">);</span>
+<span class="hl kwc">$bar</span> <span class="hl opt">=</span> <span class="hl kwd">each</span><span class="hl opt">(</span><span class="hl kwc">$foo</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$bar</span><span class="hl opt">);</span>
+
+<span class="hl kwd">next</span><span class="hl opt">(</span><span class="hl kwc">$foo</span><span class="hl opt">);</span>
+<span class="hl kwc">$bar</span> <span class="hl opt">=</span> <span class="hl kwd">each</span><span class="hl opt">(</span><span class="hl kwc">$foo</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$bar</span><span class="hl opt">);</span>
+
+<span class="hl kwd">end</span><span class="hl opt">(</span><span class="hl kwc">$foo</span><span class="hl opt">);</span>
+<span class="hl kwc">$bar</span> <span class="hl opt">=</span> <span class="hl kwd">each</span><span class="hl opt">(</span><span class="hl kwc">$foo</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$bar</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [1] =&gt; bob
+    [value] =&gt; bob
+    [0] =&gt; 0
+    [key] =&gt; 0
+)
+Array
+(
+    [1] =&gt; jussi
+    [value] =&gt; jussi
+    [0] =&gt; 2
+    [key] =&gt; 2
+)
+Array
+(
+    [1] =&gt; marliese
+    [value] =&gt; marliese
+    [0] =&gt; 5
+    [key] =&gt; 5
+)
+</pre><h3>
+<a name="in_array">in_array</a></h3>
+<p>
+Fungsi: Cek apakah suatu nilai ada atau tidak di elemen-elemen suatu array, 
+sifatnya adalah case sensitive(huruf besar dan kecil sesuatu berbeda)</p><p>
+Sintaks:</p><p>
+</p><pre><b>in_array</b> ( mixed $needle , array $haystack [, bool $strict ] )
+</pre><p>
+Parameter:</p><p>
+$needle, adalah nilai yang akan dicari</p><p>
+$haystack, adalah array yang akan dicari</p><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$os</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"Mac"</span><span class="hl opt">,</span> <span class="hl str">"NT"</span><span class="hl opt">,</span> <span class="hl str">"Irix"</span><span class="hl opt">,</span> <span class="hl str">"Linux"</span><span class="hl opt">);</span>
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">in_array</span><span class="hl opt">(</span><span class="hl str">"Irix"</span><span class="hl opt">,</span> <span class="hl kwc">$os</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Got Irix"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">in_array</span><span class="hl opt">(</span><span class="hl str">"mac"</span><span class="hl opt">,</span> <span class="hl kwc">$os</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Got mac"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+
+<span class="hl slc">//hasilnya adalah : Got irix</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="rsort">rsort</a></h3>
+<p>
+Fungsi: Menyusun array terbalik</p><p>
+Sintaks:</p><p>
+</p><pre><b>rsort</b> ( array $array)
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$fruits</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"lemon"</span><span class="hl opt">,</span> <span class="hl str">"orange"</span><span class="hl opt">,</span> <span class="hl str">"banana"</span><span class="hl opt">,</span> <span class="hl str">"apple"</span><span class="hl opt">);</span>
+<span class="hl kwd">rsort</span><span class="hl opt">(</span><span class="hl kwc">$fruits</span><span class="hl opt">);</span>
+<span class="hl kwa">foreach</span> <span class="hl opt">(</span><span class="hl kwc">$fruits</span> <span class="hl kwa">as</span> <span class="hl kwc">$key</span> <span class="hl opt">=&gt;</span> <span class="hl kwc">$val</span><span class="hl opt">) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"$key = $val&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>0 = orange
+1 = lemon
+2 = banana
+3 = apple
+</pre>
+<h3>
+<a name="shuffle">shuffle</a></h3>
+<p>
+Fungsi: Mengacak array</p><p>
+Sintaks:</p><p>
+</p><pre><b>shuffle</b> ( array &amp;$array )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$numbers</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl num">100</span><span class="hl opt">,</span><span class="hl num">102</span><span class="hl opt">,</span><span class="hl num">103</span><span class="hl opt">,</span><span class="hl num">104</span><span class="hl opt">,</span><span class="hl num">105</span><span class="hl opt">,</span><span class="hl num">106</span><span class="hl opt">);</span>
+<span class="hl kwd">shuffle</span><span class="hl opt">(</span><span class="hl kwc">$numbers</span><span class="hl opt">);</span>
+<span class="hl kwa">foreach</span> <span class="hl opt">(</span><span class="hl kwc">$numbers</span> <span class="hl kwa">as</span> <span class="hl kwc">$number</span><span class="hl opt">) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"$number "</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<p>
+Hasilnya nya bisa macam-macam, karena diacak, contoh:</p><p>
+</p><pre>103 104 106 102 100 105 
+</pre>
+<h3>
+<a name="sort">sort</a></h3>
+<p>
+Fungsi: Menyusun/mengurutkan array</p><p>
+Sintaks:</p><p>
+</p><pre><b>sort</b> ( array &amp;$array [, int $sort_flags= SORT_REGULAR ] )
+</pre>
+<p>
+Parameter:</p><p>
+$array, adalah array yang akan diurut</p><p>
+$sort_flags :</p><ul>
+  <li>SORT_REGULAR - mengurut kan secara normla</li>
+  <li>SORT_NUMERIC - mengurutkan secara numerik</li>
+  <li>SORT_STRING - mengurutkan secara string</li>
+  </ul>
+<p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$fruits</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">"lemon"</span><span class="hl opt">,</span> <span class="hl str">"orange"</span><span class="hl opt">,</span> <span class="hl str">"banana"</span><span class="hl opt">,</span> <span class="hl str">"apple"</span><span class="hl opt">);</span>
+<span class="hl kwd">sort</span><span class="hl opt">(</span><span class="hl kwc">$fruits</span><span class="hl opt">);</span>
+<span class="hl kwa">foreach</span> <span class="hl opt">(</span><span class="hl kwc">$fruits</span> <span class="hl kwa">as</span> <span class="hl kwc">$key</span> <span class="hl opt">=&gt;</span> <span class="hl kwc">$val</span><span class="hl opt">) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"fruits["</span> <span class="hl opt">.</span> <span class="hl kwc">$key</span> <span class="hl opt">.</span> <span class="hl str">"] = "</span> <span class="hl opt">.</span> <span class="hl kwc">$val</span> <span class="hl opt">.</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>fruits[0] = apple
+fruits[1] = banana
+fruits[2] = lemon
+fruits[3] = orange
+</pre>
+<p>
+</p></div>
+<p>
+
+<br>
+</p></center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

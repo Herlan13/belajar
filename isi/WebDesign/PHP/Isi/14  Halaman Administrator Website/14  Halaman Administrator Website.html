@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div class="title_con">
+  <h1>Halaman Administrator Website</h1>
+</div>
+<div class="content_col">
+  <p>Sebelum memulai <strong>tuorial membuat halaman administrator website atau halaman admin di dreamweaver</strong> ini saya ingin meminta maaf kepada teman - teman yang megikuti tutorial dreamweaver di <a title="Bali web design" href="http://mous-design.com"><strong>Mous Design</strong></a>,
+   lama saya tidak bisa melanjutkan tutorial ini karena banyak urusan   
+kerjaan. Banyak yang mengirimkan email ke saya, meminta supaya cepat   
+untuk di updatekan tutorial pembuatan website dengan dreamweaver   
+terutama <em>membuat halaman administrator website</em> ini.</p>
+  <p>Pada <a title="tutorial dreamweaver" href="http://mous-design.com/topics/tutorial-dreamweaver" target="_blank"><em><strong>tutorial dreamweaver</strong></em></a> sebelumnya saya sudah menjelaskan <a title="Membuat Halaman Register" href="http://mous-design.com/halaman-register-di-dreamweaver-cs3.html">cara membuat halaman register</a> dan <a title="Membuat Halaman Login" href="http://mous-design.com/membuat-halaman-login-di-dreamweaver.html">halaman login </a>utuk
+   masuk ke halaman administrator, yang di mana halaman ini hanya admin 
+  yang terdaftar saja dapat mengakses halaman ini. Di dalam halaman   
+administrator ini anda dapat membuat kategori artikel, menambahkan atau 
+  mengedit artikel anda.</p>
+  <p>Sekali lagi saya ingatkan<em> tutorial membuat website dengan<a title="adobe dreamweaver" href="http://www.adobe.com/products/dreamweaver.html" target="_blank"> adobe dreamweaver cs 3</a></em>
+ ini saya berikan secara bertahap, jika anda kebingungan dengan tutorial
+   yang ada disni saya harapkan membaca tutorial ini dari awal, untuk   
+melihat daftar isi tutorial dreamweaver anda bisa <a title="tutorial dreamweaver" href="http://mous-design.com/topics/tutorial-dreamweaver">klik disini</a>.</p>
+  <h3>Untuk membuat halaman administrator website yang pertama kitalakukan adalah membuat layout atau tata letaknya.</h3>
+  <p>Buka file <strong>home.php</strong> yang ada di dalam folder <strong>fileadmin</strong> milik anda. Kemudian melalui code view, ketikkan</p>
+  <div>
+    <div id="highlighter_606105" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">link</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"style.css"</code> <code class="xml color1">type</code><code class="xml plain">=</code><code class="xml string">"text/css"</code> <code class="xml color1">rel</code><code class="xml plain">=</code><code class="xml string">"stylesheet"</code> <code class="xml plain">/&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>di atas tag<strong> &lt;/head&gt;</strong>, kode tersebut fungsinya menghubungkan file <strong>home.php</strong> dengan file <strong>style.css</strong> yang ada di dalam folder fileadmin milik anda.</p>
+  <p>Jika anda belum memiliki / membuat file style.css silahkan anda buat terlebih dahulu, caranya tekan<strong> Ctrl + N</strong>, pilih <strong>CSS</strong> kemudian click <strong>Create</strong>, simpan dalam folder&nbsp;<strong>D:\website\xampp\htdocs\websiteku.com\fileadmin</strong> dengan nama <strong>style.css</strong>.</p>
+  <p>Masih tetap dalam tab home.php melalui code view, ketikkan kode berikut</p>
+  <div>
+    <div id="highlighter_781434" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">div</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"header"</code><code class="xml plain">&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">h2</code><code class="xml plain">&gt;Admin Websiteku&lt;/</code><code class="xml keyword">h2</code><code class="xml plain">&gt;</code></div>
+              <div class="line number3 index2 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">div</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>di bawah tag <strong>&lt;body&gt;</strong></p>
+  <p>Kemudian klik <strong>icon</strong> <strong>New CSS</strong> <strong>Rule</strong> yang ada di bagian kanan, jika di layar anda tidak terdapat CSS Stylenya anda bisa menekan <strong>Shift + F11</strong> untuk menampilkan <strong>tab CSS Style</strong>.</p>
+  <p><img class="alignnone img size-full wp-image-1203" title="icon-new-css-rule" src="14%20%20Halaman%20Administrator%20Website_files/icon-new-css-rule.jpg" alt="icon new css rule Halaman Administrator Website" height="304" width="232"></p>
+  <p>isikan pengaturannya sebagai berikut :</p>
+  <ul>
+    <li>Selector Type : <strong>Advanced (Ids, pseudo-class selectors)</strong></li>
+    <li>Selector : <strong>body</strong></li>
+    <li>Define in : <strong>style.css</strong></li>
+  </ul>
+  <p>Setelah muncul <strong>CSS Rule Definition for body in style.css, </strong>isikan pengaturannya sebagai berikut :</p>
+  <h4>Type:</h4>
+  <ul>
+    <li>Font : pilih jenis&nbsp; font yang ingin anda gunakan, pada kali ini saya akan menggunakan "<strong>Arial, Helvetica, sans-serif</strong>"</li>
+    <li>Size : ukuran font yang akan anda gunakan, kali ini saya menggunakan ukuran 12 pixel</li>
+  </ul>
+  <h4>Box :</h4>
+  <ul>
+    <li>width : 920 pixel</li>
+    <li>float : left</li>
+    <li>Padding : <strong>centang same for all</strong>, pada kolom box isikan 10 pixel.</li>
+  </ul>
+  <p>jika sudah klik ok, buka file style.css yang ada dalam folder fileadmin milik anda, kemudian simpan tekan Ctrl + S.</p>
+  <p>kembali ke tab home.php, klik <strong>New CSS Rule</strong>, isikan pengaturannya sebagai berikut :</p>
+  <ul>
+    <li>Selector Type : <strong>Advanced (Ids, pseudo-class selectors)</strong></li>
+    <li>Selector : <strong>#header</strong></li>
+    <li>Define in : <strong>style.css</strong></li>
+  </ul>
+  <p>Setelah muncul <strong>CSS Rule Definition for #header in style.css, </strong>isikan pengaturannya sebagai berikut :</p>
+  <h4>Box :</h4>
+  <ul>
+    <li>width : 900 pixel</li>
+    <li>float : left</li>
+    <li>Padding : <strong>centang same for all</strong>, pada kolom box isikan 10 pixel.</li>
+  </ul>
+  <p>Jika sudah klik ok, kembali ke tab style.css simpan pekerjaan anda.</p>
+  <p>Sekarang kita akan membuat navigasi untuk halaman administrator website kita, ketikkan kode berikut di atas <strong>&lt;/body&gt;</strong></p>
+  <div>
+    <div id="highlighter_813674" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">div</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"navigasi"</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">div</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>simpan pekerjaan anda tekan <strong>Ctrl + S.</strong></p>
+  <p>klik <strong>New CSS Rule</strong>, isikan pengaturannya sebagai berikut :</p>
+  <ul>
+    <li>Selector Type : <strong>Advanced (Ids, pseudo-class selectors)</strong></li>
+    <li>Selector : <strong>#navigasi</strong></li>
+    <li>Define in : <strong>style.css</strong></li>
+  </ul>
+  <p>Setelah muncul <strong>CSS Rule Definition for #navigasi in style.css, </strong>isikan pengaturannya sebagai berikut :</p>
+  <h4>Box :</h4>
+  <ul>
+    <li>width : 900 pixel</li>
+    <li>float : left</li>
+    <li>Padding : hilangkan <strong>centang same for all</strong>, pada kolom <strong>right dan left isikan 10 pixel</strong>, pada kolom<strong> top dan bottom isikan 0 pixel</strong>.</li>
+  </ul>
+  <h4>Border :</h4>
+  <ul>
+    <li>Style : centang Same for all isikan solid.</li>
+    <li>Width : centang same for all isikan 1 pixel</li>
+    <li>Color : centang same for all isikan #CCCCCC</li>
+  </ul>
+  <p>Jika sudah klik ok, kembali ke tab style.css simpan pekerjaan anda.</p>
+  <p>Kemudian ketikkan kode berikut</p>
+  <div>
+    <div id="highlighter_815904" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div>
+              <div class="line number4 index3 alt1">4</div>
+              <div class="line number5 index4 alt2">5</div>
+              <div class="line number6 index5 alt1">6</div>
+              <div class="line number7 index6 alt2">7</div>
+              <div class="line number8 index7 alt1">8</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">ul</code><code class="xml plain">&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"home.php"</code><code class="xml plain">&gt;Home&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number3 index2 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"editprofile.php"</code><code class="xml plain">&gt;Profile&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number4 index3 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"categories.php"</code><code class="xml plain">&gt;Categories&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number5 index4 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"post.php"</code><code class="xml plain">&gt;Post&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number6 index5 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"message.php"</code><code class="xml plain">&gt;Message&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number7 index6 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"logout.php"</code><code class="xml plain">&gt;Logout&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number8 index7 alt1"><code class="xml plain">&lt;/</code><code class="xml keyword">ul</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>letakkan di bawah <strong>&lt;div id="navigasi"&gt;</strong>, maka kodenya akan menjadi</p>
+  <div>
+    <div id="highlighter_66049" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div>
+              <div class="line number4 index3 alt1">4</div>
+              <div class="line number5 index4 alt2">5</div>
+              <div class="line number6 index5 alt1">6</div>
+              <div class="line number7 index6 alt2">7</div>
+              <div class="line number8 index7 alt1">8</div>
+              <div class="line number9 index8 alt2">9</div>
+              <div class="line number10 index9 alt1">10</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">div</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"navigasi"</code><code class="xml plain">&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="xml plain">&lt;</code><code class="xml keyword">ul</code><code class="xml plain">&gt;</code></div>
+              <div class="line number3 index2 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"home.php"</code><code class="xml plain">&gt;Home&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number4 index3 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"editprofile.php"</code><code class="xml plain">&gt;Profile&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number5 index4 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"categories.php"</code><code class="xml plain">&gt;Categories&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number6 index5 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"post.php"</code><code class="xml plain">&gt;Post&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number7 index6 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"message.php"</code><code class="xml plain">&gt;Message&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number8 index7 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">li</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"logout.php"</code><code class="xml plain">&gt;Logout&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">li</code><code class="xml plain">&gt;</code></div>
+              <div class="line number9 index8 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">ul</code><code class="xml plain">&gt;</code></div>
+              <div class="line number10 index9 alt1"><code class="xml plain">&lt;/</code><code class="xml keyword">div</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Kode - kode tersebut membentuk link ke halaman yang lainnya, misalnya <strong>Profile</strong> di klik maka anda akan di bawa ke halaman <strong>editprofile.php</strong>, untuk penjelasan dan pembuatan halaman tersebut akan saya jelaskan pada tutorial berikutnya.</p>
+  <p>Kembali klik <strong>New CSS Rule</strong>, isikan pengaturannya sebagai berikut :</p>
+  <ul>
+    <li>Selector Type : <strong>Advanced (Ids, pseudo-class selectors)</strong></li>
+    <li>Selector : <strong><strong>#navigasi ul</strong></strong></li>
+    <li>Define in : <strong>style.css</strong></li>
+  </ul>
+  <p>Setelah muncul <strong>CSS Rule Definition for #navigasi ul in style.css, </strong>isikan pengaturannya sebagai berikut :</p>
+  <h4>Box :</h4>
+  <ul>
+    <li>width : 900 pixel</li>
+    <li>float : left</li>
+    <li>Padding : <strong>centang same for all</strong><strong> isikan 0 pixel</strong>.</li>
+  </ul>
+  <p>Jika sudah klik OK.</p>
+  <p>klik kembali <strong>New CSS Rule</strong>, isikan pengaturannya sebagai berikut :</p>
+  <ul>
+    <li>Selector Type : <strong>Advanced (Ids, pseudo-class selectors)</strong></li>
+    <li>Selector : <strong><strong>#navigasi li</strong></strong></li>
+    <li>Define in : <strong>style.css</strong></li>
+  </ul>
+  <p>Setelah muncul <strong>CSS Rule Definition for #navigasi li in style.css, </strong>isikan pengaturannya sebagai berikut :</p>
+  <h4>Block:</h4>
+  <ul>
+    <li>Display : inline</li>
+  </ul>
+  <h4>Box :</h4>
+  <ul>
+    <li>Margin : <strong>hilangkan centang same for all,</strong> pada bagian <strong>Left</strong> isikan<strong> 10 pixe</strong>l</li>
+  </ul>
+  <h4>List :</h4>
+  <ul>
+    <li>Type: none</li>
+  </ul>
+  <p>Jika sudah klik OK.</p>
+  <p>Selanjutnya ketikkan kode berikut,</p>
+  <div>
+    <div id="highlighter_882292" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div>
+              <div class="line number4 index3 alt1">4</div>
+              <div class="line number5 index4 alt2">5</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">div</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"conten"</code><code class="xml plain">&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="xml plain">&lt;</code><code class="xml keyword">h3</code><code class="xml plain">&gt;Admin Home&lt;/</code><code class="xml keyword">h3</code><code class="xml plain">&gt;</code></div>
+              <div class="line number3 index2 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">p</code><code class="xml plain">&gt;Selamat
+   datang di halaman administrator websiteku, isi adalah contoh halaman 
+  depan admin website kita, kata - kata ini hanya untuk testing pada   
+tutorial pembuatan halaman administrator website dan hanya sebagai   
+contoh halaman administrator website, selanjutnya ganti tulisan isi   
+terserah anda mengisinya dengan kata - kata milik anda sendiri, misalnya
+   seperti peringatan untuk semua admin yang memasuki halaman   
+administrator website.&lt;/</code><code class="xml keyword">p</code><code class="xml plain">&gt;</code></div>
+              <div class="line number4 index3 alt1"><code class="xml plain">&lt;</code><code class="xml keyword">p</code><code class="xml plain">&gt;Sekali
+   lagi kata - kata dalam halaman administrator ini bisa anda ganti dan 
+  tolong di ganti, karena kata - kata ini hanya sebagai contoh semata 
+dan   tidak ada maksud untuk belajar mengolah kata, karena saya sendiri 
+sudah   pusing untuk mengolah kata - kata untuk halaman administrator 
+website   ini.&lt;/</code><code class="xml keyword">p</code><code class="xml plain">&gt;</code></div>
+              <div class="line number5 index4 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">div</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Masih dalam tab <strong>home.php</strong>, klik <strong>New CSS Rule</strong>, isikan pengaturannya sebagai berikut :</p>
+  <ul>
+    <li>Selector Type : <strong>Advanced (Ids, pseudo-class selectors)</strong></li>
+    <li>Selector : <strong>#conten</strong></li>
+    <li>Define in : <strong>style.css</strong></li>
+  </ul>
+  <p>Setelah muncul <strong>CSS Rule Definition for #<strong>conten </strong>in style.css, </strong>isikan pengaturannya sebagai berikut :</p>
+  <h4>Box :</h4>
+  <ul>
+    <li>width : 900 pixel</li>
+    <li>float : left</li>
+    <li>Padding : <strong>centang same for all</strong>, pada kolom top isikan 10 pixel.</li>
+    <li>margin : hilangkan <strong>centang same for all</strong>, pada bagian <strong>top</strong> isikan<strong> 20 pixel.</strong></li>
+  </ul>
+  <h4>Border :</h4>
+  <ul>
+    <li>Style : centang Same for all isikan solid.</li>
+    <li>Width : centang same for all isikan 1 pixel</li>
+    <li>Color : centang same for all isikan #CCCCCC</li>
+  </ul>
+  <p>Jika sudah klik <strong>Ok</strong>. simpan semua pekerjaan anda tekan <strong>Ctrl + S</strong>.</p>
+  <p>Untuk melihat hasil jerih payah anda tadi atau melihat <em><strong>halaman administrator website</strong></em> anda tekan <strong>F12</strong>.</p>
+  <p>Untuk memperindah tampilan halaman administrator website anda, anda
+   bisa menambahkan opsi CSS yang lainnya, misalnya background dan lain -
+   lain. Silahkan di coba - coba agar anda lebih paham, lihat 
+perubahannya   pada file <strong>style.css</strong>.</p>
+  <p>Sekian dulu <em>tutorial membuat halaman administrator website dengan Adobe dreamweaver cs 3</em>,
+   pada tutorial berikutnya saya akan jelaskan bagaimana cara agar   
+membatasi akses kehalaman administrator website anda, jadi hanya orang  
+ yang terdaftar saja yang bisa masuk ke halaman administrator website   
+milik anda.</p>
+  <p>Jika anda ingin berlangganan artikel mous design anda bisa masukkan
+   email anda di kolom berlangganan yang ada di bagian kanan website 
+ini,   dan apa bila ada pertanyaan ataupun komentar silahkan berkomentar
+ di   dalam form komentar di bawah.</p>
+  <p>Akhir kata saya ucapkan terima kasih banyak dan salam sukses untuk anda semuanya.</p>
+  <p>lanjutan tutorial <a title="Memberikan Batasan Hak Akses Administrator" href="http://mous-design.com/memberikan-batasan-hak-akses-administrator.html"><em>Memberikan Batasan Hak Akses Administrator</em></a> bisa di lihat <a title="Memberikan Batasan Hak Akses Administrator" href="http://mous-design.com/memberikan-batasan-hak-akses-administrator.html">di sini</a></p>
+</div>
+</body></html>

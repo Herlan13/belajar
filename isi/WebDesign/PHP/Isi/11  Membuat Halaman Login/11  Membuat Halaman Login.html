@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div class="title_con">
+  <h1>Membuat Halaman Login</h1>
+</div>
+<div class="content_col">
+  <p>Sebelumnya kita sudah <a title="Membuat Database MySQL" href="http://mous-design.com/membuat-database-mysql.html" target="_blank"><em>membuat database website</em></a> kita dan <a title="Membuat Koneksi ke Database" href="http://mous-design.com/membuat-koneksi-ke-database.html" target="_blank"><em>membuat koneksi di Dreamweaver</em></a>, kalau anda belum membuatnya silahkan baca <a title="Membuat Database MySQL" href="http://mous-design.com/membuat-database-mysql.html">disini </a>dan <a title="Membuat Koneksi ke Database" href="http://mous-design.com/membuat-koneksi-ke-database.html">disini </a>hehe.</p>
+  <p><img class="size-full img wp-image-1303 alignleft" title="login form" src="11%20%20Membuat%20Halaman%20Login_files/bg-ogin-form.png" alt="bg ogin form Membuat Halaman Login" height="178" width="200"> Sebelum memulai tutorial ini anda harus membuat tabel untuk admin silahkan lihat <a title="Membuat Database MySQL" href="http://mous-design.com/membuat-database-mysql.html" target="_blank"><em>disini</em></a>. Bagi anda yang mengikuti tutorial ini dari awal silahkan buka<strong> file index.php</strong> yang ada di dalam folder <strong>fileadmin</strong>.</p>
+  <p>Halaman login pada website tentunya berisi login form, pertama kita akan membuat login formnya terlebih dahulu.</p>
+  <p>Setelah anda membuka file index.php dalam folder fileadmin, klik ke
+   dalam area kerja dreamweaver anda, kemudian ikuti langkah - 
+langkahnya :</p>
+  <p>Klik <strong>Insert</strong> &gt; <strong>Form</strong> &gt; <strong>Form</strong></p>
+  <p>Klik <strong>Insert</strong> &gt;<strong>Table</strong>, isikan table propertynya sbb :</p>
+  <ol>
+    <li>Row : <strong>3</strong></li>
+    <li>Collomns : <strong>3</strong></li>
+    <li>Table Width : kosongkan saja</li>
+    <li>Border thickness : kosongkan saja</li>
+    <li>Cell padding : <strong>5</strong></li>
+    <li>Cell spacing : <strong>5</strong></li>
+    <li>Klik <strong>ok</strong>.</li>
+  </ol>
+  <p>Maka akan terlihat 9 buah kotak dengan garis putus - putus. Pada baris kotak pojok kiri atas isikan <strong>Nama</strong>, kotak di sebelah kanan nama isikan<strong> :</strong> (titik dua).</p>
+  <p>Kotak di bawah <strong>Nama</strong> isikan <strong>Password</strong>, dan di sebelah kanan Password isikan<strong> :</strong> (titik dua).</p>
+  <p>Pada baris <strong>Nama</strong>, klik di dalam kotak paling kanan, kemudian klik <strong>Insert</strong> &gt; <strong>Form</strong> &gt; <strong>Text Field</strong>, pada <strong>Id</strong> isikan <strong>nama</strong>, yang lain biarkan secara default, kalau sudah klik <strong>Ok</strong>.</p>
+  <p>Pada baris <strong>Password</strong>, klik di dalam kotak paling kanan, kemudian klik <strong>Insert</strong> &gt; <strong>Form</strong> &gt; <strong>Text Field</strong>, pada <strong>Id</strong> isikan <strong>password</strong>, yang lain biarkan secara default, kalau sudah klik <strong>Ok</strong>.</p>
+  <p>Setelah muncul <strong>TextField</strong> untuk memasukkan <strong>password</strong>, klik <strong>TextField</strong> tersebut, pada <strong>panel Properties</strong> di bagian bawah pada bagian <strong>Type</strong> pilih <strong>Password</strong></p>
+  <p>Selanjutnya kita akan menyatukan atau me<em><strong> Merge Cell</strong></em>
+ pada baris paling bawah agar menjadi satu kotak saja, caranya arahkan  
+ cursor anda kesebelahnya, kemudian klik Row tersebut, perhatikan gambar
+   berikut.</p>
+  <p><img class="size-full wp-image-1315 alignnone img" title="seleksi row" src="11%20%20Membuat%20Halaman%20Login_files/seleksi-rw.png" alt="seleksi rw Membuat Halaman Login" height="178" width="297"></p>
+  <p>Jika sudah terseleksi, pada bagian panel Properties klik icon <strong>Merges selected cells using spans</strong>,&nbsp; kemudian pada <strong>Horz</strong> rubah menjadi <strong>Right</strong>.</p>
+  <p><img class="alignnone img size-full wp-image-1317" title="merge-cells-di-dreamweaver-cs3" src="11%20%20Membuat%20Halaman%20Login_files/merge-cells-di-dreamweaver-cs3.png" alt="merge cells di dreamweaver cs3 Membuat Halaman Login" height="374" width="292"></p>
+  <p>Kalau sudah, klik kembali di dalam kotak tersebut, lalu klik <strong>Insert</strong> &gt; <strong>Form</strong> &gt; <strong>Button</strong>, pada Id isi login terakhir klik <strong>Ok</strong>. Untuk merubah tulisan di dalam tombol login tersebut ubah <strong>Value</strong>'nya pada panel <strong>Properties</strong>.</p>
+  <p>Sampai disini, jika anda perhatikan melalui Code View maka kodenya akan seperti ini :</p>
+  <div>
+    <div id="highlighter_838448" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div>
+              <div class="line number4 index3 alt1">4</div>
+              <div class="line number5 index4 alt2">5</div>
+              <div class="line number6 index5 alt1">6</div>
+              <div class="line number7 index6 alt2">7</div>
+              <div class="line number8 index7 alt1">8</div>
+              <div class="line number9 index8 alt2">9</div>
+              <div class="line number10 index9 alt1">10</div>
+              <div class="line number11 index10 alt2">11</div>
+              <div class="line number12 index11 alt1">12</div>
+              <div class="line number13 index12 alt2">13</div>
+              <div class="line number14 index13 alt1">14</div>
+              <div class="line number15 index14 alt2">15</div>
+              <div class="line number16 index15 alt1">16</div>
+              <div class="line number17 index16 alt2">17</div>
+              <div class="line number18 index17 alt1">18</div>
+              <div class="line number19 index18 alt2">19</div>
+              <div class="line number20 index19 alt1">20</div>
+              <div class="line number21 index20 alt2">21</div>
+              <div class="line number22 index21 alt1">22</div>
+              <div class="line number23 index22 alt2">23</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">form</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"form1"</code> <code class="xml color1">name</code><code class="xml plain">=</code><code class="xml string">"form1"</code> <code class="xml color1">method</code><code class="xml plain">=</code><code class="xml string">"post"</code> <code class="xml color1">action</code><code class="xml plain">=</code><code class="xml string">""</code><code class="xml plain">&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="xml spaces">&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">table</code> <code class="xml color1">cellspacing</code><code class="xml plain">=</code><code class="xml string">"5"</code> <code class="xml color1">cellpadding</code><code class="xml plain">=</code><code class="xml string">"5"</code><code class="xml plain">&gt;</code></div>
+              <div class="line number3 index2 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">tr</code><code class="xml plain">&gt;</code></div>
+              <div class="line number4 index3 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">td</code><code class="xml plain">&gt;Nama&lt;/</code><code class="xml keyword">td</code><code class="xml plain">&gt;</code></div>
+              <div class="line number5 index4 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">td</code><code class="xml plain">&gt;:&lt;/</code><code class="xml keyword">td</code><code class="xml plain">&gt;</code></div>
+              <div class="line number6 index5 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">td</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">label</code><code class="xml plain">&gt;</code></div>
+              <div class="line number7 index6 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">input</code> <code class="xml color1">type</code><code class="xml plain">=</code><code class="xml string">"text"</code> <code class="xml color1">name</code><code class="xml plain">=</code><code class="xml string">"nama"</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"nama"</code> <code class="xml plain">/&gt;</code></div>
+              <div class="line number8 index7 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;/</code><code class="xml keyword">label</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">td</code><code class="xml plain">&gt;</code></div>
+              <div class="line number9 index8 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;/</code><code class="xml keyword">tr</code><code class="xml plain">&gt;</code></div>
+              <div class="line number10 index9 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">tr</code><code class="xml plain">&gt;</code></div>
+              <div class="line number11 index10 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">td</code><code class="xml plain">&gt;Password&lt;/</code><code class="xml keyword">td</code><code class="xml plain">&gt;</code></div>
+              <div class="line number12 index11 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">td</code><code class="xml plain">&gt;:&lt;/</code><code class="xml keyword">td</code><code class="xml plain">&gt;</code></div>
+              <div class="line number13 index12 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">td</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">label</code><code class="xml plain">&gt;</code></div>
+              <div class="line number14 index13 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">input</code> <code class="xml color1">type</code><code class="xml plain">=</code><code class="xml string">"text"</code> <code class="xml color1">name</code><code class="xml plain">=</code><code class="xml string">"password"</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"password"</code> <code class="xml plain">/&gt;</code></div>
+              <div class="line number15 index14 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;/</code><code class="xml keyword">label</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">td</code><code class="xml plain">&gt;</code></div>
+              <div class="line number16 index15 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;/</code><code class="xml keyword">tr</code><code class="xml plain">&gt;</code></div>
+              <div class="line number17 index16 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">tr</code> <code class="xml color1">align</code><code class="xml plain">=</code><code class="xml string">"right"</code><code class="xml plain">&gt;</code></div>
+              <div class="line number18 index17 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">td</code> <code class="xml color1">colspan</code><code class="xml plain">=</code><code class="xml string">"3"</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">label</code><code class="xml plain">&gt;</code></div>
+              <div class="line number19 index18 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">input</code> <code class="xml color1">type</code><code class="xml plain">=</code><code class="xml string">"submit"</code> <code class="xml color1">name</code><code class="xml plain">=</code><code class="xml string">"login"</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"login"</code> <code class="xml color1">value</code><code class="xml plain">=</code><code class="xml string">"Login"</code> <code class="xml plain">/&gt;</code></div>
+              <div class="line number20 index19 alt1"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;/</code><code class="xml keyword">label</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">td</code><code class="xml plain">&gt;</code></div>
+              <div class="line number21 index20 alt2"><code class="xml spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="xml plain">&lt;/</code><code class="xml keyword">tr</code><code class="xml plain">&gt;</code></div>
+              <div class="line number22 index21 alt1"><code class="xml spaces">&nbsp;&nbsp;</code><code class="xml plain">&lt;/</code><code class="xml keyword">table</code><code class="xml plain">&gt;</code></div>
+              <div class="line number23 index22 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">form</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Simpan pekerjaan anda <strong>Ctrl + S</strong>, kemudian preview tekan <strong>F12</strong></p>
+  <p>Sampai disini dulu<em><strong> tutorial membuat halaman login di Dreamweaver CS3</strong></em> saya akan lanjutkan tutorialnya membuat halaman login pada artikel berikutnya <em><a title="Membuat Halaman Login Part-2" href="http://mous-design.com/membuat-halaman-login-part-2.html"><strong>Membuat Halaman Login Part 2</strong></a>.</em></p>
+</div>
+</body></html>

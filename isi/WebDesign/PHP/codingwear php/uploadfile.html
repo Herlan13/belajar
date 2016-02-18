@@ -1,0 +1,111 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Upload File di PHP</title>
+<link rel="stylesheet" href="uploadfile_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%"><font face="Arial" size="4">www.coding</font><font color="#CCCCCC" face="Arial Black" size="4">wear</font><font face="Arial" size="4">.com</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="61%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p><p>&nbsp;</p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>7. Upload File</h2>
+<ol>
+<li><a href="#upload">Upload Dengan Metode POST</a></li><li><a href="#multiple">Multiple Upload File</a></li></ol>
+<h3><a name="upload">1. Upload Dengan Metode POST</a></h3>
+<p>Untuk melakukan upload file dari komputer kita/client ke komputer server, 
+pertama kita buat <b>form HTML</b> untuk upload file</p>
+<p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>form enctype<span class="hl opt">=</span><span class="hl str">"multipart/form-data"</span> action<span class="hl opt">=</span><span class="hl str">"upload.php"</span> method<span class="hl opt">=</span><span class="hl str">"POST"</span><span class="hl opt">&gt;</span>
+    <span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"hidden"</span> name<span class="hl opt">=</span><span class="hl str">"MAX_FILE_SIZE"</span> value<span class="hl opt">=</span><span class="hl str">"3000000"</span> <span class="hl opt">/&gt;</span>
+    Send this file<span class="hl opt">: &lt;</span>input name<span class="hl opt">=</span><span class="hl str">"userfile"</span> type<span class="hl opt">=</span><span class="hl str">"file"</span> <span class="hl opt">/&gt;</span>
+    <span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"submit"</span> value<span class="hl opt">=</span><span class="hl str">"Send File"</span> <span class="hl opt">/&gt;</span>
+<span class="hl opt">&lt;/</span>form<span class="hl opt">&gt;</span>
+</pre><p></p>
+<p>MAX_FILE_SIZE berfungsi untuk mengatur ukuran maksimal yang diterima PHP (dalam 
+bytes)</p>
+<p>Sekarang kita lihat kode PHP untuk mengupload file tersebut</p>
+<p><b>upload.php</b></p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$uploaddir</span> <span class="hl opt">=</span> <span class="hl str">'./'</span><span class="hl opt">;</span>
+<span class="hl kwc">$uploadfile</span> <span class="hl opt">=</span> <span class="hl kwc">$uploaddir</span> <span class="hl opt">.</span> <span class="hl kwd">basename</span><span class="hl opt">(</span><span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">'userfile'</span><span class="hl opt">][</span><span class="hl str">'name'</span><span class="hl opt">]);</span>
+
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">move_uploaded_file</span><span class="hl opt">(</span><span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">'userfile'</span><span class="hl opt">][</span><span class="hl str">'tmp_name'</span><span class="hl opt">],</span> <span class="hl kwc">$uploadfile</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"File berhasil diupload.</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span> <span class="hl kwa">else</span> <span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"gagal!</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p></p>
+<p>Untuk melakukan upload kita menggunakan fungsi <b>move_uploaded_file()</b></p>
+<p>Di server, untuk menangani variabel dari input bertipe file adalah $_FILES, 
+yang berupa array, informasi yang didapat dari $_FILES adalah :</p>
+<p><font face="Courier New">$_FILES['userfile']['name'] </font><br>
+Nama asli file dari komputer client. <br>
+<br>
+<font face="Courier New">$_FILES['userfile']['type'] </font><br>
+Informasi tipe file, contoh "image/gif". <br>
+<br>
+<font face="Courier New">$_FILES['userfile']['size'] </font><br>
+Ukuran file yang diupload (dalam bytes). <br>
+<br>
+<font face="Courier New">$_FILES['userfile']['tmp_name'] </font><br>
+Nama file sementara dari file yang diupload yang diletakkan di server<br>
+<br>
+<font face="Courier New">$_FILES['userfile']['error'] </font><br>
+Error kode yang berhubungan dengan penanganan file</p>
+<h3><a name="multiple">2. Multiple Upload File</a></h3>
+<p>Sekarang kita lihat contoh upload file lebi dari satu sekaligus, untuk itu 
+kita harus membuat nama input form bertipe array, contoh :</p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>form action<span class="hl opt">=</span><span class="hl str">"uploadfile.php"</span> method<span class="hl opt">=</span><span class="hl str">"post"</span> enctype<span class="hl opt">=</span><span class="hl str">"multipart/form-data"</span><span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>p<span class="hl opt">&gt;</span>File yang diupload<span class="hl opt">:&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"file"</span> name<span class="hl opt">=</span><span class="hl str">"fileku[]"</span> <span class="hl opt">/&gt;&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"file"</span> name<span class="hl opt">=</span><span class="hl str">"fileku[]"</span> <span class="hl opt">/&gt;&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"file"</span> name<span class="hl opt">=</span><span class="hl str">"fileku[]"</span> <span class="hl opt">/&gt;&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"file"</span> name<span class="hl opt">=</span><span class="hl str">"fileku[]"</span> <span class="hl opt">/&gt;&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"file"</span> name<span class="hl opt">=</span><span class="hl str">"fileku[]"</span> <span class="hl opt">/&gt;&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"file"</span> name<span class="hl opt">=</span><span class="hl str">"fileku[]"</span> <span class="hl opt">/&gt;&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"file"</span> name<span class="hl opt">=</span><span class="hl str">"fileku[]"</span> <span class="hl opt">/&gt;&lt;</span>br<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>input type<span class="hl opt">=</span><span class="hl str">"submit"</span> value<span class="hl opt">=</span><span class="hl str">"Send"</span> <span class="hl opt">/&gt;</span>
+<span class="hl opt">&lt;/</span>p<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;/</span>form<span class="hl opt">&gt;</span>
+</pre>uploadfile.php<p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$direktori</span> <span class="hl opt">=</span> <span class="hl str">"."</span><span class="hl opt">;</span>
+<span class="hl kwa">foreach</span> <span class="hl opt">(</span><span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">"fileku"</span><span class="hl opt">][</span><span class="hl str">"error"</span><span class="hl opt">]</span> <span class="hl kwa">as</span> <span class="hl kwc">$key</span> <span class="hl opt">=&gt;</span> <span class="hl kwc">$error</span><span class="hl opt">) {</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwc">$error</span> <span class="hl opt">==</span> UPLOAD_ERR_OK<span class="hl opt">) {</span>
+        <span class="hl kwc">$tmp_name</span> <span class="hl opt">=</span> <span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">"fileku"</span><span class="hl opt">][</span><span class="hl str">"tmp_name"</span><span class="hl opt">][</span><span class="hl kwc">$key</span><span class="hl opt">];</span>
+        <span class="hl kwc">$name</span> <span class="hl opt">=</span> <span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">"fileku"</span><span class="hl opt">][</span><span class="hl str">"name"</span><span class="hl opt">][</span><span class="hl kwc">$key</span><span class="hl opt">];</span>
+        <span class="hl kwd">move_uploaded_file</span><span class="hl opt">(</span><span class="hl kwc">$tmp_name</span><span class="hl opt">,</span> <span class="hl kwc">$direktori</span><span class="hl opt">.</span><span class="hl str">"/"</span><span class="hl opt">.</span><span class="hl kwc">$name</span><span class="hl opt">);</span>
+        <span class="hl kwa">echo</span> <span class="hl str">"File $name berhasil diupload &lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p></p>
+
+</p></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

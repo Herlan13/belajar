@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div class="title_con">
+  <h1>Membuat Halaman Log out</h1>
+</div>
+<div class="content_col">
+  <h3>Sebelum memulai tutorial Membuat Halaman Log Out ini saya minta 
+maaf   atas keterlambatan update ini, karena banyak kesibukan jadi belum
+   sempat update.</h3>
+  <p>Kemarin terakhir kita sudah <a title="Memberikan Batasan Hak Akses Administrator" href="http://mous-design.com/memberikan-batasan-hak-akses-administrator.html" target="_blank">memberikan batasan hak akses halaman administrator</a>,
+   yang dimana jika ada user ingin mengakses salah satu halaman   
+administrator tanpa melalui proses login maka secara otomatis dia akan  
+ di bawa ke halaman log out.</p>
+  <p>Di halaman log out ini nantinya akan langsung mengarah kehalaman   
+depan administrator dan meminta user yang jahil tersebut untuk melakukan
+   login terlebih dahulu.</p>
+  <p>Pertama jalankan program adobe dreamweaver milik anda, kemudian buka file <strong>log out.php</strong> yang terdapat dalam folder <strong>fileadmin</strong>.</p>
+  <p>Setelah halaman log out / log out.php anda terbuka melalui code view hapus semua code yang terdapat dalam file tersebut.</p>
+  <p>Selanjutnya pada menubar dreamweaver klik<strong> Insert &gt; Data Objects &gt; User Authentication &gt; Log out User</strong></p>
+  <p>Setelah muncul window / jendela Log out user isikan pengaturannya seperti berikut :</p>
+  <ul>
+    <li>Log out when : pilih <strong>Page Load</strong></li>
+    <li>When done, go to : pilih file index.php yang ada dalam folder <strong>fileadmin</strong></li>
+  </ul>
+  <p><img class="alignnone size-full wp-image-1470" title="tutorial-membuat-halaman-logout-di-dreamweaver-cs3" src="16%20Membuat%20Halaman%20Log%20out_files/tutorial-membuat-halaman-logout-di-dreamweaver-cs3.jpg" alt="tutorial membuat halaman logout di dreamweaver cs3 Membuat Halaman Log out" height="197" width="550"></p>
+  <p>Jika sudah klik ok, kemudian simpan pekerjaan anda, tekan Ctrl + S. Maka kode dari halaman log out sbb..</p>
+  <div>
+    <div id="highlighter_643497" class="syntaxhighlighter php">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div>
+              <div class="line number4 index3 alt1">4</div>
+              <div class="line number5 index4 alt2">5</div>
+              <div class="line number6 index5 alt1">6</div>
+              <div class="line number7 index6 alt2">7</div>
+              <div class="line number8 index7 alt1">8</div>
+              <div class="line number9 index8 alt2">9</div>
+              <div class="line number10 index9 alt1">10</div>
+              <div class="line number11 index10 alt2">11</div>
+              <div class="line number12 index11 alt1">12</div>
+              <div class="line number13 index12 alt2">13</div>
+              <div class="line number14 index13 alt1">14</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+              <div class="line number2 index1 alt1"><code class="php comments">// *** Logout the current user.</code></div>
+              <div class="line number3 index2 alt2"><code class="php variable">$logoutGoTo</code> <code class="php plain">= </code><code class="php string">"index.php"</code><code class="php plain">;</code></div>
+              <div class="line number4 index3 alt1"><code class="php keyword">if</code> <code class="php plain">(!isset(</code><code class="php variable">$_SESSION</code><code class="php plain">)) {</code></div>
+              <div class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">session_start();</code></div>
+              <div class="line number6 index5 alt1"><code class="php plain">}</code></div>
+              <div class="line number7 index6 alt2"><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_Username'</code><code class="php plain">] = NULL;</code></div>
+              <div class="line number8 index7 alt1"><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_UserGroup'</code><code class="php plain">] = NULL;</code></div>
+              <div class="line number9 index8 alt2"><code class="php plain">unset(</code><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_Username'</code><code class="php plain">]);</code></div>
+              <div class="line number10 index9 alt1"><code class="php plain">unset(</code><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_UserGroup'</code><code class="php plain">]);</code></div>
+              <div class="line number11 index10 alt2"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$logoutGoTo</code> <code class="php plain">!= </code><code class="php string">""</code><code class="php plain">) {header(</code><code class="php string">"Location: $logoutGoTo"</code><code class="php plain">);</code></div>
+              <div class="line number12 index11 alt1"><code class="php functions">exit</code><code class="php plain">;</code></div>
+              <div class="line number13 index12 alt2"><code class="php plain">}</code></div>
+              <div class="line number14 index13 alt1"><code class="php plain">?&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Sudah. hanya itu saja caranya hahhahaha, sebenarnya simple banget, sekarang coba test drive ketikkan "<a title="test drive membuat halaman log out" href="http://localhost/websiteku.com/fileadmin/home.php" target="_blank">http://localhost/websiteku.com/fileadmin/home.php</a>" pada browser anda, kalau sukses anda akan tetap berada di halaman depan / halaman login administrator.</p>
+  <p>Sekarang coba login kehalaman administrator anda, kemudian klik link <strong>l<span style="text-decoration:underline; "><em>og out</em></span></strong> pada navigasi, kalau sukses maka anda tetap akan di bawa <em>kehalaman login</em>.</p>
+  <p>Cukup sekian tutorial membuat halaman log out, semoga dapat membantu.</p>
+  <p>Nantikan tutorial berikutnya yaitu</p>
+</div>
+</body></html>

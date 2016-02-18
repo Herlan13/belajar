@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+.herlan{
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	
+}
+
+.herlan ul{
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 100%;
+	background: #54603E;
+	border-top-width: 1px;
+	border-right-width: 0;
+	border-bottom-width: 1px;
+	border-left-width: 0;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	background-image: url(nav.png);
+}
+
+.herlan ul li{
+display: inline;
+}
+
+.herlan ul li a{
+	float: left;
+	color: #FFFFFF;
+	padding: 5px 11px;
+	text-decoration: none;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #000000;
+}
+
+.herlan ul li a:visited{
+color: #FFFFFF;
+}
+
+.herlan ul li a:hover, .herlan ul li .selected{
+	color: #FFFF00 !important;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background: #808040;
+}

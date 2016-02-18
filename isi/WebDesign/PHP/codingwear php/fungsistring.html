@@ -1,0 +1,549 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Fungsi String di PHP</title>
+<link rel="stylesheet" href="fungsistring_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="54%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p><p>&nbsp;</p></td>
+   
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>4. Fungsi String di PHP</h2>
+<ol>
+<li><a href="#addslashes">addslashes</a> - Memberi garis miring pada tanda kutip</li>
+<li><a href="#chr">chr</a> - Menghasilkan karakter yang spesifik&nbsp; 
+berdasarkan kode ascii</li>
+<li><a href="#count_chars">count_chars</a> - Menghitung frekuensi munculnya 
+karakter di suatu string</li>
+<li><a href="#explode">explode</a> - Membagi string menjadi array</li>
+<li><a href="#htmlspecialchars">htmlspecialchars</a> - Konversi karakter khusus 
+ke HTML entities</li>
+<li><a href="#implode">implode</a> - Menggabungkan element array ke suatu string</li>
+<li><a href="#md5">md5</a> - Menghasilkan enkripsi md5</li>
+<li><a href="#nl2br">nl2br</a> - Memasukan HTML &lt;br&gt; di setiap baris baru</li>
+<li><a href="#number_format">number_format</a> - Format angka dengan dengan 
+menggroupkan ribuan</li>
+<li><a href="#ord">ord</a> - Menghasilkan nilai ASCII suatu karakter</li>
+<li><a href="#parse_str">parse_str</a> - Mengubah string menjadi variabel</li>
+<li><a href="#print">print</a> - Mencetak string, sama dengan echo</li>
+<li><a href="#str_pad">str_pad</a> - Menempatkan string ditempat yang panjangnya 
+ditentukan</li>
+<li><a href="#str_repeat">str_repeat</a> - Mengulang string</li>
+<li><a href="#str_replace">str_replace</a> - Mengganti string yang dicari dengan 
+string pengganti</li>
+<li><a href="#str_shuffle">str_shuffle</a> - Mengacak string</li>
+<li><a href="#str_split">str_split</a> - Mengubah string ke array</li>
+<li><a href="#str_word_count">str_word_count</a> - Menghitung jumlah kata dalam 
+string</li>
+<li><a href="#strip_tags">strip_tags</a> - Menghilangkan tag HTML dan PHP</li>
+<li><a href="#stripslashes">stripslashes</a> - Menghilangkan garis miring tanda 
+kutip di string</li>
+<li><a href="#strlen">strlen</a> - Mendapatkan panjang string</li>
+<li><a href="#strrev">strrev</a> - Membalikkan string</li>
+<li><a href="#substr_replace">substr_replace</a> - Mengganti teks pada bagian 
+tertentu string</li>
+<li><a href="#substr">substr</a> - Menghasilkan bagian dari string</li>
+</ol>
+<h3><a name="addslashes">addslashes</a></h3>
+<p>Fungsi : Memberi garis miring atau slash jika ada tanda kutip pada string</p>
+<p>Sintaks :</p>
+<p></p><pre><b>addslashes</b> ( string $str )
+</pre><p></p>
+<p>Contoh :</p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">"Sekarang hari jum'at"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">addslashes</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span>
+<span class="hl slc">//Hasilnya : Sekarang hari jum\'at</span>
+?<span class="hl opt">&gt;</span>
+</pre><p></p>
+<h3><a name="chr">chr</a></h3>
+<p>Fungsi : Menghasilkan karakter yang spesifik berdasarkan kode ascii</p><p>Sintaks 
+:
+</p><p></p><pre><b>chr</b> ( int $ascii )
+</pre>
+<p>Parameter :</p><p>$ascii = kode ascii</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$kode</span> <span class="hl opt">=</span> <span class="hl num">81</span><span class="hl opt">;</span>
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl kwd">chr</span><span class="hl opt">(</span><span class="hl kwc">$kode</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl str">"karakter dengan kode ascii $kode adalah $str"</span><span class="hl opt">;</span>
+<span class="hl slc">//Hasilnya : karakter dengan kode ascii 81 adalah Q</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3><a name="count_chars">count_chars</a></h3>
+<p>Fungsi : Menghitung frekuensi munculnya karakter di suatu string</p><p>Sintaks :</p><p>
+</p><pre><b>count_chars</b> ( string $string [, int $mode= 0 ] )
+</pre>
+<p>
+Parameter :</p><p>
+$string = String yang ingin dihitung frekuensi karakter yang muncul</p><p>
+$mode = Opsional, Default = 0</p><ul>
+  <li>0 - Menghitung semua karakter dalam bentuk array, walaupun nggak ada di 
+  dalam string</li>
+  <li>1 - Sama seperti 0, tapi hanya yang jumlah frekuensi besar dari 0, artinya 
+  hanya karakter yang ada di dalam string</li>
+  <li>2 - Sama seperti 0, tapi hanya karakter yang jumlah frekuensinya sama 
+  dengan 0</li>
+  </ul>
+<p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$data</span> <span class="hl opt">=</span> <span class="hl str">"Hello World"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">foreach</span> <span class="hl opt">(</span><span class="hl kwd">count_chars</span><span class="hl opt">(</span><span class="hl kwc">$data</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">)</span> <span class="hl kwa">as</span> <span class="hl kwc">$i</span> <span class="hl opt">=&gt;</span> <span class="hl kwc">$val</span><span class="hl opt">) {</span>
+   <span class="hl kwa">echo</span> <span class="hl str">"Ada $val buah karakter</span> <span class="hl esc">\"</span><span class="hl str">"</span> <span class="hl opt">,</span> <span class="hl kwd">chr</span><span class="hl opt">(</span><span class="hl kwc">$i</span><span class="hl opt">) ,</span> <span class="hl str">"</span><span class="hl esc">\"</span> <span class="hl str">di dalam string.</span><span class="hl esc">\n</span><span class="hl str">&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<p>
+Hasilnya :</p><p>
+</p><pre>Ada 1 buah karakter " " di dalam string. 
+Ada 1 buah karakter "H" di dalam string. 
+Ada 1 buah karakter "W" di dalam string. 
+Ada 1 buah karakter "d" di dalam string. 
+Ada 1 buah karakter "e" di dalam string. 
+Ada 3 buah karakter "l" di dalam string. 
+Ada 2 buah karakter "o" di dalam string. 
+Ada 1 buah karakter "r" di dalam string. 
+</pre>
+<h3>
+<a name="explode">explode</a></h3>
+<p>
+Fungsi : Membagi string menjadi array berdasarkan string pembatas yang 
+ditentukan</p><p>
+Sintaks :</p><p>
+</p><pre><b>explode</b> ( string $delimiter , string $string [, int $limit ] )
+</pre>
+<p>
+Parameter :</p><p>
+$delimiter : string pembatas</p><p>
+$string : string yang akan dibagi</p><p>
+$limit : Batas maksimal elemen array yang dibuat</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">'one|two|three|four'</span><span class="hl opt">;</span>
+
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwd">explode</span><span class="hl opt">(</span><span class="hl str">'|'</span><span class="hl opt">,</span><span class="hl kwc">$str</span><span class="hl opt">));</span>
+
+<span class="hl slc">// hanya 2 elemen array</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwd">explode</span><span class="hl opt">(</span><span class="hl str">'|'</span><span class="hl opt">,</span> <span class="hl kwc">$str</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">));</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya :</p><p>
+</p><pre>Array
+(
+    [0] =&gt; one
+    [1] =&gt; two
+    [2] =&gt; three
+    [3] =&gt; four
+)
+Array
+(
+    [0] =&gt; one
+    [1] =&gt; two|three|four
+)
+</pre>
+<h3>
+<a name="htmlspecialchars">htmlspecialchars</a></h3>
+<p>
+Fungsi : Mengubah karakter &lt; dan &gt; menjadi &amp;lt; dan &amp;gt;. Ini sangat berguna 
+untuk mencegah user yang menggunakan tag html ketika menginput data ke website 
+kita, seperti melalui buku tamu, dan sebagainya.</p><p>
+Sintaks :</p><p>
+</p><pre><b>htmlspecialchars</b> ( string $string )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$teks</span> <span class="hl opt">=</span> <span class="hl str">"&lt;b&gt;hai apa kabar&lt;/b&gt;"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">htmlspecialchars</span><span class="hl opt">(</span><span class="hl kwc">$teks</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3>
+<a name="implode">implode</a></h3>
+<p>
+Fungsi : menggabungkan elemen array menjadi satu string</p><p>
+Sintaks :</p><p>
+</p><pre><b>implode</b> ( [string $antara] , array $array )
+</pre><p>
+Parameter :</p><p>
+$antara, string atau karakter antara elemen yang akan disatukan, bersifat 
+opsional, bisa diisi atau tidak</p><p>
+$array, array yang akan disatukan.</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$array</span> <span class="hl opt">=</span> <span class="hl kwa">array</span><span class="hl opt">(</span><span class="hl str">'lastname'</span><span class="hl opt">,</span> <span class="hl str">'email'</span><span class="hl opt">,</span> <span class="hl str">'phone'</span><span class="hl opt">);</span>
+<span class="hl kwc">$teksbaru</span> <span class="hl opt">=</span> <span class="hl kwd">implode</span><span class="hl opt">(</span><span class="hl str">"--"</span><span class="hl opt">,</span><span class="hl kwc">$array</span><span class="hl opt">);</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$teksbaru</span><span class="hl opt">;</span>
+<span class="hl slc">//hasilnya lastname--email--phone</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="md5">md5</a></h3>
+<p>
+Fungsi : untuk men-ekripsi string dengan teknik md5, bersifat satu arah, artinya 
+tidak ada fungsi untuk mengembalikannya/dekripsi. Kecuali kalau pake kode 
+hacking khusus</p><p>
+Sintaks :</p><p>
+</p><pre><b>md5</b> (string $string)
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$password</span> <span class="hl opt">=</span> <span class="hl str">"passwordku"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">md5</span><span class="hl opt">(</span><span class="hl kwc">$password</span><span class="hl opt">);</span>
+<span class="hl slc">//Hasilnya : 88f200b77cccee4a6e95c383d33e0f22</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3><a name="nl2br">nl2br</a></h3>
+<p>Fungsi : mengubah baris baru (\n) menjadi &lt;br&gt;, berguna jika anda ingin 
+ketika user input di teks area, kemudian menekan enter. Nah supaya ntar baris 
+baru yang dibuat di teksarea bisa diampilkan harus diubah \n menjadi &lt;br&gt;</p>
+<p>Sintaks :</p>
+<p></p><pre><b>nl2br</b> ( string $string )
+</pre><p></p>
+  <p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$teks</span> <span class="hl opt">=</span> <span class="hl str">"Hai</span> <span class="hl esc">\n</span> <span class="hl str">Apakabar"</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$teks</span> <span class="hl opt">=</span> <span class="hl kwd">nl2br</span><span class="hl opt">(</span><span class="hl kwc">$teks</span><span class="hl opt">);</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$teks</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="number_format">number_format</a></h3>
+<p>
+Format angka dengan dengan menggroupkan ribuan</p><p>
+Sintaks :</p><p>
+</p><pre><b>number_format</b> ( float $number [, int $decimals ] )
+atau
+<b>number_forma</b>t ( float $number , int $decimals , string $dec_point , string $thousands_sep )
+</pre><p>
+$number, adalah angka yang akan diformat</p><p>
+$decimals, adalah jumlah angka di belakang koma</p><p>
+$dec_point, adalah tanda desimal, apakah pake titik atau koma</p><p>
+$thousands_sep, adalah tanda pembagi ribuan, apakah koma atau titik atau lainnya</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$number</span> <span class="hl opt">=</span> <span class="hl num">123564.56</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$format_number</span> <span class="hl opt">=</span> <span class="hl kwd">number_format</span><span class="hl opt">(</span><span class="hl kwc">$number</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">,</span> <span class="hl str">'.'</span><span class="hl opt">,</span> <span class="hl str">','</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$format_number</span><span class="hl opt">;</span>
+
+<span class="hl slc">//Hasil 123,564.56</span>
+?<span class="hl opt">&gt;</span>
+
+</pre><h3>
+<a name="ord">ord</a></h3>
+<p>
+Fungsi : Menghasilkan nilai ASCII suatu karakter, kebalikan dari fungsi chr()</p><p>
+Sintaks :</p><p>
+</p><pre><b>ord</b> ( string $string )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">"x"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">ord</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span>
+<span class="hl slc">//Hasilnya 120</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="parse_str">parse_str</a></h3>
+<p>
+Fungsi : Mengubah string menjadi variabel</p><p>
+Sintaks :</p><p>
+</p><pre><b>parse_str</b> ( string $str [, array &amp;$arr ] )
+</pre><p>
+Parameter :</p><p>
+$str, adalah string yang akan di ubah, anda juga bisa membuat string menjadi 
+variabel seperti metode GET, contoh : file.php?<b>nama=desrizal&amp;alamat=tembagapura</b></p><p>
+$arr, adalah outputnya dalam bentuk array</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">"nama=Desrizal&amp;email=drz@desrizal.com"</span><span class="hl opt">;</span>
+<span class="hl kwd">parse_str</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$nama</span><span class="hl opt">;</span>                 <span class="hl slc">// Hasilnya Desrizal</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$email</span><span class="hl opt">;</span>                <span class="hl slc">// Hasilnya drz@desrizal.com</span>
+
+<span class="hl kwd">parse_str</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">,</span> <span class="hl kwc">$output</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$output</span><span class="hl opt">[</span><span class="hl str">'nama'</span><span class="hl opt">];</span>       <span class="hl slc">// Hasilnya Desrizal</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$output</span><span class="hl opt">[</span><span class="hl str">'email'</span><span class="hl opt">]</span>       <span class="hl slc">// Hasilnya drz@desrizal.com</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="print">print</a></h3>
+<p>
+Fungsi : sama seperti echo, menghasilkan/mencetak string</p><p>
+Sintaks :</p><p>
+</p><pre><b>print</b> (String $str )
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">print</span><span class="hl opt">(</span><span class="hl str">"Hello World"</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="str_pad">str_pad</a></h3>
+<p>
+Fungsi : Menempatkan string ditempat yang panjangnya ditentukan</p><p>
+Sintaks</p><p>
+</p><pre><b>str_pad</b> ( string $input , int $pad_length [, string $pad_string= " " [, int $pad_type= STR_PAD_RIGHT ]] )
+</pre><p>
+Parameter :</p><p>
+$input, adalah string input</p><p>
+$pad_length, adalah panjang pad</p><p>
+$pad_string, adalah string mengisi kekosongan</p><p>
+$pad_type, adalah tipe pad, kanan (STR_PAD_RIGHT), kiri( STR_PAD_LEFT), atau 
+tengah( STR_PAD_BOTH)</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$input</span> <span class="hl opt">=</span> <span class="hl str">"Desrizal"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">str_pad</span><span class="hl opt">(</span><span class="hl kwc">$input</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>                      <span class="hl slc">// Hasil "Desrizal       "</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">str_pad</span><span class="hl opt">(</span><span class="hl kwc">$input</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">,</span> <span class="hl str">"-="</span><span class="hl opt">,</span> STR_PAD_LEFT<span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>  <span class="hl slc">// Hasil "-=-=-=-Desrizal"</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">str_pad</span><span class="hl opt">(</span><span class="hl kwc">$input</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">,</span> <span class="hl str">"_"</span><span class="hl opt">,</span> STR_PAD_BOTH<span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>   <span class="hl slc">// Hasil "___Desrizal____"</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">str_pad</span><span class="hl opt">(</span><span class="hl kwc">$input</span><span class="hl opt">,</span> <span class="hl num">15</span> <span class="hl opt">,</span> <span class="hl str">"___"</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>              <span class="hl slc">// Hasil "Desrizal_______"</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="str_repeat">str_repeat</a></h3>
+<p>
+Fungsi : mengulang string</p><p>
+Sintaks :</p><p>
+</p><pre><b>str_repeat</b> ( string $input , int $multiplier )
+</pre><p>
+Parameter :</p><p>
+$input, adalah string yang akan diulang</p><p>
+$multiplier, berapa kali diulang</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">str_repeat</span><span class="hl opt">(</span><span class="hl str">"x"</span><span class="hl opt">,</span> <span class="hl num">10</span><span class="hl opt">);</span>
+<span class="hl slc">//hasilnya xxxxxxxxxx</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="str_replace">str_replace</a></h3>
+<p>
+Fungsi : Mengganti string yang dicari dengan string pengganti</p><p>
+Sintaks :</p><p>
+</p><pre><b>str_replace</b> ( mixed $search , mixed $replace , mixed $subject [, int &amp;$count ] )
+</pre><p>
+Parameter :</p><p>
+$search, adalah bagian string yang akan di ganti</p><p>
+$replace, adalah string pengganti</p><p>
+$subject, adalah string yang akan diproses</p><p>
+$count, jumlah bagian yang cocok dan diganti</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">"Hello Apa kabar"</span><span class="hl opt">;</span>
+<span class="hl kwc">$str2</span> <span class="hl opt">=</span> <span class="hl kwd">str_replace</span><span class="hl opt">(</span><span class="hl str">"a"</span><span class="hl opt">,</span><span class="hl str">"x"</span><span class="hl opt">,</span><span class="hl kwc">$str</span><span class="hl opt">,</span><span class="hl kwc">$count</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$str2</span><span class="hl opt">.</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$count</span><span class="hl opt">;</span>
+<span class="hl slc">//Hasil : Hello Apx kxbxr</span>
+<span class="hl slc">//hasil 3</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3>
+<a name="str_shuffle">str_shuffle</a></h3>
+<p>
+Fungsi : mengacak string</p><p>
+Sintaks :</p><p>
+</p><pre><b>str_shuffle</b> ( string $str )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">str_shuffle</span><span class="hl opt">(</span><span class="hl str">"Desrizal"</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Hasilnya macam macam bisa : zDisalre</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="str_split">str_split</a></h3>
+<p>
+Fungsi : Mengubah string ke array</p><p>
+Sintaks :</p><p>
+</p><pre><b>str_split</b> ( string $string [, int $split_length= 1 ] )
+</pre><p>
+$string, adalah string yang akan di ubah</p><p>
+$split_length adalah maksimum panjang potongan</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">"Hello Friend"</span><span class="hl opt">;</span>
+
+<span class="hl kwc">$arr1</span> <span class="hl opt">=</span> <span class="hl kwd">str_split</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span>
+<span class="hl kwc">$arr2</span> <span class="hl opt">=</span> <span class="hl kwd">str_split</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">);</span>
+
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$arr1</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$arr2</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya :</p><p>
+</p><pre>Array
+(
+    [0] =&gt; H
+    [1] =&gt; e
+    [2] =&gt; l
+    [3] =&gt; l
+    [4] =&gt; o
+    [5] =&gt;  
+    [6] =&gt; F
+    [7] =&gt; r
+    [8] =&gt; i
+    [9] =&gt; e
+    [10] =&gt; n
+    [11] =&gt; d
+)
+Array
+(
+    [0] =&gt; He
+    [1] =&gt; ll
+    [2] =&gt; o 
+    [3] =&gt; Fr
+    [4] =&gt; ie
+    [5] =&gt; nd
+)
+</pre><h3>
+<a name="str_word_count">str_word_count</a></h3>
+<p>
+Fungsi : Menghitung jumlah kata dalam string</p><p>
+Sintaks :</p><p>
+</p><pre><b>str_word_count</b> ( string $string [, int $format= 0 [, string $charlist ]] )
+</pre><p>
+Parameter :</p><p>
+$string, adalah string yang akan dihitung</p><p>
+$format</p><ul>
+  <li>0 - jumlah kata yang ditemukan</li>
+  <li>1 - Menghasilkan suatu array yang merupakan semua kata yang ditemukan 
+  dalam string</li>
+  <li>2 - Menghasilkan array asosiatif</li>
+  </ul>
+  <p>$charlist, karakter tambahan yang dianggap kata</p>
+  <p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">"Budi pergi ke pasar"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">str_word_count</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span>
+<span class="hl slc">//hasilnya 4</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="strip_tags">strip_tags</a></h3>
+<p>
+Fungsi : Menghilangkan tag HTML dan PHP</p><p>
+Sintaks :</p><p>
+</p><pre><b>strip_tags</b> ( string $str [, string $allowable_tags ] )
+</pre><p>
+Parameter :</p><p>
+$str, string yang akan dihilangkan tag HTML nya</p><p>
+$allowable_tags, adalah tag yang tidak akan dihilangkan</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$teks</span> <span class="hl opt">=</span> <span class="hl str">"&lt;b&gt;Hallo apa kabar&lt;/b&gt;"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">strip_tags</span><span class="hl opt">(</span><span class="hl kwc">$teks</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3>
+<a name="stripslashes">stripslashes</a></h3>
+<p>
+Fungsi : Menghilangkan garis miring tanda kutip di string</p><p>
+Sintaks :</p><p>
+</p><pre><b>stripslashes</b> ( string $str )
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">"Sekarang hari jum</span><span class="hl esc">\'</span><span class="hl str">at"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwd">stripslashes</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span>
+<span class="hl slc">// Hasil: Sekarang hari jum'at</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="strlen">strlen</a></h3>
+<p>
+Fungsi : Mendapatkan panjang string</p><p>
+Sintaks :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">'abcdef'</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strlen</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span> <span class="hl slc">// hasil 6</span>
+
+<span class="hl kwc">$str</span> <span class="hl opt">=</span> <span class="hl str">' ab cd '</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">strlen</span><span class="hl opt">(</span><span class="hl kwc">$str</span><span class="hl opt">);</span> <span class="hl slc">// hasil 7</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="strrev">strrev</a></h3>
+<p>
+Fungsi : Membalikkan string</p><p>
+Sintaks :</p><p>
+</p><pre><b>strrev</b> ( string $string )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">strrev</span><span class="hl opt">(</span><span class="hl str">"Hello world!"</span><span class="hl opt">);</span> <span class="hl slc">// Hasil "!dlrow olleH"</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3>
+<a name="substr_replace">substr_replace</a></h3>
+<p>
+Fungsi : Mengganti teks pada bagian tertentu string</p><p>
+Sintaks :</p><p>
+</p><pre><b>substr_replace</b> ( mixed $string , string $replacement , int $start [, int $length ] )
+</pre>
+<p>
+Parameter :</p><p>
+$string, adalah string yang akan diproses/diganti</p><p>
+$replacement, adalah string pengganti dari substring yang ditentukan</p><p>
+$start, adalah sub string diawali dari karakter ke berapa</p><p>
+$length, adalah panjang sub string</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$teks</span> <span class="hl opt">=</span> <span class="hl str">"Desrizal"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">substr_replace</span><span class="hl opt">(</span><span class="hl kwc">$teks</span><span class="hl opt">,</span> <span class="hl str">'bob'</span><span class="hl opt">,</span> <span class="hl num">3</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">);</span>
+<span class="hl slc">//hasilnya : Desbobzal</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="substr">substr</a></h3>
+<p>
+Fungsi : Menghasilkan bagian dari string</p><p>
+Sintaks : </p><p>
+</p><pre><b>substr</b> ( string $string , int $start [, int $length ] )
+</pre>
+<p>
+Parameter :</p><p>
+$string, adalah string yang akan diambil bagiannya</p><p>
+$start, posisi awal karakter yang akan diambil</p><p>
+$length, adalah panjang dari subs string</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">substr</span><span class="hl opt">(</span><span class="hl str">"Desrizal"</span><span class="hl opt">,</span> <span class="hl num">3</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>          <span class="hl slc">//Hasilnya rizal</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">substr</span><span class="hl opt">(</span><span class="hl str">"Desrizal"</span><span class="hl opt">,</span> <span class="hl num">3</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>       <span class="hl slc">//Hasilnya ri</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">substr</span><span class="hl opt">(</span><span class="hl str">"Desrizal"</span><span class="hl opt">, -</span><span class="hl num">3</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>         <span class="hl slc">//Hasilnya zal</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">substr</span><span class="hl opt">(</span><span class="hl str">"Desrizal"</span><span class="hl opt">, -</span><span class="hl num">3</span><span class="hl opt">,</span> <span class="hl num">2</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>      <span class="hl slc">//Hasilnya za</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<p>&nbsp;
+</p></div>
+</center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

@@ -1,0 +1,185 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Fungsi Direktori</title>
+<link rel="stylesheet" href="direktori_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%"><font face="Arial" size="4">www.coding</font><font color="#CCCCCC" face="Arial Black" size="4">wear</font><font face="Arial" size="4">.com</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="61%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>10. Fungsi Direktori</h2>
+<ol>
+<li><a href="#chdir">chdir</a>&nbsp; - Mengubah lokasi direktori dari lokasi saat ini dibuka</li><li>
+<a href="#closedir">closedir</a> - Menutup direktori yang ditangani</li><li>
+<a href="#getcwd">getcwd</a> - Mendapatkan nama direktori saat ini dibuka</li><li>
+<a href="#opendir">opendir</a> - Membuka direktori</li><li>
+<a href="#readdir">readdir</a> - Membaca isi direktori</li><li><a href="#scandir">scandir</a> - Mendaftar 
+file dan direktori dari path yang diberikan</li></ol>
+<h3><a name="chdir">chdir</a></h3>
+<p>Fungsi: Mengubah lokasi direktori dari lokasi saat ini dibuka</p>
+<p>Sintaks:</p>
+<p></p><pre><b>chdir</b> ( string $directory )
+</pre><p></p>
+<p>Contoh:
+</p><p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+
+<span class="hl slc">// Direktori saat ini</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">getcwd</span><span class="hl opt">() .</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+
+<span class="hl kwd">chdir</span><span class="hl opt">(</span><span class="hl str">'gambar'</span><span class="hl opt">);</span>
+
+<span class="hl slc">// Direktori saat ini</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">getcwd</span><span class="hl opt">() .</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+
+?<span class="hl opt">&gt;</span>
+</pre>
+<p>
+Hasilnya:</p><p>
+</p><pre>D:\wamp\www\panduanphp\tes
+D:\wamp\www\panduanphp\tes\gambar
+</pre><h3>
+<a name="closedir">closedir</a></h3>
+<p>
+Fungsi: Menutup direktori yang ditangani</p><p>
+Sintaks:</p><p>
+</p><pre><b>closedir</b> ([ resource $dir_handle ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$dir</span> <span class="hl opt">=</span> <span class="hl str">"gambar"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">is_dir</span><span class="hl opt">(</span><span class="hl kwc">$dir</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwc">$dh</span> <span class="hl opt">=</span> <span class="hl kwd">opendir</span><span class="hl opt">(</span><span class="hl kwc">$dir</span><span class="hl opt">)) {</span>
+        <span class="hl kwc">$directory</span> <span class="hl opt">=</span> <span class="hl kwd">readdir</span><span class="hl opt">(</span><span class="hl kwc">$dh</span><span class="hl opt">);</span>
+        <span class="hl kwd">closedir</span><span class="hl opt">(</span><span class="hl kwc">$dh</span><span class="hl opt">);</span>
+    <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+
+</pre><h3>
+<a name="getcwd">getcwd</a></h3>
+<p>
+Fungsi: Mendapatkan nama direktori saat ini dibuka</p><p>
+Sintaks:</p><p>
+</p><pre><b>getcwd</b> ( void )
+</pre>
+<p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">getcwd</span><span class="hl opt">();</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="opendir">opendir</a></h3>
+<p>
+Fungsi: Membuka direktori</p><p>
+Sintaks:</p><p>
+</p><pre><b>opendir</b> ( string $path [, resource $context ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$dir</span> <span class="hl opt">=</span> <span class="hl str">"gambar/"</span><span class="hl opt">;</span>
+
+<span class="hl slc">// Membuka direktori dan membaca dan menampilkan isinya</span>
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">is_dir</span><span class="hl opt">(</span><span class="hl kwc">$dir</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwc">$dh</span> <span class="hl opt">=</span> <span class="hl kwd">opendir</span><span class="hl opt">(</span><span class="hl kwc">$dir</span><span class="hl opt">)) {</span>
+        <span class="hl kwa">while</span> <span class="hl opt">((</span><span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl kwd">readdir</span><span class="hl opt">(</span><span class="hl kwc">$dh</span><span class="hl opt">)) !==</span> false<span class="hl opt">) {</span>
+            <span class="hl kwa">echo</span> <span class="hl str">"filename: $file : filetype: "</span> <span class="hl opt">.</span> <span class="hl kwd">filetype</span><span class="hl opt">(</span><span class="hl kwc">$dir</span> <span class="hl opt">.</span> <span class="hl kwc">$file</span><span class="hl opt">) .</span> <span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+        <span class="hl opt">}</span>
+        <span class="hl kwd">closedir</span><span class="hl opt">(</span><span class="hl kwc">$dh</span><span class="hl opt">);</span>
+    <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>filename: . : filetype: dir
+filename: .. : filetype: dir
+filename: facebook.png : filetype: file
+filename: iklan2.jpg : filetype: file
+filename: latar2.psd : filetype: file
+</pre>
+<h3>
+<a name="readdir">readdir</a></h3>
+<p>
+Fungsi: Membaca isi direktori</p><p>
+Sintaks:</p><p>
+</p><pre><b>readdir </b>([ resource $dir_handle ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwc">$handle</span> <span class="hl opt">=</span> <span class="hl kwd">opendir</span><span class="hl opt">(</span><span class="hl str">'.'</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">while</span> <span class="hl opt">(</span>false <span class="hl opt">!== (</span><span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl kwd">readdir</span><span class="hl opt">(</span><span class="hl kwc">$handle</span><span class="hl opt">))) {</span>
+        <span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwc">$file</span> <span class="hl opt">!=</span> <span class="hl str">"."</span> <span class="hl opt">&amp;&amp;</span> <span class="hl kwc">$file</span> <span class="hl opt">!=</span> <span class="hl str">".."</span><span class="hl opt">) {</span>
+            <span class="hl kwa">echo</span> <span class="hl str">"$file</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+        <span class="hl opt">}</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwd">closedir</span><span class="hl opt">(</span><span class="hl kwc">$handle</span><span class="hl opt">);</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="scandir">scandir</a></h3>
+<p>
+Fungsi: Menampilkan file dan direktori dari path yang diberikan dalam bentuk 
+array</p><p>
+Sintaks:</p><p>
+</p><pre>scandir ( string $directory [, int $sorting_order= 0 [, resource $context ]] )
+</pre>
+<p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$dir</span>    <span class="hl opt">=</span> <span class="hl str">'gambar'</span><span class="hl opt">;</span>
+<span class="hl kwc">$files1</span> <span class="hl opt">=</span> <span class="hl kwd">scandir</span><span class="hl opt">(</span><span class="hl kwc">$dir</span><span class="hl opt">);</span>
+<span class="hl kwc">$files2</span> <span class="hl opt">=</span> <span class="hl kwd">scandir</span><span class="hl opt">(</span><span class="hl kwc">$dir</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">);</span>
+
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$files1</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$files2</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya:</p><p>
+</p><pre>Array
+(
+    [0] =&gt; .
+    [1] =&gt; ..
+    [2] =&gt; facebook.png
+    [3] =&gt; iklan2.jpg
+    [4] =&gt; latar2.psd
+)
+Array
+(
+    [0] =&gt; latar2.psd
+    [1] =&gt; iklan2.jpg
+    [2] =&gt; facebook.png
+    [3] =&gt; ..
+    [4] =&gt; .
+)
+</pre></div>
+<p>
+
+<br>
+</p></center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

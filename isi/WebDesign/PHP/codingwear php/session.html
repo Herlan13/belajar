@@ -1,0 +1,118 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Session di PHP</title>
+<link rel="stylesheet" href="session_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%"><font face="Arial" size="4">www.coding</font><font color="#CCCCCC" face="Arial Black" size="4">wear</font><font face="Arial" size="4">.com</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="54%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p><p>&nbsp;</p></td>
+    
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>5. Autentikasi dengan Session</h2>
+<ol>
+<li><a href="#pendahuluan">Pendahuluan</a></li><li><a href="#register">Cara Membuat atau Register Session</a></li><li>
+<a href="#cek">Cara Mengecek Session 
+Telah Teregister</a></li><li><a href="#logout">Cara Un-Register 
+Session (Log Out)</a></li><li><a href="#contoh">Contoh Sederhana Session</a></li></ol>
+<h3><a name="pendahuluan">1. Pendahuluan</a></h3>
+<p>Autentikasi adalah suatu mekanisme untuk mengatur hak akses suatu halaman 
+web, biasanya diawali dengan adanya proses login. Dimana user diminta menginput 
+user id dan password. Jika berhasil login anda berhak masuk ke suatu halaman, 
+jika tidak..anda tidak akan bisa masuk ke halaman tersebut</p>
+<p>Session adalah sebuah varibel sementara yang diletakkan di server. Di mana 
+PHP bisa mengambil nilai yang tersimpan di server walaupun kita membuka halaman 
+baru. Biasanya session akan hilang jika anda menutup browser.</p>
+<h3><a name="register">2. Cara Membuat atau Register Session</a></h3>
+<p>Cara membuat session adalah sebagai berikut :</p>
+<ol>
+  <li>Deklarasi awal kalau kita menggunakan session, yaitu menggunakan fungsi
+  <font face="Courier New" size="2"><b>session_start(</b>)</font></li>
+  <li>Set suatu nilai ke variabel <b><font face="Courier New" size="2">$_SESSION</font></b></li>
+</ol>
+<p>Contoh :</p>
+<p><b>halaman1.php</b></p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwd">session_start</span><span class="hl opt">();</span>
+
+<span class="hl kwc">$_SESSION</span><span class="hl opt">[</span><span class="hl str">'namauser'</span><span class="hl opt">] =</span> <span class="hl str">"Desrizal"</span><span class="hl opt">;</span>
+
+<span class="hl kwa">echo</span> <span class="hl kwc">$_SESSION</span><span class="hl opt">[</span><span class="hl str">'namauser'</span><span class="hl opt">];</span>
+
+<span class="hl kwa">echo</span> <span class="hl str">"&lt;a href='halaman2.php'&gt;Ke Halaman 2&lt;/a&gt;"</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<p></p>
+<p><font color="#FF0000">Catatan :</font></p>
+<p><font color="#FF0000">Kode session_start() harus diletakkan sebelum ada output apapun walaupun 
+hanya spasi, jadi sebaikanya selalu letakkan di bagian paling atas</font></p>
+<h3><a name="cek">3. Cara Mengecek Session Telah Teregister</a></h3>
+<p>Setelah kita me-registerkan variabel <font face="Courier New" size="2">$_SESSION</font>, maka untuk mengecek apakah 
+session telah diregister adalah dengan menggunakan fungsi <b>
+<font face="Courier New" size="2">isset()</font></b>.</p>
+<p>Pada contoh di atas (<b>halaman1.php</b>), setelah kita me-register
+<font face="Courier New" size="2">$_SESSION['namauser']</font>, kita akan ke <b>
+halaman2.php</b></p>
+<p>Di halaman2.php kita akan cek apakah variabel session telah di register, jika 
+belum kita stop membuka isi halaman2.php</p>
+<p><b>halaman2.php</b></p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwd">session_start</span><span class="hl opt">();</span>
+
+<span class="hl kwa">if</span><span class="hl opt">(!</span><span class="hl kwa">isset</span><span class="hl opt">(</span><span class="hl kwc">$_SESSION</span><span class="hl opt">[</span><span class="hl str">'namauser'</span><span class="hl opt">])){</span>
+    <span class="hl slc">//jika session belum di set/register</span>
+    <span class="hl kwa">die</span><span class="hl opt">(</span><span class="hl str">"Anda belum register kan session"</span><span class="hl opt">);</span>
+<span class="hl opt">}</span>
+
+<span class="hl slc">//jika sudah register kita lanjut</span>
+?<span class="hl opt">&gt;</span>
+<span class="hl opt">&lt;</span>h2<span class="hl opt">&gt;</span>Selamat Datang<span class="hl opt">&lt;/</span>h2<span class="hl opt">&gt;</span>
+
+<span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwc">$_SESSION</span><span class="hl opt">[</span><span class="hl str">'namauser'</span><span class="hl opt">];</span>
+?<span class="hl opt">&gt;</span>
+</pre><p></p>
+<p>Untuk melihat efeknya antara variabel $_SESSION sudah diregister atau belum, 
+coba anda tutup browser, lalu buka lagi browsernya, langsung buka halaman <b>
+halaman2.php</b>. Tanpa membuka <b>halaman1.php</b> terlebih dahulu</p>
+<h3><a name="logout">4. Cara Un-Register Session (Log Out)</a></h3>
+<p>Setelah kita belajar me-register session, maka cara un-register session 
+adalah dengan menggunakan fungsi <b>unset()</b></p>
+<p><b>logout.php</b></p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwd">session_start</span><span class="hl opt">();</span>
+
+<span class="hl kwa">unset</span><span class="hl opt">(</span><span class="hl kwc">$_SESSION</span><span class="hl opt">[</span><span class="hl str">'namauser'</span><span class="hl opt">]);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p></p>
+<h3><a name="contoh">5. Contoh Sederhana Session</a></h3>
+<p>Berikut adalah contoh untuk membuat login dan autentikasi dengan session</p>
+<p>Silahkan lihat di : <a href="http://blog.codingwear.com/baca.php?no=19">http://blog.codingwear.com/baca.php?no=19</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;
+</p></div></center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>

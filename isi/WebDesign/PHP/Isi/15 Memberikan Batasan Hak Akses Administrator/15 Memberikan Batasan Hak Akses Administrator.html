@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+  <h1>Memberikan Batasan Hak Akses Administrator</h1>
+
+<div class="content_col">
+  <p>Pada tutorial kali ini kita akan <em><strong>memberikan batasan hak akses administrator atau memberikan hak akses ke halaman admin web</strong></em>,
+   artinya jika ada pengunjung website yang jahi mencoba mengakses 
+halaman   utama website kita dengan cara mengetikkan URL website, 
+misalnya   mengetikkan "<span style="color:#ff0000; ">http://websiteku.com/fileadmin/home.php</span>"
+   maka orang yang mencoba mengakses URL tersebut akan di bawa ke 
+halaman   logout dan diminta untuk login menggunakan username dan 
+password.</p>
+  <h3>Setelah anda memiliki atau <a title="Halaman Administrator Website" href="http://mous-design.com/membuat-halaman-administrator-website-dreamweaver.html" target="_blank">membuat halaman administrator</a>
+ yang saya sudah jelaskan pada tutorial sebelumnya, langsung saja   
+sekarang kita mulai memberikan batasan hak akses administrator.</h3>
+  <p>Buka program adobe dreamweaver anda, kemudian buat file php baru simpan dalam folder <strong>fileadmin</strong> tekan <strong>Ctrl + S</strong> beri nama <strong>logout.php</strong></p>
+  <p>Selanjutnya buka file <strong>home.php</strong> &gt; pada menu bar klik <strong>Insert</strong> &gt; <strong>Data Objects</strong> &gt; <strong>User Authentication</strong> &gt; <strong>Restric Access To Page</strong></p>
+  <p>Setelah muncut jendela <strong>Restric Access To Page</strong> isikan pengaturan sebagai berikut :</p>
+  <ul>
+    <li>Restric based on : <strong>Username and Password</strong></li>
+    <li>If Access denied, go to : klik brows pilih file <strong>logout.php</strong></li>
+  </ul>
+  <p><img class="alignnone img size-full wp-image-1450" title="restric-to-page---memberikan-batasan-hak-akses-administrator" src="15%20Memberikan%20Batasan%20Hak%20Akses%20Administrator_files/01.jpg" alt="restric to page memberikan batasan hak akses administrator Memberikan Batasan Hak Akses Administrator" height="251" width="561" /></p>
+  <p><strong>If Access denied, go to</strong> ini kira - kira maksudnya,
+   jika ada user yang mencoba mengakses halaman administrator website 
+anda   tanpa proses login maka orang tersebut akan di bawa ke halaman   
+logout.php</p>
+  <p>Silahkan coba ketikkan di browser anda "<strong>http://localhost/websiteku.com/fileadmin/home.php</strong>" maka secara otomatis anda akan di bawa ke halaman kosong.</p>
+  <p>Setelah tutorial ini saya akan jelaskan bagaimana <a title="Membuat Halaman Log out" href="http://mous-design.com/membuat-halaman-log-out-di-dreamweaver-cs3.html"><strong>cara membuat halaman logout</strong></a>
+ &lt;&lt;diklik aja linknya :D&nbsp; gak usah pikir panjang lagi 
+heehehhe,   caranya juga simple banget seperti memberikan batasan hak 
+akses ini.</p>
+</div>
+</body></html>

@@ -1,0 +1,565 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+
+<meta name="Keywords" content="PHP, PHP manual Indonesia">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>PHP Manual Indonesia : Fungsi Filesystem di PHP</title>
+<link rel="stylesheet" href="filesystem_files/gaya.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<table style="border-collapse: collapse;" border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" bgcolor="#75933D" height="26" width="100%"><font face="Arial" size="4">www.coding</font><font color="#CCCCCC" face="Arial Black" size="4">wear</font><font face="Arial" size="4">.com</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#C2D699" height="5" width="100%"></td>
+  </tr>
+  <tr>
+    <td height="113" width="53%">
+    <h1>Panduan PHP dan MySQL Indonesia 1.0</h1>
+    <p>Oleh : Desrizal (http://blog.codingwear.com)
+
+    </p></td>
+   
+  </tr>
+  <tr>
+    <td style="padding: 10px;" colspan="2" width="100%">
+<!---konten------------------------------------------------>
+<center>
+<div style="text-align:left">
+<h2>8. Fungsi Filesystem</h2>
+<ol>
+<li><a href="#basename">basename</a> - Menghasilkan nama file dari suatu path
+</li>
+<li><a href="#chmod">chmod</a> - Mengubah mode akses file</li>
+<li><a href="#chown">chown</a> - Mengubah pemilik file</li>
+<li><a href="#copy">copy</a> - Meng-copy file</li>
+<li><a href="#dirname">dirname</a> - Menghasilkan nama direktori dari suatu path file</li>
+<li><a href="#disk_free_space">disk_free_space</a> - Menghasilkan sisa space disk suatu direktori</li>
+<li><a href="#disk_total_space">disk_total_space</a> - Menghasilkan total size direktori</li>
+<li><a href="#fclose">fclose</a> - Menutup file yang dibuka</li>
+<li><a href="#fgetc">fgetc</a> - Mengambil karakter-karakter suatu file teks</li>
+<li><a href="#fgets">fgets</a> - Mengambil baris-baris dari file</li>
+<li><a href="#file_exists">file_exists</a> - Cek apakah file atau direktori tersebut ada 
+atau tidak</li>
+<li><a href="#file_get_contents">file_get_contents</a> - Membaca isi file keseluruhan</li>
+<li><a href="#file_put_contents">file_put_contents</a> - Menulis teks ke file</li>
+<li><a href="#file">file</a> - Membaca isi file ke dalam array</li>
+<li><a href="#fileatime">fileatime</a> - Mendapatkan waktu akses terakhir suatu file</li>
+<li><a href="#filesize">filesize</a> - Mendapatkan ukuran file</li>
+<li><a href="#filetype">filetype</a> - Mendapatkan tipe file</li>
+<li><a href="#fopen">fopen</a> - Membuka file atau URL</li>
+<li><a href="#is_dir">is_dir</a> - Cek apakah filename adalah sebuah directori</li>
+<li><a href="#is_executable">is_executable</a> - Cek apakah filename bisa di eksekusi</li>
+<li><a href="#is_file">is_file</a> - Cek apakah filename adalah sebuah file</li>
+<li><a href="#is_readable">is_readable</a> - Cek apakah filename bisa dibaca</li>
+<li><a href="#is_writable">is_writable</a> - Cek apakah filename bisa ditulis</li>
+<li><a href="#mkdir">mkdir</a> - Membuat direktori</li>
+<li><a href="#move_uploaded_file">move_uploaded_file</a> - Memindahkan file yang diupload ke lokasi baru</li>
+<li><a href="#rename">rename</a> - Rename file atau directori</li>
+<li><a href="#rmdir">rmdir</a> - Delete direktori</li>
+<li><a href="#unlink">unlink</a> - Delete file </li>
+</ol>
+<h3><a name="basename">basename</a></h3>
+<p>Fungsi : Menghasilkan nama file dari suatu path</p>
+<p>Sintaks :</p>
+<p></p><pre><b>basename</b> ( string $path [, string $suffix ] )
+</pre><p></p>
+<p>Parameter :</p><p>$path, adalah alamat file dengan lokasi direktorinya, contoh : 
+/var/www/gambar/fileku.jpg</p><p>$suffix, akan menghilangkan akhirannya sesuai 
+string $suffix</p><p>Contoh :
+</p><p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$path</span> <span class="hl opt">=</span> <span class="hl str">"/home/httpd/html/index.php"</span><span class="hl opt">;</span>
+<span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl kwd">basename</span><span class="hl opt">(</span><span class="hl kwc">$path</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$file</span><span class="hl opt">;</span>                         <span class="hl slc">//Hasilnya index.php</span>
+
+<span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl kwd">basename</span><span class="hl opt">(</span><span class="hl kwc">$path</span><span class="hl opt">,</span> <span class="hl str">".php"</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$file</span><span class="hl opt">;</span>                         <span class="hl slc">//Hasilnya index</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+</p><h3><a name="chmod">chmod</a></h3>
+<p>Fungsi : Mengubah mode akses file, untuk linux, unix</p><p>Sintaks :</p><p>
+</p><pre><b>chmod</b> ( string $filename , int $mode )
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">// Read dan write hanya untuk pemilik</span>
+<span class="hl kwd">chmod</span><span class="hl opt">(</span><span class="hl str">"/direktori/filesaya"</span><span class="hl opt">,</span> <span class="hl num">0600</span><span class="hl opt">);</span>
+
+<span class="hl slc">// Pemilik bisa apa aja, read dan execute untuk others</span>
+<span class="hl kwd">chmod</span><span class="hl opt">(</span><span class="hl str">"/direktori/filesaya"</span><span class="hl opt">,</span> <span class="hl num">0755</span><span class="hl opt">);</span>
+
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="chown">chown</a></h3>
+<p>
+Fungsi : Mengubah pemilik file</p><p>
+Sintaks :</p><p>
+</p><pre><b>chown</b> ( string $filename , mixed $user )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$file_name</span><span class="hl opt">=</span> <span class="hl str">"foo.php"</span><span class="hl opt">;</span>
+<span class="hl kwc">$path</span> <span class="hl opt">=</span> <span class="hl str">"/home/sites/php.net/public_html/sandbox"</span> <span class="hl opt">.</span> <span class="hl kwc">$file_name</span> <span class="hl opt">;</span>
+<span class="hl kwc">$user_name</span> <span class="hl opt">=</span> <span class="hl str">"root"</span><span class="hl opt">;</span>
+
+<span class="hl slc">// Set pemilik file</span>
+<span class="hl kwd">chown</span><span class="hl opt">(</span><span class="hl kwc">$path</span><span class="hl opt">,</span> <span class="hl kwc">$user_name</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="copy">copy</a></h3>
+<p>
+Fungsi : Mengcopy file</p><p>
+Sintaks :</p><p>
+</p><pre><b>copy</b> ( string $source , string $dest [, resource $context ] )
+</pre><p>
+Parameter :</p><p>
+$source , adalah file yang akan dicopy</p><p>
+$dest, adalah file tujuan</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl str">'upload.php'</span><span class="hl opt">;</span>
+<span class="hl kwc">$newfile</span> <span class="hl opt">=</span> <span class="hl str">'uploadcopy.php'</span><span class="hl opt">;</span>
+
+<span class="hl kwa">if</span> <span class="hl opt">(!</span><span class="hl kwd">copy</span><span class="hl opt">(</span><span class="hl kwc">$file</span><span class="hl opt">,</span> <span class="hl kwc">$newfile</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"gagal copy file $file...</span><span class="hl esc">\n</span><span class="hl str">"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"File $file berhasil di copy"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre>
+<h3><a name="dirname">dirname</a></h3>
+<p>Fungsi : Menghasilkan nama direktori dari suatu path file</p>
+<p>Sintaks :</p>
+<p></p><pre><b>dirname</b> ( string $path )
+</pre>Contoh :<p></p>
+<p></p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$path</span> <span class="hl opt">=</span> <span class="hl str">"/www/gambar/pic.jpg"</span><span class="hl opt">;</span>
+<span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl kwd">dirname</span><span class="hl opt">(</span><span class="hl kwc">$path</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$file</span><span class="hl opt">;</span>
+
+<span class="hl slc">//Hasilnya /www/gambar</span>
+?<span class="hl opt">&gt;</span>
+</pre><p></p>
+<h3>
+<a name="disk_free_space">disk_free_space</a></h3>
+<p>
+Fungsi : Menghasilkan sisa space disk suatu direktori (dalam bytes)</p><p>
+Sintaks :</p><p>
+</p><pre><b>disk_free_space</b> ( string $directory )
+</pre>
+<p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//linux, unix</span>
+<span class="hl kwc">$df</span> <span class="hl opt">=</span> <span class="hl kwd">disk_free_space</span><span class="hl opt">(</span><span class="hl str">"/"</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Windows:</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">disk_free_space</span><span class="hl opt">(</span><span class="hl str">"C:"</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">disk_free_space</span><span class="hl opt">(</span><span class="hl str">"D:"</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="disk_total_space">disk_total_space</a></h3>
+<p>
+Fungsi : Menghasilkan total size direktori (dalam bytes)</p><p>
+Sintaks :</p><p>
+</p><pre><b>disk_total_space</b> ( string $directory )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl slc">//linux , unix</span>
+<span class="hl kwc">$df</span> <span class="hl opt">=</span> <span class="hl kwd">disk_total_space</span><span class="hl opt">(</span><span class="hl str">"/"</span><span class="hl opt">);</span>
+
+<span class="hl slc">//Windows:</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">disk_total_space</span><span class="hl opt">(</span><span class="hl str">"C:"</span><span class="hl opt">).</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">disk_total_space</span><span class="hl opt">(</span><span class="hl str">"D:"</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="fclose">fclose</a></h3>
+<p>
+Fungsi : Menutup file yang dibuka</p><p>
+Sintaks :</p><p>
+</p><pre><b>fclose</b> ( resource $handle )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl kwd">fopen</span><span class="hl opt">(</span><span class="hl str">'somefile.txt'</span><span class="hl opt">,</span> <span class="hl str">'r'</span><span class="hl opt">);</span>
+
+<span class="hl kwd">fclose</span><span class="hl opt">(</span><span class="hl kwc">$file</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="fgetc">fgetc</a></h3>
+<p>
+Fungsi : Mengambil karakter-karakter suatu file teks</p><p>
+Sintaks :</p><p>
+</p><pre><b>fgetc</b> ( resource $handle )
+</pre><p>
+Contoh :</p><p>
+Misal anda punya <b>filesaya.txt</b>, yang isinya :</p><p>
+</p><pre>Desrizal</pre>
+<p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$fp</span> <span class="hl opt">=</span> <span class="hl kwd">fopen</span><span class="hl opt">(</span><span class="hl str">'filesaya.txt'</span><span class="hl opt">,</span> <span class="hl str">'r'</span><span class="hl opt">);</span>
+<span class="hl kwa">if</span> <span class="hl opt">(!</span><span class="hl kwc">$fp</span><span class="hl opt">) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">'filesaya.txt nggak ada'</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+<span class="hl kwa">while</span> <span class="hl opt">(</span>false <span class="hl opt">!== (</span><span class="hl kwc">$char</span> <span class="hl opt">=</span> <span class="hl kwd">fgetc</span><span class="hl opt">(</span><span class="hl kwc">$fp</span><span class="hl opt">))) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"$char&lt;br&gt;"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Hasilnya :</p><p>
+</p><pre>d
+e
+s
+r
+i
+z
+a
+l
+</pre><h3>
+<a name="fgets">fgets</a></h3>
+<p>
+Fungsi :  Mengambil baris-baris dari file</p><p>
+Sintaks :</p><p>
+</p><pre><b>fgets</b> ( resource $handle [, int $length ] )
+</pre><p>
+Parameter :</p><p>
+$handle, adalah file yang akan diambil barisnya</p><p>
+$length, adalah panjang/ukuran file, isi aja kira kira yang melebihi panjang 
+file</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$handle</span> <span class="hl opt">= @</span><span class="hl kwd">fopen</span><span class="hl opt">(</span><span class="hl str">"filesaya.txt"</span><span class="hl opt">,</span> <span class="hl str">"r"</span><span class="hl opt">);</span>
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwc">$handle</span><span class="hl opt">) {</span>
+    <span class="hl kwa">while</span> <span class="hl opt">(!</span><span class="hl kwd">feof</span><span class="hl opt">(</span><span class="hl kwc">$handle</span><span class="hl opt">)) {</span>
+        <span class="hl kwc">$buffer</span> <span class="hl opt">=</span> <span class="hl kwd">fgets</span><span class="hl opt">(</span><span class="hl kwc">$handle</span><span class="hl opt">,</span> <span class="hl num">1000000</span><span class="hl opt">);</span>
+        <span class="hl kwa">echo</span> <span class="hl kwc">$buffer</span><span class="hl opt">.</span><span class="hl str">"&lt;br&gt;"</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwd">fclose</span><span class="hl opt">(</span><span class="hl kwc">$handle</span><span class="hl opt">);</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="file_exists">file_exists</a></h3>
+<p>
+Fungsi : Cek apakah file atau direktori tersebut ada</p><p>
+Sintaks :</p><p>
+</p><pre><b>file_exists</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$filename</span> <span class="hl opt">=</span> <span class="hl str">'filesaya.txt'</span><span class="hl opt">;</span>
+
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">file_exists</span><span class="hl opt">(</span><span class="hl kwc">$filename</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"File $filename ada"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span> <span class="hl kwa">else</span> <span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"File $filename nggak ada"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="file_get_contents">file_get_contents</a></h3>
+<p>
+Fungsi : Membaca isi file/ web keseluruhan menjadi string</p><p>
+Sintaks :</p><p>
+</p><pre><b>file_get_contents</b> ( string $filename [, int $flags= 0 [, resource $context [, int $offset= -1 
+[, int $maxlen= -1 ]]]] )
+</pre><p>
+Parameter :</p><p>
+$filename, file atau web yang akan dibaca isinya</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$homepage</span> <span class="hl opt">=</span> <span class="hl kwd">file_get_contents</span><span class="hl opt">(</span><span class="hl str">'http://blog.codingwear.com/'</span><span class="hl opt">);</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$homepage</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="file_put_contents">file_put_contents</a></h3>
+<p>
+Fungsi : Menulis teks ke file</p><p>
+Sintaks :</p><p>
+</p><pre><b>file_put_contents</b> ( string $filename , mixed $data [, int $flags= 0 [, resource $context ]] )
+</pre><p>
+$filename, file yang akan ditulis</p><p>
+$data, data yang kan ditulis ke file, bisa string atau array</p><p>
+$flags, option, FILE_APPEND (jika file sudah ada, teks akan ditambahkan)</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl str">'data.txt'</span><span class="hl opt">;</span>
+<span class="hl kwc">$nama</span> <span class="hl opt">=</span> <span class="hl str">'Desrizal'</span><span class="hl opt">;</span>
+<span class="hl kwd">file_put_contents</span><span class="hl opt">(</span><span class="hl kwc">$file</span><span class="hl opt">,</span> <span class="hl kwc">$nama</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>
+Contoh di atas akan membuat file data.txt dan menuliskan Desrizal di data.txt</p><h3>
+<a name="file">file</a></h3>
+<p>
+Fungsi : Membaca isi file perbatis, dimasukkan ke dalam array</p><p>
+Sintaks :</p><p>
+</p><pre><b>file</b> ( string $filename [, int $flags= 0 [, resource $context ]] )
+</pre><p>
+Parameter :</p><p>
+$filenama, file yang akan dibaca isinya</p><p>
+$flags, option :</p><ul>
+  <li>FILE_IGNORE_NEW_LINES&nbsp; : Jangan tambahkan baris baru di akhir elemen 
+  array </li>
+  <li>FILE_SKIP_EMPTY_LINES&nbsp; : Abaikan baris yang kosong</li>
+  </ul>
+  <p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$lines</span> <span class="hl opt">=</span> <span class="hl kwd">file</span><span class="hl opt">(</span><span class="hl str">'filesaya.txt'</span><span class="hl opt">);</span>
+<span class="hl kwd">print_r</span><span class="hl opt">(</span><span class="hl kwc">$lines</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="fileatime">fileatime</a></h3>
+<p>
+Fungsi : Mendapatkan waktu akses terakhir suatu file</p><p>
+Sintaks :</p><p>
+</p><pre><b>fileatime</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$filename</span> <span class="hl opt">=</span> <span class="hl str">'filesaya.txt'</span><span class="hl opt">;</span>
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">file_exists</span><span class="hl opt">(</span><span class="hl kwc">$filename</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"$filename terakhir kali diakses pada: "</span> <span class="hl opt">.</span> <span class="hl kwd">date</span><span class="hl opt">(</span><span class="hl str">"F d Y H:i:s."</span><span class="hl opt">,</span> <span class="hl kwd">fileatime</span><span class="hl opt">(</span><span class="hl kwc">$filename</span><span class="hl opt">));</span>
+<span class="hl opt">}</span>
+<span class="hl slc">//filesaya.txt terakhir kali diakses pada: October 30 2010 17:34:13</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="filesize">filesize</a></h3>
+<p>
+Fungsi : Mendapatkan ukuran file</p><p>
+Sintaks :</p><p>
+</p><pre><b>filesize</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$filename</span> <span class="hl opt">=</span> <span class="hl str">'filesaya.txt'</span><span class="hl opt">;</span>
+<span class="hl kwa">echo</span> <span class="hl kwc">$filename</span> <span class="hl opt">.</span> <span class="hl str">': '</span> <span class="hl opt">.</span> <span class="hl kwd">filesize</span><span class="hl opt">(</span><span class="hl kwc">$filename</span><span class="hl opt">) .</span> <span class="hl str">' bytes'</span><span class="hl opt">;</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="filetype">filetype</a></h3>
+<p>
+Fungsi : Mendapatkan tipe file</p><p>
+Sintaks :</p><p>
+</p><pre><b>filetype</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">echo</span> <span class="hl kwd">filetype</span><span class="hl opt">(</span><span class="hl str">'filesaya.txt'</span><span class="hl opt">);</span>  <span class="hl slc">// file</span>
+<span class="hl kwa">echo</span> <span class="hl kwd">filetype</span><span class="hl opt">(</span><span class="hl str">'/var/'</span><span class="hl opt">);</span>         <span class="hl slc">// dir</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="fopen">fopen</a></h3>
+<p>
+Fungsi : Membuka file atau URL</p><p>
+Sintaks :</p><p>
+</p><pre><b>fopen </b>( string $filename , string $mode [, bool $use_include_path= false [, resource $context ]] )
+</pre>
+<p>
+$filename, namafile atau URL</p><p>
+$mode :<table class="doctable table">
+  <thead valign="center">
+    <tr valign="center">
+      <th bgcolor="#99CC00" valign="middle"><i><tt class="parameter">mode</tt></i>
+      </th>
+      <th bgcolor="#99CC00" valign="middle">Description</th>
+    </tr>
+  </thead>
+  <tbody class="tbody" valign="center">
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle"><i>'r'</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle">Dibuka hanya untuk 
+      untuk dibaca; pointer diletakkan di awal file</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle"><i>'r+'</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle">Dibuka untuk dobaca dan 
+      ditulis; pointer diletakkan di awal file</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle"><i>'w'</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle">Dibuka hanya untuk 
+      ditulis; pointer diletakkan diawal file, jika file tidak ada, akan dibuat 
+      otomatis</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle"><i>'w+'</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle">Dibuka untuk dibaca dan 
+      ditulis; pointer diletakkan diawal file, jika file tidak ada, akan dibuat 
+      otomatis</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle"><i>'a'</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle">Dibuka hanya 
+      untukditulis; pointer diletakkan di akhir file, jika file belum ada, akan 
+      dibuat otomatis.</td>
+    </tr>
+    <tr valign="center">
+      <td align="left" bgcolor="#EFEFEF" valign="middle"><i>'a+'</i></td>
+      <td align="left" bgcolor="#EFEFEF" valign="middle">Dibuka hanya 
+      untukdibaca dan ditulis; pointer diletakkan di akhir file, jika file belum 
+      ada, akan dibuat otomatis.</td>
+    </tr>
+</tbody></table>
+</p><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$handle</span> <span class="hl opt">=</span> <span class="hl kwd">fopen</span><span class="hl opt">(</span><span class="hl str">"/home/rasmus/file.txt"</span><span class="hl opt">,</span> <span class="hl str">"r+"</span><span class="hl opt">);</span>
+<span class="hl kwc">$handle</span> <span class="hl opt">=</span> <span class="hl kwd">fopen</span><span class="hl opt">(</span><span class="hl str">"http://www.example.com/"</span><span class="hl opt">,</span> <span class="hl str">"r"</span><span class="hl opt">);</span>
+<span class="hl kwc">$handle</span> <span class="hl opt">=</span> <span class="hl kwd">fopen</span><span class="hl opt">(</span><span class="hl str">"ftp://user:password@example.com/somefile.txt"</span><span class="hl opt">,</span> <span class="hl str">"w"</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="is_dir">is_dir</a></h3>
+<p>
+Fungsi: Cek apakah filename adalah sebuah directori</p><p>
+Sintaks :</p><p>
+</p><pre><b>is_dir</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwd">is_dir</span><span class="hl opt">(</span><span class="hl str">'filesaya.txt'</span><span class="hl opt">)){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Ini adalah direktori"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Ini adalah file"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="is_executable">is_executable</a></h3>
+<p>
+Fungsi: Cek apakah filename bisa di eksekusi</p><p>
+Sintaks :</p><p>
+</p><pre><b>is_executable</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$file</span> <span class="hl opt">=</span> <span class="hl str">'filesaya.txt'</span><span class="hl opt">;</span>
+
+<span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwd">is_executable</span><span class="hl opt">(</span><span class="hl kwc">$file</span><span class="hl opt">)) {</span>
+    <span class="hl kwa">echo</span> <span class="hl kwc">$file</span><span class="hl opt">.</span><span class="hl str">' bisa dieksekusi'</span><span class="hl opt">;</span>
+<span class="hl opt">}</span> <span class="hl kwa">else</span> <span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl kwc">$file</span><span class="hl opt">.</span><span class="hl str">' tidak bisa dieksekusi'</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="is_file">is_file</a></h3>
+<p>
+Fungsi: Cek apakah filename adalah sebuah file</p><p>
+Sitaks :</p><p>
+</p><p>
+</p><pre><b>is_file</b> ( string $filename )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwd">is_file</span><span class="hl opt">(</span><span class="hl str">'filesaya.txt'</span><span class="hl opt">)){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Ini adalah file"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"Ini bukan file"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="is_readable">is_readable</a></h3>
+<p>
+Fungsi: Cek apakah filename bisa dibaca</p><p>
+Sintaks:</p><p>
+</p><pre><b>is_readable</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwd">is_readable</span><span class="hl opt">(</span><span class="hl str">'filesaya.txt'</span><span class="hl opt">)){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"file ini bisa dibaca"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"file ini tidak bisa dibaca"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="is_writable">is_writable</a></h3>
+<p>
+Fungsi: Cek apakah filename bisa ditulis</p><p>
+Sintaks :</p><p>
+</p><pre><b>is_writable</b> ( string $filename )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwa">if</span><span class="hl opt">(</span><span class="hl kwd">is_writable</span><span class="hl opt">(</span><span class="hl str">'filesaya.txt'</span><span class="hl opt">)){</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"file ini bisa ditulis"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span><span class="hl kwa">else</span><span class="hl opt">{</span>
+    <span class="hl kwa">echo</span> <span class="hl str">"file ini tidak bisa ditulis"</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="mkdir">mkdir</a></h3>
+<p>
+Fungsi: Membuat direktori</p><p>
+Sintaks:</p><p>
+</p><pre><b>mkdir</b> ( string $pathname [, int $mode= 0777 [, bool $recursive= false [, resource $context ]]] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwd">mkdir</span><span class="hl opt">(</span><span class="hl str">"gambar"</span><span class="hl opt">,</span> <span class="hl num">0700</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="move_uploaded_file">move_uploaded_file</a></h3>
+<p>
+Fungsi: Memindahkan file yang diupload ke lokasi baru</p><p>
+Sintaks:</p><p>
+</p><pre><b>move_uploaded_file</b> ( string $filename , string $destination )
+</pre><p>
+Contoh :</p><p>
+Upload multiple file</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwc">$uploads_dir</span> <span class="hl opt">=</span> <span class="hl str">'/uploads'</span><span class="hl opt">;</span>
+<span class="hl kwa">foreach</span> <span class="hl opt">(</span><span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">"pictures"</span><span class="hl opt">][</span><span class="hl str">"error"</span><span class="hl opt">]</span> <span class="hl kwa">as</span> <span class="hl kwc">$key</span> <span class="hl opt">=&gt;</span> <span class="hl kwc">$error</span><span class="hl opt">) {</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span><span class="hl kwc">$error</span> <span class="hl opt">==</span> UPLOAD_ERR_OK<span class="hl opt">) {</span>
+        <span class="hl kwc">$tmp_name</span> <span class="hl opt">=</span> <span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">"pictures"</span><span class="hl opt">][</span><span class="hl str">"tmp_name"</span><span class="hl opt">][</span><span class="hl kwc">$key</span><span class="hl opt">];</span>
+        <span class="hl kwc">$name</span> <span class="hl opt">=</span> <span class="hl kwc">$_FILES</span><span class="hl opt">[</span><span class="hl str">"pictures"</span><span class="hl opt">][</span><span class="hl str">"name"</span><span class="hl opt">][</span><span class="hl kwc">$key</span><span class="hl opt">];</span>
+        <span class="hl kwd">move_uploaded_file</span><span class="hl opt">(</span><span class="hl kwc">$tmp_name</span><span class="hl opt">,</span> <span class="hl str">"$uploads_dir/$name"</span><span class="hl opt">);</span>
+    <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="rename">rename</a></h3>
+<p>
+Fungsi: Rename file atau directori</p><p>
+Sintaks:</p><p>
+</p><pre><b>rename</b> ( string $oldname , string $newname [, resource $context ] )
+</pre><p>
+Contoh :</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwd">rename</span><span class="hl opt">(</span><span class="hl str">"/tmp/tmp_file.txt"</span><span class="hl opt">,</span> <span class="hl str">"/home/user/login/docs/my_file.txt"</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="rmdir">rmdir</a></h3>
+<p>
+Fungsi: Delete direktori</p><p>
+Sintaks:</p><p>
+</p><pre><b>rmdir</b> ( string $dirname [, resource $context ] )
+</pre><p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwd">rmdir</span><span class="hl opt">(</span><span class="hl str">'examples'</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><h3>
+<a name="unlink">unlink</a></h3>
+<p>
+Fungsi: Delete file </p><p>
+Sintaks:</p><p>
+</p><pre><b>unlink</b> ( string $filename [, resource $context ] )
+</pre>
+<p>
+Contoh:</p><p>
+</p><pre class="hl"><span class="hl opt">&lt;</span>?php
+<span class="hl kwd">unlink</span><span class="hl opt">(</span><span class="hl str">'test.html'</span><span class="hl opt">);</span>
+?<span class="hl opt">&gt;</span>
+</pre><p>&nbsp;
+</p></div>
+<p>
+
+<br>
+</p></center></td>
+  </tr>
+  </tbody></table>
+
+
+</body></html>
