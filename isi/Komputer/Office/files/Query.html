@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>Query</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000000;
+}
+span.rvts7
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts8 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts9 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts10 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts11, span.rvts11 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+ background: #ffffff;
+}
+.rvps3
+{
+ text-align: justify;
+ background: #ffffff;
+}
+.rvps4
+{
+ text-align: justify;
+ text-indent: -24px;
+ background: #ffffff;
+ margin: 0px 0px 0px 48px;
+}
+.rvps5
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 48px;
+}
+.rvps6
+{
+ text-align: justify;
+ text-indent: 24px;
+ background: #ffffff;
+}
+.rvps7
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 16px;
+}
+.rvps8
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 24px;
+}
+.rvps9
+{
+ text-align: justify;
+ text-indent: -24px;
+ background: #ffffff;
+ margin: 0px 0px 0px 96px;
+}
+.rvps10
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 96px;
+}
+.rvps11
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 72px;
+}
+.rvps12 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #008000;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps13 /* Paragraph Style */
+{
+ text-align: center;
+ background: #008000;
+ margin: 20px 0px 0px 0px;
+}
+.rvps14 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps12><span class=rvts0><span class=rvts8>Query</span></span></h1>
+<p class=rvps3><span class=rvts6>Query adalah 'permintaan data' kita berupa bahasa bisnis, untuk mengolah data dalam tabel(-tabel) menjadi satu informasi yang bisa dimengerti. Seperti mengelompokkan sepuluh penjualan terbesar oleh customer yang dimiliki. Ia bisa berdasarkan pada satu tabel saja, atau pada dua/lebih tabel, ataupun berdasarkan pada query yang telah ada.</span></p>
+<p class=rvps3><span class=rvts7>Query, Apasih Manfaatnya Query ?</span></p>
+<p class=rvps3><span class=rvts6>Dengan Query kita dapat :</span></p>
+<p class=rvps4><span class=rvts6>a. Menampilkan data-data tertentu pada suatu table, contohnya kita hanya ingin melihat data pada table barang yang kode barangnya "</span><span class=rvts7>B001</span><span class=rvts6>"</span></p>
+<p class=rvps4><span class=rvts6>b. Menampilkan data dari dua table atau lebih dengan syarat anatr table itu ada field yang berhubungan. Contohnya kita ingin melihat Nomor Faktur "</span><span class=rvts7>F0001</span><span class=rvts6>" itu siapa pemiliknya. Di sini kita mengambil data dari table Header Penjualan dan Table Karyawan, Sebagai penghubungnya adalah field </span><span class=rvts7>NIK</span><span class=rvts6>.</span></p>
+<p class=rvps4><span class=rvts6>c. Dapat melakukan operasi perhitungan.</span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps3><span class=rvts6>Itulah tiga fungsi utama query.</span></p>
+<p class=rvps3><span class=rvts6>Query biasanya digunakan sebagai sumber data untuk Report.dan Form.</span></p>
+<p class=rvps3><span class=rvts7>Bagaimanasih cara membuat query.</span></p>
+<p class=rvps3><span class=rvts6>Langkah-langkah membuat Query</span></p>
+<p class=rvps4><span class=rvts7>1. </span><span class=rvts6>Pada Jendela database pilih </span><span class=rvts7>Query </span><span class=rvts6>lalu klik dua kali Create </span><span class=rvts7>Query In Design View.</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_7.jpg"></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>2. Pada </span><span class=rvts7>Jendela Show Table </span><span class=rvts6>Pilih Table-Table yang akan dipakai dalam Query, mislanya kita pakai table Barang. </span><span class=rvts7>Klik Tbl_Barang </span><span class=rvts6>lalu klik </span><span class=rvts7>Add</span><span class=rvts6>. Jika tidak ada table yang ingin dipakai lagi klik </span><span class=rvts7>Close</span><span class=rvts6>.</span></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_8.jpg"></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Keterangan</span></p>
+<p class=rvps6><span class=rvts7>Field </span><span class=rvts6>= Nama Field yang ingn ditampilkan</span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps7><span class=rvts7>Table </span><span class=rvts6>= Nama Table dari Filed tersebut</span></p>
+<p class=rvps7><span class=rvts7>Sort </span><span class=rvts6>= Mengurutkan Data hasil query</span></p>
+<p class=rvps7><span class=rvts7>Show </span><span class=rvts6>= Mengatur Field ditampikan atau tidak</span></p>
+<p class=rvps7><span class=rvts7>Criteria </span><span class=rvts6>= Syarat dari data yang ingin ditampilkan</span></p>
+<p class=rvps4><span class=rvts6>3. Untuk menampilkan seluruh </span><span class=rvts7>Field </span><span class=rvts6>dan seluruh </span><span class=rvts7>Record </span><span class=rvts6>pada </span><span class=rvts7>Tbl_Barang </span><span class=rvts6>Pada </span><span class=rvts7>Field</span><span class=rvts6>, klik tombol panah ke bawah pilih </span><span class=rvts7>Tbl_Barang.*</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_9.jpg"></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>4. Untuk melihat hasil Query Pilih menu </span><span class=rvts7>Query </span><span class=rvts6>lalu klik </span><span class=rvts7>Run </span><span class=rvts6>atau bisa langsung mengklik icon Run pada toolbar.</span></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_10.jpg"></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps8><span class=rvts6>Hasilnya</span></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps8><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_11.jpg"></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>5. Untuk menyimpan </span><span class=rvts7>Query </span><span class=rvts6>klik </span><span class=rvts7>icon disket</span><span class=rvts6>, pada jendela save beri nama query lalu klik OK, Maka Query akan tersimpan dan dapat kita gunakan kapan saja.</span></p>
+<p class=rvps4><span class=rvts6>6. Untuk menampilkan field-field tertentu saja. Misalnya kita hanya ingin menampilkan Field </span><span class=rvts7>KoDe_Barang </span><span class=rvts6>dan </span><span class=rvts7>Nama_Barang</span><span class=rvts6>. Caranya pada Field klik tombol panah ke bawah. Pilih Field Kode_Barang, lalu arahkan kursor</span></p>
+<p class=rvps4><span class=rvts6>     kesebelahnya lalu klik tombol panah kebawah pilih Nama Barang. Pastikan kotak kecil pada show tercentang (jika kotak pada show tercentang maka field akan ditampilkan, tetapi bila tidak maka field tidak di tampilkan).</span></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_12.jpg"></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps8><span class=rvts6>Bila dijalankan, hasilnya</span></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps8><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_13.jpg"></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>7. Untuk Menampilkan data barang Yang Kode Barangnya = </span><span class=rvts7>B001</span><span class=rvts6>. caranya adalah Pilih field-filed yang akan ditampilkan pada field Kode_Barang Criterianya diketik </span><span class=rvts7>B001</span><span class=rvts6>.</span></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_14.jpg"></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts6>Bila dijalankan hasilnya</span></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps8><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_15.jpg"></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>8. Untuk Menampilkan nomor faktur "</span><span class=rvts7>F0001</span><span class=rvts6>" siapa yang punya. Caranya adalah pada saat kita memilih table yang akan digunakan pada query, Pilih Tbl_H_Pjl lalu klik </span><span class=rvts7>Add</span><span class=rvts6>, Pilih Tbl_Karyawan, baru klik </span><span class=rvts7>Close</span><span class=rvts6>. Kita harus membuat hubungan antara table Tbl_H_Pjl dangan Tbl_Karyawan caranya adalah klik field NIK pada Tbl_H_Pjl tahan lalu geser ke arah field NIK pada Tbl_karywan "akan muncul garis penghubung kedua table" (Jika sudah ada tidak perlu membuat penghubung). Pilih Field-field yang akan ditampilkan, pada field No_Fak pada criterinya diketik "</span><span class=rvts7>F0001</span><span class=rvts6>". Setelah itu Jalankan Query.</span></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_16.jpg"></p>
+<p class=rvps5><span class=rvts6><br></span></p>
+<p class=rvps8><span class=rvts6>Bila di jalankan hasilnya</span></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps8><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_17.jpg"></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>9. Untuk melakukan operasi perhitungan contohnya kita buat query untuk sub form penjualan. Caranya :</span></p>
+<p class=rvps9><span class=rvts6>a. Klik Query, lalu klik dua kali Design View pilih tbl_D_Pjl klik Add klik close</span></p>
+<p class=rvps9><span class=rvts6>b. Pada jendela Query buat Query seperti dibawah ini</span></p>
+<p class=rvps10><span class=rvts6><br></span></p>
+<p class=rvps9><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_18.jpg"></p>
+<p class=rvps10><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps11><span class=rvts6>Pada kolom terakhir pada field ketikan " </span><span class=rvts7>Total Harga = [Harga] * [Jumlah]</span></p>
+<p class=rvps11><span class=rvts6>Jika dijalankan Hasilnya</span></p>
+<p class=rvps11><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_19.jpg"></p>
+<p class=rvps11><span class=rvts6><br></span></p>
+<p class=rvps11><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps9><span class=rvts7>c. </span><span class=rvts6>Simpan Query dengan nama </span><span class=rvts7>qry_Detail_Penjualan</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>10. Query itu ada beberapa jenis yaitu :</span></p>
+<p class=rvps9><span class=rvts6>a. Select Query (yang sedang kita praktekan). Untuk menampilkan data</span></p>
+<p class=rvps9><span class=rvts6>b. Crosstab Query</span></p>
+<p class=rvps9><span class=rvts6>c. Make-Table Query (Untuk Menyimpan Data hasil Query kedalam rable Baru)</span></p>
+<p class=rvps9><span class=rvts6>d. Update Query.(untuk mengupdate nilai dari suatu record atau field)</span></p>
+<p class=rvps9><span class=rvts6>e. Append Query (untuk memasukan data hasil query kedalam table)</span></p>
+<p class=rvps9><span class=rvts6>f. Delete Query (Untuk menghapus data pada table)</span></p>
+<p class=rvps3><span class=rvts6>Untuk Query saya cukupkan sampai disini dulu untuk Query Crosstab, Update dan lainnya kita bahas dikesempatan yang lain.</span></p>
+<p class=rvps13><span class=rvts9>Copyright © Herlan Lesmana</span></p>
+<p class=rvps14><span class=rvts10>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts11 href="http://www.helpndoc.com" target="_blank">Easily create Web Help sites</a></p>
+</body></html>

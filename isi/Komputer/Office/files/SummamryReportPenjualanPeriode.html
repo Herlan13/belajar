@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>Summamry Report Penjualan Periode</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000000;
+}
+span.rvts7
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts8
+{
+ font-size: 12pt;
+ font-family: 'wingdings';
+ color: #000000;
+}
+span.rvts9 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts10 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts11 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts12, span.rvts12 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+ background: #ffffff;
+}
+.rvps3
+{
+ text-align: justify;
+ background: #ffffff;
+}
+.rvps4
+{
+ text-align: justify;
+ text-indent: -24px;
+ background: #ffffff;
+ margin: 0px 0px 0px 48px;
+}
+.rvps5
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 24px;
+}
+.rvps6
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 48px;
+}
+.rvps7
+{
+ text-align: justify;
+ text-indent: -24px;
+ background: #ffffff;
+ margin: 0px 0px 0px 72px;
+}
+.rvps8
+{
+ text-align: justify;
+ background: #ffffff;
+ margin: 0px 0px 0px 72px;
+}
+.rvps9
+{
+ text-align: justify;
+}
+.rvps10 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #008000;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps11 /* Paragraph Style */
+{
+ text-align: center;
+ background: #008000;
+ margin: 20px 0px 0px 0px;
+}
+.rvps12 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps10><span class=rvts0><span class=rvts9>Summamry Report Penjualan Periode</span></span></h1>
+<p class=rvps3><span class=rvts6>Digunakan untuk mencetak summary Penjualan yang terjadi selama periode yantelah ditentukan. Jika kita juga ingin membuat </span><span class=rvts7>summary Report Penjualan by periode</span><span class=rvts6>. Caranya hampir sama.</span></p>
+<p class=rvps4><span class=rvts6>1. Kita buat sumber datanya dulu, kita bisa </span><span class=rvts7>memodifikasi qry_Penjualanprd </span><span class=rvts6>yang kita buat. Caranya Pada </span><span class=rvts7>jendela database </span><span class=rvts6>klik </span><span class=rvts7>Query </span><span class=rvts6>klik </span><span class=rvts7>qry_Penjualanprd </span><span class=rvts6>klik </span><span class=rvts7>Design</span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_84.jpg"></p>
+<p class=rvps5><span class=rvts6>Kemudian kita rubah menjadi seperti ini. Pada query ini anda akan melihat </span><span class=rvts7>Total </span><span class=rvts6>dibawah </span><span class=rvts7>sort</span><span class=rvts6>. Untuk memunculkannya klik tombol </span><span class=rvts7>S </span><span class=rvts6>pada toolbar.</span></p>
+<p class=rvps5><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_85.jpg"></p>
+<p class=rvps5><span class=rvts6>klik File pilih Save As, simpan dengan nama </span><span class=rvts7>qry_SumPenjualanprd</span></p>
+<p class=rvps4><span class=rvts6>2. Sekarang mari kita buat reportnya</span></p>
+<p class=rvps4><span class=rvts6>- Pada </span><span class=rvts7>Jendela database </span><span class=rvts6>klik Report lalu klik </span><span class=rvts7>New</span><span class=rvts6>. Pada </span><span class=rvts7>jendela New report </span><span class=rvts6>Pilih </span><span class=rvts7>AutoReport Tabular</span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_86.jpg"></p>
+<p class=rvps5><span class=rvts6>Klik </span><span class=rvts7>OK</span><span class=rvts6>, jika muncul </span><span class=rvts7>input box </span><span class=rvts6>diklik </span><span class=rvts7>OK </span><span class=rvts6>saja, hasilnya</span></p>
+<p class=rvps5><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_87.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>- Klik </span><span class=rvts7>Design View </span><span class=rvts6>untuk masuk ke mode design</span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_88.jpg"></p>
+<p class=rvps3><span class=rvts6>Design Report diatas masih kurang bagus, untuk itu kita perlu merubahnya, caranya sama seperti pada design form. Design Report setelah di rubah</span></p>
+<p class=rvps3><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_89.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>- Simpan Report dengan nama </span><span class=rvts7>rpt_sum_Penjualanprd</span></p>
+<p class=rvps3><span class=rvts6>Sekarang kita buat report untuk laporan seluruh penjualan.</span></p>
+<p class=rvps3><span class=rvts7>Report Seluruh Penjualan Barang.</span></p>
+<p class=rvps3><span class=rvts6>Digunakan untuk mencetak seluruh penjualan yang pernah terjadi dari awal samapi sekarang. Berikut langkah-langkah pembuatan report ini</span></p>
+<p class=rvps4><span class=rvts6>1. Buat sumber datanya, kebetulan sumber datanya tidak jauh beda dengan qry_Penjualan prd. Untuk itu kita klik </span><span class=rvts7>qry_Penjualanprd</span><span class=rvts6>, klik </span><span class=rvts7>design </span><span class=rvts6>kemudian rubah isinya menjadi seperti dibawah ini. Criteria pada </span><span class=rvts7>Tgk_Fak </span><span class=rvts6>dihapus.</span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_90.jpg"></p>
+<p class=rvps5><span class=rvts6>Klik </span><span class=rvts7>File </span><span class=rvts8>?? </span><span class=rvts7>Save as </span><span class=rvts6>simpan dengan nama </span><span class=rvts7>qry_PenjualanAll</span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps4><span class=rvts6>2. Sekarang kita buat reportnya. Pada </span><span class=rvts7>Jendela database </span><span class=rvts6>klik </span><span class=rvts7>Report </span><span class=rvts6>lalu klik </span><span class=rvts7>New</span><span class=rvts6>. Pada jendela </span><span class=rvts7>New report </span><span class=rvts6>Pilih </span><span class=rvts7>AutoReport Tabular</span></p>
+<p class=rvps4><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_91.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Klik </span><span class=rvts7>OK </span><span class=rvts6>maka Report akan muncul</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_92.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Masuk ke mode design, kemudian arahkan </span><span class=rvts7>pointer mouse ke bagian report</span><span class=rvts6>, </span><span class=rvts7>klik kanan, pilih Sorting and Grooping, seting seperti dibawah ini</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_93.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Karena Sortnya berdasarkan No_Fak untuk itu No_Fak Geser ke Posisi Tgk_Fak dan sebaliknya. </span><span class=rvts7>Modifikasi Report menjadi seperti ini</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_94.jpg"></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Simpan dengan nama </span><span class=rvts7>rpt_PenjualanAll</span></p>
+<p class=rvps6><span class=rvts7>Report Summary Report Seluruh Penjualan</span></p>
+<p class=rvps6><span class=rvts6>Digunakan untuk mencetak summary penjualan yang terjadi dari awal samapai sekarang. Berikut langkah-langkah pembuatan report ini</span></p>
+<p class=rvps7><span class=rvts6>1. Seperti biasa kita buat sumber datanya dulu, Sumber datanya hampir sama dengan </span><span class=rvts7>qry_SumPenjualanprd</span><span class=rvts6>. Untuk itu klik </span><span class=rvts7>qry_SumPenjualanprd </span><span class=rvts6>lalu klik </span><span class=rvts7>design</span><span class=rvts6>, Hapus criteria yang ada pada field </span><span class=rvts7>Tgk_Fak</span></p>
+<p class=rvps7><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_95.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Simpan Query dengan nama qry_SumPenjualanAll</span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps7><span class=rvts6>2. Sekarang kita buat reportnya. Pada Jendela database klik Report lalu klik New. Pada jendela New report Pilih AutoReport Tabular dan qry_sumPenjualanAll</span></p>
+<p class=rvps7><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_96.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Klik OK maka Report akan muncul</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_97.jpg"></p>
+<p class=rvps6><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Masuk Ke mode design</span></p>
+<p class=rvps6><span class=rvts6><br></span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_98.jpg"></p>
+<p class=rvps6><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Kemudian modifikasi Report menjadi seperti ini</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_99.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Simpan dengan nama rpt_SumPenjualanAll</span></p>
+<p class=rvps6><span class=rvts7>Pembuatan Report Belanja Karyawan</span></p>
+<p class=rvps6><span class=rvts6>Tentunya kita mau tahu dong karyawan yang belanjanya paling banyak dikoperasi. Untuk kita perlu buat Report Belanja Karyawan, caranya</span></p>
+<p class=rvps7><span class=rvts6>1. Buat sumber datanya, buat query seperti dibawah ini</span></p>
+<p class=rvps7><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_100.jpg"></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Simpan Query dengan nama qry_SumBelanjaKaryawan</span></p>
+<p class=rvps7><span class=rvts6>3. Sekarang kita buat reportnya. Pada Jendela database klik Report lalu klik New. Pada jendela New report Pilih AutoReport Tabular dan qry_sumPenjualanAll</span></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps7><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_101.jpg"></p>
+<p class=rvps8><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Klik OK akan muncul dua kali input box sis masing-masing dengan 1/1/2 dan 1/31/2. Jika kita ingin mengetahui Karyawan yang belanja pada tanggal 1 Jauari 2002 s.d 31 januari 2002. maka Report akan muncul</span></p>
+<p class=rvps6><span class=rvts6><br></span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_102.jpg"></p>
+<p class=rvps6><span class=rvts6><br></span></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Masuk Ke mode design</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_103.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Kemudian modifikasi Report menjadi seperti ini</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_104.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Simpan dengan nama rpt_SumBelanjaKaryawan</span></p>
+<p class=rvps6><span class=rvts6>Semua Report telah selesai kita buat, kita kembali ke Form Laporan untuk menambahkan Tombol Tombol untuk mengaktifkan report yang telah kita buat</span></p>
+<p class=rvps6><span class=rvts6>Masuk ke mode design dari frm_laporan</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_105.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Pada Toolbox klik CommandButton lalu gambarkan di Form</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_106.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Klik Next, Pilih Report yang ingin di tampilkan misalanya kita ingin menampilkan Report Pejualan Periode, kita pilih rpt_Penjualanprd</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_107.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Klik Next, Klik Text, pada kotak ketik Penjualan by Periode</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_108.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Klik Next, Pada kotak ketik cmd_Penjulanprd (Sesuai dengan Report yang diaktifkan)</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_109.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Klik Finish. Maka akan terlihat</span></p>
+<p class=rvps6><img align=absbottom border=0 alt="" hspace=1 vspace=1 src="img_110.jpg"></p>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Tambahkan 4 CommandButton lagi untuk menampilkan Report yang lainnya, caranya sama seperti diatas. Berikut Settingan pada wizard untuk 4 CommandButton tersebut</span></p>
+<div class=rvps2><table border=1 cellpadding=0 cellspacing=-1 style="border-collapse: collapse;">
+<tr valign=top>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Wizard</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Command Button 2</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Command Button 3</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Command Button 4</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Command Button 5</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>1</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>sama</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>sama</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>sama</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Sama</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>2</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Rpt_SumPenjualanprd</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Rpt_PenjualanAll</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Rpt_SumPenjualanAll</span></p>
+</td>
+<td width=121 height=20 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Rpt_BelanjaKaryawan</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=121 height=29 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>3</span></p>
+</td>
+<td width=121 height=29 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Summary Penjualan by Periode</span></p>
+</td>
+<td width=121 height=29 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Penjualan Seluruhnya</span></p>
+</td>
+<td width=121 height=29 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Summary Penjualan Seluruhnya</span></p>
+</td>
+<td width=121 height=29 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Belanja Karyawan</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>4</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Cmd_Sumpjlprd</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Cmd_PjlAll</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Cmd_SumPjlAll</span></p>
+</td>
+<td width=121 height=10 valign=top style="border-style: inset;"><p class=rvps9><span class=rvts6>Cmd_bljKar</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class=rvps2><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Tambahkan satu CommandButton yang Fungsinya untuk keluar dari form ini caranya sama seperti pembutan Tombol keluar pad form Barang. Berikut Design</span></p>
+<p class=rvps6><span class=rvts6><br></span></p>
+<p class=rvps6><span class=rvts6>Form yang sudah jadi, Jangan lupa pad form Poperti set scrollbar, Record Selector, Navigation Button dan Dividing Line.</span></p>
+<p class=rvps11><span class=rvts10>Copyright © Herlan Lesmana</span></p>
+<p class=rvps12><span class=rvts11>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts12 href="http://www.helpndoc.com" target="_blank">Full featured multi-format Help generator</a></p>
+</body></html>
