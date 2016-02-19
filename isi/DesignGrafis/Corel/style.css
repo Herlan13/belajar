@@ -1,6 +1,6 @@
 .coklat {
 	font-family: Arial, Helvetica, sans-serif;
-	padding: 10px;
+	padding: 10px;padding-left:15px;
 	height: auto;
 	background-image: url(images/bg.png);
 	border:dotted 2px #825E39;
