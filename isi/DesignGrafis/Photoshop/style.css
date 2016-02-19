@@ -1,0 +1,40 @@
+.coklat {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px;
+	height: auto;
+	background-image: url(images/bg.png);
+	border:dotted 2px #825E39;
+	padding-right: 15px;
+}
+.coklat:hover {
+	background-color: #FFF;
+}
+.bos{
+	margin: 0 25px 0 15px;
+	padding: 10px;
+	text-align: left;
+	width: 85%;
+	overflow:auto;
+	clear:both;
+	max-height:300px;
+	border-left:solid 10px #693413;
+	-moz-box-shadow: inset 0px 0px 12px 2px #693413;
+	-webkit-box-shadow: inset 0px 0px 12px 2px #693413;
+	box-shadow: inset 0px 0px 12px 2px #693413;
+	color: #333;
+	background: #FCE8BB;/*Inner elements should not cover inner shadows*//*IE 7 AND 8 DO NOT SUPPORT INSET SHADOWS*/
+	font-weight: normal;
+}
+.bos:hover{
+	color:#000;
+	background-color:#FFF;
+}
+.merah {
+	color: #F00;
+	font-weight: bold;
+}
+.biru {
+	color: #00F;
+	font-weight: bold;
+}
+separator a{margin-left:0px !important;margin-right:0px !important;} .coklat img{max-width:96%;height:auto;}
