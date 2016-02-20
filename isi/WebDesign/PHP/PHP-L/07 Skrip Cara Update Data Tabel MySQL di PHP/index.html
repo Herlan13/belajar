@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="index_files/new-idea.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><span class="entry-content">Di bawah ini adalah contoh skrip   
+sederhana untuk memperbarui data dalam tabel MySQL karyawan. Untuk   
+memperbarui data dalam tabel MySQL, diperlukan satu kolom data dalam row
+   untuk menemukan row data yang akan di-update dengan menggunakan 
+klausa   bersyarat.</span></p>
+<p>Cara update data MySQL melalui PHP bisa dibilang cukup mudah karena  
+ kita hanya butuh mengeksekusi pernyataan UPDATE SQL melalui fungsi PHP <code>mysql_query</code>.</p>
+<p>Pada contoh di bawah, data kolom <code>id_karyawan</code> yang   
+dijadikan klausa bersyarat telah di format menjadi primary key untuk   
+menjaga keunikan tiap row. Silahkan anda coba contoh skrip berikut untuk
+   memahami operasi update. Kita menggunakan ID karyawan untuk 
+memperbarui   gaji karyawan, dan ingat untuk memastikan server apache 
+dalam kondisi   hidup.</p>
+<p>Jika belum mempunyai server apache, silahkan anda mengunjungi tutorial ” <a title="Cara Install XAMPP Web Server di Windows" href="http://www.nyekrip.com/cara-install-xampp-web-server-di-windows/" target="_blank"><strong>Cara Install XAMPP Web Server di Windows</strong></a> “.</p>
+<div id="crayon-56c88ff8b81c0660917616" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-11">11</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-12">12</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-13">13</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-14">14</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-15">15</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-16">16</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-17">17</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-18">18</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-19">19</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-20">20</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-21">21</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-22">22</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-23">23</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-24">24</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-25">25</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-26">26</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-27">27</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-28">28</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-29">29</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-30">30</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-31">31</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-32">32</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-33">33</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-34">34</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-35">35</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-36">36</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-37">37</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-38">38</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-39">39</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-40">40</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-41">41</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-42">42</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-43">43</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-44">44</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-45">45</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-46">46</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-47">47</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-48">48</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-49">49</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-50">50</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-51">51</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-52">52</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-53">53</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-54">54</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-55">55</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-56">56</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-57">57</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-58">58</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-59">59</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-60">60</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-61">61</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-62">62</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-63">63</div>
+            <div class="crayon-num" data-line="crayon-56c88ff8b81c0660917616-64">64</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-1"><span class="crayon-r">&lt;html&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-2"><span class="crayon-i"> </span><span class="crayon-r">&lt;head&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-3"><span class="crayon-i">&nbsp;&nbsp;</span><span class="crayon-r">&lt;title&gt;</span><span class="crayon-i">Update data dalam database MySQL</span><span class="crayon-r">&lt;/title&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-4"><span class="crayon-i"> </span><span class="crayon-r">&lt;/head&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-5"><span class="crayon-i"> </span><span class="crayon-r">&lt;body&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-6">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-7"><span class="crayon-i"> <span class="crayon-ta">&lt;?php</span></span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-8"><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-k">isset</span><span class="crayon-sy">(</span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'update'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-9"><span class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-10"><span class="crayon-h"> </span><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-11"><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-12"><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-13"><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-14"><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-15"><span class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-16"><span class="crayon-h"> &nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Tidak bisa Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-17"><span class="crayon-h"> </span><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-18">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-19"><span class="crayon-h"> </span><span class="crayon-v">$id</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'id_karyawan'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-20"><span class="crayon-h"> </span><span class="crayon-v">$gaji</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'gaji_karyawan'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-21">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-22"><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"UPDATE karyawan "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-23"><span class="crayon-h"> &nbsp;&nbsp; </span><span class="crayon-s">"SET gaji_karyawan = $gaji "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-24"><span class="crayon-h"> &nbsp;&nbsp; </span><span class="crayon-s">"WHERE id_karyawan = $id"</span><span class="crayon-h"> </span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-25">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-26"><span class="crayon-h"> </span><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">'db_karyawan'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-27"><span class="crayon-h"> </span><span class="crayon-v">$retval</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-28"><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$retval</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-29"><span class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-30"><span class="crayon-h"> &nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Tidak bisa update data: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-31"><span class="crayon-h"> </span><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-32"><span class="crayon-h"> </span><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Updated data sukses\n"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-33"><span class="crayon-h"> </span><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-34"><span class="crayon-h"> </span><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-35"><span class="crayon-h"> </span><span class="crayon-st">else</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-36"><span class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-37"><span class="crayon-h"> </span><span class="crayon-ta">?&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-38"><span class="crayon-i"> </span><span class="crayon-r">&lt;form </span><span class="crayon-e">method</span><span class="crayon-o">=</span><span class="crayon-s">"post"</span><span class="crayon-h"> </span><span class="crayon-e">action</span><span class="crayon-o">=</span><span class="crayon-s">"index.php"</span><span class="crayon-r">&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-39"><span class="crayon-i"> </span><span class="crayon-r">&lt;table </span><span class="crayon-e">width</span><span class="crayon-o">=</span><span class="crayon-s">"500"</span><span class="crayon-h"> </span><span class="crayon-e">border</span><span class="crayon-o">=</span><span class="crayon-s">"0"</span><span class="crayon-h"> </span><span class="crayon-e">cellspacing</span><span class="crayon-o">=</span><span class="crayon-s">"1"</span><span class="crayon-h"> </span><span class="crayon-e">cellpadding</span><span class="crayon-o">=</span><span class="crayon-s">"2"</span><span class="crayon-r">&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-40"><span class="crayon-i"> </span><span class="crayon-r">&lt;tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-41"><span class="crayon-i"> </span><span class="crayon-r">&lt;td </span><span class="crayon-e">width</span><span class="crayon-o">=</span><span class="crayon-s">"100"</span><span class="crayon-r">&gt;</span><span class="crayon-i">ID Karyawan</span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-42"><span class="crayon-i"> </span><span class="crayon-r">&lt;td&gt;</span><span class="crayon-r">&lt;input </span><span class="crayon-e">name</span><span class="crayon-o">=</span><span class="crayon-s">"id_karyawan"</span><span class="crayon-h"> </span><span class="crayon-e">type</span><span class="crayon-o">=</span><span class="crayon-s">"text"</span><span class="crayon-h"> </span><span class="crayon-e">id</span><span class="crayon-o">=</span><span class="crayon-s">"id_karyawan"</span><span class="crayon-r">&gt;</span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-43"><span class="crayon-i"> </span><span class="crayon-r">&lt;/tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-44"><span class="crayon-i"> </span><span class="crayon-r">&lt;tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-45"><span class="crayon-i"> </span><span class="crayon-r">&lt;td </span><span class="crayon-e">width</span><span class="crayon-o">=</span><span class="crayon-s">"100"</span><span class="crayon-r">&gt;</span><span class="crayon-i">Gaji Karyawan</span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-46"><span class="crayon-i"> </span><span class="crayon-r">&lt;td&gt;</span><span class="crayon-r">&lt;input </span><span class="crayon-e">name</span><span class="crayon-o">=</span><span class="crayon-s">"gaji_karyawan"</span><span class="crayon-h"> </span><span class="crayon-e">type</span><span class="crayon-o">=</span><span class="crayon-s">"text"</span><span class="crayon-h"> </span><span class="crayon-e">id</span><span class="crayon-o">=</span><span class="crayon-s">"gaji_karyawan"</span><span class="crayon-r">&gt;</span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-47"><span class="crayon-i"> </span><span class="crayon-r">&lt;/tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-48"><span class="crayon-i"> </span><span class="crayon-r">&lt;tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-49"><span class="crayon-i"> </span><span class="crayon-r">&lt;td </span><span class="crayon-e">width</span><span class="crayon-o">=</span><span class="crayon-s">"100"</span><span class="crayon-r">&gt;</span><span class="crayon-i"> </span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-50"><span class="crayon-i"> </span><span class="crayon-r">&lt;td&gt;</span><span class="crayon-i"> </span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-51"><span class="crayon-i"> </span><span class="crayon-r">&lt;/tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-52"><span class="crayon-i"> </span><span class="crayon-r">&lt;tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-53"><span class="crayon-i"> </span><span class="crayon-r">&lt;td </span><span class="crayon-e">width</span><span class="crayon-o">=</span><span class="crayon-s">"100"</span><span class="crayon-r">&gt;</span><span class="crayon-i"> </span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-54"><span class="crayon-i"> </span><span class="crayon-r">&lt;td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-55"><span class="crayon-i"> </span><span class="crayon-r">&lt;input </span><span class="crayon-e">name</span><span class="crayon-o">=</span><span class="crayon-s">"update"</span><span class="crayon-h"> </span><span class="crayon-e">type</span><span class="crayon-o">=</span><span class="crayon-s">"submit"</span><span class="crayon-h"> </span><span class="crayon-e">id</span><span class="crayon-o">=</span><span class="crayon-s">"update"</span><span class="crayon-h"> </span><span class="crayon-e">value</span><span class="crayon-o">=</span><span class="crayon-s">"Update"</span><span class="crayon-r">&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-56"><span class="crayon-i"> </span><span class="crayon-r">&lt;/td&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-57"><span class="crayon-i"> </span><span class="crayon-r">&lt;/tr&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-58"><span class="crayon-i"> </span><span class="crayon-r">&lt;/table&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-59"><span class="crayon-i"> </span><span class="crayon-r">&lt;/form&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-60"><span class="crayon-i"> <span class="crayon-ta">&lt;?php</span></span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-61"><span class="crayon-h"> </span><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-62"><span class="crayon-h"> </span><span class="crayon-ta">?&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-63"><span class="crayon-i"> </span><span class="crayon-r">&lt;/body&gt;</span></div>
+            <div class="crayon-line" id="crayon-56c88ff8b81c0660917616-64"><span class="crayon-r">&lt;/html&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="attachment_1014" style="width: 541px" class="wp-caption aligncenter"><span class="wp-caption aligncenter" style="width: 541px"><img class="size-full wp-image-1014" src="index_files/Skrip_Cara_Update_Data_Tabel_MySQL_di_PHP_Nyekrip.png" alt="Skrip_Cara_Update_Data_Tabel_MySQL_di_PHP_Nyekrip" srcset="http://i0.wp.com/www.nyekrip.com/wp-content/uploads/2015/04/Skrip_Cara_Update_Data_Tabel_MySQL_di_PHP_Nyekrip.png?resize=473%2C290 473w, http://i1.wp.com/www.nyekrip.com/wp-content/uploads/2015/04/Skrip_Cara_Update_Data_Tabel_MySQL_di_PHP_Nyekrip.png?w=531 531w" sizes="(max-width: 531px) 100vw, 531px" data-recalc-dims="1" /></span>
+<p class="wp-caption-text">Hasil Akhir</p>
+</div>
+<p>Jika skrip diatas dijalankan, maka akan tampil seperti gambar diatas.
+   Skrip diatas juga terdapat cara koneksi ke MySQL, jika anda ingin 
+lebih   memahami tentang koneksi PHP dan Mysql, silahkan mengunjungi 
+tutorial ” <a title="Cara Koneksi Database MySQL dengan PHP" href="http://www.nyekrip.com/cara-koneksi-database-mysql-dengan-php/" target="_blank"><strong>Cara Koneksi Database MySQL dengan PHP</strong></a> “. </p>
+
+
+</body></html>

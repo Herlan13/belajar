@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<link href="../new-idea.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<img src="index_files/sampul-skrip-php-Nyekrip.png" class="attachment-post size-post wp-post-image" alt="sampul-skrip-php-Nyekrip.com" srcset="http://i2.wp.com/www.nyekrip.com/wp-content/uploads/2015/03/sampul-skrip-php-Nyekrip.com_.png?resize=300%2C87 300w, http://i2.wp.com/www.nyekrip.com/wp-content/uploads/2015/03/sampul-skrip-php-Nyekrip.com_.png?w=1000 1000w" sizes="(max-width: 1000px) 100vw, 1000px" height="290" width="1000" />
+<div class="entry-content">
+  <p>Berikut penjelasan dan contoh   dalam memahami cara membuka dan 
+menutup koneksi database MySQL dengan   menggunakan bahasa pemrograman 
+PHP. Sebelum mencoba skrip ini, pastikan   anda sudah mengetahui 
+password dan username server database dan tentunya   sudah instal web 
+server.</p>
+  <p>Jika belum mempunyai server apache, silahkan anda mengunjungi tutorial ” <a title="Cara Install XAMPP Web Server di Windows" href="http://www.nyekrip.com/cara-install-xampp-web-server-di-windows/" target="_blank"><strong>Cara Install XAMPP Web Server di Windows</strong></a> “.</p>
+  <h2>Cara Membuka Koneksi Database MySQL PHP</h2>
+  <p>PHP menyediakan <code>mysql_connect</code> yang berfungsi untuk   
+membuka koneksi database. Fungsi ini membutuhkan lima parameter dan   
+mengembalikan link identifier MySQL ketika berhasil, atau FALSE ketika  
+ gagal.</p>
+  <div id="crayon-56c8595fb51ed316419017" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+    <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+      <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"></div>
+    </div>
+    <div class="crayon-plain-wrap"></div>
+    <div class="crayon-main" style="position: relative; z-index: 1;">
+      <table style="margin-left: -19px;" class="crayon-table">
+        <tbody>
+          <tr class="crayon-row">
+            <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+              <div class="crayon-num" data-line="crayon-56c8595fb51ed316419017-1">1</div>
+            </div></td>
+            <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+              <div class="crayon-line" id="crayon-56c8595fb51ed316419017-1">connection<span class="crayon-h"> </span>mysql<span class="crayon-sy">_</span>connect<span class="crayon-sy">(</span>server<span class="crayon-sy">,</span>user<span class="crayon-sy">,</span>passwd<span class="crayon-sy">,</span>new<span class="crayon-sy">_</span>link<span class="crayon-sy">,</span>client<span class="crayon-sy">_</span>flag<span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Berikut penjelasan masing-masing prameter:</p>
+  <ul>
+    <li><code>server</code> :&nbsp;nama host yang menjalankan&nbsp;server database. Jika tidak ditentukan maka nilai default adalah localhost: 3306.</li>
+    <li><code>user</code> :&nbsp;nama pengguna yang mengakses database. Jika tidak ditentukan maka default adalah nama user default&nbsp;server.</li>
+    <li><code>passwd</code> :&nbsp;password dari pengguna yang mengakses database. Jika tidak ditentukan maka akan diisi&nbsp;kosong.</li>
+    <li><code>new_link</code> :&nbsp;jika ada panggilan kedua yang dibuat untuk <code>mysql_connect()</code>
+ dengan argumen yang sama, maka tidak ada koneksi baru akan dibentuk;   
+sebaliknya, identifier dari koneksi yang telah dibuka akan dikembalikan.</li>
+    <li><code>client_flags</code> :&nbsp;sebuah kombinasi dari konstanta berikut:
+      <ul>
+        <li><code>MYSQL_CLIENT_SSL</code> – memungkinkan enkripsi SSL Gunakan</li>
+        <li><code>MYSQL_CLIENT_COMPRESS</code> – memungkinkan menggunakan kompresi protokol</li>
+        <li><code>MYSQL_CLIENT_IGNORE_SPACE</code> – memungkinkan spasi setelah nama fungsi</li>
+        <li><code>MYSQL CLIENT_INTERACTIVE</code> – memungkinkan menampilkan waktu timeout secara interaktif</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="st-alert st-alert-info with_title">CatatanAnda   dapat 
+menentukan server, user, password dalam file php.ini daripada   
+menggunakan fungsi ini lagi dan lagi dalam setiap skrip PHP Anda.   
+Periksa konfigurasi file php.ini.</div>
+  <h2>Cara Menutup Koneksi Database MySQL PHP</h2>
+  <p>Ini fungsi yang sederhana, PHP dengan fungsi <code>mysql_close</code> digunakan untuk menutup koneksi database. Fungsi ini membutuhkan koneksi yang telah dibuat oleh fungsi <code>mysql_connect</code> yang mengembalikan nilai TRUE jika berhasil atau FALSE jika gagal.</p>
+  <p>Perhatikan contoh skrip dibawah ini:</p>
+  <div id="crayon-56c8595fb51fa323675750" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+    <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+      <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+    </div>
+    <div class="crayon-plain-wrap"></div>
+    <div class="crayon-main" style="position: relative; z-index: 1;">
+      <table style="margin-left: -27px;" class="crayon-table">
+        <tbody>
+          <tr class="crayon-row">
+            <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-1">1</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-2">2</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-3">3</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-4">4</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-5">5</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-6">6</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-7">7</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-8">8</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-9">9</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-10">10</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-11">11</div>
+              <div class="crayon-num" data-line="crayon-56c8595fb51fa323675750-12">12</div>
+            </div></td>
+            <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-1"><span class="crayon-ta">&lt;?php</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-5"><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-6"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-7"><span class="crayon-sy">{</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-9"><span class="crayon-sy">}</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-10"><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">'Koneksi Berhasil'</span><span class="crayon-sy">;</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-11"><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+              <div class="crayon-line" id="crayon-56c8595fb51fa323675750-12"><span class="crayon-ta">?&gt;</span></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p>Skrip diatas jika dijalankan akan memeriksa koneksi ke server database, jika koneksi berhasil maka akan memunculkan pesan ” <strong>Koneksi Berhasil</strong> “, jika gagal akan menampilkan pesan ” <strong>Gagal Koneksi</strong> “. Jika anda ingin lebih memahami tentang koneksi PHP dan Mysql, silahkan mengunjungi tutorial ” <a title="Cara Koneksi Database MySQL dengan PHP" href="http://www.nyekrip.com/cara-koneksi-database-mysql-dengan-php/" target="_blank"><strong>Cara Koneksi Database MySQL dengan PHP</strong></a> “.</p>
+  <p>Happy Nyekrip! </p>
+</div>
+
+
+</body></html>

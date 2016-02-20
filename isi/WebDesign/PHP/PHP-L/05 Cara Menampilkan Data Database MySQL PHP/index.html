@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="index_files/new-idea.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><span class="entry-content">Pada tutorial skrip sebelumnya kita telah
+   belajar cara membuat koneksi sampai membuat tabel,&nbsp;database 
+serta   menambah data melalui skrip php, dan pada tutorial ini kita akan
+ belajar   cara menampilkan data database MySQL PHP.</span></p>
+<p>Jika belum mempunyai server untuk menjalankan skrip PHP, silahkan anda mengunjungi tutorial ” <a title="Cara Install XAMPP Web Server di Windows" href="http://www.nyekrip.com/cara-install-xampp-web-server-di-windows/" target="_blank"><strong>Cara Install XAMPP Web Server di Windows</strong></a> “.</p>
+<h2>Cara Menampilkan Data di Tabel Database</h2>
+<p>Data dapat diambil dari tabel MySQL di PHP dengan mengeksekusi pernyataan <code>SQL SELECT</code> melalui fungsi <code>mysql_query</code>. Kita&nbsp;memiliki beberapa pilihan untuk mengambil data dari MySQL, dan akan kita bahas satu persatu.</p>
+<p>Untuk menarik baris data dalam tabel, pilihan yang paling sering digunakan adalah dengan menggunakan fungsi <code>mysql_fetch_array ()</code>.
+   Fungsi ini mengembalikan baris data sebagai array asosiatif, array   
+numerik, atau keduanya. Fungsi ini mengembalikan FALSE jika tidak ada   
+lagi baris yang ditemukan.</p>
+<p>Di bawah ini adalah contoh skrip sederhana untuk mengambil data&nbsp;dari tabel&nbsp;karyawan.</p>
+<div id="crayon-56c88bd89be68215014547" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-11">11</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-12">12</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-13">13</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-14">14</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-15">15</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-16">16</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-17">17</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-18">18</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-19">19</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-20">20</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-21">21</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-22">22</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-23">23</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-24">24</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-25">25</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-26">26</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be68215014547-27">27</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-1"><span class="crayon-ta">&lt;?php</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-5"><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-6"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-7"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-9"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-10"><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'SELECT id_karyawan, nama_karyawan, gaji_karyawan FROM karyawan'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-11">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-12"><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">'test_db'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-13"><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-14"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-15"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-16"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal ambil data: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-17"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-18"><span class="crayon-st">while</span><span class="crayon-sy">(</span><span class="crayon-v">$row</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_fetch_array</span><span class="crayon-sy">(</span><span class="crayon-v">$ambildata</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">MYSQL_ASSOC</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-19"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"ID KARYAWAN :{$row['id_karyawan']}&nbsp;&nbsp;&lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"NAMA KARYAWAN : {$row['nama_karyawan']} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"GAJI KARYAWAN : {$row['gaji_karyawan']} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"--------------------------------&lt;br&gt;"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-24"><span class="crayon-sy">}</span><span class="crayon-h"> </span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-25"><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Berhasil ambil data\n"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-26"><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be68215014547-27"><span class="crayon-ta">?&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Hasilnya akan seperti gambar dibawah ini:</p>
+<div id="attachment_1024" style="width: 534px" class="wp-caption aligncenter"><a href="http://i0.wp.com/www.nyekrip.com/wp-content/uploads/2015/04/Cara_Menampilkan_Data_Database_MySQL_PHP_tampilan_data_Nyekrip.png" rel="lightbox[1023]"><img class="size-full wp-image-1024" src="index_files/Cara_Menampilkan_Data_Database_MySQL_PHP_tampilan_data_Nyekr.png" alt="Cara_Menampilkan_Data_Database_MySQL_PHP_tampilan_data_Nyekrip" srcset="http://i0.wp.com/www.nyekrip.com/wp-content/uploads/2015/04/Cara_Menampilkan_Data_Database_MySQL_PHP_tampilan_data_Nyekrip.png?resize=453%2C290 453w, http://i1.wp.com/www.nyekrip.com/wp-content/uploads/2015/04/Cara_Menampilkan_Data_Database_MySQL_PHP_tampilan_data_Nyekrip.png?w=524 524w" sizes="(max-width: 524px) 100vw, 524px" data-recalc-dims="1"></a>
+  <p class="wp-caption-text">Tampilan Data</p>
+</div>
+<p>Isi dari baris telah diserahkan kepada variabel <code>$row</code> dan nilai-nilai secara berturut-turut kemudian dicetak.</p>
+<div class="st-alert st-alert-info with_title">CatatanSelalu ingat untuk
+ menempatkan kurung keriting (kurung kurawal) ketika kita&nbsp;ingin 
+memasukkan nilai array langsung ke string.</div>
+<p>Dalam contoh di atas <code>MYSQL_ASSOC</code> digunakan sebagai argumen kedua untuk <code>mysql_fetch_array ()</code>,
+   sehingga mengembalikan baris sebagai array asosiatif. Dengan array   
+asosiatif kita&nbsp;dapat mengakses kolom&nbsp;dengan menggunakan nama  
+ kolom&nbsp;daripada menggunakan indeks.</p>
+<p>Sumber: <a title="PHP mysql_fetch_array" href="http://php.net/manual/en/function.mysql-fetch-array.php" target="_blank"><strong>PHP mysql_fetch_array</strong></a></p>
+<h2>Cara 2 Menampilkan Data di Tabel Database</h2>
+<p>PHP menyediakan fungsi lain yang disebut <code>mysql_fetch_assoc ()</code>
+ yang juga mengembalikan baris sebagai array asosiatif. Coba contoh   
+skrip berikut untuk menampilkan semua data&nbsp;dari tabel&nbsp;karyawan
+ dengan   menggunakan fungsi <code>mysql_fetch_assoc ()</code>.</p>
+<div id="crayon-56c88bd89be82481034291" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-11">11</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-12">12</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-13">13</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-14">14</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-15">15</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-16">16</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-17">17</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-18">18</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-19">19</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-20">20</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-21">21</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-22">22</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-23">23</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-24">24</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-25">25</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-26">26</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be82481034291-27">27</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-1"><span class="crayon-ta">&lt;?php</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-5"><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-6"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-7"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-9"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-10"><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'SELECT id_karyawan, nama_karyawan, gaji_karyawan FROM karyawan'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-11">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-12"><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">'test_db'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-13"><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-14"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-15"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-16"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal ambil data: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-17"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-18"><span class="crayon-st">while</span><span class="crayon-sy">(</span><span class="crayon-v">$row</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_fetch_assoc</span><span class="crayon-sy">(</span><span class="crayon-v">$ambildata</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-19"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"ID KARYAWAN :{$row['id_karyawan']}&nbsp;&nbsp;&lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"NAMA KARYAWAN : {$row['nama_karyawan']} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"GAJI KARYAWAN : {$row['gaji_karyawan']} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"--------------------------------&lt;br&gt;"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-24"><span class="crayon-sy">}</span><span class="crayon-h"> </span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-25"><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Berhasil ambil data\n"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-26"><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be82481034291-27"><span class="crayon-ta">?&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h2>Cara 3&nbsp;Menampilkan Data di Tabel Database</h2>
+<p>Kita&nbsp;juga dapat menggunakan <code>MYSQL_NUM</code>, sebagai argumen kedua untuk <code>mysql_fetch_array ()</code>. Hal ini akan menyebabkan fungsi akan&nbsp;mengembalikan array dengan indeks numerik.</p>
+<p>Coba contoh skrip berikut untuk menampilkan semua data&nbsp;dari tabel&nbsp;karyawan menggunakan argumen <code>MYSQL_NUM</code>.</p>
+<div id="crayon-56c88bd89be8f553841963" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-11">11</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-12">12</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-13">13</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-14">14</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-15">15</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-16">16</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-17">17</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-18">18</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-19">19</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-20">20</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-21">21</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-22">22</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-23">23</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-24">24</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-25">25</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-26">26</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be8f553841963-27">27</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-1"><span class="crayon-ta">&lt;?php</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-5"><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-6"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-7"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-9"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-10"><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'SELECT id_karyawan, nama_karyawan, gaji_karyawan FROM karyawan'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-11">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-12"><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">'test_db'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-13"><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-14"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-15"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-16"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal ambil data: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-17"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-18"><span class="crayon-st">while</span><span class="crayon-sy">(</span><span class="crayon-v">$row</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_fetch_array</span><span class="crayon-sy">(</span><span class="crayon-v">$ambildata</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">MYSQL_NUM</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-19"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"ID KARYAWAN :{$row[0]}&nbsp;&nbsp;&lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"NAMA KARYAWAN : {$row[1]} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"GAJI KARYAWAN : {$row[2]} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"--------------------------------&lt;br&gt;"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-24"><span class="crayon-sy">}</span><span class="crayon-h"> </span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-25"><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Berhasil ambil data\n"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-26"><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be8f553841963-27"><span class="crayon-ta">?&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Semua ketiga contoh cara diatas&nbsp;akan menghasilkan hasil yang sama, tinggal anda lebih nyaman memakai teknik yang mana.</p>
+<h2>Membebaskan Memori diakhir ambil data</h2>
+<p>Sangat&nbsp;disarankan&nbsp;untuk membebaskan&nbsp;memori pada akhir setiap pernyataan <code>SELECT</code>. Hal ini dapat dilakukan dengan menggunakan fungsi PHP <code>mysql_free_result ()</code>. Di bawah ini adalah contoh untuk menunjukkan bagaimana cara menggunakan-nya.</p>
+<div id="crayon-56c88bd89be9b316850254" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-11">11</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-12">12</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-13">13</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-14">14</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-15">15</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-16">16</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-17">17</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-18">18</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-19">19</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-20">20</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-21">21</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-22">22</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-23">23</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-24">24</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-25">25</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-26">26</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-27">27</div>
+            <div class="crayon-num" data-line="crayon-56c88bd89be9b316850254-28">28</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-1"><span class="crayon-ta">&lt;?php</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-5"><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-6"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-7"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-9"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-10"><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'SELECT id_karyawan, nama_karyawan, gaji_karyawan FROM karyawan'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-11">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-12"><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">'test_db'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-13"><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-14"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$ambildata</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-15"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-16"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal ambil data: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-17"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-18"><span class="crayon-st">while</span><span class="crayon-sy">(</span><span class="crayon-v">$row</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_fetch_array</span><span class="crayon-sy">(</span><span class="crayon-v">$ambildata</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">MYSQL_NUM</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-19"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"ID KARYAWAN :{$row[0]}&nbsp;&nbsp;&lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"NAMA KARYAWAN : {$row[1]} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"GAJI KARYAWAN : {$row[2]} &lt;br&gt; "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"--------------------------------&lt;br&gt;"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-24"><span class="crayon-sy">}</span><span class="crayon-h"> </span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-25"><span class="crayon-e">mysql_free_result</span><span class="crayon-sy">(</span><span class="crayon-v">$ambildata</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-26"><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Berhasil ambil data\n"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-27"><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c88bd89be9b316850254-28"><span class="crayon-ta">?&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Ketika mengambil data kita&nbsp;dapat mengetik skrip 
+perintah&nbsp;SQL serumit   yang kita&nbsp;inginkan. Prosedur akan tetap
+ sama seperti yang disebutkan di   atas.</p>
+<p>Happy Nyekrip! </p>
+<p>Sumber : <a href="http://www.nyekrip.com/tutorial-lengkap-belajar-php-mysql-untuk-pemula">Happy Nyekrip</a>!</p>
+
+
+</body></html>

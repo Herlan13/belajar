@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="index_files/new-idea.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><span class="entry-content">Sangat disarankan&nbsp;untuk membuat 
+backup   secara teratur&nbsp;dari database kita, dengan membuat backup 
+akan   memungkinkan kita untuk membuat file cadangan untuk berjaga-jaga 
+jika   nantinya terjadi kerusakan pada database utama. Pada tutorial 
+cara   backup restore database MySQL PHP ini kita berlatih 
+untuk&nbsp;menggunakan   beberapa&nbsp;teknik dalam membuat backup 
+sekaligus restore &nbsp;tabel dalam   database MySQL.</span></p>
+<p>Ada tiga cara yang dapat kita&nbsp;gunakan untuk membuat backup&nbsp;dari database MySQL.</p>
+<ul>
+  <li>Menggunakan SQL Command melalui PHP.</li>
+  <li>Menggunakan MySQL binary mysqldump melalui PHP.</li>
+  <li>Menggunakan software bantuan seperti phpMyAdmin.</li>
+</ul>
+<h2>Cara Backup Menggunakan SQL Command melalui PHP</h2>
+<p>Kita&nbsp;dapat menjalankan&nbsp;perintah <code>SQL SELECT</code> 
+untuk membuat   backup&nbsp;dari setiap tabel. Untuk mengambil hasil 
+dump database yang   lengkap, kita&nbsp;perlu untuk membuat&nbsp;query 
+pada setiap tabel. Setiap tabel   akan disimpan ke dalam file teks 
+secara terpisah, jika tidak ingin repot   silahkan langsung menuju cara 
+kedua dengan <code>MySQL binary mysqldump</code>.</p>
+<p>Coba contoh skrip sederhana dibawah ini untuk&nbsp;menggunakan <code>SELECT INTO OUTFILE</code> sebagai permintaan untuk membuat backup&nbsp;tabel :</p>
+<div id="crayon-56c87fcc9f411085515062" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-11">11</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-12">12</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-13">13</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-14">14</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-15">15</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-16">16</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-17">17</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-18">18</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-19">19</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-20">20</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-21">21</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f411085515062-22">22</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-1"><span class="crayon-ta">&lt;?php</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-5"><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-6"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-7"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-9"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-10"><span class="crayon-v">$table_name</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"karyawan"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-11"><span class="crayon-v">$backup_file</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"/tmp/karyawan.sql"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-12"><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"SELECT * INTO OUTFILE '$backup_file' FROM $table_name"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-13">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-14"><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">'test_db'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-15"><span class="crayon-v">$backup</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-16"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$backup</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-17"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-18"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Backup: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-19"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-20"><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Backup Berhasil\n"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-21"><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f411085515062-22"><span class="crayon-ta">?&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Skrip diatas akan secara otomatis membuat file bernama <code>karyawan.sql</code> dalam folder tmp, file inilah yang menjadi backup dari tabel karyawan.</p>
+<h2>Cara Restore&nbsp;Menggunakan SQL Command melalui PHP</h2>
+<p>Pada saat kita ingin mengembalikan (restore) data hasil   
+backup,&nbsp;kita&nbsp;hanya&nbsp;perlu untuk mengambil dan 
+menjalankan&nbsp;kembali&nbsp;file   hasil backup yang telah kita 
+buat&nbsp;sebelumnya. Untuk mengembalikan   data,&nbsp;kita&nbsp;hanya 
+perlu menjalankan <code>LOAD DATA INFILE</code> seperti ini:</p>
+<div id="crayon-56c87fcc9f424993285035" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-11">11</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-12">12</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-13">13</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-14">14</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-15">15</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-16">16</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-17">17</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-18">18</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-19">19</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-20">20</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-21">21</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f424993285035-22">22</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-1"><span class="crayon-ta">&lt;?php</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-5"><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$dbhost</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbuser</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbpass</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-6"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-7"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal Koneksi: '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-9"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-10"><span class="crayon-v">$table_name</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"karyawan"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-11"><span class="crayon-v">$backup_file</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"/tmp/karyawan.sql"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-12"><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"LOAD DATA INFILE '$backup_file' INTO TABLE $table_name"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-13">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-14"><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">'test_db'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-15"><span class="crayon-v">$restore</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-16"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">$restore</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">)</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-17"><span class="crayon-sy">{</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-18"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-k">die</span><span class="crayon-sy">(</span><span class="crayon-s">'Gagal load data : '</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">mysql_error</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-19"><span class="crayon-sy">}</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-20"><span class="crayon-k">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Load data berhasil\n"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-21"><span class="crayon-e">mysql_close</span><span class="crayon-sy">(</span><span class="crayon-v">$koneksi</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f424993285035-22"><span class="crayon-ta">?&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h2>Menggunakan MySQL binary mysqldump melalui PHP</h2>
+<p>MySQL menyediakan satu utility yaitu mysqldump untuk melakukan backup
+   database. Menggunakan cara&nbsp;ini, kita dapat mengambil database 
+dump   lengkap hanya dalam satu perintah.</p>
+<p>Coba contoh skrip sederhana berikut untuk mengambil database dump:</p>
+<div id="crayon-56c87fcc9f42d405154033" class="crayon-syntax crayon-theme-new-idea crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-always disable-anim" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px ! important; line-height: 16px ! important; height: auto;">
+  <div class="crayon-toolbar" data-settings=" show"><span class="crayon-title">Skrip PHP</span>
+    <div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"> </span></div>
+  </div>
+  <div class="crayon-plain-wrap"></div>
+  <div class="crayon-main" style="position: relative; z-index: 1;">
+    <table style="margin-left: -27px;" class="crayon-table">
+      <tbody>
+        <tr class="crayon-row">
+          <td class="crayon-nums" data-settings="hide"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 16px !important;">
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-1">1</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-2">2</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-3">3</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-4">4</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-5">5</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-6">6</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-7">7</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-8">8</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-9">9</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-10">10</div>
+            <div class="crayon-num" data-line="crayon-56c87fcc9f42d405154033-11">11</div>
+          </div></td>
+          <td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-1"><span class="crayon-ta">&lt;?php</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-2"><span class="crayon-v">$dbhost</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'localhost'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-3"><span class="crayon-v">$dbuser</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'root'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-4"><span class="crayon-v">$dbpass</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">''</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-5">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-6"><span class="crayon-v">$backup_file</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$dbname</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-e">date</span><span class="crayon-sy">(</span><span class="crayon-s">"Y-m-d-H-i-s"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-s">'.gz'</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-7"><span class="crayon-v">$command</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"mysqldump --opt -h $dbhost -u $dbuser -p $dbpass "</span><span class="crayon-sy">.</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-s">"test_db | gzip &gt; $backup_file"</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-9">&nbsp;</div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-10"><span class="crayon-e">system</span><span class="crayon-sy">(</span><span class="crayon-v">$command</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+            <div class="crayon-line" id="crayon-56c87fcc9f42d405154033-11"><span class="crayon-ta">?&gt;</span></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h2>Menggunakan software bantuan seperti phpMyAdmin</h2>
+<p>Jika Anda memiliki phpMyAdmin, maka sangat mudah bagi anda&nbsp;untuk membuat file backup&nbsp;dari database.</p>
+<div id="attachment_1031" style="width: 831px" class="wp-caption aligncenter">
+  <p class="wp-caption-text"><img src="index_files/Cara_Backup_Restore_Database_MySQL_PHP_phpmyadmin_Nyekrip.png" width="821" height="377" />Menggunakan phpMyAdmin</p>
+</div>
+<p>Untuk backup database MySQL dengan&nbsp;menggunakan phpMyAdmin klik 
+pada   link “eksport” pada halaman utama phpMyAdmin. Pilih database yang
+ ingin   di-backup, pilihlah&nbsp;opsi SQL yang sesuai dan masukkan nama
+ untuk file   backup. Jika anda belum punya, silahkan download di 
+halaman web <a title="phpMyAdmin" href="http://www.phpmyadmin.net/home_page/index.php" target="_blank"><strong>phpMyAdmin</strong></a>.</p>
+<p>Happy Nyekrip! </p>
+<p>Sumber : <a href="http://www.nyekrip.com/tutorial-lengkap-belajar-php-mysql-untuk-pemula">Happy Nyekrip</a>!</p>
+
+
+</body></html>
