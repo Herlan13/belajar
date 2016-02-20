@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>A . Membuat Link Bar Next - Back</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #a0a0a0;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #696969;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #a0a0a0;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #a0a0a0;
+}
+span.rvts10
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts11
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000081;
+}
+span.rvts12
+{
+ font-size: 18pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts13
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts14
+{
+ font-size: 12pt;
+ font-family: 'Book Antiqua', 'Palatino', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #008181;
+}
+span.rvts15
+{
+ font-size: 12pt;
+ font-family: 'Wingdings3';
+ color: #000081;
+}
+span.rvts16
+{
+ font-size: 12pt;
+ font-family: 'Wingdings';
+ color: #000081;
+}
+span.rvts17
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts18
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts19
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts20 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts21 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts22 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts23, span.rvts23 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #9fbed0;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<link rel="StyleSheet" href="hnd.css" type="text/css"/>
+<script type="text/javascript">if(top.frames.length == 0) { sTopic = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length); top.location.href="../Front Page.html?" + sTopic; }</script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="hnd.js"></script>
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps2><span class=rvts0><span class=rvts20>A . Membuat Link Bar Next - Back</span></span></h1>
+<p><span class=rvts12>2 Membuat Link Bar Next - Back</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts10>Link bar Next </span><span class=rvts18>&#8211;</span><span class=rvts10> Back sebenarnya masih terkait dengan jenis link bar Custom Link.</span></p>
+<p><span class=rvts10>Bedanya terletak pada posisi halaman dan posisi tujuan link.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Link bar Custom Link, yang telah kita bahas sebelumnya, cocok untuk Home Page.</span></p>
+<p><span class=rvts10>Sedangkan link bar Next </span><span class=rvts18>&#8211;</span><span class=rvts10> Back cocok untuk halaman yang memiliki </span><span class=rvts18>&#8220;</span><span class=rvts10>teman</span></p>
+<p><span class=rvts10>setingkat</span><span class=rvts18>&#8221;</span><span class=rvts10>. Misalnya untuk perpindahan antara halaman Anak dengan Anak lainnya.</span></p>
+<p><span class=rvts10>Atau perpindahan antara halaman Cucu dengan Cucu lainnya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Baiklah, mari kita menyusun link bar Next </span><span class=rvts18>&#8211;</span><span class=rvts10> Back.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Tampilkan navigatiion View.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Buatlah tiga halaman di bawah Home Page.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Namailah dengan Satu, Dua dan Tiga.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Klik ganda halaman Satu sehingga terbuka.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Gantilah warna latar belakang halaman menjadi biru (Klik kanan </span><span class=rvts16>è </span><span class=rvts10>Properties.</span></p>
+<p><span class=rvts10>Pada kotak dialog klik </span><span class=rvts13>Background </span><span class=rvts10>dan pilihlah warna biru).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Tambahkan teks yang sesuai pada halaman. Misalnya tentang judul halaman,</span></p>
+<p><span class=rvts18>&#8220;</span><span class=rvts10>Halo aku halaman 1</span><span class=rvts18>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>7. Formatlah warna font sehingga sesuai dengan warna biru, misalnya putih, biru</span></p>
+<p><span class=rvts10>muda, merah muda, kuning atau warna terang lainnya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>8. Untuk mempertegas tampilan, tambahkan garis horisontal pada lokasi tertentu.</span></p>
+<p><span class=rvts10>Caranya, aktifkan perintah </span><span class=rvts13>Insert </span><span class=rvts16>è </span><span class=rvts13>Horisontal Line</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>9. Klik lokasi penyisipan Link Bar, misalnya seperti Gambar 13.23.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_553.jpg"></p>
+<p><span class=rvts11>Gambar 13.23 Penampatan kursor</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>10. Aktifkan pilihan </span><span class=rvts13>Insert </span><span class=rvts15>_ </span><span class=rvts13>Web Component</span><span class=rvts10>. Kotak dialog Insert Web</span></p>
+<p><span class=rvts10>Component terbuka.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_554.jpg"></p>
+<p><span class=rvts11>Gambar 13.24 Pilihan Bar With back and next links</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>11. Pada bidang kiri pilih </span><span class=rvts13>Link Bars </span><span class=rvts10>dan pada bidang kanan pilihlah </span><span class=rvts13>Bar With</span></p>
+<p><span class=rvts13>back and next links</span><span class=rvts10>. Klik Next, muncul kotak dialog </span><span class=rvts13>Link Bar Properties</span><span class=rvts10>.</span></p>
+<p><span class=rvts10>Gambar 13.25.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_555.jpg"></p>
+<p><span class=rvts11>Gambar 13.25 Pilihan Blank</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>12. Pilihlah jenis tombol yang cocok dengan warna halaman biru, misalnya </span><span class=rvts13>Blank</span><span class=rvts10>.</span></p>
+<p><span class=rvts10>Gambar 13.25. Klik Next, muncul kotak dialog pemilihan jenis link bar, apakah</span></p>
+<p><span class=rvts10>horisontal (yang pertama) atau yang vertikal (pilihan kedua).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_556.jpg"></p>
+<p><span class=rvts11>Gambar 13.26 Pilihan jenis link bar</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>13. Jangan ubah pilihan pertama (horisontal) yang sudah aktif. Klik Next, muncul</span></p>
+<p><span class=rvts10>kotak dialog pengaturan link.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_557.jpg"></p>
+<p><span class=rvts11>Gambar 13.27 Pengaturan link</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>14. Klik kotak cek </span><span class=rvts13>Home Page, </span><span class=rvts10>lalu klik tombol</span><span class=rvts13>OK. </span><span class=rvts10>Hasilnya pada halaman seperti</span></p>
+<p><span class=rvts10>Gambar 13.28.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_558.jpg"></p>
+<p><span class=rvts11>Gambar 13.28 Tombol Home dan Next muncul pada halaman</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Perhatikan tombol yang muncul, hanya dua, yaitu Home (hasil pengaktifan pilihan</span></p>
+<p><span class=rvts10>Home Page) dan Next. Tidak ada Back, sebab ini adalah halaman pertama dalam</span></p>
+<p><span class=rvts10>kelompoknya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>2.1 Mengatur halaman dua</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Setelah mengatur halaman Home Page dan halaman Satu, berikutnya kita akan</span></p>
+<p><span class=rvts10>mengatur halaman Dua.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Klik ganda halaman </span><span class=rvts13>Dua </span><span class=rvts10>sehingga terbuka.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Gantilah warna latar belakang halaman menjadi biru muda (Klik kanan lalu klik</span></p>
+<p><span class=rvts10>perintah </span><span class=rvts13>Properties</span><span class=rvts10>. Pada kotak dialog </span><span class=rvts13>Page Properties </span><span class=rvts10>klik </span><span class=rvts13>Background </span><span class=rvts10>dan</span></p>
+<p><span class=rvts10>pilihlah warna biru muda).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Tambahkan teks yang sesuai pada halaman. Misalnya tentang judul halaman,</span></p>
+<p><span class=rvts18>&#8220;</span><span class=rvts10>Ini halaman 2</span><span class=rvts18>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Formatlah warna font sehingga sesuai dengan warna biru muda.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Tambahkan garis horisontal (</span><span class=rvts13>Insert </span><span class=rvts16>è </span><span class=rvts13>Horisontal Line </span><span class=rvts10>) pada lokasi tertentu</span></p>
+<p><span class=rvts10>untuk mengatur komposisi.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Klik lokasi penyisipan Link Bar - Back dan Next, misalnya seperti Gambar</span></p>
+<p><span class=rvts10>13.29.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_559.jpg"></p>
+<p><span class=rvts11>Gambar 13.29 Lokasi penyisipan kursor</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>7. Aktifkan pilihan </span><span class=rvts13>Insert </span><span class=rvts15>_ </span><span class=rvts13>Web Component</span><span class=rvts10>. Kotak dialog Insert Web</span></p>
+<p><span class=rvts10>Component terbuka.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>8. Pada bidang kiri pilih </span><span class=rvts13>Link Bars </span><span class=rvts10>dan pada bidang kanan pilihlah </span><span class=rvts13>Bar With</span></p>
+<p><span class=rvts13>back and next links</span><span class=rvts10>. Klik Next, muncul kotak dialog </span><span class=rvts13>Link Bar Properties</span><span class=rvts10>.</span></p>
+<p><span class=rvts10>Gambar 13. 30.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_560.jpg"></p>
+<p><span class=rvts11>Gambar 13.30 Pengaturan</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>9. Pilihlah jenis tombol yang cocok dengan warna halaman biru muda, misalnya</span></p>
+<p><span class=rvts13>Waves</span><span class=rvts10>. Gambar 13.31.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_561.jpg"></p>
+<p><span class=rvts11>Gambar 13.31Pilihan </span><span class=rvts19>Waves</span></p>
+<p><span class=rvts19><br></span></p>
+<p><span class=rvts10>10. Klik Next, muncul kotak dialog pemilihan jenis link bar, apakah horisontal</span></p>
+<p><span class=rvts10>(yang pertama) atau yang vertikal (pilihan kedua). Gambar 13.32.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_562.jpg"></p>
+<p><span class=rvts11>Gambar 13.32 Pilihan Horisontal</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>11. Jangan ubah pilihan pertama (horis\ontal) yang sudah aktif. Klik Next, muncul</span></p>
+<p><span class=rvts10>kotak dialog pengaturan link.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_563.jpg"></p>
+<p><span class=rvts11>Gambar 13.33 Kotak dialog pengaturan link</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>12. Klik kotak cek </span><span class=rvts13>Home Page, </span><span class=rvts10>lalu klik tombol</span><span class=rvts13>OK. </span><span class=rvts10>Hasilnya pada halaman seperti</span></p>
+<p><span class=rvts10>Gambar 13.34.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_564.jpg"></p>
+<p><span class=rvts11>Gambar 13.34 Hasli pemasangan pada halaman</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Perhatikan tombol yang muncul, kini berjumlah tiga, yaitu Back, Home (hasil</span></p>
+<p><span class=rvts10>pengaktifan pilihan Home Page) dan Next. Muncul tombol Back, sebab ini adalah</span></p>
+<p><span class=rvts10>halaman kedua di dalam kelompoknya (sehingga masih ada halaman sebelumnya)</span></p>
+<p><span class=rvts10>Dan muncul tombol Next sebab masih ada halaman berikutnya (ketiga).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>2.2 Halaman tiga</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Kini saatnya mengatur halaman terakhir.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Klik ganda halaman Tiga sehingga terbuka.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Gantilah warna latar belakang halaman menajdi merah muda (Klik kanan </span><span class=rvts16>è</span></p>
+<p><span class=rvts10>Properties. Klik Background dan pilihlah warna merah muda).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Tuliskan teks: </span><span class=rvts18>&#8220;</span><span class=rvts13>Saya halaman terakhir, 3</span><span class=rvts18>&#8221;</span><span class=rvts10>. Dan </span><span class=rvts13>Contoh Link Bar </span><span class=rvts17>&#8211;</span><span class=rvts13> Bar with</span></p>
+<p><span class=rvts13>custom links.</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts10>4. Formatlah warna font sehingga sesuai dengan warna merah muda.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Tambahkan garis horisontal (</span><span class=rvts13>Insert </span><span class=rvts16>è </span><span class=rvts13>Horisontal Line </span><span class=rvts10>).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Klik lokasi penyisipan Link Bar - Back dan Next, misalnya seperti Gambar</span></p>
+<p><span class=rvts10>13.35.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_565.jpg"></p>
+<p><span class=rvts11>Gambar 13.35 Lokasi kursor</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>7. Aktifkan pilihan </span><span class=rvts13>Insert </span><span class=rvts15>_ </span><span class=rvts13>Web Component</span><span class=rvts10>. Kotak dialog Insert Web</span></p>
+<p><span class=rvts10>Component terbuka.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_566.jpg"></p>
+<p><span class=rvts11>Gambar 13.36 Pilihan </span><span class=rvts19>Bar With back and next links</span></p>
+<p><span class=rvts19><br></span></p>
+<p><span class=rvts10>8. Pada bidang kiri pilih </span><span class=rvts13>Link Bars </span><span class=rvts10>dan pada bidang kanan pilihlah </span><span class=rvts13>Bar With</span></p>
+<p><span class=rvts13>back and next links</span><span class=rvts10>. Klik Next, muncul kotak dialog </span><span class=rvts13>Link Bar Properties</span><span class=rvts10>.</span></p>
+<p><span class=rvts10>Gambar 13.36.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_567.jpg"></p>
+<p><span class=rvts11>Gambar 13.37 Pilihan Axis</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>9. Pilihlah jenis tombol yang cocok, misalnya </span><span class=rvts13>Axis</span><span class=rvts10>. Gambar 13.37. Klik Next,</span></p>
+<p><span class=rvts10>muncul kotak dialog pemilihan jenis link bar, apakah horisontal (yang pertama)</span></p>
+<p><span class=rvts10>atau yang vertikal (pilihan kedua).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_568.jpg"></p>
+<p><span class=rvts11>Gambar 13.38 Pilihan Horisontal</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>10. Jangan ubah pilihan pertama (horis\ontal) yang sudah aktif. Klik Next, muncul</span></p>
+<p><span class=rvts10>kotak dialog pengaturan link. Gambar 13.39.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_569.jpg"></p>
+<p><span class=rvts11>Gambar 13.39 Kotak dialog Link Bar Properties</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>11. Klik Kotak cek </span><span class=rvts13>Home Page, </span><span class=rvts10>lalu </span><span class=rvts13>OK. </span><span class=rvts10>Hasilnya:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_570.jpg"></p>
+<p><span class=rvts11>Gambar 13.40 Hasil pemasangan Link bar</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Perhatikan tombol yang muncul, hanya dua, yaitu Home (hasil pengaktifan pilihan</span></p>
+<p><span class=rvts10>Home Page) dan Back. Tidak ada Next, sebab ini adalah halaman terakhir di dalam</span></p>
+<p><span class=rvts10>kelompoknya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>2.3 Tampilan di browser</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Nah, sampai di sini kita berhasil menyusun dan mem-format keempat halaman. Kini</span></p>
+<p><span class=rvts10>saatnya untuk mengujinya di browser.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Aktifkan halaman Home Page lalu klik tombol Preview in Browser. Tampilannya</span></p>
+<p><span class=rvts10>tampak seperti Gambar 13.42.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_571.jpg"></p>
+<p><span class=rvts11>Gambar 13.41 Home page</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Kemudian klik tombol Halaman Satu, muncul Halaman Satu seperti Gambar 13.42</span></p>
+<p><span class=rvts10>Klik tombol Home, kembali ke Home Page.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_572.jpg"></p>
+<p><span class=rvts11>Gambar 13.42 Halaman Satu</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Pada Home Page klik tombol Halaman Dua, muncul Halaman Dua seperti Gambar</span></p>
+<p><span class=rvts10>13.43. Klik tombol Home, kembali ke Home Page.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_573.jpg"></p>
+<p><span class=rvts11>Gambar 13.43 Halaman Dua</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Pada Home Page klik tombol Halaman Tiga, muncul Halaman Tiga seperti Gambar</span></p>
+<p><span class=rvts10>13.44. Klik tombol Home, kembali ke Home Page.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_574.jpg"></p>
+<p><span class=rvts11>Gambar 13.44 Halaman Tiga</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Pada halaman Satu, jika Anda klik tombol Next, akan muncul halaman Dua. Pada</span></p>
+<p><span class=rvts10>halaman Dua Anda klik Next akan muncul halaman Tiga.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Selanjutnya pada halaman Tiga jika Anda klik Back, muncul halaman Dua. Pada</span></p>
+<p><span class=rvts10>halaman Dua Anda klik Back akan muncul halaman Satu.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p class=rvps3><span class=rvts21>Copyright © Herlan Lesmana</span></p>
+<p class=rvps4><span class=rvts22>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts23 href="http://www.helpndoc.com" target="_blank">Full featured Documentation generator</a></p>
+</body></html>

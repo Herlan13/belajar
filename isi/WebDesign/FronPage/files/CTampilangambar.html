@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>C . Tampilan gambar</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #a0a0a0;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #696969;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #a0a0a0;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #a0a0a0;
+}
+span.rvts10
+{
+ font-size: 18pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts11
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts12
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000081;
+}
+span.rvts13
+{
+ font-size: 12pt;
+ font-family: 'Book Antiqua', 'Palatino', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #008181;
+}
+span.rvts14
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts15
+{
+ font-weight: bold;
+ color: #008181;
+}
+span.rvts16
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts17 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts18 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts19 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts20, span.rvts20 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #9fbed0;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<link rel="StyleSheet" href="hnd.css" type="text/css"/>
+<script type="text/javascript">if(top.frames.length == 0) { sTopic = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length); top.location.href="../Front Page.html?" + sTopic; }</script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="hnd.js"></script>
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps2><span class=rvts0><span class=rvts17>C . Tampilan gambar</span></span></h1>
+<p><span class=rvts10>4 Tampilan gambar</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts11>Selanjutnya kita akan membahas segi statis gambar, yaitu tampilan. Anda bisa</span></p>
+<p><span class=rvts11>mengatur kontras, pencahayaan, transparansi, warna bahkan Anda bisa</span></p>
+<p><span class=rvts11>menambahkan teks ke gambar tersebut yang bisa diedit dan akan mengikuti</span></p>
+<p><span class=rvts11>kemanapun gambar dipindahkan.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts13>4.1 Mengatur kontras dan pencahayaan</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts11>Untuk mengatur kontras kita cukup menggunakan dua tombol, yaitu </span><span class=rvts14>More Contrast</span></p>
+<p><span class=rvts11>(</span><img border=0 alt="" hspace=1 vspace=1 src="img_321.jpg"><span class=rvts11> ) untuk menaikkan kontras dan </span><span class=rvts14>Less Contrast </span><span class=rvts11>(</span><img border=0 alt="" hspace=1 vspace=1 src="img_322.jpg"><span class=rvts11> ) untuk menurunkan</span></p>
+<p><span class=rvts11>kontras.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_323.jpg"></p>
+<p><span class=rvts12>Gambar 7.29 Contoh pengaturan kontras dan pencahayaan</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Sedangkan untuk mengatur pencahayaan, tombol yang disediakan adalah </span><span class=rvts14>More</span></p>
+<p><span class=rvts14>Brightness </span><span class=rvts11>(</span><img border=0 alt="" hspace=1 vspace=1 src="img_324.jpg"><span class=rvts11> ) untuk menaikkan pencahayaan dan </span><span class=rvts14>Less Brightness </span><span class=rvts11>( </span><img border=0 alt="" hspace=1 vspace=1 src="img_325.jpg"><span class=rvts11>) untuk</span></p>
+<p><span class=rvts11>menurunkan pencahayaan.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts13>4.2 Mengatur transparansi</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts11>Sebuah gambar transparan adalah gambar dengan warna latar terlihat pada bagian</span></p>
+<p><span class=rvts11>kosong gambar tersebut. Dengan kata lain latar belakang halaman akan melatari</span></p>
+<p><span class=rvts11>gambar tersebut.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Jika Anda ingin membuat sebuah gambar transparan, tutup kotak dialog ini, klik</span></p>
+<p><span class=rvts11>tombol </span><span class=rvts14>Set Transparent Color </span><span class=rvts11>(</span><img border=0 alt="" hspace=1 vspace=1 src="img_326.jpg"><span class=rvts11> ) pada toolbar </span><span class=rvts14>Picture </span><span class=rvts11>, lalu klik bagian gambar</span></p>
+<p><span class=rvts11>yang Anda inginkan.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Perhatikan Gambar 7.30 di bawah ini, yang diubah menjadi transparan adalah bagian</span></p>
+<p><span class=rvts11>gambar yang berwarna putih.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_327.jpg"></p>
+<p><span class=rvts12>Gambar 7.30 Penerapan transparan pada warna putih</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Anda hanya bisa mengubah gambar dengan format GIF saja. Kalau Anda</span></p>
+<p><span class=rvts11>menerapkan perintah ke format lain, maka FrontPage XP akan mengubah gambar</span></p>
+<p><span class=rvts11>tersebut menjadi GIF, selanjutnya akan membuatnya transparan.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts13>4.3 Cropping, resizing dan restore</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts15>4.3.1 Cropping</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Cropping adalah proses pemotongan bagian gambar. Yang digunakan adalah tombol</span></p>
+<p><span class=rvts14>Crop </span><span class=rvts11>(</span><img border=0 alt="" hspace=1 vspace=1 src="img_328.jpg"><span class=rvts11> ). Dan cara pemakaiannya seperti berikut ini:</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>1. Klik gambar yang akan di-crop. Toolbar Pictures tampil.</span></p>
+<p><span class=rvts11>2. Klik tombol </span><span class=rvts14>Crop</span><span class=rvts11>, lalu klik dan drag bagian gambar yang Anda inginkan.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_329.jpg"></p>
+<p><span class=rvts12>Gambar 7.31 Pemilihan area cropping</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>3. Kemudian tekan Enter, area yang tidak terlingkupi, yaitu yang tidak Anda pilih</span></p>
+<p><span class=rvts11>akan dihapus.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_330.jpg"></p>
+<p><span class=rvts12>Gambar 7.32 Hasil cropping</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts15>4.3.2 Resizing</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Yang dimaksud resizing adalah pengubahan ukuran gambar. Anda bisa secara</span></p>
+<p><span class=rvts11>melakukan langsung pada gambar, yaitu dengan klik gambar lalu drag handle ke</span></p>
+<p><span class=rvts11>arah luar untuk memperbesar atau ke arah dalam untuk memperkecil.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Selain cara langsung tersebut, tentu saja Anda bisa memanfaatkan kotak dialog</span></p>
+<p><span class=rvts14>Picture Properties </span><span class=rvts11>tab </span><span class=rvts14>Appearance</span><span class=rvts11>, lalu pada kotak </span><span class=rvts14>Width </span><span class=rvts11>dan </span><span class=rvts14>Height </span><span class=rvts11>tuliskan</span></p>
+<p><span class=rvts11>ukuran yang Anda iginkan. Kotak dialog ini bisa Anda panggil dengan klik kanan</span></p>
+<p><span class=rvts11>gambar lalu klik Picture Properties.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_331.jpg"></p>
+<p><span class=rvts12>Gambar 7.33 Kotak dialog </span><span class=rvts16>Picture Properties</span></p>
+<p><span class=rvts16><br></span></p>
+<p><span class=rvts15>4.3.3 Restore</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Setelah Anda melakukan Cropping atau resizing, Anda masih bisa mengembalikan</span></p>
+<p><span class=rvts11>ke keadaan asli gambar dengan klik tombol </span><span class=rvts14>Restore </span><span class=rvts11>(</span><img border=0 alt="" hspace=1 vspace=1 src="img_332.jpg"><span class=rvts11> ).</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts13>4.4 Hitam putih dan washout</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts11>Gambar berwarna yang terpasang pada halaman bisa Anda ubah menjadi hitam putih</span></p>
+<p><span class=rvts11>dengan tombol </span><span class=rvts14>Color </span><span class=rvts11>(</span><img border=0 alt="" hspace=1 vspace=1 src="img_333.jpg"><span class=rvts11> ), lalu memilih </span><span class=rvts14>Grayscale </span><span class=rvts11>.</span></p>
+<p><span class=rvts11>Selain memilih </span><span class=rvts14>Grayscale </span><span class=rvts11>Anda juga bisa memilih perintah </span><span class=rvts14>washout </span><span class=rvts11>agar gambar</span></p>
+<p><span class=rvts11>berubah menjadi berkabut. Hal ini bisa kita manfaatkan untuk membuat gambar latar</span></p>
+<p><span class=rvts11>belakang.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts13>4.5 Membuat teks pada gambar</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts11>Bagian terakhir pengaturan tampilan adalah menambah teks ke gambar. Langkah</span></p>
+<p><span class=rvts11>yang diperlukan adalah:</span></p>
+<p><span class=rvts11>1. Klik gambar yang Anda inginkan.</span></p>
+<p><span class=rvts11>2. Klik tombol Text ( </span><img border=0 alt="" hspace=1 vspace=1 src="img_334.jpg"><span class=rvts11>), muncul penampung teks di gambar.</span></p>
+<p><span class=rvts11>3. Tuliskan teks yang Anda inginkan.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_335.jpg"></p>
+<p><span class=rvts12>Gambar 7.34 Teks pada gambar</span></p>
+<p><span class=rvts11><br></span></p>
+<p class=rvps3><span class=rvts18>Copyright © Herlan Lesmana</span></p>
+<p class=rvps4><span class=rvts19>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts20 href="http://www.helpndoc.com" target="_blank">Easily create Help documents</a></p>
+</body></html>

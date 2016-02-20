@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>C . Animasi teks</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #a0a0a0;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #696969;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #a0a0a0;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #a0a0a0;
+}
+span.rvts10
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts11
+{
+ font-size: 18pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts12
+{
+ font-size: 12pt;
+ font-family: 'Book Antiqua', 'Palatino', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #008181;
+}
+span.rvts13
+{
+ font-size: 8pt;
+ font-family: 'Arial Narrow';
+}
+span.rvts14
+{
+ font-size: 14pt;
+ font-family: 'Arial Narrow';
+}
+span.rvts15
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000081;
+}
+span.rvts16
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts17
+{
+ font-size: 12pt;
+ font-family: 'Wingdings3';
+ color: #000081;
+}
+span.rvts18
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #ff0000;
+}
+span.rvts19
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts20
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts21
+{
+ font-size: 12pt;
+ font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ color: #000081;
+}
+span.rvts22
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts23 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts24 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts25 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts26, span.rvts26 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #9fbed0;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<link rel="StyleSheet" href="hnd.css" type="text/css"/>
+<script type="text/javascript">if(top.frames.length == 0) { sTopic = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length); top.location.href="../Front Page.html?" + sTopic; }</script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="hnd.js"></script>
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps2><span class=rvts0><span class=rvts23>C . Animasi teks</span></span></h1>
+<p><span class=rvts11>3 Animasi teks</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Berdasarkan cara pemakaiannya, kita bisa membedakan dua jenis animasi, yaitu</span></p>
+<p><span class=rvts10>animasi teks otomatis dan animasi teks interaktif. Yang dimaksud interaktif adalah,</span></p>
+<p><span class=rvts10>animasi akan dijalankan apabila ada interaksi dari pemakai. Misalnya animasi akan</span></p>
+<p><span class=rvts10>dijalankan pada suatu teks apabila seseorang melakukan klik pada teks tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts12>1.1 Animasi otomatis</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts10>Animasi otomatis adalah suatu animasi yang akan dijalankan tanpa menunggu</span></p>
+<p><span class=rvts10>tindakan dari pemakai, namun berdasarkan kondisi tertentu, misalnya sesaat setelah</span></p>
+<p><span class=rvts10>halaman dibuka. Berikut ini contoh animasi otomatis. Delapan tampilan berurutan</span></p>
+<p><span class=rvts10>yang muncul sesaat setelah halaman ditampilkan.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 width=424 height=211 alt="" hspace=1 vspace=1 src="img_372.jpg"></p>
+<p><span class=rvts14>Gambar 8. 15 Langkah pertama</span></p>
+<p><span class=rvts13><br></span></p>
+<p><img border=0 width=436 height=803 alt="" hspace=1 vspace=1 src="img_373.jpg"></p>
+<p><img border=0 width=431 height=522 alt="" hspace=1 vspace=1 src="img_374.jpg"></p>
+<p><img border=0 width=431 height=517 alt="" hspace=1 vspace=1 src="img_375.jpg"></p>
+<p><span class=rvts10>Berikut ini uraian tentang pembuatan animasi otomatis.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Buatlah halaman dengan teks yang akan dipasang animasi. Misalnya seperti</span></p>
+<p><span class=rvts10>berikut ini:</span></p>
+<p><span class=rvts14><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_376.jpg"></p>
+<p><span class=rvts15>Gambar 8.23 Teks yang akan dipasang animasi</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>2. Kemudian sorotlah teks tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Aktifkan perintah </span><span class=rvts16>View </span><span class=rvts17>_</span><span class=rvts16>Toolbars </span><span class=rvts17>_ </span><span class=rvts16>DHTML Effects</span><span class=rvts10>. Akan tampil toolbar</span></p>
+<p><span class=rvts10>DHTML Effects.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_377.jpg"></p>
+<p><span class=rvts15>Gambar 8.24 Toolbar DHTML Effects</span></p>
+<p><span class=rvts18><br></span></p>
+<p><span class=rvts10>Perhatikan bahwa animasi yang disediakan oleh FrontPage XP ini merupakan</span></p>
+<p><span class=rvts10>Dynamic HTML (DHTML) dan dihasilkan oleh script Java (JScript, yaitu</span></p>
+<p><span class=rvts10>JavaScript versi Microsoft) Di akhir langkah-langkah ini akan Anda lihat seperti apa</span></p>
+<p><span class=rvts10>script Java.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Pada toolbar DHTML Effects, di kotak pilihan </span><span class=rvts16>On</span><span class=rvts10>, pilihlah sebuah event,</span></p>
+<p><span class=rvts10>misalnya </span><span class=rvts16>Page load</span><span class=rvts10>. Artinya animasi akan dijalankan sesaat setelah halaman</span></p>
+<p><span class=rvts10>(</span><span class=rvts16>Page</span><span class=rvts10>) di buka (di-</span><span class=rvts16>load</span><span class=rvts10>).</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Pada kotak pilihan </span><span class=rvts16>Apply</span><span class=rvts10>, pilihlah jenis animasi yang akan dijalankan. Misalnya</span></p>
+<p><span class=rvts16>Spiral</span><span class=rvts10>. Teks akan digerakkan berpilin seperti bentuk spiral.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Simpanlah halaman. Untuk mengujinya, klik tab Preview. Kalau animasi yang</span></p>
+<p><span class=rvts10>dihasilkan terlalu cepat sehingga Anda tidak bisa mengikutinya, tampilkan pada</span></p>
+<p><span class=rvts10>browser.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Nah, menarik bukan? Kemudian, seperti apa script Java yang menghasilkan animasi</span></p>
+<p><span class=rvts10>tersebut? Berikut ini cara melihatnya:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Tampilkan Folder List jika belum tampil. Perhatikan pada daftar folder dan file</span></p>
+<p><span class=rvts10>tersebut kini ada sebuah file bernama </span><span class=rvts16>Animate.js </span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_378.jpg"></p>
+<p><span class=rvts15>Gambar 8.25 File </span><span class=rvts19>animate.js</span></p>
+<p><span class=rvts19><br></span></p>
+<p><span class=rvts10>2. Klik ganda file tersebut, Notepad akan membuka isinya, berupa script</span></p>
+<p><span class=rvts10>pemrograman dalam bahasa Java, seperti Gambar 8.26.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_379.jpg"></p>
+<p><span class=rvts15>Gambar 8.26 Script Java</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts12>1.2 Animasi interaktif</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts10>Tidak seperti animasi otomatis, animasi interaktif akan mengadakan reaksi atas</span></p>
+<p><span class=rvts10>tindakan yang dilakukan oleh pemakai. Tindakan tersebut sering disebut event,</span></p>
+<p><span class=rvts10>contohnya klik, klik ganda, mouse over dan sebagainya. Event bisa dipsangkan ke</span></p>
+<p><span class=rvts10>objek yang akan menjalankan efek animasi, misalnya suatu teks. Apabila teks</span></p>
+<p><span class=rvts10>tersebut di-klik oleh pemakai maka format teks tersebut akan berubah, misalnya</span></p>
+<p><span class=rvts10>berubah warna, ukuran, maupun jenis font. Berikut ini contoh tampilan pertama teks:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_380.jpg"></p>
+<p><span class=rvts15>Gambar 8.27 Sebelum event (klik)</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>Setelah teks di</span><span class=rvts20>&#8211;</span><span class=rvts10>klik maka formatnya berubah seperti tampilan kedua berikut ini:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_381.jpg"></p>
+<p><span class=rvts15>Gambar 8.28 Setelah event</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>Proses tersebut bersifat bolak balik (toggle), klik pertama akan menghasilkan</span></p>
+<p><span class=rvts10>tampilan kedua, klik sekali lagi akan kembali ke tampilan pertama dan seterusnya.</span></p>
+<p><span class=rvts10>Cara membuatnya hampir sama dengan pembuatan animasi otomatis, antara lain:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Pilihlah teks.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Pada toolbar DHTML Effectsm, di kotak pilihan On, pilihlah event yang bukan</span></p>
+<p><span class=rvts10>Page Load, seperti </span><span class=rvts16>Mouse Over, Click </span><span class=rvts10>atau </span><span class=rvts16>Double Click</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts21>&#8226; </span><span class=rvts16>Click </span><span class=rvts10>adalah klik teks tersebut</span></p>
+<p><span class=rvts21>&#8226; </span><span class=rvts16>Double Click </span><span class=rvts10>berarti klik ganda teks</span></p>
+<p><span class=rvts21>&#8226; </span><span class=rvts16>Mouse Over </span><span class=rvts10>adalah pada saat pointer mouse di atas teks. Misalnya Anda</span></p>
+<p><span class=rvts10>pilih Click.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Kemudian pada kotak pilihan </span><span class=rvts16>Apply</span><span class=rvts10>, tentukan pilihan Anda. Untuk event Click,</span></p>
+<p><span class=rvts10>ternyata hanya ada dau pilihan, yaitu Fly out atau Formatting.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Fly out berarti teks akan diterbangkan ke luar halaman dan menghilang.</span></p>
+<p><span class=rvts10>Sedangkan Formatting berarti teks akan diubah formatnya. Misalnya Anda</span></p>
+<p><span class=rvts10>memilih Formatting.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Kemudian pada kotak pilihan di sebelah kotak pilihan </span><span class=rvts16>Apply, </span><span class=rvts10>tentukan pilihan</span></p>
+<p><span class=rvts10>detilnya. Tersedia </span><span class=rvts16>Choose Border</span><span class=rvts22>&#8230;</span><span class=rvts16> </span><span class=rvts10>dan </span><span class=rvts16>Choose Font</span><span class=rvts22>&#8230;</span><span class=rvts16>. </span><span class=rvts10>Masing-masing untuk</span></p>
+<p><span class=rvts10>mengatur kotak pembatas teks dan untuk mengatur format font. Misalnya kita</span></p>
+<p><span class=rvts10>pilih yang kedua. Muncul kotak dialog </span><span class=rvts16>Font</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_382.jpg"></p>
+<p><span class=rvts15>Gambar 8.29 Kotak dialog Font</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>6. Selanjutnya gunakan kotak dialog Font tersebut untuk mengatur format font</span></p>
+<p><span class=rvts10>sebagai reaksi atas event klik dari pemakai.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>7. Setelah selesai, klik OK.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Anda bisa mencoba hasilnya dengan klik tab Preview</span><span class=rvts16>, </span><span class=rvts10>lalu klik teks tersebut, format</span></p>
+<p><span class=rvts10>baru bagi font tersebut akan diterapkan.</span></p>
+<p><span class=rvts10>Kalau Anda klik sekali lagi teks tersebut, maka akan kembali ke format semula. Jika</span></p>
+<p><span class=rvts10>Anda klik lagi, format baru akan ditampilkan ulang, demikian seterusnya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p class=rvps3><span class=rvts24>Copyright © Herlan Lesmana</span></p>
+<p class=rvps4><span class=rvts25>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts26 href="http://www.helpndoc.com" target="_blank">Free PDF documentation generator</a></p>
+</body></html>

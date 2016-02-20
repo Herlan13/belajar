@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>A . Membuat Frame</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #a0a0a0;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #696969;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #a0a0a0;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #a0a0a0;
+}
+span.rvts10
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts11
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000081;
+}
+span.rvts12
+{
+ font-size: 18pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts13
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts14
+{
+ font-size: 12pt;
+ font-family: 'Book Antiqua', 'Palatino', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #008181;
+}
+span.rvts15
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts16
+{
+ font-size: 12pt;
+ font-family: 'Symbol,Bold';
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts17
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts18
+{
+ font-size: 12pt;
+ font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ color: #000081;
+}
+span.rvts19
+{
+ font-size: 12pt;
+ font-family: 'Wingdings';
+ color: #000081;
+}
+span.rvts20
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts21 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts22 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts23 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts24, span.rvts24 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #9fbed0;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<link rel="StyleSheet" href="hnd.css" type="text/css"/>
+<script type="text/javascript">if(top.frames.length == 0) { sTopic = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length); top.location.href="../Front Page.html?" + sTopic; }</script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="hnd.js"></script>
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps2><span class=rvts0><span class=rvts21>A . Membuat Frame</span></span></h1>
+<p><span class=rvts12>2 Membuat Frame</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts10>Membuat frame pada HTML dapat membingungkan, namun untungnya itu bukan</span></p>
+<p><span class=rvts10>masalah bagi Anda sebab tidak menggunakan HTML. FrontPage akan melakukan</span></p>
+<p><span class=rvts10>semua pembuatan kode HTML untuk Anda.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Tahapan pembuatan frame adalah:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Membuat halaman baru untuk digunakan sebagai frameset.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Membuat frameset, menggunakan template.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Membuat halaman pengisi.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Membuat link halaman pengisi frame.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>2.1 Membuat frameset</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Beginilah cara membuat frameset menggunakan template FrontPage XP:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Aktifkan perintah </span><span class=rvts13>File </span><span class=rvts16>® </span><span class=rvts13>New</span><span class=rvts16>® </span><span class=rvts13>Page or Web</span><span class=rvts10>. Task pane akan muncul di</span></p>
+<p><span class=rvts10>bidang kanan jika belum tampil.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Buatlah sebuah situs kosong baru bernama Web10.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Kemudian buatlah halaman baru yang akan dipasang dengan frameset. Pada task</span></p>
+<p><span class=rvts10>pane klik icon </span><span class=rvts13>Pages Templates</span><span class=rvts10>, tampil kotak dialog </span><span class=rvts13>Page Templates</span><span class=rvts10>. Gambar</span></p>
+<p><span class=rvts10>10.2.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_430.jpg"></p>
+<p><span class=rvts11>Gambar 10.2 Kotak dialog </span><span class=rvts17>Page Templates</span></p>
+<p><span class=rvts17><br></span></p>
+<p><span class=rvts10>4. Klik tab </span><span class=rvts13>Frame Pages </span><span class=rvts10>lalu pilih salah satu icon, misalnya </span><span class=rvts13>Contents </span><span class=rvts10>(Lihat</span></p>
+<p><span class=rvts10>Gambar 10.2 di atas). Perhatikan hasil sementara-nya pada kotak </span><span class=rvts13>Preview</span><span class=rvts10>,</span></p>
+<p><span class=rvts10>kemudian klik </span><span class=rvts13>OK</span><span class=rvts10>. Hasilnya berupa sebuah frameset dengan dua buah frame</span></p>
+<p><span class=rvts10>pada halaman, seperti ditampilkan seperti Gambar 10.3.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 width=561 height=321 alt="" hspace=1 vspace=1 src="img_431.jpg"></p>
+<p><span class=rvts11>Gambar 10.3 Frameset baru</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>5. Klik kanan frame sebelah kiri dan klik </span><span class=rvts13>Properties</span><span class=rvts10>. Muncul kotak dialog </span><span class=rvts13>Frame</span></p>
+<p><span class=rvts13>Properties</span></p>
+<p><span class=rvts13><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_432.jpg"></p>
+<p><span class=rvts11>Gambar 10.4 Kotak dialog Frame Properties</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>6. Pada kotak isian </span><span class=rvts13>Name </span><span class=rvts10>tuliskan nama untuk frame kiri, misalnya </span><span class=rvts13>Daftar</span><span class=rvts10>. Lalu</span></p>
+<p><span class=rvts10>klik tombol </span><span class=rvts13>OK</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>7. Klik kanan frame sebelah kanan dan klik </span><span class=rvts13>Properties</span><span class=rvts10>. Muncul kotak dialog</span></p>
+<p><span class=rvts13>Frame Properties</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>8. Pada kotak isian </span><span class=rvts13>Name </span><span class=rvts10>tuliskan nama untuk frame kanan, misalnya </span><span class=rvts13>Isi</span><span class=rvts10>. Lalu</span></p>
+<p><span class=rvts10>klik tombol </span><span class=rvts13>OK</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>9. Simpanlah halaman sebagai </span><span class=rvts13>Default.htm</span><span class=rvts10>.</span></p>
+<p><span class=rvts10>Kalau Anda perhatikan Gambar 10.3, tampak bahwa masing-masing frame memiliki</span></p>
+<p><span class=rvts10>dua buah tombol, yaitu </span><span class=rvts13>Set Initial Page, </span><span class=rvts10>dan </span><span class=rvts13>New Page.</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts18>&#8226; </span><span class=rvts10>Tombol </span><span class=rvts13>Set Initial Page </span><span class=rvts10>untuk menentukan halaman awal yang harus</span></p>
+<p><span class=rvts10>dibuka oleh frame. Sarananya adalah kotak dialog </span><span class=rvts13>Insert Hyperlink</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_433.jpg"></p>
+<p><span class=rvts11>Gambar 10.5 Kotak dialog Insert Hyperlink</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts18>&#8226; </span><span class=rvts13>New Page </span><span class=rvts10>untuk membuat halaman isi frame pada saat frameset dibuka.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>2.2 Membuat halaman pengisi</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Setelah frameset terbentuk, selanjutnya perlu membuat halaman pengisi.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Klik tombol </span><span class=rvts13>Create a new normal page</span><span class=rvts10>, terbentuk sebuah halaman.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Ubahlah warna latarbelakang halaman menjadi biru. Caranya: klik kanan</span></p>
+<p><span class=rvts10>halaman, lalu klik </span><span class=rvts13>Properties</span><span class=rvts10>. Pada </span><span class=rvts13>Background Color </span><span class=rvts10>pilihlah biru, lalu </span><span class=rvts13>OK</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Tuliskan teks: </span><span class=rvts15>&#8220;</span><span class=rvts10>Halaman Satu</span><span class=rvts15>&#8221;</span><span class=rvts10>, jangan lupa mengubah warna font menjadi</span></p>
+<p><span class=rvts10>putih agar kontras dengan warna latar belakang.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Simpanlah sebagai </span><span class=rvts13>Satu.htm</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Ulangi untuk pembuatan halaman </span><span class=rvts13>Dua.htm </span><span class=rvts10>dan </span><span class=rvts13>Tiga.htm</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Simpanlah web, dengan </span><span class=rvts13>File </span><span class=rvts19>è </span><span class=rvts13>Save</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>2.3 Membuat link halaman pengisi</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Kini saatnya menugaskan halaman agar mengisi frame yang disediakan. Langkah</span></p>
+<p><span class=rvts10>yang diperlukan adalah:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Pada frame kiri (Daftar) klik tombol </span><span class=rvts13>Set Initial Page</span><span class=rvts20>&#8230;</span><span class=rvts10>, muncul kotak dialog</span></p>
+<p><span class=rvts13>Insert Hyperlink</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_434.jpg"></p>
+<p><span class=rvts11>Gambar 10.6 Pemilihan Satu.htm sebagai pengisi frame Daftar</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>2. Klik icon halaman </span><span class=rvts13>Satu.htm</span><span class=rvts10>, lalu klik </span><span class=rvts13>OK</span><span class=rvts10>. Hasilnya pada halaman adalah:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 width=579 height=331 alt="" hspace=1 vspace=1 src="img_435.jpg"></p>
+<p><span class=rvts11>Gambar 10.7 Halaman Satu.htm pada frame Daftar</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>3. Kemudian Anda bisa meneruskan dengan frame Isi. Klik kanan frame </span><span class=rvts13>Isi </span><span class=rvts10>lalu</span></p>
+<p><span class=rvts10>pada kotak dialog Insert Hyperlink pilihlah icon </span><span class=rvts13>Dua.htm</span><span class=rvts10>, dan klik </span><span class=rvts13>OK</span><span class=rvts10>.</span></p>
+<p><span class=rvts10>Hasilnya akan seperti berikut ini:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 width=575 height=329 alt="" hspace=1 vspace=1 src="img_436.jpg"></p>
+<p><span class=rvts11>Gambar 10.8 Halaman Dua.htm mengisi frame Isi</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>4. Untuk mencoba tampilan halaman di browser, klik tombol Preview in browser.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_437.jpg"></p>
+<p><span class=rvts11>Gambar 10.9 Tampilan halaman pada browser</span></p>
+<p><span class=rvts11><br></span></p>
+<p class=rvps3><span class=rvts22>Copyright © Herlan Lesmana</span></p>
+<p class=rvps4><span class=rvts23>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts24 href="http://www.helpndoc.com" target="_blank">Easily create HTML Help documents</a></p>
+</body></html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body {
+	background-image: url();
+	background-color: #FFF;
+}
+#tipsid {display:inline; width:85%; display:block;-moz-user-select: text;-khtml-user-select: text;
+-o-user-select:text;user-select: text;unselectable:off;margin:10px auto; padding:30px; color:#000; border:#2BB5D8 solid 1px; border-radius:15px; text-align:justify; font-style:italic; background:url(../../../images/Page-BgTexture.jpg)top repeat;  -moz-box-shadow: 0 0 8px #888; -webkit-box-shadow: 0 0 8px#2BB5D8; box-shadow: 0 0 8px #888;}
+.cegsumberid {-o-user-select:none;-ms-user-select:none;-khtml-user-select:none;-moz-user-select:none;user-select:none;unselectable:on;-webkit-user-select:none;}
+.blockquote{
+	width:85%;
+	display:block;
+	-moz-user-select: text;
+	-khtml-user-select: text;
+	-o-user-select:text;
+	user-select: text;
+	unselectable:off;
+	margin:10px auto;
+	padding:30px;
+	color:#000;
+	border:#2BB5D8 solid 1px;
+	border-radius:15px;
+	text-align:justify;
+	font-style:italic;
+	background-color: #FFC;
+}
+.blockquote:hover{
+	color:#030;
+	border:#2BB5D8 solid 1px;
+	background-color:#CFC;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="95%" border="2" align="center" cellpadding="5" cellspacing="5" bordercolor="#009900">
+  <tr>
+    <td><h1 class="title" id="mt_title" style="" lang="id" xml:lang="id">Cara membuat sebuah password protected halaman Web dengan menggunakan FrontPage 2003, Active Server Pages, dan akses database</h1>
+      <h2>RINGKASAN</h2><br />
+      Artikel ini selangkah demi selangkah menjelaskan cara membuat solusi sederhana dilindungi sandi halaman Web dengan menggunakan FrontPage 2003, Active Server Pages (ASP), dan Microsoft Access database.
+    <p>Penting</p>
+    <p> Kode contoh dalam artikel ini tidak dirancang sebagai pengganti fungsi built-in keamanan FrontPage 2003. Sampel yang dirancang untuk menyediakan mekanisme keamanan sederhana hanya untuk pengguna yang sedang melihat ke situs Web Anda. Dengan demikian, FrontPage 2003 keamanan tidak mengintegrasikan dengan nama pengguna dan password yang ditambahkan ke database Microsoft Access.<br />
+    Nama pengguna dan sandi yang dimasukkan di dalam ditularkan di Internet dalam teks biasa. Untuk membantu meningkatkan keamanan, Microsoft menyarankan agar Anda menggunakan server Web yang dapat menggunakan Secure Sockets Layer (SSL) enkripsi. Untuk informasi lebih lanjut, hubungi administrator situs Web Anda atau Anda Internet Service Provider (ISP).</p>
+    <h2>Menggunakan ASP fitur di FrontPage 2003</h2><br />
+      Sebelum Anda dapat menggunakan fitur ASP di FrontPage 2003, Anda harus memiliki akses ke Web server atau disk berbasis Web yang mendukung ASP.<br />
+      Membuat situs Web baru di FrontPage 2003<br />
+      Catatan Contoh informasi mengasumsikan bahwa nama Anda logon situs Web Anda, dan bahwa Anda membuat sebagai software dari akar dari situs Web Anda. Jika Anda menggunakan nama selain masuk, atau membuat situs Web dalam lokasi alternatif, Anda harus memodifikasi langkah-langkah di seluruh artikel ini sesuai.
+      <h3>Untuk membuat situs Web baru di FrontPage 2003, ikuti langkah berikut:</h3>
+      <ol>
+        <li> Mulai FrontPage 2003.</li><br />
+          <li>Pada File menu, klik baru.</li><br />
+          <li>Di jendela tugas, klik lebih Web site template, dan kemudian klik situs Web kosong.</li><br />
+         <li> Di bawah pilihan, ketik lokasi di mana Anda ingin menyimpan situs Web baru dalam format berikut:<br />
+          http://ServerName/logon<br />
+          Di mana ServerName adalah nama server Web ASP diaktifkan.</li><br />
+        <li>  Klik OK.</li>
+      </ol>
+    <p>Situs Web kosong baru yang bernama logon dibuka di FrontPage 2003.</p>
+    <h3 id="tocHeadRef" style="" lang="id" xml:lang="id">Buat database</h3>
+    <p><font lang="id" xml:lang="id">Buat database untuk menyimpan nama   pengguna dan password dengan menggunakan program database seperti   Microsoft Office Access 2003. </font><br />
+      <br />
+      <font lang="id" xml:lang="id"><strong>Catatan</strong></font><font lang="id" xml:lang="id">Jika Anda menggunakan program selain 2003 akses untuk membuat database, memodifikasi sesuai langkah-langkah berikut.</font></p>
+    <p><font lang="id" xml:lang="id">Untuk membuat sebuah database, ikuti langkah berikut: </font></p>
+    <ol>
+      <li lang="id" xml:lang="id">Mulai 2003 akses.</li>
+      <li><font lang="id" xml:lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">baru</strong></font>.</li>
+      <li><font lang="id" xml:lang="id">Di jendela tugas, klik <strong class="uiterm">kosong database</strong></font>.</li>
+      <li><font lang="id" xml:lang="id">Ketik <span class="userInput">logon.mdb</span> untuk nama file, dan kemudian klik <strong class="uiterm">Buat</strong></font>.</li>
+      <li><font lang="id" xml:lang="id">Di jendela <strong class="uiterm">objek</strong> , klik <strong class="uiterm">Tables</strong>, dan kemudian klik <strong class="uiterm">baru</strong></font>. </li>
+      <li><font lang="id" xml:lang="id">Klik <strong class="uiterm">Pandangan desain</strong>, dan kemudian klik <strong class="uiterm">OK</strong></font>.</li>
+      <li><font lang="id" xml:lang="id">Di baris pertama dari kolom <strong class="uiterm">Nama Field</strong> , ketik <span class="userInput">UID</span></font>.</li>
+      <li style="" lang="id" xml:lang="id">Pada kolom <strong class="uiterm">Tipe Data</strong> yang sesuai, klik <strong class="uiterm">teks</strong>, dan kemudian klik tombol <strong class="uiterm">Primary Key</strong> pada bilah alat (muncul sebagai simbol kunci).</li>
+      <li style="" lang="id" xml:lang="id">Dalam baris kedua dari kolom <strong class="uiterm">Nama Field</strong> , ketik PWD, dan kemudian klik <strong class="uiterm">teks</strong> di baris kedua di kolom <strong class="uiterm">Tipe Data</strong> .</li>
+      <li><font lang="id" xml:lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">Simpan</strong></font>.</li>
+      <li><font lang="id" xml:lang="id">Dalam kotak <strong class="uiterm">Nama tabel</strong> , ketik <span class="userInput">tblUsers</span>, dan kemudian klik <strong class="uiterm">OK</strong></font>.</li>
+      <li><font lang="id" xml:lang="id">Dalam menu <strong class="uiterm">Lihat</strong> , klik <strong class="uiterm">Lihat Datasheet</strong></font>. </li>
+      <li><font lang="id" xml:lang="id">Dalam kolom <strong class="uiterm">UID</strong> , ketik <span class="userInput">testuser</span></font>.<br />
+        <br />
+        <font lang="id" xml:lang="id"> Di <strong class="uiterm">PWD</strong> kolom, ketik <span class="userInput">sandi</span></font>.</li>
+      <li lang="id" xml:lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">Tutup</strong>, dan kemudian berhenti Access 2003. </li>
+    </ol>
+    <p><font lang="id" xml:lang="id"><strong>Catatan</strong></font><font lang="id" xml:lang="id">Untuk alasan keamanan, password dibatasi untuk campuran huruf, huruf dan angka.</font></p>
+    <h3 id="tocHeadRef2" lang="id" xml:lang="id">Impor database</h3>
+    <font lang="id" xml:lang="id">Mengimpor nama pengguna dan password database yang Anda buat ke FrontPage 2003. </font><font lang="id" xml:lang="id">Untuk melakukannya, ikuti langkah berikut: </font>
+    <ol>
+      <li style="" lang="id" xml:lang="id">Di FrontPage 2003 dengan situs Web logon Anda buka, klik <strong class="uiterm">impor</strong> pada <strong class="uiterm">File</strong> menu.</li>
+      <li><font lang="id" xml:lang="id">Klik <strong class="uiterm">Tambahkan File</strong>, Cari dan klik file <strong class="uiterm">logon.mdb</strong> yang Anda buat. </font><br />
+        <br />
+        <font lang="id" xml:lang="id">Klik <strong class="uiterm">Buka</strong></font>. </li>
+      <li><font lang="id" xml:lang="id">Klik <strong class="uiterm">Ubah</strong>, ketik <span class="userInput">_private/logon.mdb</span> dalam kotak <strong class="uiterm">lokasi berkas dalam web Anda</strong> , dan kemudian klik <strong class="uiterm">OK</strong></font>. <br />
+        <br />
+        <font lang="id" xml:lang="id"><strong>Catatan</strong></font><font lang="id" xml:lang="id">Ada karakter garis bawah (<strong>_</strong>) di depan &quot;swasta&quot; di lokasi file.</font></li>
+      <li lang="id" xml:lang="id">Klik <strong class="uiterm">OK</strong> untuk mengimpor database file.</li>
+      <li><font lang="id" xml:lang="id">Jika Anda diminta untuk membuat koneksi database untuk file ini diimpor, klik <strong class="uiterm">No</strong></font>.</li>
+    </ol>
+    <h3 id="tocHeadRef2" lang="id" xml:lang="id">Membuat halaman ASP</h3>
+    <font lang="id" xml:lang="id">Anda harus membuat beberapa file untuk bekerja dengan contoh ini. </font><font lang="id" xml:lang="id">Pertama,   Buat halaman rumah untuk situs Web Anda, &quot;nonsecure&quot; halaman dan   halaman yang dilindungi sandi untuk pengujian, dan kemudian logon   halaman Web dan logon menyertakan file. </font>
+    <h4 id="tocHeadRef2" lang="id" xml:lang="id">Membuat halaman rumah</h4>
+    <font lang="id" xml:lang="id">Halaman ini berfungsi sebagai halaman   default untuk situs Anda dan termasuk link ke halaman nonsecure dan   dilindungi sandi halaman Web yang Anda buat. </font><font lang="id" xml:lang="id">Untuk membuat halaman rumah, ikuti langkah berikut: </font>
+    <ol>
+      <li><font lang="id" xml:lang="id">FrontPage 2003, klik<strong class="uiterm">File</strong>, klik <strong class="uiterm">baru</strong>dan kemudian klik <strong class="uiterm">halaman kosong</strong></font>.</li>
+      <li lang="id" xml:lang="id">Di daerah footer jendela dokumen, klik <strong class="uiterm">kode</strong> untuk menunjukkan tampilan kode.</li>
+      <li lang="id" xml:lang="id">Memilih dan kemudian menghapus semua kode HTML pada halaman Web.</li>
+      <li><font lang="id" xml:lang="id">Ketik atau tempel kode HTML berikut di halaman Web.</font></li>
+    </ol>
+<p><div class="blockquote">&lt;% @language=&quot;vbscript&quot; %&gt;<br />
+  &lt;html&gt;<br />
+  &lt;head&gt;&lt;title&gt;Home Page&lt;/title&gt;&lt;/head&gt;<br />
+  &lt;body&gt;<br />
+  &lt;h3&gt;Home Page&lt;/h3&gt;<br />
+  &lt;p&gt;You are logged on as: <br />
+  &lt;%<br />
+If Len(Session(&quot;UID&quot;)) = 0 Then<br />
+Response.Write &quot;&lt;b&gt;You are not logged on.&lt;/b&gt;&quot;<br />
+Else<br />
+Response.Write &quot;&lt;b&gt;&quot; &amp; Session(&quot;UID&quot;) &amp; &quot;&lt;/b&gt;&quot;<br />
+End If<br />
+%&gt;<br />
+&lt;/p&gt;<br />
+&lt;ul&gt;<br />
+<br />
+&lt;li&gt;&lt;a href=&quot;passwordprotect.asp&quot;&gt;Password-Protected Page&lt;/a&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;a href=&quot;nonsecure.asp&quot;&gt;Nonsecure Page&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;/ul&gt;<br />
+  &lt;/body&gt;<br />
+  &lt;/html&gt;</div></p>
+  <ul>
+    <li><font lang="id" xml:lang="id">Klik kanan <strong class="uiterm">new_page_1.htm</strong> tab, dan kemudian klik <strong class="uiterm">Save</strong></font>. <br />
+      <br />
+      <font lang="id" xml:lang="id">Simpan halaman sebagai <span class="userInput">default.asp</span> di root folder dari situs Web Anda logon. </font></li>
+    <li lang="id" xml:lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">Tutup</strong> untuk menutup halaman Web default.asp.</li>
+  </ul>
+  <h4 id="tocHeadRef3" lang="id" xml:lang="id">Membuat halaman nonsecure</h4>
+  <font lang="id" xml:lang="id">Buat halaman ASP khas yang semua orang dapat melihat. </font><font lang="id" xml:lang="id">Untuk membuat sebuah nonsecure halaman, ikuti langkah berikut: </font>
+  <ol>
+    <li><font lang="id" xml:lang="id">FrontPage 2003, klik <strong class="uiterm">File</strong>, klik <strong class="uiterm">baru</strong>dan kemudian klik <strong class="uiterm">halaman kosong</strong></font>.</li>
+    <li lang="id" xml:lang="id">Di daerah footer jendela dokumen, klik <strong class="uiterm">kode</strong> untuk menunjukkan tampilan kode.</li>
+    <li lang="id" xml:lang="id">Memilih dan kemudian menghapus semua kode HTML pada halaman Web.</li>
+    <li><font style="" lang="id" xml:lang="id">Ketik atau tempel kode HTML berikut di halaman Web.</font></li>
+  </ol>
+  
+  <div class="blockquote">&lt;% @language=&quot;vbscript&quot; %&gt;  &lt;html&gt;  &lt;head&gt;&lt;title&gt;Nonsecure Page&lt;/title&gt;&lt;/head&gt;  &lt;body&gt;  &lt;h3&gt;Nonsecure Page&lt;/h3&gt;  &lt;p&gt;You are logged on as:   &lt;%    If Len(Session(&quot;UID&quot;)) = 0 Then      Response.Write &quot;&lt;b&gt;You are not logged on.&lt;/b&gt;&quot;    Else      Response.Write &quot;&lt;b&gt;&quot; &amp; Session(&quot;UID&quot;) &amp; &quot;&lt;/b&gt;&quot;    End If  %&gt;  &lt;/p&gt;  &lt;p&gt;&lt;a href=&quot;default.asp&quot;&gt;Back to default&lt;/a&gt;&lt;/p&gt;  &lt;/body&gt;  &lt;/html&gt;</div>
+  
+  <ol>
+    <li value="5"><font xml:lang="id" lang="id">Klik kanan <strong class="uiterm">new_page_1.htm</strong> tab, dan kemudian klik <strong class="uiterm">Save</strong></font>. <br />
+      <br />
+      <font xml:lang="id" lang="id">Simpan halaman sebagai <span class="userInput">nonsecure.asp</span> di root folder dari situs Web Anda logon.</font></li>
+    <li xml:lang="id" lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">Tutup</strong> untuk menutup halaman Web nonsecure.asp.</li>
+  </ol>
+  <h4 id="tocHeadRef4" xml:lang="id" lang="id">Membuat halaman yang dilindungi sandi</h4>
+  <font xml:lang="id" lang="id">Halaman dalam langkah ini   adalah sama   seperti nonsecure Web halaman yang Anda buat sebelumnya,   kecuali bahwa   Anda harus menambahkan baris kode di dekat bagian atas   halaman berikut: </font><span class="blockquote">&lt;!--#include virtual=&quot;/logon/_private/logon.inc&quot;--&gt;</span>
+<p><font xml:lang="id" lang="id">Ketika Anda menambahkan baris kode ke halaman Web ASP, halaman tersebut menjadi dilindungi sandi logon.inc file yang Anda buat. </font><font xml:lang="id" lang="id">Untuk membuat sebuah password protected halaman Web, ikuti langkah berikut: </font></p>
+<ol>
+  <li><font xml:lang="id" lang="id">FrontPage 2003, klik <strong class="uiterm">File</strong>, klik <strong class="uiterm">baru</strong>dan kemudian klik <strong class="uiterm">halaman kosong</strong></font>.</li>
+  <li xml:lang="id" lang="id">Di daerah footer jendela dokumen, klik <strong class="uiterm">kode</strong> untuk menunjukkan tampilan kode.</li>
+  <li xml:lang="id" lang="id">Memilih dan kemudian menghapus semua kode HTML pada halaman Web.</li>
+  <li><font xml:lang="id" lang="id">Ketik atau tempel kode HTML berikut di halaman Web.</font></li>
+</ol>
+<p></p>
+<p class="blockquote"><font color="#FF0000">&lt;% @language=&quot;vbscript&quot; %&gt; <br/> &lt;!--#include virtual=&quot;/logon/_private/logon.inc&quot;--&gt;</font><br/>  &lt;html&gt;<br/>  &lt;head&gt;<br/>&lt;title&gt;Password-Protected Page&lt;/title&gt;<br/>&lt;/head&gt; <br/> &lt;body&gt; <br/> &lt;h3&gt;Password-Protected Page&lt;/h3&gt; <br/> &lt;p&gt;You are logged on as:   &lt;%    If Len(Session(&quot;UID&quot;)) = 0 Then      Response.Write &quot;&lt;b&gt;You are not logged on.&lt;/b&gt;&quot;    Else      Response.Write &quot;&lt;b&gt;&quot; &amp; Session(&quot;UID&quot;) &amp; &quot;&lt;/b&gt;&quot;    End If  %&gt;  &lt;/p&gt;  &lt;p&gt;&lt;a href=&quot;default.asp&quot;&gt;Back to default&lt;/a&gt; <br/> &lt;/body&gt;  &lt;/html&gt; </p>
+<p></p>
+<ol>
+  <li value="5"><font xml:lang="id" lang="id">Klik kanan <strong class="uiterm">new_page_1.htm</strong> tab, dan kemudian klik <strong class="uiterm">Save</strong></font>. <br />
+    <br />
+    <font xml:lang="id" lang="id">Simpan halaman sebagai <span class="userInput">passwordprotect.asp</span> di root folder dari situs Web Anda logon.</font></li>
+  <li xml:lang="id" lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">Tutup</strong> untuk menutup halaman Web passwordprotect.asp.</li>
+</ol>
+<h4 id="tocHeadRef5" xml:lang="id" lang="id">Membuat halaman logon</h4>
+<font style="" xml:lang="id" lang="id">Buat halaman logon yang terlihat mirip dengan kotak dialog logon Windows khas. </font><font xml:lang="id" lang="id">Pengguna     yang mencoba untuk mengakses halaman Web dilindungi sandi akan   dikirim   ke Halaman ini untuk mengetik nama pengguna dan sandi. </font><font xml:lang="id" lang="id">Untuk membuat halaman logon, ikuti langkah berikut: </font>
+<ol>
+  <li><font xml:lang="id" lang="id">FrontPage 2003, klik <strong class="uiterm">File</strong>, klik <strong class="uiterm">baru</strong>dan kemudian klik <strong class="uiterm">halaman kosong</strong></font>.</li>
+  <li xml:lang="id" lang="id">Di daerah footer jendela dokumen, klik <strong class="uiterm">kode</strong> untuk menunjukkan tampilan kode.</li>
+  <li xml:lang="id" lang="id">Memilih dan kemudian menghapus semua kode HTML pada halaman Web.</li>
+  <li><font xml:lang="id" lang="id">Ketik atau tempel kode HTML berikut di halaman Web.</font></li>
+</ol>
+<p>&nbsp; </p>
+<p class="blockquote"><font color="#FF0000">&lt;% @language=&quot;vbscript&quot; %&gt; <br/> 
+  &lt;!--#include virtual=&quot;/logon/_private/logon.inc&quot;--&gt; <br/>  &lt;%    ' Was this page posted to?    If UCase(Request.ServerVariables(&quot;HTTP_METHOD&quot;)) = &quot;POST&quot; Then      ' If so, check the username/password that was entered.      If ComparePassword(Request(&quot;UID&quot;),Request(&quot;PWD&quot;)) Then        ' If comparison was good, store the user name...        Session(&quot;UID&quot;) = Request(&quot;UID&quot;)        ' ...and redirect back to the original page.        Response.Redirect Session(&quot;REFERRER&quot;)      End If    End If  %&gt; </font> <br/> &lt;html&gt;  <br/> &lt;head&gt; <br/>&lt;title&gt;Logon Page&lt;/title&gt; <br/>  &lt;style&gt; <br/>  body  { font-family: arial, helvetica }  table { background-color: #cccccc; font-size: 9pt; padding: 3px }  td    { color: #000000; background-color: #cccccc; border-width: 0px }  th    { color: #ffffff; background-color: #0000cc; border-width: 0px }  &lt;/style&gt; <br/>  &lt;/head&gt;  <br/> &lt;body bgcolor=&quot;#000000&quot; text=&quot;#ffffff&quot;&gt; <br/>  &lt;h3 align=&quot;center&quot;&gt;&amp;#xa0;&lt;/h3&gt;  &lt;div align=&quot;center&quot;&gt;&lt;center&gt;  &lt;form action=&quot;&lt;%=LOGON_PAGE%&gt;&quot; method=&quot;POST&quot;&gt;  &lt;table border=&quot;2&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt;    &lt;tr&gt;      &lt;th colspan=&quot;4&quot; align=&quot;left&quot;&gt;Enter User Name and Password&lt;/th&gt;    &lt;/tr&gt;    &lt;tr&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;      &lt;td colspan=&quot;2&quot; align=&quot;left&quot;&gt;Please type your user name and password.&lt;/td&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;      &lt;td align=&quot;left&quot;&gt;Site&lt;/td&gt;      &lt;td align=&quot;left&quot;&gt;&lt;%=Request.ServerVariables(&quot;SERVER_NAME&quot;)%&gt; &amp;#xa0;&lt;/td&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;      &lt;td align=&quot;left&quot;&gt;User Name&lt;/td&gt;      &lt;td align=&quot;left&quot;&gt;&lt;input name=&quot;UID&quot; type=&quot;text&quot; size=&quot;20&quot;&gt;&lt;/td&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;      &lt;td align=&quot;left&quot;&gt;Password&lt;/td&gt;      &lt;td align=&quot;left&quot;&gt;&lt;input name=&quot;PWD&quot; type=&quot;password&quot; size=&quot;20&quot;&gt;&lt;/td&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;      &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;LOGON&quot;&gt;&lt;/td&gt;      &lt;td&gt;&amp;#xa0;&lt;/td&gt;    &lt;/tr&gt;  &lt;/table&gt;  &lt;/form&gt;  &lt;/center&gt;&lt;/div&gt;  &lt;/body&gt;  &lt;/html&gt; </p>
+<p></p>
+<ol>
+  <li value="5"><font xml:lang="id" lang="id">Klik kanan <strong class="uiterm">new_page_1.htm</strong> tab, dan kemudian klik <strong class="uiterm">Save</strong></font>. <br />
+    <br />
+    <font xml:lang="id" lang="id">Simpan halaman sebagai <span class="userInput">logon.asp</span> di root folder dari situs Web Anda logon.</font></li>
+  <li xml:lang="id" lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">Tutup</strong> untuk menutup halaman Web logon.asp.</li>
+</ol>
+<h4 id="tocHeadRef6" xml:lang="id" lang="id">Membuat logon menyertakan file</h4>
+<font xml:lang="id" lang="id">Termasuk file menyediakan     fungsionalitas nama dan sandi pengguna dan digunakan oleh halaman Web     yang dilindungi sandi dan halaman Web logon. </font><font xml:lang="id" lang="id">Untuk membuat logon termasuk berkas, ikuti langkah berikut: </font>
+<ol>
+  <li><font xml:lang="id" lang="id">FrontPage 2003, klik <strong class="uiterm">File</strong>, klik <strong class="uiterm">baru</strong>dan kemudian klik <strong class="uiterm">halaman kosong</strong></font>.</li>
+  <li xml:lang="id" lang="id">Di daerah footer jendela dokumen, klik <strong class="uiterm">kode</strong> untuk menunjukkan tampilan kode.</li>
+  <li xml:lang="id" lang="id">Memilih dan kemudian menghapus semua kode HTML pada halaman Web.</li>
+  <li><font xml:lang="id" lang="id">Ketik atau tempel kode HTML berikut di halaman Web.</font></li>
+</ol>
+<p>&nbsp;</p>
+<p class="blockquote">&lt;%    ' Do not cache this page.    Response.CacheControl = &quot;no-cache&quot;      ' Define the name of the users table.    Const USERS_TABLE  = &quot;tblUsers&quot;    ' Define the path to the logon page.    Const LOGON_PAGE   = &quot;/logon/logon.asp&quot;    ' Define the path to the logon database.    Const MDB_URL      = &quot;/logon/_private/logon.mdb&quot;      ' Check to see whether you have a current user name.    If Len(Session(&quot;UID&quot;)) = 0 Then      ' Are you currently on the logon page?      If LCase(LOGON_PAGE) &lt;&gt; LCase(Request.ServerVariables(&quot;URL&quot;)) Then        ' If not, set a session variable for the page that made the request...        Session(&quot;REFERRER&quot;) = Request.ServerVariables(&quot;URL&quot;)        ' ...and redirect to the logon page.        Response.Redirect LOGON_PAGE      End If    End If      ' This function checks for a username/password combination.    Function ComparePassword(UID,PWD)      ' Define your variables.      Dim strSQL, objCN, objRS      ' Set up your SQL string.      strSQL = &quot;SELECT * FROM &quot; &amp; USERS_TABLE &amp; _        &quot; WHERE (UID='&quot; &amp; ParseText(UID) &amp; _        &quot;' AND PWD='&quot; &amp; ParseText(PWD) &amp; &quot;');&quot;      ' Create a database connection object.      Set objCN = Server.CreateObject(&quot;ADODB.Connection&quot;)      ' Open the database connection object.      objCN.Open &quot;driver={Microsoft Access Driver (*.mdb)}; dbq=&quot; &amp; _        Server.MapPath(MDB_URL) &amp; &quot;; uid=admin; pwd=&quot;      ' Run the database query.      Set objRS = objCN.Execute(strSQL)      ' Set the status to true/false for the database lookup.      ComparePassword = Not(objRS.EOF)      ' Close your database objects.      Set objRS = Nothing      Set objCN = Nothing    End Function      ' This function restricts text to alpha-numeric data only.    Function ParseText(TXT)      Dim intPos, strText, intText      For intPos = 1 TO Len(TXT)        intText = Asc(Mid(TXT,intPos,1))        If (intText &gt; 47 And intText &lt; 58) Or _           (intText &gt; 64 And intText &lt; 91) Or _           (intText &gt; 96 And intText &lt; 123) Then            strText = strText &amp; Mid(TXT,intPos,1)        End if      Next      ParseText = strText    End Function  %&gt;</p>
+<ol>
+  <li value="5"><font xml:lang="id" lang="id">Klik kanan <strong class="uiterm">new_page_1.htm</strong> tab, dan kemudian klik <strong class="uiterm">Save</strong></font>. <br />
+    <br />
+    <font xml:lang="id" lang="id">Simpan halaman sebagai <span class="userInput">logon.inc</span> dalam folder <strong>_private</strong> situs Web logon.</font></li>
+  <li xml:lang="id" lang="id">Pada <strong class="uiterm">File</strong> menu, klik <strong class="uiterm">Tutup</strong> untuk menutup berkas logon.inc.</li>
+</ol>
+<h3 id="tocHeadRef7" xml:lang="id" lang="id">Menguji situs Web logon</h3>
+<font xml:lang="id" lang="id">Untuk melakukannya, ikuti langkah berikut: </font>
+<ol>
+  <li><font xml:lang="id" lang="id">Di FrontPage 2003, di sisi <strong class="uiterm">Daftar map</strong> , klik kanan <strong class="uiterm">Default.asp</strong>, dan kemudian klik <strong class="uiterm">Pratinjau di Browser</strong></font>.<br />
+    <br />
+    <font xml:lang="id" lang="id">Web browser load halaman rumah sampel dan menunjukkan bahwa Anda tidak logon.</font></li>
+  <li><font xml:lang="id" lang="id">Klik link <strong class="uiterm">halaman Nonsecure</strong> .</font><br />
+    <br />
+    <font xml:lang="id" lang="id"> Halaman beban dan menunjukkan bahwa Anda tidak logon. </font><font xml:lang="id" lang="id">Klik link <strong class="uiterm">kembali ke default</strong> untuk kembali ke halaman default.</font></li>
+  <li><font xml:lang="id" lang="id">Klik link <strong class="uiterm">halaman yang dilindungi sandi</strong> . </font><br />
+    <br />
+    <font xml:lang="id" lang="id">Logon.asp halaman load bukan halaman yang dilindungi sandi.</font></li>
+  <li><font xml:lang="id" lang="id">Dalam kotak <strong class="uiterm">User Name</strong> , ketik <span class="userInput">testuser</span>, ketik <span class="userInput">sandi</span> pada kotak <strong class="uiterm">Password</strong> , dan kemudian klik <strong class="uiterm">LOGON</strong></font>.<br />
+    <br />
+    <font xml:lang="id" lang="id">Dilindungi sandi halaman muncul dan menunjukkan bahwa Anda logon sebagai <strong>testuser</strong>. </font><font xml:lang="id" lang="id">Klik link <strong class="uiterm">kembali ke default</strong> untuk kembali ke halaman default. </font><font xml:lang="id" lang="id">Home page load dan menunjukkan bahwa Anda logon sebagai <strong>testuser</strong></font>. </li>
+  <li><font xml:lang="id" lang="id">Klik link <strong class="uiterm">halaman Nonsecure</strong> .</font><br />
+    <br />
+    <font xml:lang="id" lang="id"> Halaman beban dan menunjukkan bahwa Anda logon sebagai <strong>testuser</strong></font>.</li>
+</ol>
+<h3 id="tocHeadRef7" xml:lang="id" lang="id">Menyesuaikan situs Web logon</h3>
+<font xml:lang="id" lang="id">Anda dapat menyesuaikan situs Web contoh logon dengan cara berikut: </font>
+<ul>
+  <li><font xml:lang="id" lang="id">Menambahkan nama pengguna dan password: Anda dapat membuka database. </font><font xml:lang="id" lang="id">Untuk melakukannya, klik dua kali database di FrontPage 2003, dan kemudian menambahkan pengguna ke tabel <strong>tblUsers</strong> . </font></li>
+  <li><font xml:lang="id" lang="id">Password   melindungi   halaman Web lain: untuk password-melindungi halaman Web lain   di situs   Web Anda, Anda harus menyimpan berkas dengan ekstensi nama   berkas ASP,   misalnya, <var>Mypage.asp</var>, dan kemudian menambahkan dua baris berikut ke bagian paling atas dari file: </font></li>
+  </ul>
+<p class="blockquote">&lt;% @language=&quot;vbscript&quot; %&gt;  &lt;!--#include virtual=&quot;/logon/_private/logon.inc&quot;--&gt;</p>
+<div style="margin-left: 52px;" class="sbody" id="MT0">
+  <ul>
+    <li><font xml:lang="id" lang="id">Baris   pertama menunjukkan bahwa   Anda menggunakan Microsoft Visual Basic   Scripting Edition (VBScript)   untuk bahasa scripting, dan baris kedua   mencakup nama pengguna dan sandi   fungsionalitas dari logon menyertakan   file yang Anda buat sebelumnya. </font></li>
+  </ul>
+  <div class="topOfPage" translate="false"></div>
+</div>
+<h2 class="subTitle" id="tocHeadRef8" translate="false">INFORMASI LEBIH LANJUT</h2>
+<div style="margin-left: 52px;" class="sbody" id="MT1"><font xml:lang="id" lang="id">Nama pengguna dan sandi yang disimpan dalam database tidak terenkripsi. </font><font xml:lang="id" lang="id">Bahkan menggunakan masker masukan Password tidak mengenkripsi data ini. </font><font xml:lang="id" lang="id">Untuk alasan ini, dan alasan-alasan lain, akses database tidak boleh digunakan untuk produksi situs Web. </font><font xml:lang="id" lang="id">Untuk     informasi lebih lanjut tentang bagaimana membantu mengamankan HTTP     komunikasi antara klien dan server, klik nomor artikel berikut ini untuk     melihat artikel di dalam Basis Pengetahuan Microsoft: </font>
+  <div class="indent"><a href="http://support.microsoft.com/kb/299525" class="KBlink" xml:lang="id" lang="id">299525</a><font xml:lang="id" lang="id"> Cara mengatur SSL dengan menggunakan IIS 5.0 dan Sertifikat Server 2,0 </font></div>
+  <div class="indent"><a href="http://support.microsoft.com/kb/299875" class="KBlink" xml:lang="id" lang="id">299875 </a><font xml:lang="id" lang="id"> Bagaimana menerapkan SSL di IIS </font></div>
+  <div class="topOfPage" translate="false"></div>
+</div>
+<h2 class="subTitle" id="tocHeadRef8" translate="false">REFERENSI</h2>
+<div style="margin-left: 52px;" class="sbody" id="MT2"><font xml:lang="id" lang="id"> Untuk informasi lebih lanjut tentang bagaimana untuk mengintegrasikan     Active Server Pages (ASP) dengan database, klik nomor artikel berikut     ini untuk melihat artikel di dalam Basis Pengetahuan Microsoft: </font>
+  <div class="indent"><a href="http://support.microsoft.com/kb/299987" class="KBlink" xml:lang="id" lang="id">299987</a><font xml:lang="id" lang="id"> Cara menggunakan database dan ASP sesi untuk menerapkan ASP keamanan </font></div>
+  <div class="indent"><a href="http://support.microsoft.com/kb/300382" class="KBlink" xml:lang="id" lang="id">300382</a><font xml:lang="id" lang="id"> Cara membuat koneksi database dari halaman ASP di IIS </font></div>
+  <div class="indent"><a href="http://support.microsoft.com/kb/318287" class="KBlink" xml:lang="id" lang="id">318287</a><font xml:lang="id" lang="id"> Apa yang Anda perlu menggunakan Active Server Pages (ASP) di FrontPage 2002 </font></div>
+  <div class="topOfPage" translate="false"></div>
+</div>
+<h2 class="subTitle articleProperties" id="tocHeadRef8" translate="false"><a href="javascript:void(0);" id="mt_propertyHead">Properti</a></h2>
+<div style="margin-left: 52px;" class="sbody" translate="false">
+  <div class="articlePropertyBottom">ID Artikel: 825498 - Kajian Terakhir: 07 Oktober 2011 - Revisi: 2.0</div>
+</div>
+<p></p></td>
+  </tr>
+</table>
+</body>
+</html>

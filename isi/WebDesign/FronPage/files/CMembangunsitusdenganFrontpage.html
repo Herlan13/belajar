@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>C . Membangun situs dengan Frontpage XP</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #a0a0a0;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #696969;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #a0a0a0;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #a0a0a0;
+}
+span.rvts10
+{
+ font-size: 18pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts11
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts12
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000081;
+}
+span.rvts13
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts14
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts15
+{
+ font-size: 12pt;
+ font-family: 'Book Antiqua', 'Palatino', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #008181;
+}
+span.rvts16
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts17
+{
+ font-size: 12pt;
+ font-family: 'Wingdings3';
+ color: #000081;
+}
+span.rvts18
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #ff0000;
+}
+span.rvts19
+{
+ font-size: 12pt;
+ font-family: 'Wingdings';
+ color: #000081;
+}
+span.rvts20
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts21
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000081;
+}
+span.rvts22 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts23 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts24 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts25, span.rvts25 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #9fbed0;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<link rel="StyleSheet" href="hnd.css" type="text/css"/>
+<script type="text/javascript">if(top.frames.length == 0) { sTopic = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length); top.location.href="../Front Page.html?" + sTopic; }</script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="hnd.js"></script>
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps2><span class=rvts0><span class=rvts22>C . Membangun situs dengan Frontpage XP</span></span></h1>
+<p><span class=rvts10>4 Membangun situs dengan Frontpage XP</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts11>Ada dua langkah yang harus Anda perhatikan, pertama Anda harus memiliki lokasi</span></p>
+<p><span class=rvts11>hosting dan yang kedua Anda harus bisa membuat situs Anda sendiri.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Langkah pertama, Anda tinggal menyiapkan dana secukupnya kemudian hubungilah</span></p>
+<p><span class=rvts11>ISP (Internet Service Provider) yang baik di kota Anda. Daftarkan diri Anda, Anda</span></p>
+<p><span class=rvts11>akan memperoleh account sendiri dan alamat hosting berupa URL.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Setelah memiliki lokasi hosting, yaitu telah mendapatkan account dari ISP dan diberi</span></p>
+<p><span class=rvts11>URL, maka Anda bisa membuat dan mem-publish situs Anda ke internet. Gunakan</span></p>
+<p><span class=rvts11>Frontpage XP, mudah sekali dan hasilnya sangat mengesankan.</span></p>
+<p><span class=rvts11>Sebelum hosting ke provider (ISP), Anda bisa hosting di komputer Anda sendiri,</span></p>
+<p><span class=rvts11>yang kini sudah merupakan web server.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Pilihan lainnya jika komputer Anda bukan web server adalah disk based, yaitu Anda</span></p>
+<p><span class=rvts11>bisa menggunakan komputer Anda untuk menyimpan situs yang Anda bangun</span></p>
+<p><span class=rvts11>seperti biasa dan mencobanya dengan FrontPage XP. Kelak jika sudah selesai, Anda</span></p>
+<p><span class=rvts11>bisa menyerahkan situs tersebut ke Isp untuk dipublish ke Internet.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Pembahasan berikutnya adalah selayang pandang membangun situs dengan</span></p>
+<p><span class=rvts11>FrontPage XP. Dilakukan pada komputer Anda sendiri yang telah memiliki web</span></p>
+<p><span class=rvts11>server bernama </span><span class=rvts14>master</span><span class=rvts11>.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts15>4.1 Membuat home page</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Tahap pertama membuat situs adalah membuat home page. Dan langkah yang</span></p>
+<p><span class=rvts11>diperlukan adalah:</span></p>
+<p><span class=rvts11>1. Jalankan Microsoft FrontPage XP.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_89.jpg"></p>
+<p><span class=rvts12>Gambar 2.12 Tampilan Microsoft FrontPage XP</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>2. Dari menu </span><span class=rvts14>File </span><span class=rvts11>arahkan ke </span><span class=rvts14>New</span><span class=rvts11>, lalu klik </span><span class=rvts14>Page or Web</span><span class=rvts11>. Muncul Task Pane</span></p>
+<p><span class=rvts11>dengan tema </span><span class=rvts14>New Page or Web</span><span class=rvts11>.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_90.jpg"></p>
+<p><span class=rvts12>Gambar 2.13 Task Pane baru</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>3. Pada task pane, di bawah kelompok </span><span class=rvts14>New from Template</span><span class=rvts11>, klik icon </span><span class=rvts14>Web</span></p>
+<p><span class=rvts14>Site Templates</span><span class=rvts11>. Lihat Gambar 2.13. Muncul kotak dialog </span><span class=rvts14>Web Site</span></p>
+<p><span class=rvts14>Templates </span><span class=rvts11>(lihat Gambar 2.14).</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_91.jpg"></p>
+<p><span class=rvts12>Gambar 2.14 Kotak dialog Web Site Templates</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>4. Klik icon </span><span class=rvts14>One Page Web</span><span class=rvts11>, lalu pada kotak isian </span><span class=rvts14>Specify the location of the</span></p>
+<p><span class=rvts14>new web</span><span class=rvts11>, tuliskan URL web site Anda yang diberikan oleh ISP. Dalam</span></p>
+<p><span class=rvts11>contoh ini penulis menggunakan server sendiri bernama </span><span class=rvts14>master¸ </span><span class=rvts11>dan</span></p>
+<p><span class=rvts11>publikasinya bukan ke Internet namun ke Intranet kantor dengan folder</span></p>
+<p><span class=rvts14>web1</span><span class=rvts11>, jadi URL penulis adalah </span><span class=rvts16>http://master/web1</span><span class=rvts11>. Kemudian klik </span><span class=rvts14>OK</span><span class=rvts11>.</span></p>
+<p><span class=rvts11>FrontPage XP akan membuat sebuah web site pada server, yaitu komputer</span></p>
+<p><span class=rvts11>Anda sendiri yang bernama master. Hasilnya berupa suatu situs dengan</span></p>
+<p><span class=rvts11>sebuah halaman kosong seperti Gambar 2.15.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_92.jpg"></p>
+<p><span class=rvts12>Gambar 2.15 Situs dengan satu halaman kosong</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>5. Jika belum tampak halaman putih di bidang sebelah kanan, pada </span><span class=rvts14>Folder List</span></p>
+<p><span class=rvts11>klik ganda icon </span><span class=rvts14>Default.htm</span><span class=rvts11>.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>6. Kemudian tuliskan kalimat: </span><span class=rvts13>&#8220;</span><span class=rvts11>Selamat Datang di Web Site pertama saya</span><span class=rvts13>&#8221;</span><span class=rvts11>.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_93.jpg"></p>
+<p><span class=rvts12>Gambar 2.16 Kalimat baru</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>7. Pada toolbar klik tombol </span><span class=rvts14>Save</span><span class=rvts11>, atau aktifkan </span><span class=rvts14>File </span><span class=rvts17>_ </span><span class=rvts14>Save</span><span class=rvts11>.</span></p>
+<p><span class=rvts18><br></span></p>
+<p><span class=rvts11>8. Kemudian klik </span><span class=rvts14>Preview in Browser</span><span class=rvts11>, atau aktifkan File </span><span class=rvts17>_ </span><span class=rvts14>Preview in</span></p>
+<p><span class=rvts14>Browser</span><span class=rvts11>. Browser akan diaktifkan dan menampilkan halaman Anda,</span></p>
+<p><span class=rvts11>hasilnya seperti Gambar 2.17.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_94.jpg"></p>
+<p><span class=rvts12>Gambar 2.17 Situs tampak di browser</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>9. Tutuplah browser dan kembali ke FrontPage XP, selanjutnya Anda bisa</span></p>
+<p><span class=rvts11>menambahkan kalimat Anda sendiri.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>10. Gunakan tombol-tombol yang ada di toolbar Formatting untuk mengatur</span></p>
+<p><span class=rvts11>format teks agar lebih menarik.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts15>4.2 Membuat halaman lain</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Home page adalah halaman awal yang akan dibuka ketika seseorang mengunjungi</span></p>
+<p><span class=rvts11>situs web kita. Selanjutnya dari Home Page bisa dibuka halaman-halaman lainnya.</span></p>
+<p><span class=rvts11>Berikiut ini langkab pembuatan halaman lainnya</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>1. Di bidang sebelah kiri klik icon Navigation, FrontPage XP mengubah tampilan</span></p>
+<p><span class=rvts11>menjadi Navigation View. Gambar 2.18. Perhatikan, pada tampilan tersebut</span></p>
+<p><span class=rvts11>hanya terdapat sebuah icon halaman, yaitu halaman Home Page.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=531 height=313 alt="" hspace=1 vspace=1 src="img_95.jpg"></p>
+<p><span class=rvts12>Gambar 2.18 Tampilan Navigation View</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>2. Klik kanan icon halaman Home Page, lalu aktifkan perintah </span><span class=rvts14>New </span><span class=rvts19>è </span><span class=rvts14>Page</span><span class=rvts11>.</span></p>
+<p><span class=rvts11>Terbentuk sebuah halaman kosong baru.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>3. Klik judul halaman tersebut lalu tuliskan </span><span class=rvts14>Anak_1</span><span class=rvts11>. Lihat Gambar 2.19.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_96.jpg"></p>
+<p><span class=rvts12>Gambar 2.19 Halaman baru (Anak_1)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>4. Ulangi langkah di atas untuk membuat halaman baru bernama Anak_2. Lihat</span></p>
+<p><span class=rvts11>Gambar 2.20.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_97.jpg"></p>
+<p><span class=rvts12>Gambar 2.20 Kotak dialog Save As</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>5. Pada halaman Anak_1 buatlah halaman Cucu_1, Cucu_2, dan Cucu_3.</span></p>
+<p><span class=rvts11>Kemudian buatlah halaman baru Cucu_4, Cucu_5, dan Cucu_6 pada halaman</span></p>
+<p><span class=rvts11>Anak_2. Lihat Gambar 2.21.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=482 height=261 alt="" hspace=1 vspace=1 src="img_98.jpg"></p>
+<p><span class=rvts12>Gambar 2.21 Kata pembuka link</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts15>4.3 Membuat bidang umum</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Masih ingat tentang Navigator atau Libk Bar Horisontal? Nah, untuk memasang</span></p>
+<p><span class=rvts11>navigator perlu disediakan ruangan khusus yang akan muncul di setiap halaman.</span></p>
+<p><span class=rvts11>Ruangan untuk navigator terletak di atas (</span><span class=rvts14>Top</span><span class=rvts11>). Sarana pembuat top adalah Shared</span></p>
+<p><span class=rvts11>borders.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Tidak hanya Top yang bisa dihasilkan oleh Shared borders, namun juga </span><span class=rvts14>Left </span><span class=rvts11>yang</span></p>
+<p><span class=rvts11>berguna untuk membuat Link bar vertikal di sebelah kiri halaman. Juga tersedia</span></p>
+<p><span class=rvts14>Bottom </span><span class=rvts11>untuk membuat ruang di bagian bawah.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Cara pemakaian Shared borders adalah:</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>1. Klik icon Default.htm (Home Page).</span></p>
+<p><span class=rvts11>2. Aktifkan perintah Format </span><span class=rvts19>è </span><span class=rvts11>Shared Borders. Muncul kotak dialog Shared</span></p>
+<p><span class=rvts11>Borders.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_99.jpg"></p>
+<p><span class=rvts12>Gambar 2.22 Kotak dialog </span><span class=rvts20>Insert Hyperlink</span></p>
+<p><span class=rvts20><br></span></p>
+<p><span class=rvts11>3. Klik pilihan </span><span class=rvts14>All pages</span><span class=rvts11>.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>4. Klik Pilihan Top, Left dan Bottom. Pada Top, aktifkan juga pilihan </span><span class=rvts14>Include</span></p>
+<p><span class=rvts14>navigation buttons </span><span class=rvts11>. Lihat Gambar 2.23.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_100.jpg"></p>
+<p><span class=rvts12>Gambar 2. 23 Pilihan Top, Left dan Bottom</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>5. Klik OK. Untuk melihat hasilnya pada halaman, klik icon Page pada bidang</span></p>
+<p><span class=rvts11>kiri untuk berpindah ke tampilan halaman.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=482 height=288 alt="" hspace=1 vspace=1 src="img_101.jpg"></p>
+<p><span class=rvts12>Gambar 2.24 Shared borders terpasang</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts15>4.4 Memasang tema</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Anda bisa menambahkan hiasan grafis yang meliputi latar belakang, tombol,</span></p>
+<p><span class=rvts11>navigasi dan sebagainya untuk situs Anda. Hiasan ini dinamakan tema atau theme,</span></p>
+<p><span class=rvts11>yang akan muncul secara seragam di seluruh halaman web.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Cara pemasangan theme adalah:</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>1. Aktifkan </span><span class=rvts14>Format </span><span class=rvts19>è </span><span class=rvts14>Themes</span><span class=rvts11>. Muncul kotak dialog </span><span class=rvts14>Themes</span><span class=rvts11>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 width=503 height=334 alt="" hspace=1 vspace=1 src="img_102.jpg"></p>
+<p><span class=rvts12>Gambar 2.25 Kotak dialog Themes</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>2. Klik pilihan </span><span class=rvts14>All </span><span class=rvts11>pages, lalu pilihlah salah satu tema pada daftar yang disediakan</span></p>
+<p><span class=rvts11>di sebelah kiri. Misalnya </span><span class=rvts14>Capsules</span><span class=rvts11>. Gambar 2.26.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=491 height=327 alt="" hspace=1 vspace=1 src="img_103.jpg"></p>
+<p><span class=rvts12>Gambar 2.26 Pilihan tema </span><span class=rvts20>Capsules</span></p>
+<p><span class=rvts20><br></span></p>
+<p><span class=rvts11>3. Klik OK, tema akan diterapkan ke situs Anda. Hasilnya seperti Gambar 2.27.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=491 height=294 alt="" hspace=1 vspace=1 src="img_104.jpg"></p>
+<p><span class=rvts12>Gambar 2.27 Situs dengan tema Bubbles</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>4. Selanjutnya Anda bisa mencobanya di browser dengan cara klik tombol Preview</span></p>
+<p><span class=rvts11>inbrowser. Nah, kini situs Anda lebih menarik.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>5. Untuk mengganti tema, aktifkan lagi </span><span class=rvts14>Format </span><span class=rvts19>è </span><span class=rvts14>Themes </span><span class=rvts11>dan pilihlah tema</span></p>
+<p><span class=rvts11>baru. Masih banyak tersedia tema yang indah dan menarik.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts15>4.5 Menambah Link bar</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Kita sekarang memiliki sembilan halaman pada situs, kini saatnya untuk saling</span></p>
+<p><span class=rvts11>merangkai halaman tersebut.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Anda bisa memasang link bar atau navigatir dengan mudah, caranya:</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>1. Klik kanan teks </span><span class=rvts12>[Edit the propertiesfor this link bar</span><span class=rvts21>&#8230;</span><span class=rvts12>.</span></p>
+<p><span class=rvts11>2. Klik perintah </span><span class=rvts14>Link Bar Properties</span><span class=rvts11>. Muncul kotak dialog </span><span class=rvts14>Link Bar Properties.</span></p>
+<p><span class=rvts11>Gambar 2.28.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_105.jpg"></p>
+<p><span class=rvts12>Gambar 2.28 Kotak dialog Link Bar Properties.</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>3. Pastikan pilihan </span><span class=rvts14>Child level </span><span class=rvts11>dalam keadaan terpilih. Klik OK, hasilnya seperti</span></p>
+<p><span class=rvts11>Gambar 2.29 berikut ini:</span></p>
+<p><span class=rvts20><br></span></p>
+<p><img border=0 width=499 height=299 alt="" hspace=1 vspace=1 src="img_106.jpg"></p>
+<p><span class=rvts12>Gambar 2.29 Link bar dua tombol</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Perhatikan bahwa, pilihan </span><span class=rvts14>Child level </span><span class=rvts11>akan menyebabkan tombol menampilkan</span></p>
+<p><span class=rvts11>nama Anak_1 dan Anak_2, sebab keduanya merupakan anak dari halaman Home</span></p>
+<p><span class=rvts11>Page. Marilah kita coba Navigator kita ini. Klik tombol </span><span class=rvts14>Preview in Browser</span><span class=rvts11>.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_107.jpg"></p>
+<p><span class=rvts12>Gambar 2.30 Halaman Default</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Kalau Anda klik tombol Anak_1 atau Anak_2, hasilnya akan seperti Gmbar 2.31</span></p>
+<p><span class=rvts11>berikut ini:</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_108.jpg"></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Perhatikan bahwa, selru ruh halaman menampilkan unsur grafis yang sama persis,</span></p>
+<p><span class=rvts11>mulai dari gambar latar belakang, gambar tombol, jenis/ukuran font dan sebagainya.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Hal ini adalah hasil kerja FrontPage XP dalam menerapkan tema (theme) yang kita</span></p>
+<p><span class=rvts11>pilih. Kemudian FrontPage XP juga bekerja membuat sambungan antar halaman</span></p>
+<p><span class=rvts11>secara otomatis, sesuai hirarki yang telah kita tentukan pada tampilan navigation</span></p>
+<p><span class=rvts11>(pada waktu membuat halaman-halaman).</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts15>4.6 Membuat daftar isi</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Kita masih memiliki ruang Left yang belum kita manfaatkan. Mari kita gunakan</span></p>
+<p><span class=rvts11>untuk membuat daftar isi, dengan langkah:</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>1. Klik Left.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>2. Aktifkan Insert </span><span class=rvts19>è </span><span class=rvts11>Web Component. Muncul kotak dialog Web Component.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_109.jpg"></p>
+<p><span class=rvts12>Gambar 2.32 Pilihan Table of Content pada Web Component</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>3. Pada bidang kiri klik icon </span><span class=rvts14>Table of Conte nts</span><span class=rvts11>, lalu pada bidang kanan klik icon</span></p>
+<p><span class=rvts14>For This Web Site</span><span class=rvts11>. Gambar 2.32.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>4. Klik </span><span class=rvts14>Finish</span><span class=rvts11>, muncul kotak dialog </span><span class=rvts14>Table of Contents Properties</span><span class=rvts11>.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_110.jpg"></p>
+<p><span class=rvts12>Gambar 2.33 Kotak dialog </span><span class=rvts20>Table of Contents Properties</span></p>
+<p><span class=rvts20><br></span></p>
+<p><span class=rvts11>5. Klik </span><span class=rvts14>OK</span><span class=rvts11>, hasilnya seperti Gambar 2.34.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=473 height=263 alt="" hspace=1 vspace=1 src="img_111.jpg"></p>
+<p><span class=rvts12>Gambar 2.34 Pemasangan Table of Contents</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Tampilkan pada browser, hasilnya seperti Gambar 2.35.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_112.jpg"></p>
+<p><span class=rvts12>Gambar 2.35 Tampilan daftar isi pada browser</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Kalau Anda klik salah satu link pada daftar isi tersebut maka halaman yang</span></p>
+<p><span class=rvts11>bersangkutan akan dibuka.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Nah, membuat daftar isi dengan FrontPage XP ternyata mudah sekali.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts15>4.7 Membuat counter pengunjung situs</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Selain daftar isi, link bar dan tema, masih banyak lagi yang bisa dimanfaatkan dari</span></p>
+<p><span class=rvts11>FrontPage XP.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Sebelum mengakhiri bab kedua ini, cobalah satu lagi sarana yang akan</span></p>
+<p><span class=rvts11>menyemarakkan situs kita, yaitu penghitung jumlah pengunjung situs atau yang</span></p>
+<p><span class=rvts11>sering disebut </span><span class=rvts14>Hit Counter.</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts11>Hit counter akan menghitung pembukaan Home Page secara otomatis, dengan</span></p>
+<p><span class=rvts11>demikian bisa diartikan sebagai menghitung jumlah pengunjung situs. Hasil hitungan</span></p>
+<p><span class=rvts11>bisa dijadikan ukuran popularitas situs. Dan ujung-ujungnya adalah bisa digunakan</span></p>
+<p><span class=rvts11>untuk mengajukan proposal ke penyandang dana bahwa situs yang kita bangun</span></p>
+<p><span class=rvts11>memiliki prospek bisnis yang bagus , karenanya layak untuk didanai.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Baiklah, mari kita buat </span><span class=rvts14>Hit Counter. </span><span class=rvts11>Langkah yang diperlukan begitu sederhana.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>1. Klik area di halaman sebagai penempatan </span><span class=rvts14>Hit Counter, </span><span class=rvts11>misalnya pada ruang</span></p>
+<p><span class=rvts14>Bottom. </span><span class=rvts11>Pada lokasi tersebut tuliskan teks berikut ini: </span><span class=rvts13>&#8220;</span><span class=rvts11>Anda pengunjung situs</span></p>
+<p><span class=rvts11>kami yang nomor: </span><span class=rvts13>&#8220;</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts11>2. Aktifkan </span><span class=rvts14>Insert </span><span class=rvts19>è </span><span class=rvts14>Web Component</span><span class=rvts11>, muncul kotak dialog </span><span class=rvts14>Web Component</span><span class=rvts11>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_113.jpg"></p>
+<p><span class=rvts12>Gambar 2.36 Kotak dialog Web Component</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>3. Klik pilihan </span><span class=rvts14>Hit Counter </span><span class=rvts11>dan klik </span><span class=rvts14>Finish</span><span class=rvts11>. Muncul pengaturan angka.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>4. Klik </span><span class=rvts14>OK</span><span class=rvts11>. Selesai. Hasilnya pada halaman akan tampak seperti Gambar 2.37.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=486 height=284 alt="" hspace=1 vspace=1 src="img_114.jpg"></p>
+<p><span class=rvts12>Gambar 2.37 Hasil pemasangan </span><span class=rvts20>Hit Counter</span></p>
+<p><span class=rvts20><br></span></p>
+<p><span class=rvts11>Untuk melihat hasilnya pada browser, klik tombol </span><span class=rvts14>Preview in Browser</span><span class=rvts11>. Tampilan</span></p>
+<p><span class=rvts11>browser tampak pada Gambar 2.38.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_115.jpg"></p>
+<p><span class=rvts12>Gambar 2.38 </span><span class=rvts20>Hit Counter </span><span class=rvts12>in action</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts15>4.8 Mengedit Page banner</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Page banner adalah area paling atas di dalam suatu halaman, yaitu di atas navigator.</span></p>
+<p><span class=rvts11>Page banner bisa kita manfaatkan untuk membuat pengumuman, papan iklan, atau</span></p>
+<p><span class=rvts11>informasi lain yang dianggap paling penting, karena akan dibaca pertama kali oleh</span></p>
+<p><span class=rvts11>pengunjung situs.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Sekarang perhatikan Page banner situs yang baru kita buat, di sana terlihat jelas kata</span></p>
+<p><span class=rvts14>Default.htm</span><span class=rvts11>. Kata tersebut adalah nama halaman yang sedang dibuka, dalam contoh</span></p>
+<p><span class=rvts11>ini adalah halaman Home Page. Anda bisa mengganti kata tersebut dengan kalimat</span></p>
+<p><span class=rvts11>lain yang lebih penting. Caranya sederhana, cukup klik ganda padanya, akan muncul</span></p>
+<p><span class=rvts11>kotak dialog </span><span class=rvts14>Page banner Properties</span><span class=rvts11>. Gambar 2.39.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_116.jpg"></p>
+<p><span class=rvts12>Gambar 2.39 Kotak dialog Page Banner Properties</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Kemudian tuliskan kalimat Anda sendiri pada kotak isian yang disediakan, misalnya</span></p>
+<p><span class=rvts13>&#8220;</span><span class=rvts11>Selamat datang di situs saya</span><span class=rvts13>&#8221;</span><span class=rvts11>.</span></p>
+<p><span class=rvts11>Untuk menambah kerapian dan mem</span></p>
+<p><span class=rvts11>eperjelas sistematika, Anda bisa menambahkan</span></p>
+<p><span class=rvts11>sebuah garis horisontal di bawah Link bar. Letakkan kusor di lokasi tersebut dan</span></p>
+<p><span class=rvts11>aktifkan Insert </span><span class=rvts19>è </span><span class=rvts11>Horizontal Line.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Lalu klik tombol OK. Hasilnya pada browser seperti berikut ini:</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_117.jpg"></p>
+<p><span class=rvts12>Gambar 2.40 Page banner baru</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Perhatikan hasilnya (Gambar 2.40), tidak hanya kalimat di Page banner yang diganti,</span></p>
+<p><span class=rvts11>namun juga kalimat awal di daftar isi (Link bar vertikal).</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts15>4.9 Tampilan FrontPage XP</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts11>Selain tampilan halaman (Page) dan tampilan Navigation (yang kita gunakan pada</span></p>
+<p><span class=rvts11>waktu membuat halaman-halaman Anak dan Cucu, masih ingat bukan?), FrontPage</span></p>
+<p><span class=rvts11>XP masih menyediakan beberapa tampilan.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11>Tampilan bisa dipilih dengan ikon di bidang kiri, antara lain Page, Folders, Reports,</span></p>
+<p><span class=rvts11>Navigation, Hyperlinks dan Tasks. Masing-masing bertugas menghasilkan tampilan</span></p>
+<p><span class=rvts11>sesuai namanya. Gambar 2.41 dan 2.42 berikut ini menunjukkan tampilan Report</span></p>
+<p><span class=rvts11>dan Hyperlinks dari situs yang kita buat.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><img border=0 width=456 height=261 alt="" hspace=1 vspace=1 src="img_118.jpg"></p>
+<p><span class=rvts12>Gambar 2.41 Tampilan Reports</span></p>
+<p><span class=rvts12><br></span></p>
+<p><img border=0 width=455 height=282 alt="" hspace=1 vspace=1 src="img_119.jpg"></p>
+<p><span class=rvts12>Gambar 2.42 Tampilan Hyperlinks</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts11>Nah, kini Anda rasakan betapa mudahnya membuat situs dengan FrontPage XP.</span></p>
+<p><span class=rvts11>Hasilnya? Professional bung! Selanjutnya Anda bisa mengisi halaman-halaman</span></p>
+<p><span class=rvts11>tersebut dengan informasi Anda sendiri. Selamat.</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p class=rvps3><span class=rvts23>Copyright © Herlan Lesmana</span></p>
+<p class=rvps4><span class=rvts24>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts25 href="http://www.helpndoc.com" target="_blank">Free help authoring environment</a></p>
+</body></html>

@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+    <meta name="generator" content="HelpNDoc Freeware Edition">
+    <link rel="StyleSheet" href="toc.css" type="text/css"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.cookie.js"></script>
+    <script type="text/javascript" src="jquery.treeview.min.js"></script>
+    <script type="text/javascript" src="jquery.rich-array-hnd.js"></script>
+    <script type="text/javascript" src="searchdata.js"></script>
+    <script type="text/javascript"><!--
+      $(document).ready(function(){
+        $("#toc").treeview(
+        {collapsed: true}
+        )
+        $("#keywords").treeview({collapsed: true});
+        $(document.body).click(function(e){var $target = $(e.target); if($target.is("a")) return; hidePopup();});
+        $(function(){var tabContainers = $("div.tabs > div");tabContainers.hide().filter(":first").show();$("div.tabs ul.tabNavigation a").click(function(){tabContainers.hide();
+        tabContainers.filter(this.hash).show();$("div.tabs ul.tabNavigation a").removeClass("selected");$(this).addClass("selected");return false;}).filter(":first").click();});
+      });
+      function hidePopup() {if($("#popupMenu")) $("#popupMenu").remove();}
+      function showPopup(oSender,aLinks){hidePopup();if (aLinks==0) return true;var oParentDiv=document.createElement("DIV");oParentDiv.id="popupMenu";var oLink,oBr=null;
+      for (var nCnt=0;nCnt<aLinks.length;nCnt++){oLink=document.createElement("A");oLink.innerHTML=aLinks[nCnt][0];oLink.href=aLinks[nCnt][1];oLink.target="FrameMain";oLink.onclick=hidePopup;
+      oParentDiv.appendChild(oLink);if (nCnt<aLinks.length-1){oBr=document.createElement("BR");oParentDiv.appendChild(oBr);}}document.body.appendChild(oParentDiv);var pos=$(oSender).offset(); 
+      var height=$(oSender).height();$(oParentDiv).css({"backgroundColor": "#EEEEEE","border": "1px solid #999999","position": "absolute","left": (pos.left+20)+"px","top": (pos.top+height+5)+"px",
+      "padding": 5+"px"});$(oParentDiv).show();return false;}
+      function performSearch(){sValue = $("#search_value").val().toLowerCase();var aValues = sValue.split(" ");var aFinalResults = [];for (var nValue = 0; nValue < aValues.length; nValue++){if (aValues[nValue] == "") continue;var aResults = oSearchData[aValues[nValue]];if (aResults && aResults.length > 0){if (nValue == 0) aFinalResults = aResults
+else aFinalResults = jQuery.richArray.intersect(aFinalResults, aResults);}else{aFinalResults = [];break;}}if (aFinalResults.length > 0){$("#search_results").html("Found " + aFinalResults.length + " results");for (var nCnt = 0; nCnt < aFinalResults.length; nCnt++){var oElmt = document.createElement("DIV");oElmt.innerHTML = "<a href='" + aFinalResults[nCnt][0] + "?search=" + sValue + "' target='FrameMain'>" + aFinalResults[nCnt][1] + "</a> (" + aFinalResults[nCnt][2] + ")<br/>";$(oElmt).appendTo($("#search_results"));}}else{$("#search_results").html("No result found");}}
+    //--></script>
+    <style type="text/css">
+      ul.tabNavigation{list-style: none;margin: 0;padding: 10px;}ul.tabNavigation li{display: inline;}ul.tabNavigation li A{padding: 3px 5px;background-color: #ccc;color: #000;
+      text-decoration: none;}ul.tabNavigation li A.selected,ul.tabNavigation li A:hover{background-color: #333;color: #fff;}ul.tabNavigation li A:focus{outline: 0;}
+      </style>
+  </head>
+
+<body>
+  
+    <div class="tabs">
+      
+      <div id="tab_toc">
+        <ul id="toc" class="filetree">
+          
+          <li>
+            <a href="01Pandahuluan.html" class="folder" target="FrameMain">01 Pandahuluan</a>
+            <ul>
+              
+              <li>
+                <a href="AMenginstalKartuJaringan.html" class="file" target="FrameMain">A . Menginstal Kartu Jaringan</a>
+              </li>
+              
+              <li>
+                <a href="BMengaturJaringan.html" class="file" target="FrameMain">B . Mengatur Jaringan</a>
+              </li>
+              
+              <li>
+                <a href="CMengaturProtokol.html" class="file" target="FrameMain">C . Mengatur Protokol</a>
+              </li>
+              
+              <li>
+                <a href="DMenginstalWebServer.html" class="file" target="FrameMain">D . Meng-instal Web Server</a>
+              </li>
+              
+              <li>
+                <a href="EMengaturFrontpageExtensionsSe.html" class="file" target="FrameMain">E . Mengatur Frontpage Extensions Server</a>
+              </li>
+              
+              <li>
+                <a href="FMenginstalFrontPageXP.html" class="file" target="FrameMain">F . Menginstal FrontPage XP</a>
+              </li>
+              
+              <li>
+                <a href="GMenggunakanSharepoint.html" class="file" target="FrameMain">G . Menggunakan Sharepoint</a>
+              </li>
+              
+              <li>
+                <a href="HWebserverWindows98.html" class="file" target="FrameMain">H . Web server Windows 98</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="02DesainSitusWeb.html" class="folder" target="FrameMain">02 Desain Situs Web</a>
+            <ul>
+              
+              <li>
+                <a href="AProtokol.html" class="file" target="FrameMain">A . Protokol</a>
+              </li>
+              
+              <li>
+                <a href="BPertimbangandesain.html" class="file" target="FrameMain">B . Pertimbangan desain</a>
+              </li>
+              
+              <li>
+                <a href="CMembangunsitusdenganFrontpage.html" class="file" target="FrameMain">C . Membangun situs dengan Frontpage XP</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="03MemanfaatkanWizard.html" class="folder" target="FrameMain">03 Memanfaatkan Wizard</a>
+            <ul>
+              
+              <li>
+                <a href="ACorporatePresenceWebWizard.html" class="file" target="FrameMain">A . Corporate Presence Web Wizard</a>
+              </li>
+              
+              <li>
+                <a href="BDiscussionWebWizard.html" class="file" target="FrameMain">B . Discussion Web Wizard</a>
+              </li>
+              
+              <li>
+                <a href="CRingkasanSitusWeb.html" class="file" target="FrameMain">C . Ringkasan Situs Web</a>
+              </li>
+              
+              <li>
+                <a href="DTemplatehalaman.html" class="file" target="FrameMain">D . Template halaman</a>
+              </li>
+              
+              <li>
+                <a href="ETemplatehalamaninteraktif.html" class="file" target="FrameMain">E . Template halaman interaktif</a>
+              </li>
+              
+              <li>
+                <a href="FWizardhalaman.html" class="file" target="FrameMain">F . Wizard halaman</a>
+              </li>
+              
+              <li>
+                <a href="GTemplatehalamanpasif.html" class="file" target="FrameMain">G . Template halaman pasif</a>
+              </li>
+              
+              <li>
+                <a href="HTemplatekomposisigambardantek.html" class="file" target="FrameMain">H . Template komposisi gambar dan teks</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="04MengaturFiledan.html" class="folder" target="FrameMain">04 Mengatur File dan
+04 Mengatur File dan
+Teks</a>
+            <ul>
+              
+              <li>
+                <a href="AMembuatfilebaru.html" class="file" target="FrameMain">A . Membuat file baru</a>
+              </li>
+              
+              <li>
+                <a href="BMenyimpandanmembukahalaman.html" class="file" target="FrameMain">B . Menyimpan dan membuka halaman</a>
+              </li>
+              
+              <li>
+                <a href="CPropertidangantinamahalaman.html" class="file" target="FrameMain">C . Properti dan ganti nama halaman</a>
+              </li>
+              
+              <li>
+                <a href="DMencetakHalaman.html" class="file" target="FrameMain">D . Mencetak Halaman</a>
+              </li>
+              
+              <li>
+                <a href="EBerpindahdiareahalaman.html" class="file" target="FrameMain">E . Berpindah di area halaman</a>
+              </li>
+              
+              <li>
+                <a href="FMenulisteksdanmemilihteks.html" class="file" target="FrameMain">F . Menulis teks dan memilih teks</a>
+              </li>
+              
+              <li>
+                <a href="GPengeditandasar.html" class="file" target="FrameMain">G . Pengeditan dasar</a>
+              </li>
+              
+              <li>
+                <a href="HOfficeClipboard.html" class="file" target="FrameMain">H . Office Clipboard</a>
+              </li>
+              
+              <li>
+                <a href="IMenyisipkanteksdanelemenkhusu.html" class="file" target="FrameMain">I . Menyisipkan teks dan elemen khusus</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="05MengeditParagraf.html" class="folder" target="FrameMain">05 Mengedit Paragraf</a>
+            <ul>
+              
+              <li>
+                <a href="AMembuatbulletdannomor.html" class="file" target="FrameMain">A . Membuat bullet dan nomor</a>
+              </li>
+              
+              <li>
+                <a href="BMenudariklikkanan.html" class="file" target="FrameMain">B . Menu dari klik kanan</a>
+              </li>
+              
+              <li>
+                <a href="CMencaridanmengganti.html" class="file" target="FrameMain">C . Mencari dan mengganti</a>
+              </li>
+              
+              <li>
+                <a href="DMemeriksaejaan.html" class="file" target="FrameMain">D . Memeriksa ejaan</a>
+              </li>
+              
+              <li>
+                <a href="EMenggunakanthesaurus.html" class="file" target="FrameMain">E . Menggunakan thesaurus</a>
+              </li>
+              
+              <li>
+                <a href="FMengaturperataanparagraf.html" class="file" target="FrameMain">F . Mengatur perataan paragraf</a>
+              </li>
+              
+              <li>
+                <a href="GMengaturindenparagraf.html" class="file" target="FrameMain">G . Mengatur inden paragraf</a>
+              </li>
+              
+              <li>
+                <a href="HMengaturspasiparagraf.html" class="file" target="FrameMain">H . Mengatur spasi paragraf</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="06MenyisipkanObjek.html" class="folder" target="FrameMain">06 Menyisipkan Objek</a>
+            <ul>
+              
+              <li>
+                <a href="AMemasangobjekWordArt.html" class="file" target="FrameMain">A . Memasang objek WordArt</a>
+              </li>
+              
+              <li>
+                <a href="BMembuatgambar.html" class="file" target="FrameMain">B . Membuat gambar</a>
+              </li>
+              
+              <li>
+                <a href="CMenambahEfek.html" class="file" target="FrameMain">C . Menambah Efek</a>
+              </li>
+              
+              <li>
+                <a href="DMenyisipkantanggaldanwaktu.html" class="file" target="FrameMain">D . Menyisipkan tanggal dan waktu</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="07Menggunakan.html" class="folder" target="FrameMain">07 . Menggunakan Gambar</a>
+            <ul>
+              
+              <li>
+                <a href="APropertigambar.html" class="file" target="FrameMain">A . Properti gambar</a>
+              </li>
+              
+              <li>
+                <a href="BTataletakgambar.html" class="file" target="FrameMain">B . Tata letak gambar</a>
+              </li>
+              
+              <li>
+                <a href="CTampilangambar.html" class="file" target="FrameMain">C . Tampilan gambar</a>
+              </li>
+              
+              <li>
+                <a href="DHyperlinkpadagambar.html" class="file" target="FrameMain">D . Hyperlink pada gambar</a>
+              </li>
+              
+              <li>
+                <a href="EGambarterjadwal.html" class="file" target="FrameMain">E . Gambar terjadwal</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="08Multimediadan.html" class="folder" target="FrameMain">08 Multimedia dan Teks</a>
+            <ul>
+              
+              <li>
+                <a href="AVideo.html" class="file" target="FrameMain">A . Video</a>
+              </li>
+              
+              <li>
+                <a href="BMenggunakansuaralatarbelakang.html" class="file" target="FrameMain">B . Menggunakan suara latar belakang</a>
+              </li>
+              
+              <li>
+                <a href="CAnimasiteks.html" class="file" target="FrameMain">C . Animasi teks</a>
+              </li>
+              
+              <li>
+                <a href="DAnimasigambarGIF.html" class="file" target="FrameMain">D . Animasi gambar GIF</a>
+              </li>
+              
+              <li>
+                <a href="EAnimasihalaman.html" class="file" target="FrameMain">E . Animasi halaman</a>
+              </li>
+              
+              <li>
+                <a href="FAnimasiMarqueeWebComponent.html" class="file" target="FrameMain">F . Animasi Marquee (Web Component)</a>
+              </li>
+              
+              <li>
+                <a href="GBannerAdManager.html" class="file" target="FrameMain">G . Banner Ad Manager</a>
+              </li>
+              
+              <li>
+                <a href="HHoverButton.html" class="file" target="FrameMain">H . Hover Button</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="09MenggunakanTabel.html" class="folder" target="FrameMain">09 Menggunakan Tabel</a>
+            <ul>
+              
+              <li>
+                <a href="AMembuatsebuahtabel.html" class="file" target="FrameMain">A . Membuat sebuah tabel</a>
+              </li>
+              
+              <li>
+                <a href="BMengaturproperti.html" class="file" target="FrameMain">B . Mengatur properti</a>
+              </li>
+              
+              <li>
+                <a href="CMengatursusunantabel.html" class="file" target="FrameMain">C . Mengatur susunan tabel</a>
+              </li>
+              
+              <li>
+                <a href="DMenerapkanAutoFormat.html" class="file" target="FrameMain">D . Menerapkan AutoFormat</a>
+              </li>
+              
+              <li>
+                <a href="EMengaturtataletakdengantabel.html" class="file" target="FrameMain">E . Mengatur tata letak dengan tabel</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="10PemakaianFrame.html" class="folder" target="FrameMain">10 Pemakaian Frame</a>
+            <ul>
+              
+              <li>
+                <a href="AMembuatFrame.html" class="file" target="FrameMain">A . Membuat Frame</a>
+              </li>
+              
+              <li>
+                <a href="BMenggantihalamanpengisi.html" class="file" target="FrameMain">B . Mengganti halaman pengisi</a>
+              </li>
+              
+              <li>
+                <a href="CMengaturFrame.html" class="file" target="FrameMain">C . Mengatur Frame</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="11WebComponent.html" class="folder" target="FrameMain">11 Web Component</a>
+            <ul>
+              
+              <li>
+                <a href="AHitCounter.html" class="file" target="FrameMain">A .  Hit Counter</a>
+              </li>
+              
+              <li>
+                <a href="BPhotoGallery.html" class="file" target="FrameMain">B . Photo Gallery</a>
+              </li>
+              
+              <li>
+                <a href="CIncludeContent.html" class="file" target="FrameMain">C . Include Content</a>
+              </li>
+            </ul>
+          </li>
+          
+<li>
+            <a href="12MengaturLink.html" class="folder" target="FrameMain">12 Mengatur Link</a>
+            <ul>
+              
+              <li>
+                <a href="AMembuatlinkkedunialuar.html" class="file" target="FrameMain">A . Membuat link ke dunia luar</a>
+              </li>
+              
+              <li>
+                <a href="BLinkinternalbookmark.html" class="file" target="FrameMain">B . Link internal (bookmark)</a>
+              </li>
+              
+              <li>
+                <a href="CBerpindahdisepanjangLink.html" class="file" target="FrameMain">C . Berpindah di sepanjang Link</a>
+              </li>
+              
+              <li>
+                <a href="DDiagramlink.html" class="file" target="FrameMain">D . Diagram link</a>
+              </li>
+              
+              <li>
+                <a href="EMemeriksamasalahlink.html" class="file" target="FrameMain">E . Memeriksa masalah link</a>
+              </li>
+            </ul>
+        </li>
+          
+        <li>
+          <a href="13LinkBar.html" class="folder" target="FrameMain">13 Link Bar</a>
+          <ul>
+              
+            <li>
+              <a href="AMembuatLinkBarNextBack.html" class="file" target="FrameMain">A . Membuat Link Bar Next - Back</a>
+            </li>
+              
+            <li>
+              <a href="BMembuatLinkBarberdasarkanStru.html" class="file" target="FrameMain">B . Membuat Link Bar berdasarkan Struktur</a>
+            </li>
+      </ul>
+      
+  <li>
+          <a href="13LinkBar.html" class="folder" target="FrameMain">Campuran</a>
+          <ul>
+              
+            <li>
+              <a href="../00/00.html" class="file" target="FrameMain">Cara membuat halaman pasword</a>
+            </li>
+              
+            <li>
+              <a href="BMembuatLinkBarberdasarkanStru.html" class="file" target="FrameMain">B . Membuat Link Bar berdasarkan Struktur</a>
+            </li>
+      </ul>     
+</body>
+
+</html>

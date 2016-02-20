@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"><title>11 Web Component</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #000080;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #a0a0a0;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #696969;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #a0a0a0;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #a0a0a0;
+}
+span.rvts10
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts11
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ color: #000081;
+}
+span.rvts12
+{
+ font-size: 18pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts13
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts14
+{
+ font-size: 12pt;
+ font-family: 'Book Antiqua', 'Palatino', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #008181;
+}
+span.rvts15
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #ff0000;
+}
+span.rvts16
+{
+ font-size: 12pt;
+ font-family: 'Wingdings3';
+ color: #000081;
+}
+span.rvts17
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #000081;
+}
+span.rvts18
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts19
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ font-weight: bold;
+ color: #000081;
+}
+span.rvts20
+{
+ font-size: 12pt;
+ font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ color: #000081;
+}
+span.rvts21
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman', 'Times', serif;
+ color: #0000ff;
+}
+span.rvts22
+{
+ font-size: 12pt;
+ font-family: 'Wingdings';
+ color: #000081;
+}
+span.rvts23 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts24 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts25 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts26, span.rvts26 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ background: #9fbed0;
+ padding: 5px 5px 2px 5px;
+ margin: -5px -5px 18px -5px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<link rel="StyleSheet" href="hnd.css" type="text/css"/>
+<script type="text/javascript">if(top.frames.length == 0) { sTopic = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length); top.location.href="../Front Page.html?" + sTopic; }</script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="hnd.js"></script>
+<meta name="generator" content="HelpNDoc Freeware Edition"></head>
+<body>
+<h1 class=rvps2><span class=rvts0><span class=rvts23>11 Web Component</span></span></h1>
+<p><span class=rvts10>Sebenarnya pada bab yang lalu kita telah menggunakan Web Component, yaitu</span></p>
+<p><span class=rvts10>gambar terjadwal dan sarana untuk menghasilkan animasi. Antara lain Picture</span></p>
+<p><span class=rvts10>Scheduled, Marquee, Banner Ad Manager dan Hover Button. Pada bab 11 ini akan</span></p>
+<p><span class=rvts10>dibahas beberapa Web Component yang disediakan oleh FrontPage XP. Dimulai</span></p>
+<p><span class=rvts10>dengan Search yaitu sarana pencari.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts12>1. Membuat sarana pencari</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts10>Sarana ini akan sangat membantu para pengunjung situs Anda kelak, terutama jika</span></p>
+<p><span class=rvts10>informasi yang disediakan oleh situs Anda demikian banyak.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Fasilitas semacam ini sudah sangat lazim dijumpai, dan sangat populer karena</span></p>
+<p><span class=rvts10>hampir semua pemakai internet memerlukannya, sarana ini bahkan merupakan asset</span></p>
+<p><span class=rvts10>bisnis yang potensial di dunia bisnis internet. Contohnya Yahoo, Alta Vista dan</span></p>
+<p><span class=rvts10>sebagainya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>1.1 Pembuatan sarana pencari pada Windows 98</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Langkah pembuatan sarana pencari adalah:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Buatlah sebuah situs baru, misalnya Web11, yang terdiri dari sebuah halaman.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Bukalah halaman tersebut lalu tentukan lokasi pemasangan sarana pencari.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Aktifkan </span><span class=rvts13>Insert </span><span class=rvts16>_ </span><span class=rvts13>Web Component</span><span class=rvts10>. Muncul Insert Web Component.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_451.jpg"></p>
+<p><span class=rvts11>Gambar 11.1 Insert Web Component</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>4. Pada bidang kiri, klik </span><span class=rvts13>Web Search</span><span class=rvts10>, dan di bidang kanan, klik ganda </span><span class=rvts13>Current</span></p>
+<p><span class=rvts13>Web</span><span class=rvts10>. Muncul kotak dialog </span><span class=rvts13>Search Form Properties. </span><span class=rvts10>Gambar 11.2.</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>5. Pada kotak isian </span><span class=rvts13>Label for input </span><span class=rvts10>tuliskan label pencarian, misalnya </span><span class=rvts17>&#8220;</span><span class=rvts10>Yang</span></p>
+<p><span class=rvts10>dicari: </span><span class=rvts17>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Pada kotak isian </span><span class=rvts13>Width in characters </span><span class=rvts10>tentukan panjang karakter yang diijinkan.</span></p>
+<p><span class=rvts10>Defaultnya 20, ini suadh cukup panjang.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_452.jpg"></p>
+<p><span class=rvts11>Gambar 11.2 Kotak dialog </span><span class=rvts18>search Form Properties</span></p>
+<p><span class=rvts18><br></span></p>
+<p><span class=rvts10>7. Pada kotak isian </span><span class=rvts13>Label for </span><span class=rvts19>&#8220;</span><span class=rvts13>Start Search</span><span class=rvts19>&#8221;</span><span class=rvts13> </span><span class=rvts10>tuliskan label untuk tombol </span><span class=rvts17>&#8220;</span><span class=rvts10>Start</span></p>
+<p><span class=rvts10>Search</span><span class=rvts17>&#8221;</span><span class=rvts10>. Misalnya </span><span class=rvts17>&#8220;</span><span class=rvts10>Mulai</span><span class=rvts17>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>8. Pada kotak isian </span><span class=rvts13>Label for </span><span class=rvts19>&#8220;</span><span class=rvts13>Reset</span><span class=rvts19>&#8221;</span><span class=rvts13> </span><span class=rvts10>isikan label tombol </span><span class=rvts17>&#8220;</span><span class=rvts10>Reset</span><span class=rvts17>&#8221;</span><span class=rvts10>. Misalnya tidak</span></p>
+<p><span class=rvts10>kita ubah, yaitu tetap </span><span class=rvts17>&#8220;</span><span class=rvts10>Reset</span><span class=rvts17>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>9. Kemudian klik tab </span><span class=rvts13>Search Results</span><span class=rvts10>. Lihat Gambar 11.3.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_453.jpg"></p>
+<p><span class=rvts11>Gambar 11.3 Tab Search Result</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>10. Kotak isian </span><span class=rvts13>Word list to search </span><span class=rvts10>terpampang isian </span><span class=rvts13>All</span><span class=rvts10>. Hal ini berarti akan</span></p>
+<p><span class=rvts10>mencari keseluruhan kata yang Anda tuliskan secara persis.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>11. Kotak pilihan </span><span class=rvts13>Date format</span><span class=rvts10>, untuk menentukan format penulisan tanggal. Kotak</span></p>
+<p><span class=rvts10>ini bisa digunakan apabila Anda mengaktifkan kotak cek </span><span class=rvts13>Display file date.</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts10>12. Kotak pilihan </span><span class=rvts13>Time format</span><span class=rvts10>, untuk menentukan format penulisan waktu. Kotak</span></p>
+<p><span class=rvts10>ini bisa digunakan apabila Anda mengaktifkan kotak cek </span><span class=rvts13>Display file date.</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts10>13. Kotak cek </span><span class=rvts13>Display score </span><span class=rvts10>, untuk menampilkan angka mutu proses pencarian.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>14. Kotak cek </span><span class=rvts13>Display file date</span><span class=rvts10>, untuk menampilkan tanggal daan waktu pencarian.</span></p>
+<p><span class=rvts10>Jika Anda aktifkan pilihan ini maka kotak isian </span><span class=rvts13>Date format </span><span class=rvts10>dan </span><span class=rvts13>Time format</span></p>
+<p><span class=rvts10>akan aktif sehingga Anda bisa memilih format penulisan tanggal dan waktu</span><span class=rvts13>.</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts10>15. Kotak cek </span><span class=rvts13>Display file size </span><span class=rvts10>, untuk menampilkan ukuran file dalam satuan K</span></p>
+<p><span class=rvts10>Byte.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>16. Klik OK. Hasilnya seperti Gambar 11.4.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_454.jpg"></p>
+<p><span class=rvts11>Gambar 11.4 Hasil pemasangan sarana pencari</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts14>1.2 Membuat sarana pencari pada Windows 2000</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Pada Windows 2000, yang di dalamnya terdapat Frontpage 2000 Extensions Server,</span></p>
+<p><span class=rvts10>maka sarana pencarian ini memiliki fitur yang lebih lengkap. Apalagi jika Anda</span></p>
+<p><span class=rvts10>telah menginstal Sharepoint yang di dalamnya terdapat Frontpage 2002 Extensions</span></p>
+<p><span class=rvts10>Server. Perbedaan itu terlihat nyata pada tab </span><span class=rvts13>Search Results </span><span class=rvts10>kotak dialog </span><span class=rvts13>Search</span></p>
+<p><span class=rvts13>Form Properties</span><span class=rvts10>. Bandingkan antara Gambar 11.3 dengan Gambar 11.5.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Baiklah, langkah pembuatan sarana pencari pada Windows 2000 adalah:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Buatlah sebuah situs baru, misalnya Web11, yang terdiri dari sebuah halaman.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Bukalah halaman tersebut la lu tentukan lokasi pemasangan sarana pencari.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Aktifkan </span><span class=rvts13>Insert </span><span class=rvts16>_ </span><span class=rvts13>Web Component</span><span class=rvts10>. Muncul Insert Web Component.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Pada bidang kiri, klik </span><span class=rvts13>Dynamic Effects</span><span class=rvts10>. Pada bidang kanan, klik ganda </span><span class=rvts13>Web</span></p>
+<p><span class=rvts13>Search</span><span class=rvts10>. Lalu klik Finish, muncul kotak dialog </span><span class=rvts13>Search Form Properties.</span></p>
+<p><span class=rvts13><br></span></p>
+<p><span class=rvts10>5. Pada kotak isian </span><span class=rvts13>Label for input </span><span class=rvts10>tuliskan label pencarian, misalnya </span><span class=rvts17>&#8220;</span><span class=rvts10>Yang</span></p>
+<p><span class=rvts10>dicari: </span><span class=rvts17>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Pada kotak isian </span><span class=rvts13>Width in characters </span><span class=rvts10>tentukan panjang karakter yang diijinkan.</span></p>
+<p><span class=rvts10>Defaultnya 20, ini sudah cukup panjang.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>7. Pada kotak isian </span><span class=rvts13>Label for </span><span class=rvts19>&#8220;</span><span class=rvts13>Start Search</span><span class=rvts19>&#8221;</span><span class=rvts13> </span><span class=rvts10>tuliskan label untuk tombol </span><span class=rvts17>&#8220;</span><span class=rvts10>Start</span></p>
+<p><span class=rvts10>Search</span><span class=rvts17>&#8221;</span><span class=rvts10>. Misalnya </span><span class=rvts17>&#8220;</span><span class=rvts10>Mulai Cari</span><span class=rvts17>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>8. Pada kotak isian </span><span class=rvts13>Label for </span><span class=rvts19>&#8220;</span><span class=rvts13>Reset</span><span class=rvts19>&#8221;</span><span class=rvts13> </span><span class=rvts10>isikan label tombol </span><span class=rvts17>&#8220;</span><span class=rvts10>Reset</span><span class=rvts17>&#8221;</span><span class=rvts10>. Misalnya tidak</span></p>
+<p><span class=rvts10>kita ubah, yaitu tetap </span><span class=rvts17>&#8220;</span><span class=rvts10>Reset</span><span class=rvts17>&#8221;</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>9. Kemudian klik tab </span><span class=rvts13>Search Results</span><span class=rvts10>. Lihat Gambar 11.5.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_455.jpg"></p>
+<p><span class=rvts11>Gambar 11.5 Tab Search Result</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>10. Pada kelompok </span><span class=rvts13>Scope of search results: </span><span class=rvts10>terpampang tiga pilihan yang harus</span></p>
+<p><span class=rvts10>Anda pilih:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts20>&#8226; </span><span class=rvts13>Entire website </span><span class=rvts10>. Area pencarian meliputi seluruh situs web yang pada</span></p>
+<p><span class=rvts10>komputer maupun jaringan di kantor Anda.</span></p>
+<p><span class=rvts20>&#8226; </span><span class=rvts13>This web</span><span class=rvts10>. Area pencarian hanya pada situs web ini saja.</span></p>
+<p><span class=rvts20>&#8226; </span><span class=rvts13>Directory:</span><span class=rvts10>. Area pencarian hanya pada folder tertentu saja yang ada di</span></p>
+<p><span class=rvts10>dalam situs web ini. Yang mana? Tuliskan nama dan alamat web pada kotak</span></p>
+<p><span class=rvts10>isian di sebelahnya. Kalau Anda lupa, klik saja tombol </span><span class=rvts13>Browse</span><span class=rvts10>, muncul</span></p>
+<p><span class=rvts10>kotak dialog Current Web (Gambar 11.6) yang bisa Anda gunakan untuk</span></p>
+<p><span class=rvts10>mencari folder tersebut. Setelah ditemukan, klik OK. Kembali ke kotak</span></p>
+<p><span class=rvts10>dialog </span><span class=rvts13>Search Form Properties</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_456.jpg"></p>
+<p><span class=rvts11>Gambar 11.6 Kotak dialog Current Web</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>11. Kotak isian </span><span class=rvts13>Maximum records per page</span><span class=rvts10>, untuk menentukan jumlah record</span></p>
+<p><span class=rvts10>yang akan ditampilkan pada halaman. Pencarian bisa saja menemukan banyak</span></p>
+<p><span class=rvts10>sekali halaman. Lalu Anda bisa menentukan jumlah halaman yang akan</span></p>
+<p><span class=rvts10>ditampilkan. Tampilan berupa tabel dan satu baris disebut dengan satu record.</span></p>
+<p><span class=rvts10>Anda bisa mengatur agar menampilkan sampai 1000 record. Selanjutnya, untuk</span></p>
+<p><span class=rvts10>menampilkan isi halaman, klik salah satu record di dalam tabel yang Anda</span></p>
+<p><span class=rvts10>inginkan.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>12. Kotak isian </span><span class=rvts13>Maximum records per query</span><span class=rvts10>, untuk menentukan kapasitas</span></p>
+<p><span class=rvts10>pencarian.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>13. Kotak cek </span><span class=rvts13>Last time file was changed</span><span class=rvts10>, untuk menampilkan tanggal daan waktu</span></p>
+<p><span class=rvts10>perubahan terakhir pada file.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>14. Kotak cek </span><span class=rvts13>Size in bytes</span><span class=rvts10>, untuk menampilkan ukuran file dalam satuan Byte.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>15. Kotak cek </span><span class=rvts13>Score (Closeness of match)</span><span class=rvts10>, untuk menampilkan tingkat ketepatan</span></p>
+<p><span class=rvts10>antara kata yang dicari dengan file hasil pencarian.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>16. Kotak cek </span><span class=rvts13>Author of doccument </span><span class=rvts10>untuk menampilkan nama pembuat dokumen.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>17. Kotak cek </span><span class=rvts13>Cuments </span><span class=rvts10>untuk menampilkan komentar yang ada.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>18. Kotak cek </span><span class=rvts13>Documents Subject </span><span class=rvts10>untuk menampilkan topik isi dokumen.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>19. Kotak cek M</span><span class=rvts13>atches </span><span class=rvts10>untuk menampilkan tingkat kesesuaian.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>20. Klik OK. Hasilnya sama dengan yang dihasilkan oleh Windows 98, yaitu seperti</span></p>
+<p><span class=rvts10>Gambar 11.4.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>1.3 Mencoba pada browser</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Setelah sarana pencari terpasang di halaman, selanjutnya Anda bisa mencobanya</span></p>
+<p><span class=rvts10>pada browser.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Ada hal yang perlu Anda perhatikan, jika situs yang Anda buat adalah Disk based</span></p>
+<p><span class=rvts10>web (tidak di dalam folder Inetpub\wwwroot) maka Anda harus mem-publish situs</span></p>
+<p><span class=rvts10>web Anda lebih dulu.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Publish adalah proses pemasangan folder situs ke folder web yang ada di direktori</span></p>
+<p><span class=rvts10>Inetpub\wwwroot. Langkah yang diperlukan adalah dengan mengaktifkan perintah</span></p>
+<p><span class=rvts13>File </span><span class=rvts16>_ </span><span class=rvts13>Publish web</span><span class=rvts10>, lalu mengisikan nama folder web tujuan (jika belum ada, Anda</span></p>
+<p><span class=rvts10>bisa membuatnya saat itu juga). Untuk keterangan lebih detil tentang publish atau</span></p>
+<p><span class=rvts10>publikasi ini, simaklah bab terakhir. Ada cara mempublish yang amat sederhana,</span></p>
+<p><span class=rvts10>yaitu salinlah folder tersebut ke folder Inetpub\wwwroot.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Setelah dipublish, lalu jalankan browser dan bukalah alamat web tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Jika langkah di atas tidak Anda lakukan, misalnya Anda memilih untuk langsung</span></p>
+<p><span class=rvts10>menampilkan situs dengan tombol </span><span class=rvts13>Preview in browser </span><span class=rvts10>tanpa mem-publish lebih</span></p>
+<p><span class=rvts10>dulu, maka Anda akan mendapatkan halaman error seperti Gambar 11.7 berikut ini:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_457.jpg"></p>
+<p><span class=rvts11>Gambar 11.7 Halaman error</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Jadi, saya ulangi, setelah Anda publish dan Anda jalankan browser, tuliskan</span></p>
+<p><span class=rvts10>alamatnya pada browser, misalnya </span><span class=rvts21>http://master/web</span><span class=rvts10>11 lalu tekan ENTER, maka</span></p>
+<p><span class=rvts10>terbukalah situs tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Selanjutnya Anda bisa mencoba sarana pencari ini. Pada kotak isian </span><span class=rvts13>Yang dicari:</span></p>
+<p><span class=rvts10>tulislah kata atau kalimat yang akan Anda cari, misalnya nama file </span><span class=rvts13>doa.htm</span><span class=rvts10>, lalu</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>klik tombol </span><span class=rvts13>Mulai. </span><span class=rvts10>Sesaat kemudian FrontPage XP akan mulai mencari file tersebut.</span></p>
+<p><span class=rvts10>Jika ditemukan, hasilnya akan seperti Gambar 11.8.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_458.jpg"></p>
+<p><span class=rvts11>Gambar 11.8 Hasil pencarian file DOA</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Kalau Anda klik nama halaman yang telah ditemukan tersebut, maka browser akan</span></p>
+<p><span class=rvts10>membukanya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Kalau Anda menggunakan Sharepoint (Windows 2000), hasilnya akan lebih</span></p>
+<p><span class=rvts10>lengkap. Misalnya untuk pencarian </span><span class=rvts13>home</span><span class=rvts10>, seperti Gambar 11.9.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Perhatikan, di sana terdapat dua tombol yaitu </span><span class=rvts13>Next 10 Matches </span><span class=rvts10>dan </span><span class=rvts13>Previous 10</span></p>
+<p><span class=rvts13>Matches</span><span class=rvts10>, kedua tombol tersebut berguna untuk menampilkan 10 record berikut dan</span></p>
+<p><span class=rvts10>10 record sebelumnya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>Anda bisa menentukan jumlah record tersebut pada kotak isian </span><span class=rvts13>Maximum records</span></p>
+<p><span class=rvts13>per page </span><span class=rvts10>, di tab </span><span class=rvts13>Search Results </span><span class=rvts10>kotak dialog </span><span class=rvts13>Search Form Properties</span><span class=rvts10>. Gambar</span></p>
+<p><span class=rvts10>11.5. Untuk lebih jelasnya, buka ulang halaman sebelum ini yang menampilkan</span></p>
+<p><span class=rvts10>gambar tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 width=650 height=656 alt="" hspace=1 vspace=1 src="img_459.jpg"></p>
+<p><span class=rvts11>Gambar 11.9 Hasil pencarian </span><span class=rvts18>home </span><span class=rvts11>pada lingkungan Windows 2000</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts14>1.4 Mengedit sarana pencari</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Untuk mengedit properti sarana pencari, Anda harus menggunakan kotak dialog,</span></p>
+<p><span class=rvts10>dengan cara:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Pada halaman di FrontPage XP, klik kanan sarana pencari .</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Klik perintah Search Form Properties, muncul kotak dialog Search Form</span></p>
+<p><span class=rvts10>Properties.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>3. Selanjutnya Anda bisa mengubah properti sesuai keperluan.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>4. Klik OK.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>1.5 Error sarana pencari</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Ada beberapa error yang umum dijumpai pada pemakaian sarana pencari ini. Error</span></p>
+<p><span class=rvts10>tersebut muncul jika Anda tidak menjalankan prosedur. Misalnya error seperti</span></p>
+<p><span class=rvts10>Gambar 11.10 berikut ini yang muncul karena Anda tidak mem-publish web Anda.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_460.jpg"></p>
+<p><span class=rvts11>Gambar 11.10 Error karena tidak publish sebelumnya</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Error lainnya, terutama pada Windows 2000, bukan disebabkan oleh pelanggaran</span></p>
+<p><span class=rvts10>prosedur yang Anda, namun karena Windows 2000 belum siap bekerja sepenuhnya,</span></p>
+<p><span class=rvts10>yaitu </span><span class=rvts13>Indexing Services </span><span class=rvts10>belum aktif. Tampilan error tersebut seperti berikut ini:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_461.jpg"></p>
+<p><span class=rvts11>Gambar 11.11 Service belum aktif</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Untuk mengatasi hal seperti ini, caranya adalah dengan mengaktifkan Indexing</span></p>
+<p><span class=rvts10>Services. Langkah yang diperlukan adalah:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Aktifkan </span><span class=rvts13>Control Panel</span><span class=rvts10>. Gambar 11.12.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_462.jpg"></p>
+<p><span class=rvts11>Gambar 11.12 Tampilan Control Panel</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>2. Klik ganda icon </span><span class=rvts13>Administrative Tools </span><span class=rvts10>, muncul tampilan seperti Gambar 11.13.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_463.jpg"></p>
+<p><span class=rvts11>Gambar 11.13 Tampilan Administrative Tools</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>3. Klik ganda icon </span><span class=rvts13>Services, </span><span class=rvts10>muncul tampilan </span><span class=rvts13>Services. </span><span class=rvts10>Gambar 11.14.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_464.jpg"></p>
+<p><span class=rvts11>Gambar 11.14 Tampilan Services</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>4. Tampilkan icon </span><span class=rvts13>Indexing Service</span><span class=rvts10>. Gunakan scroll vertikal di sebelah kanan</span></p>
+<p><span class=rvts10>tampilan tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Setelah menemukan icon </span><span class=rvts13>Indexing Service, </span><span class=rvts10>klik ganda icon tersebut. Muncul</span></p>
+<p><span class=rvts10>kotak dialog </span><span class=rvts13>Indexing Service Properties</span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_465.jpg"></p>
+<p><span class=rvts11>Gambar 11.15 Kotak dialog Indexing Service Properties</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>6. Klik tombol </span><span class=rvts13>Start </span><span class=rvts10>, proses aktifasi akan dijalankan dan hasilnya seperti Gambar</span></p>
+<p><span class=rvts10>sebelah kanan. Perhatikan bahwa sekarang tombol Start tidak lagi bisa</span></p>
+<p><span class=rvts10>digunakan, yang menandakan bahwa service sudah aktif.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_466.jpg"></p>
+<p><span class=rvts11>Gambar 11.16 Proses aktifasi service dan hasilnya</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>7. Selanjutnya Anda bisa menentukan jenis start-up pada kotak pilihan </span><span class=rvts13>Startup</span></p>
+<p><span class=rvts13>type </span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>8. Klik </span><span class=rvts13>OK</span><span class=rvts10>. Kemudian Anda bisa memeriksa hasilnya pada tampilan </span><span class=rvts13>Services</span></p>
+<p><span class=rvts10>yang kini menampilkan kata </span><span class=rvts13>Started </span><span class=rvts10>pada kolom </span><span class=rvts13>Status </span><span class=rvts10>.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_467.jpg"></p>
+<p><span class=rvts11>Gambar 11.17 Indexing Service sudah aktif</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>Jalankan lagi sarana pencari Anda, kali ini pasti akan berhasil, sebab Indexing</span></p>
+<p><span class=rvts10>Service sudah diaktifkan.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts14>1.6 Template Sarana pencari</span></p>
+<p><span class=rvts14><br></span></p>
+<p><span class=rvts10>Selain memasang secara manual ke halaman, kita juga bisa menggunakan sebuah</span></p>
+<p><span class=rvts10>template halaman pencari yang disediakan FrontPage XP. Cara pemakaiannya:</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>1. Aktifkan File </span><span class=rvts22>è </span><span class=rvts10>New </span><span class=rvts22>è </span><span class=rvts10>Page or Web, task pane aktif.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>2. Klik </span><span class=rvts13>Page Template </span><span class=rvts10>. Muncul kotak dialog </span><span class=rvts13>Page Template.</span></p>
+<p><span class=rvts13><br></span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_468.jpg"></p>
+<p><span class=rvts11>Gambar 11.18 kotak dialog </span><span class=rvts18>Page Template</span></p>
+<p><span class=rvts15><br></span></p>
+<p><span class=rvts10>3. Klik ganda icon </span><span class=rvts13>Search Page. </span><span class=rvts10>Terbentuk sebuah halaman yang mengandung</span></p>
+<p><span class=rvts10>sebuah sarana pencari. Gambar 11.19.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><img border=0 width=581 height=389 alt="" hspace=1 vspace=1 src="img_469.jpg"></p>
+<p><span class=rvts11>Gambar 11.19 Halaman pencari hasil template</span></p>
+<p><span class=rvts11><br></span></p>
+<p><span class=rvts10>4. Simpanlah halaman tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>5. Anda bisa mengedit halaman yang mengandung sebuah sarana pencari dan</span></p>
+<p><span class=rvts10>banyak komentar tersebut.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10>6. Selanjutnya, Anda bisa menggunakannya seperti telah kita bahas sebelumnya.</span></p>
+<p><span class=rvts10><br></span></p>
+<p><span class=rvts10><br></span></p>
+<p class=rvps3><span class=rvts24>Copyright © Herlan Lesmana</span></p>
+<p class=rvps4><span class=rvts25>Created with the Freeware Edition of HelpNDoc: </span><a class=rvts26 href="http://www.helpndoc.com" target="_blank">Free HTML Help documentation generator</a></p>
+</body></html>
