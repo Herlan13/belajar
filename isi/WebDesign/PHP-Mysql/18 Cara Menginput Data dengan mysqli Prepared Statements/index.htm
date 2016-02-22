@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 18: Cara Menginput Data dengan mysqli Prepared Statements</h1>
+<p>&nbsp;</p>
+<p>Jika dalam tutorial PHP MySQL sebelumnya kita membahas tentang <a title="Tutorial PHP MySQL: Cara Menampilkan Data dengan mysqli Prepared Statements" href="http://www.duniailkom.com/tutorial-php-mysq-cara-menampilkan-data-dengan-mysqli-prepared-statements/">cara menampilkan data dengan mysqli prepared statements</a>, dalam tutorial kali ini kita akan mempelajari <a title="Tutorial PHP MySQL: Cara Menginput Data dengan mysqli Prepared Statements" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menginput-data-dengan-mysqli-prepared-statements/">cara menginput data menggunakan mysqli prepared statements</a>.</p>
+<hr />
+<h3>Cara Menginput Data dengan mysqli Prepared Statements</h3>
+<p>Perbedaan antara cara menginput data dan menampilkan data menggunakan <strong>prepared statements</strong> terletak pada cara penanganan query. Apabila dalam menampilkan data kita menggunakan perintah <strong>SELECT</strong>, maka untuk menginput data kita menggunakan query <strong>INSERT</strong>.</p>
+<p>Fitur keamanan yang diberikan oleh <em>prepared statements</em> membuatnya cocok digunakan untuk perintah yang akan  mengubah isi tabel seperti perintah <strong>INSERT</strong> atau <strong>UPDATE</strong>. Selain itu, penggunaan <em>prepared statement</em> untuk proses input data yang berulang juga akan mempercepat proses eksekusi.</p>
+<p>Dalam contoh kasus kita kali ini, saya akan menambahkan 1 buah data tambahan kedalam tabel <strong>mahasiswa_ilkom</strong>. Saya juga tidak akan membahas secara mendalam fungsi-fungsi <em>prepared statement</em> yang digunakan, karena kita telah membahasnya pada tutorial sebelumnya.</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<h4>Proses pertama: prepared</h4>
+<p>Untuk menginput data kedalam tabel <strong>mahasiswa_ilkom</strong>, kita akan menggunakan query <strong>INSERT…VALUES</strong> (Jika anda ingin mempelajari cara-cara menginput data kedalam MySQL, silahkan kunjungi <a title="Tutorial Belajar MySQL: Cara Menambahkan data ke dalam Tabel MySQL (INSERT)" href="http://www.duniailkom.com/tutorial-mysql-menambahkan-data-ke-dalam-tabel-insert/">tutorial MySQL: Cara menambahkan data kedalam tabel</a>).</p>
+<p>Berikut adalah fungsi <strong>mysqli_prepare() </strong><strong>untuk proses penambahan data:</strong></p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<div>
+  <div id="highlighter_749733" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">'localhost'</code><code class="php plain">, </code><code class="php string">'root'</code><code class="php plain">, </code><code class="php string">''</code><code class="php plain">, </code><code class="php string">'universitas'</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">// buat prepared statements</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$stmt</code> <code class="php plain">= mysqli_prepare(</code><code class="php variable">$link</code><code class="php plain">, &quot;INSERT INTO mahasiswa_ilkom </code></div>
+            <div class="line number7 index6 alt2"><code class="php plain">VALUES (?, ?, ?, ?, ?)&quot;);</code></div>
+            <div class="line number8 index7 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Perhatikan cara penulisan query INSERT diatas. Karena fungsi <strong>prepared statements</strong> yang memisahkan query dengan data, maka di kolom <strong>VALUES</strong>,   kita tidak langsung menuliskan data yang akan ditambahkan, tetapi   menggunakan tanda “?” sebanyak 5 kali untuk penanda data yang akan   diinput. Kelima data ini selanjutnya akan ditambahkan pada saat proses <strong>bind</strong>.</p>
+<h4>Proses kedua: bind</h4>
+<p>Proses pengiriman data (<strong>bind</strong>) dilakukan dengan fungsi <strong>mysqli_stmt_bind_param()</strong>. Karena query INSERT kita membutuhkan 5 variabel, maka fungsi <strong>mysqli_stmt_bind_param()</strong> juga harus menyertakan kelima variabel ini (untuk mengganti karakter (?, ?, ?, ?, ?)).</p>
+<p>Sebelumnya, kita harus menuliskan masing-masing isian ke dalam variabel terpisah, lalu kemudian baru diinput kedalam fungsi <strong>mysqli_stmt_bind_param()</strong>. Berikut adalah contoh kode program dimana saya akan men-<strong>bind</strong> data ke dalam prepared statement:</p>
+<div>
+  <div id="highlighter_208941" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// hubungkan &quot;data&quot; dengan prepared statements</code></div>
+            <div class="line number3 index2 alt2"><code class="php plain">mysqli_stmt_bind_param(</code><code class="php variable">$stmt</code><code class="php plain">, </code><code class="php string">&quot;ssisd&quot;</code><code class="php plain">,</code></div>
+            <div class="line number4 index3 alt1"><code class="php variable">$nim_mhs</code><code class="php plain">, </code><code class="php variable">$nama_mhs</code><code class="php plain">, </code><code class="php variable">$umur_mhs</code> <code class="php plain">, </code><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">, </code><code class="php variable">$ipk_mhs</code><code class="php plain">);</code></div>
+            <div class="line number5 index4 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number6 index5 alt1"><code class="php comments">// siapkan &quot;data&quot; query</code></div>
+            <div class="line number7 index6 alt2"><code class="php variable">$nim_mhs</code><code class="php plain">=</code><code class="php string">&quot;089023020&quot;</code><code class="php plain">;</code></div>
+            <div class="line number8 index7 alt1"><code class="php variable">$nama_mhs</code><code class="php plain">=</code><code class="php string">&quot;Naira Alika&quot;</code><code class="php plain">;</code></div>
+            <div class="line number9 index8 alt2"><code class="php variable">$umur_mhs</code><code class="php plain">=20;</code></div>
+            <div class="line number10 index9 alt1"><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">=</code><code class="php string">&quot;Padang&quot;</code><code class="php plain">;</code></div>
+            <div class="line number11 index10 alt2"><code class="php variable">$ipk_mhs</code><code class="php plain">=3.9;</code></div>
+            <div class="line number12 index11 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Dalam contoh diatas, fungsi <strong>mysqli_stmt_bind_param()</strong> memiliki 7 argumen. Argumen pertama adalah variabel <strong>$stmt</strong> hasil fungsi <strong>mysqli_prepare()</strong>,   argumen kedua adalah string yang menunjukkan 5 tipe data. Argumen ke-3   sampai ke-7 adalah variabel yang akan berisi data yang ingin diinput.</p>
+<p>Untuk argumen kedua saya menulis <strong>“ssisd”</strong>, yang merupakan singkatan dari “<strong>s</strong>tring <strong>s</strong>tring <strong>s</strong>tring <strong>i</strong>nteger <strong>s</strong>tring <strong>d</strong>ecimal”. String ini akan berpasangan dengan variabel inputan ke-3 sampai ke-7:</p>
+<ul class="list list_tick">
+  <li>$nim_mhs = “089023020” (string).</li>
+  <li>$nama_mhs = “Naira Alika” (string).</li>
+  <li>$umur_mhs = 20 (integer).</li>
+  <li>$tempat_lahir_mhs = Padang (string).</li>
+  <li>$ipk_mhs = 3.9 (decimal / float).</li>
+</ul>
+<p>Setelah penulisan fungsi <strong>mysqli_stmt_bind_param()</strong>, saya kemudian membuat data sample mahasiswa dengan nama “<em>Naira Alika</em>”. Perhatikan bahwa isi data ini diinput ke dalam variabel yang sama dengan yang digunakan pada fungsi <strong>mysqli_stmt_bind_param()</strong> untuk argumen ke-3 s/d ke-7.</p>
+<p>Data-data inilah yang nantinya di-<em>bind</em> dengan query asal, sehingga query kita akan menjadi:</p>
+<div>
+  <div id="highlighter_911785" class="syntaxhighlighter sql">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">mahasiswa_ilkom </code><code class="sql keyword">VALUES</code></div>
+            <div class="line number2 index1 alt1"><code class="sql plain">(</code><code class="sql string">&quot;089023020&quot;</code><code class="sql plain">, </code><code class="sql string">&quot;Naira Alika&quot;</code><code class="sql plain">, 20, </code><code class="sql string">&quot;Padang&quot;</code><code class="sql plain">, 3.9)</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h4>Proses ketiga: execute</h4>
+<p>Setelah query dan data selesai diinput, kita tinggal menjalankan query dengan fungsi <strong>mysqli_stmt_execute()</strong>:</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<div>
+  <div id="highlighter_76731" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// jalankan query: execute</code></div>
+            <div class="line number3 index2 alt2"><code class="php plain">mysqli_stmt_execute(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h4>Memeriksa Hasil Query</h4>
+<p>Untuk memeriksa apakah hasil query <strong>INSERT</strong> yang dijalankan berhasil atau tidak, bisa dilakukan dengan memeriksa variabel <strong>$stmt </strong>dan fungsi <strong>mysqli_stmt_affected_rows()</strong>, seperti contoh berikut:</p>
+<div>
+  <div id="highlighter_365895" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// cek hasil query</code></div>
+            <div class="line number3 index2 alt2"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$stmt</code><code class="php plain">) {</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces">   </code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code><code class="php plain">.mysqli_errno(</code><code class="php variable">$link</code><code class="php plain">).</code><code class="php string">' - '</code><code class="php plain">.mysqli_error(</code><code class="php variable">$link</code><code class="php plain">));</code></div>
+            <div class="line number5 index4 alt2"><code class="php plain">}</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">else</code> <code class="php plain">{</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;Penambahan &quot;</code><code class="php plain">.mysqli_stmt_affected_rows(</code><code class="php variable">$stmt</code><code class="php plain">).</code><code class="php string">&quot; data berhasil&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number8 index7 alt1"><code class="php plain">}</code></div>
+            <div class="line number9 index8 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Kondisi <strong>if (!$stmt)</strong> akan menjadi <strong>TRUE </strong>ketika query gagal, sehingga fungsi <strong>die()</strong> akan menghentikan proses dan menampilkan error yang terjadi. Tetapi jika query sukses, bagian else yang akan dijalankan.</p>
+<p>Fungsi <strong>mysqli_stmt_affected_rows()</strong> mirip dengan fungsi <strong>mysql_ affected_rows()</strong> yang pernah kita bahas, dan akan menampilkan berapa jumlah baris yang   diupdate. Karena pada contoh kali ini kita hanya menambahkan 1 buah   data, maka hasilnya adalah: 1.</p>
+<p>Agar lebih yakin, saya kemudian akan menampilkan seluruh tabel <strong>mahasiswa_ilkom</strong> dengan kode berikut:</p>
+<div>
+  <div id="highlighter_724440" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// jalankan query untuk memeriksa hasil inputan</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">&quot;SELECT * FROM mahasiswa_ilkom&quot;</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysqli_fetch_row(</code><code class="php variable">$result</code><code class="php plain">)) {</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;$row[0] $row[1] $row[2] $row[3] $row[4]&quot;</code><code class="php plain">;</code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number9 index8 alt2"><code class="php plain">}</code></div>
+            <div class="line number10 index9 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Kode diatas sudah sering kita gunakan, sehingga saya tidak akan membahasnya lagi.</p>
+<p>Terakhir adalah fungsi opsional untuk memutus koneksi dengan MySQL Server:</p>
+<div>
+  <div id="highlighter_653944" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// tutup statements</code></div>
+            <div class="line number3 index2 alt2"><code class="php plain">mysqli_stmt_close(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number6 index5 alt1"><code class="php plain">mysqli_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Dengan menggabungkan seluruh pembahasan kita diatas, berikut adalah   contoh kode program PHP lengkap mengenai cara menginput data MySQL   menggunakan <strong><em>mysqli prepared statement</em></strong>:</p>
+<div>
+  <div id="highlighter_613104" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div>
+            <div class="line number18 index17 alt1">18</div>
+            <div class="line number19 index18 alt2">19</div>
+            <div class="line number20 index19 alt1">20</div>
+            <div class="line number21 index20 alt2">21</div>
+            <div class="line number22 index21 alt1">22</div>
+            <div class="line number23 index22 alt2">23</div>
+            <div class="line number24 index23 alt1">24</div>
+            <div class="line number25 index24 alt2">25</div>
+            <div class="line number26 index25 alt1">26</div>
+            <div class="line number27 index26 alt2">27</div>
+            <div class="line number28 index27 alt1">28</div>
+            <div class="line number29 index28 alt2">29</div>
+            <div class="line number30 index29 alt1">30</div>
+            <div class="line number31 index30 alt2">31</div>
+            <div class="line number32 index31 alt1">32</div>
+            <div class="line number33 index32 alt2">33</div>
+            <div class="line number34 index33 alt1">34</div>
+            <div class="line number35 index34 alt2">35</div>
+            <div class="line number36 index35 alt1">36</div>
+            <div class="line number37 index36 alt2">37</div>
+            <div class="line number38 index37 alt1">38</div>
+            <div class="line number39 index38 alt2">39</div>
+            <div class="line number40 index39 alt1">40</div>
+            <div class="line number41 index40 alt2">41</div>
+            <div class="line number42 index41 alt1">42</div>
+            <div class="line number43 index42 alt2">43</div>
+            <div class="line number44 index43 alt1">44</div>
+            <div class="line number45 index44 alt2">45</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">'localhost'</code><code class="php plain">, </code><code class="php string">'root'</code><code class="php plain">, </code><code class="php string">''</code><code class="php plain">, </code><code class="php string">'universitas'</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">// buat prepared statements</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$stmt</code> <code class="php plain">= mysqli_prepare(</code><code class="php variable">$link</code><code class="php plain">, &quot;INSERT INTO mahasiswa_ilkom </code></div>
+            <div class="line number7 index6 alt2"><code class="php plain">VALUES (?, ?, ?, ?, ?)&quot;);</code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number9 index8 alt2"><code class="php comments">// hubungkan &quot;data&quot; dengan prepared statements</code></div>
+            <div class="line number10 index9 alt1"><code class="php plain">mysqli_stmt_bind_param(</code><code class="php variable">$stmt</code><code class="php plain">, </code><code class="php string">&quot;ssisd&quot;</code><code class="php plain">, </code></div>
+            <div class="line number11 index10 alt2"><code class="php variable">$nim_mhs</code><code class="php plain">, </code><code class="php variable">$nama_mhs</code><code class="php plain">, </code><code class="php variable">$umur_mhs</code> <code class="php plain">, </code><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">, </code><code class="php variable">$ipk_mhs</code><code class="php plain">);</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number13 index12 alt2"><code class="php comments">// siapkan &quot;data&quot; query</code></div>
+            <div class="line number14 index13 alt1"><code class="php variable">$nim_mhs</code><code class="php plain">=</code><code class="php string">&quot;089023020&quot;</code><code class="php plain">;</code></div>
+            <div class="line number15 index14 alt2"><code class="php variable">$nama_mhs</code><code class="php plain">=</code><code class="php string">&quot;Naira Alika&quot;</code><code class="php plain">;</code></div>
+            <div class="line number16 index15 alt1"><code class="php variable">$umur_mhs</code><code class="php plain">=20;</code></div>
+            <div class="line number17 index16 alt2"><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">=</code><code class="php string">&quot;Padang&quot;</code><code class="php plain">;</code></div>
+            <div class="line number18 index17 alt1"><code class="php variable">$ipk_mhs</code><code class="php plain">=3.9;</code></div>
+            <div class="line number19 index18 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number20 index19 alt1"><code class="php comments">// jalankan query</code></div>
+            <div class="line number21 index20 alt2"><code class="php plain">mysqli_stmt_execute(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number22 index21 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number23 index22 alt2"><code class="php comments">// cek hasil query</code></div>
+            <div class="line number24 index23 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$stmt</code><code class="php plain">) {</code></div>
+            <div class="line number25 index24 alt2"><code class="php spaces">   </code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code><code class="php plain">.mysqli_errno(</code><code class="php variable">$link</code><code class="php plain">).</code><code class="php string">' - '</code><code class="php plain">.mysqli_error(</code><code class="php variable">$link</code><code class="php plain">));</code></div>
+            <div class="line number26 index25 alt1"><code class="php plain">}</code></div>
+            <div class="line number27 index26 alt2"><code class="php keyword">else</code> <code class="php plain">{</code></div>
+            <div class="line number28 index27 alt1"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;Penambahan &quot;</code><code class="php plain">.mysqli_stmt_affected_rows(</code><code class="php variable">$stmt</code><code class="php plain">). </code><code class="php string">&quot; data berhasil&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number29 index28 alt2"><code class="php plain">}</code></div>
+            <div class="line number30 index29 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number31 index30 alt2"><code class="php comments">// jalankan query untuk memeriksa hasil inputan</code></div>
+            <div class="line number32 index31 alt1"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">&quot;SELECT * FROM mahasiswa_ilkom&quot;</code><code class="php plain">);</code></div>
+            <div class="line number33 index32 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number34 index33 alt1"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number35 index34 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysqli_fetch_row(</code><code class="php variable">$result</code><code class="php plain">)) {</code></div>
+            <div class="line number36 index35 alt1"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;$row[0] $row[1] $row[2] $row[3] $row[4]&quot;</code><code class="php plain">;</code></div>
+            <div class="line number37 index36 alt2"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number38 index37 alt1"><code class="php plain">}</code></div>
+            <div class="line number39 index38 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number40 index39 alt1"><code class="php comments">// tutup statements</code></div>
+            <div class="line number41 index40 alt2"><code class="php plain">mysqli_stmt_close(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number42 index41 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number43 index42 alt2"><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number44 index43 alt1"><code class="php plain">mysqli_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number45 index44 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Apabila dijalankan, maka hasil yang didapat adalah sebagai berikut:</p>
+<div>
+  <div id="highlighter_596758" class="syntaxhighlighter text">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="text plain">Penambahan 1 data berhasil</code></div>
+            <div class="line number2 index1 alt1"><code class="text plain">089023013 Alex Supriyanto 23 Surabaya 2.90</code></div>
+            <div class="line number3 index2 alt2"><code class="text plain">089023020 Naira Alika 20 Padang 3.90</code></div>
+            <div class="line number4 index3 alt1"><code class="text plain">089045001 Andi Suryo 23 Jakarta 2.70</code></div>
+            <div class="line number5 index4 alt2"><code class="text plain">099145055 Neil Situmorang 22 Medan 1.90</code></div>
+            <div class="line number6 index5 alt1"><code class="text plain">109223041 Rani Sabrina 21 Padang 3.70</code></div>
+            <div class="line number7 index6 alt2"><code class="text plain">109245021 Santi Syanum 21 Malang 3.20</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Bisa terlihat bahwa data mahasiswa baru: “<strong>Naira Alika</strong>” telah masuk kedalam tabel <strong>mahasiswa_ilkom</strong>.</p>
+<hr />
+<h3>Cara Menginput Multiple Data dengan mysqli Prepared Statements</h3>
+<p>Masih berkaitan dengan pembahasan kita, saya akan memodifikasi   sedikit kode program untuk menampilkan cara menginput banyak data (<em>multiple data</em>) menggunakan <strong>mysqli prepared statement</strong>:</p>
+<div>
+  <div id="highlighter_641092" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div>
+            <div class="line number18 index17 alt1">18</div>
+            <div class="line number19 index18 alt2">19</div>
+            <div class="line number20 index19 alt1">20</div>
+            <div class="line number21 index20 alt2">21</div>
+            <div class="line number22 index21 alt1">22</div>
+            <div class="line number23 index22 alt2">23</div>
+            <div class="line number24 index23 alt1">24</div>
+            <div class="line number25 index24 alt2">25</div>
+            <div class="line number26 index25 alt1">26</div>
+            <div class="line number27 index26 alt2">27</div>
+            <div class="line number28 index27 alt1">28</div>
+            <div class="line number29 index28 alt2">29</div>
+            <div class="line number30 index29 alt1">30</div>
+            <div class="line number31 index30 alt2">31</div>
+            <div class="line number32 index31 alt1">32</div>
+            <div class="line number33 index32 alt2">33</div>
+            <div class="line number34 index33 alt1">34</div>
+            <div class="line number35 index34 alt2">35</div>
+            <div class="line number36 index35 alt1">36</div>
+            <div class="line number37 index36 alt2">37</div>
+            <div class="line number38 index37 alt1">38</div>
+            <div class="line number39 index38 alt2">39</div>
+            <div class="line number40 index39 alt1">40</div>
+            <div class="line number41 index40 alt2">41</div>
+            <div class="line number42 index41 alt1">42</div>
+            <div class="line number43 index42 alt2">43</div>
+            <div class="line number44 index43 alt1">44</div>
+            <div class="line number45 index44 alt2">45</div>
+            <div class="line number46 index45 alt1">46</div>
+            <div class="line number47 index46 alt2">47</div>
+            <div class="line number48 index47 alt1">48</div>
+            <div class="line number49 index48 alt2">49</div>
+            <div class="line number50 index49 alt1">50</div>
+            <div class="line number51 index50 alt2">51</div>
+            <div class="line number52 index51 alt1">52</div>
+            <div class="line number53 index52 alt2">53</div>
+            <div class="line number54 index53 alt1">54</div>
+            <div class="line number55 index54 alt2">55</div>
+            <div class="line number56 index55 alt1">56</div>
+            <div class="line number57 index56 alt2">57</div>
+            <div class="line number58 index57 alt1">58</div>
+            <div class="line number59 index58 alt2">59</div>
+            <div class="line number60 index59 alt1">60</div>
+            <div class="line number61 index60 alt2">61</div>
+            <div class="line number62 index61 alt1">62</div>
+            <div class="line number63 index62 alt2">63</div>
+            <div class="line number64 index63 alt1">64</div>
+            <div class="line number65 index64 alt2">65</div>
+            <div class="line number66 index65 alt1">66</div>
+            <div class="line number67 index66 alt2">67</div>
+            <div class="line number68 index67 alt1">68</div>
+            <div class="line number69 index68 alt2">69</div>
+            <div class="line number70 index69 alt1">70</div>
+            <div class="line number71 index70 alt2">71</div>
+            <div class="line number72 index71 alt1">72</div>
+            <div class="line number73 index72 alt2">73</div>
+            <div class="line number74 index73 alt1">74</div>
+            <div class="line number75 index74 alt2">75</div>
+            <div class="line number76 index75 alt1">76</div>
+            <div class="line number77 index76 alt2">77</div>
+            <div class="line number78 index77 alt1">78</div>
+            <div class="line number79 index78 alt2">79</div>
+            <div class="line number80 index79 alt1">80</div>
+            <div class="line number81 index80 alt2">81</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">'localhost'</code><code class="php plain">, </code><code class="php string">'root'</code><code class="php plain">, </code><code class="php string">''</code><code class="php plain">, </code><code class="php string">'universitas'</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">// buat prepared statements</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$stmt</code> <code class="php plain">= mysqli_prepare(</code><code class="php variable">$link</code><code class="php plain">, &quot;INSERT INTO mahasiswa_ilkom </code></div>
+            <div class="line number7 index6 alt2"><code class="php plain">VALUES (?, ?, ?, ?, ?)&quot;);</code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number9 index8 alt2"><code class="php comments">// hubungkan &quot;data&quot; dengan prepared statements</code></div>
+            <div class="line number10 index9 alt1"><code class="php plain">mysqli_stmt_bind_param(</code><code class="php variable">$stmt</code><code class="php plain">, </code><code class="php string">&quot;ssisd&quot;</code><code class="php plain">, </code></div>
+            <div class="line number11 index10 alt2"><code class="php variable">$nim_mhs</code><code class="php plain">, </code><code class="php variable">$nama_mhs</code><code class="php plain">, </code><code class="php variable">$umur_mhs</code> <code class="php plain">, </code><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">, </code><code class="php variable">$ipk_mhs</code><code class="php plain">);</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number13 index12 alt2"><code class="php comments">// siapkan &quot;data&quot; query 1</code></div>
+            <div class="line number14 index13 alt1"><code class="php variable">$nim_mhs</code><code class="php plain">=</code><code class="php string">&quot;089023023&quot;</code><code class="php plain">;</code></div>
+            <div class="line number15 index14 alt2"><code class="php variable">$nama_mhs</code><code class="php plain">=</code><code class="php string">&quot;Alika Shanum&quot;</code><code class="php plain">;</code></div>
+            <div class="line number16 index15 alt1"><code class="php variable">$umur_mhs</code><code class="php plain">=21;</code></div>
+            <div class="line number17 index16 alt2"><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">=</code><code class="php string">&quot;Medan&quot;</code><code class="php plain">;</code></div>
+            <div class="line number18 index17 alt1"><code class="php variable">$ipk_mhs</code><code class="php plain">=3.8;</code></div>
+            <div class="line number19 index18 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number20 index19 alt1"><code class="php comments">// jalankan query 1</code></div>
+            <div class="line number21 index20 alt2"><code class="php plain">mysqli_stmt_execute(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number22 index21 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number23 index22 alt2"><code class="php comments">// cek hasil query 1</code></div>
+            <div class="line number24 index23 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$stmt</code><code class="php plain">) {</code></div>
+            <div class="line number25 index24 alt2"><code class="php spaces">   </code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code><code class="php plain">.mysqli_errno(</code><code class="php variable">$link</code><code class="php plain">).</code><code class="php string">' - '</code><code class="php plain">.mysqli_error(</code><code class="php variable">$link</code><code class="php plain">));</code></div>
+            <div class="line number26 index25 alt1"><code class="php plain">}</code></div>
+            <div class="line number27 index26 alt2"><code class="php keyword">else</code> <code class="php plain">{</code></div>
+            <div class="line number28 index27 alt1"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;Penambahan &quot;</code><code class="php plain">.mysqli_stmt_affected_rows(</code><code class="php variable">$stmt</code><code class="php plain">).</code><code class="php string">&quot; data berhasil&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number29 index28 alt2"><code class="php plain">}</code></div>
+            <div class="line number30 index29 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number31 index30 alt2"><code class="php comments">// siapkan &quot;data&quot; query 2</code></div>
+            <div class="line number32 index31 alt1"><code class="php variable">$nim_mhs</code><code class="php plain">=</code><code class="php string">&quot;089023026&quot;</code><code class="php plain">;</code></div>
+            <div class="line number33 index32 alt2"><code class="php variable">$nama_mhs</code><code class="php plain">=</code><code class="php string">&quot;Rina Melita&quot;</code><code class="php plain">;</code></div>
+            <div class="line number34 index33 alt1"><code class="php variable">$umur_mhs</code><code class="php plain">=22;</code></div>
+            <div class="line number35 index34 alt2"><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">=</code><code class="php string">&quot;Lampung&quot;</code><code class="php plain">;</code></div>
+            <div class="line number36 index35 alt1"><code class="php variable">$ipk_mhs</code><code class="php plain">=3.5;</code></div>
+            <div class="line number37 index36 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number38 index37 alt1"><code class="php comments">// jalankan query 2</code></div>
+            <div class="line number39 index38 alt2"><code class="php plain">mysqli_stmt_execute(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number40 index39 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number41 index40 alt2"><code class="php comments">// cek hasil query 2</code></div>
+            <div class="line number42 index41 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$stmt</code><code class="php plain">) {</code></div>
+            <div class="line number43 index42 alt2"><code class="php spaces">   </code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code> <code class="php plain">.mysqli_errno(</code><code class="php variable">$link</code><code class="php plain">).</code><code class="php string">' - '</code><code class="php plain">.mysqli_error(</code><code class="php variable">$link</code><code class="php plain">));</code></div>
+            <div class="line number44 index43 alt1"><code class="php plain">}</code></div>
+            <div class="line number45 index44 alt2"><code class="php keyword">else</code> <code class="php plain">{</code></div>
+            <div class="line number46 index45 alt1"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;Penambahan &quot;</code><code class="php plain">.mysqli_stmt_affected_rows(</code><code class="php variable">$stmt</code><code class="php plain">).</code><code class="php string">&quot; data berhasil&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number47 index46 alt2"><code class="php plain">}</code></div>
+            <div class="line number48 index47 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number49 index48 alt2"><code class="php comments">// siapkan &quot;data&quot; query 3</code></div>
+            <div class="line number50 index49 alt1"><code class="php variable">$nim_mhs</code><code class="php plain">=</code><code class="php string">&quot;089023031&quot;</code><code class="php plain">;</code></div>
+            <div class="line number51 index50 alt2"><code class="php variable">$nama_mhs</code><code class="php plain">=</code><code class="php string">&quot;Joni Halim&quot;</code><code class="php plain">;</code></div>
+            <div class="line number52 index51 alt1"><code class="php variable">$umur_mhs</code><code class="php plain">=21;</code></div>
+            <div class="line number53 index52 alt2"><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">=</code><code class="php string">&quot;Palembang&quot;</code><code class="php plain">;</code></div>
+            <div class="line number54 index53 alt1"><code class="php variable">$ipk_mhs</code><code class="php plain">=3.6;</code></div>
+            <div class="line number55 index54 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number56 index55 alt1"><code class="php comments">// jalankan query 3</code></div>
+            <div class="line number57 index56 alt2"><code class="php plain">mysqli_stmt_execute(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number58 index57 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number59 index58 alt2"><code class="php comments">// cek hasil query 3</code></div>
+            <div class="line number60 index59 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$stmt</code><code class="php plain">) {</code></div>
+            <div class="line number61 index60 alt2"><code class="php spaces">   </code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code><code class="php plain">.mysqli_errno(</code><code class="php variable">$link</code><code class="php plain">).</code><code class="php string">' - '</code><code class="php plain">.mysqli_error(</code><code class="php variable">$link</code><code class="php plain">));</code></div>
+            <div class="line number62 index61 alt1"><code class="php plain">}</code></div>
+            <div class="line number63 index62 alt2"><code class="php keyword">else</code> <code class="php plain">{</code></div>
+            <div class="line number64 index63 alt1"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;Penambahan &quot;</code><code class="php plain">.mysqli_stmt_affected_rows(</code><code class="php variable">$stmt</code><code class="php plain">).</code><code class="php string">&quot; data berhasil&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number65 index64 alt2"><code class="php plain">}</code></div>
+            <div class="line number66 index65 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number67 index66 alt2"><code class="php comments">// jalankan query untuk memeriksa hasil inputan</code></div>
+            <div class="line number68 index67 alt1"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">&quot;SELECT * FROM mahasiswa_ilkom&quot;</code><code class="php plain">);</code></div>
+            <div class="line number69 index68 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number70 index69 alt1"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number71 index70 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysqli_fetch_row(</code><code class="php variable">$result</code><code class="php plain">)) {</code></div>
+            <div class="line number72 index71 alt1"><code class="php functions">echo</code> <code class="php string">&quot;$row[0] $row[1] $row[2] $row[3] $row[4]&quot;</code><code class="php plain">;</code></div>
+            <div class="line number73 index72 alt2"><code class="php functions">echo</code> <code class="php string">&quot;&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number74 index73 alt1"><code class="php plain">}</code></div>
+            <div class="line number75 index74 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number76 index75 alt1"><code class="php comments">// tutup statements</code></div>
+            <div class="line number77 index76 alt2"><code class="php plain">mysqli_stmt_close(</code><code class="php variable">$stmt</code><code class="php plain">);</code></div>
+            <div class="line number78 index77 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number79 index78 alt2"><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number80 index79 alt1"><code class="php plain">mysqli_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number81 index80 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Kode diatas sedikit panjang, tetapi jika anda sudah memahami konsep <strong>prepared statement</strong>, fungsi-fungsi yang ada bisa dipahami dengan mudah.</p>
+<p>Perhatikan bahwa ketika kita menginput banyak data, kita tidak perlu   lagi mengirimkan query ke MySQL Server, tetapi cukup dengan mengubah   variabel data dan menjalankan fungsi <strong>mysqli_stmt_execute()</strong>. Untuk situasi inilah prepared statement menjadi lebih efisien dari pada metoda <strong>mysqli</strong> ‘biasa’.</p>
+<p>Jika anda menjalankan kode program diatas, berikut adalah hasil yang didapat:</p>
+<div>
+  <div id="highlighter_424397" class="syntaxhighlighter text">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="text plain">Penambahan 1 data berhasil</code></div>
+            <div class="line number2 index1 alt1"><code class="text plain">Penambahan 1 data berhasil</code></div>
+            <div class="line number3 index2 alt2"><code class="text plain">Penambahan 1 data berhasil</code></div>
+            <div class="line number4 index3 alt1"><code class="text plain">089023013 Alex Supriyanto 23 Surabaya 2.90</code></div>
+            <div class="line number5 index4 alt2"><code class="text plain">089023020 Naira Alika 20 Padang 3.90</code></div>
+            <div class="line number6 index5 alt1"><code class="text plain">089023023 Alika Shanum 21 Medan 3.80</code></div>
+            <div class="line number7 index6 alt2"><code class="text plain">089023026 Rina Melita 22 Lampung 3.50</code></div>
+            <div class="line number8 index7 alt1"><code class="text plain">089023031 Joni Halim 21 Palembang 3.60</code></div>
+            <div class="line number9 index8 alt2"><code class="text plain">089045001 Andi Suryo 23 Jakarta 2.70</code></div>
+            <div class="line number10 index9 alt1"><code class="text plain">099145055 Neil Situmorang 22 Medan 1.90</code></div>
+            <div class="line number11 index10 alt2"><code class="text plain">109223041 Rani Sabrina 21 Padang 3.70</code></div>
+            <div class="line number12 index11 alt1"><code class="text plain">109245021 Santi Syanum 21 Malang 3.20</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr />
+<h3>Cara Menginput Data dengan mysqli Prepared Statements (object style)</h3>
+<p>Dalam pembahasan diatas, saya menggunakan <em>procedural style mysqli</em>, kali ini kita akan melihat modifikasi kode programnya jika menggunakan <em>object style mysqli</em>:</p>
+<div>
+  <div id="highlighter_694930" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div>
+            <div class="line number18 index17 alt1">18</div>
+            <div class="line number19 index18 alt2">19</div>
+            <div class="line number20 index19 alt1">20</div>
+            <div class="line number21 index20 alt2">21</div>
+            <div class="line number22 index21 alt1">22</div>
+            <div class="line number23 index22 alt2">23</div>
+            <div class="line number24 index23 alt1">24</div>
+            <div class="line number25 index24 alt2">25</div>
+            <div class="line number26 index25 alt1">26</div>
+            <div class="line number27 index26 alt2">27</div>
+            <div class="line number28 index27 alt1">28</div>
+            <div class="line number29 index28 alt2">29</div>
+            <div class="line number30 index29 alt1">30</div>
+            <div class="line number31 index30 alt2">31</div>
+            <div class="line number32 index31 alt1">32</div>
+            <div class="line number33 index32 alt2">33</div>
+            <div class="line number34 index33 alt1">34</div>
+            <div class="line number35 index34 alt2">35</div>
+            <div class="line number36 index35 alt1">36</div>
+            <div class="line number37 index36 alt2">37</div>
+            <div class="line number38 index37 alt1">38</div>
+            <div class="line number39 index38 alt2">39</div>
+            <div class="line number40 index39 alt1">40</div>
+            <div class="line number41 index40 alt2">41</div>
+            <div class="line number42 index41 alt1">42</div>
+            <div class="line number43 index42 alt2">43</div>
+            <div class="line number44 index43 alt1">44</div>
+            <div class="line number45 index44 alt2">45</div>
+            <div class="line number46 index45 alt1">46</div>
+            <div class="line number47 index46 alt2">47</div>
+            <div class="line number48 index47 alt1">48</div>
+            <div class="line number49 index48 alt2">49</div>
+            <div class="line number50 index49 alt1">50</div>
+            <div class="line number51 index50 alt2">51</div>
+            <div class="line number52 index51 alt1">52</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$mysqli</code> <code class="php plain">= </code><code class="php keyword">new</code> <code class="php plain">mysqli(</code><code class="php string">&quot;localhost&quot;</code><code class="php plain">, </code><code class="php string">&quot;root&quot;</code><code class="php plain">, </code><code class="php string">&quot;&quot;</code><code class="php plain">,</code><code class="php string">&quot;universitas&quot;</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">// cek koneksi</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;connect_errno) {</code></div>
+            <div class="line number7 index6 alt2"><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Koneksi gagal: '</code> <code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;connect_errno.</code></div>
+            <div class="line number8 index7 alt1"><code class="php string">' - '</code><code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;connect_error);</code></div>
+            <div class="line number9 index8 alt2"><code class="php plain">}</code></div>
+            <div class="line number10 index9 alt1"> </div>
+            <div class="line number11 index10 alt2"><code class="php comments">// buat prepared statements</code></div>
+            <div class="line number12 index11 alt1"><code class="php variable">$stmt</code> <code class="php plain">= </code><code class="php variable">$mysqli</code><code class="php plain">-&gt;prepare(&quot;INSERT INTO mahasiswa_ilkom </code></div>
+            <div class="line number13 index12 alt2"><code class="php plain">VALUES (?, ?, ?, ?, ?)&quot;);</code></div>
+            <div class="line number14 index13 alt1"><code class="php spaces"> </code> </div>
+            <div class="line number15 index14 alt2"><code class="php comments">// hubungkan &quot;data&quot; dengan prepared statements</code></div>
+            <div class="line number16 index15 alt1"><code class="php variable">$stmt</code><code class="php plain">-&gt;bind_param(</code><code class="php string">&quot;ssisd&quot;</code><code class="php plain">, </code></div>
+            <div class="line number17 index16 alt2"><code class="php variable">$nim_mhs</code><code class="php plain">, </code><code class="php variable">$nama_mhs</code><code class="php plain">, </code><code class="php variable">$umur_mhs</code> <code class="php plain">, </code><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">, </code><code class="php variable">$ipk_mhs</code><code class="php plain">);</code></div>
+            <div class="line number18 index17 alt1"> </div>
+            <div class="line number19 index18 alt2"><code class="php comments">// siapkan &quot;data&quot; query</code></div>
+            <div class="line number20 index19 alt1"><code class="php variable">$nim_mhs</code><code class="php plain">=</code><code class="php string">&quot;089023020&quot;</code><code class="php plain">;</code></div>
+            <div class="line number21 index20 alt2"><code class="php variable">$nama_mhs</code><code class="php plain">=</code><code class="php string">&quot;Naira Alika&quot;</code><code class="php plain">;</code></div>
+            <div class="line number22 index21 alt1"><code class="php variable">$umur_mhs</code><code class="php plain">=20;</code></div>
+            <div class="line number23 index22 alt2"><code class="php variable">$tempat_lahir_mhs</code><code class="php plain">=</code><code class="php string">&quot;Padang&quot;</code><code class="php plain">;</code></div>
+            <div class="line number24 index23 alt1"><code class="php variable">$ipk_mhs</code><code class="php plain">=3.9;</code></div>
+            <div class="line number25 index24 alt2"> </div>
+            <div class="line number26 index25 alt1"><code class="php comments">// jalankan query</code></div>
+            <div class="line number27 index26 alt2"><code class="php variable">$stmt</code><code class="php plain">-&gt;execute();</code></div>
+            <div class="line number28 index27 alt1"> </div>
+            <div class="line number29 index28 alt2"><code class="php comments">// cek query</code></div>
+            <div class="line number30 index29 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$stmt</code><code class="php plain">) {</code></div>
+            <div class="line number31 index30 alt2"><code class="php spaces">   </code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code><code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;errno.</code></div>
+            <div class="line number32 index31 alt1"><code class="php spaces">   </code><code class="php string">' - '</code><code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;error);</code></div>
+            <div class="line number33 index32 alt2"><code class="php plain">}</code></div>
+            <div class="line number34 index33 alt1"><code class="php keyword">else</code> <code class="php plain">{</code></div>
+            <div class="line number35 index34 alt2"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;Penambahan &quot;</code><code class="php plain">.</code><code class="php variable">$stmt</code><code class="php plain">-&gt;affected_rows. </code><code class="php string">&quot; data berhasil&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number36 index35 alt1"><code class="php plain">}</code></div>
+            <div class="line number37 index36 alt2"> </div>
+            <div class="line number38 index37 alt1"><code class="php comments">// jalankan query untuk memeriksa hasil inputan</code></div>
+            <div class="line number39 index38 alt2"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$mysqli</code><code class="php plain">-&gt;query(</code><code class="php string">&quot;SELECT * FROM mahasiswa_ilkom&quot;</code><code class="php plain">);</code></div>
+            <div class="line number40 index39 alt1"> </div>
+            <div class="line number41 index40 alt2"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number42 index41 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">= </code><code class="php variable">$result</code><code class="php plain">-&gt;fetch_row()) {</code></div>
+            <div class="line number43 index42 alt2"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;$row[0] $row[1] $row[2] $row[3] $row[4]&quot;</code><code class="php plain">;</code></div>
+            <div class="line number44 index43 alt1"><code class="php spaces">   </code><code class="php functions">echo</code> <code class="php string">&quot;&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number45 index44 alt2"><code class="php plain">}</code></div>
+            <div class="line number46 index45 alt1"> </div>
+            <div class="line number47 index46 alt2"><code class="php comments">// tutup statements</code></div>
+            <div class="line number48 index47 alt1"><code class="php variable">$stmt</code><code class="php plain">-&gt;close();</code></div>
+            <div class="line number49 index48 alt2"> </div>
+            <div class="line number50 index49 alt1"><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number51 index50 alt2"><code class="php variable">$mysqli</code><code class="php plain">-&gt;close();</code></div>
+            <div class="line number52 index51 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr />
+<p>Dalam tutorial belajar PHP MySQL kali ini kita telah mempelajari cara   menggunakan mysqli prepared statement untuk menginput data kedalam   database. Tutorial kali ini menutup sesi pembahasan tentang <strong>mysqli</strong>. Dalam tutorial berikutnya kita akan berkenalan dengan extension ketiga PHP-MySQL, yakni <a title="Tutorial PHP MySQL: Pengertian PDO dan Cara Mengaktifkan PDO (PHP Data Objects)" href="http://www.duniailkom.com/tutorial-php-mysql-pengertian-pdo-dan-cara-mengaktifkan-pdo-php-data-objects/">PDO: PHP Data Object</a>.</p>
+<p>Sumber : <a href="http://www.duniailkom.com/tutorial-php-mysql-cara-menginput-data-dengan-mysqli-prepared-statements/">http://www.duniailkom.com/tutorial-php-mysql-cara-menginput-data-dengan-mysqli-prepared-statements/</a></p></div>
+</body>
+</html>
