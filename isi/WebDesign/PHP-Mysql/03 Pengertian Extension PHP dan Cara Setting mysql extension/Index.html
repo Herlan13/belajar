@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 3: Pengertian Extension PHP dan Cara Setting mysql extension</h1>
+<p>&nbsp;</p>
+<p>Jika anda mengistall PHP melalui <strong>XAMPP</strong>, maka <em>mysql extension</em>
+ telah aktif secara default dan anda tidak perlu melakukan apa-apa.   
+Namun jika anda menginstall PHP secara terpisah, kita harus mengaktifkan
+   setingan PHP agar mendukung MySQL. Dalam tutorial kali ini kita akan 
+  membahas tentang <a title="Tutorial PHP MySQL Part 3: Pengertian Extension PHP dan Cara Setting mysql extension" href="http://www.duniailkom.com/tutorial-php-mysql-pengertian-extension-php-dan-cara-setting-mysql-extension/">pengertian extension dalam PHP dan cara setting mysql extension</a>.</p>
+<hr>
+<h3>Pengertian Extension dalam PHP</h3>
+<p>Sampai dengan tutorial kali ini, beberapa kali saya menggunakan istilah <strong>extension</strong>. Namun apakah yang dimaksud dengan <strong>extension </strong>ini?</p>
+<p><strong>Extension</strong> di dalam PHP adalah istilah yang merujuk kepada <em>kumpulan fungsi program tambahan yang membuat PHP dapat mendukung berbagai fitur baru.</em></p>
+<p>PHP terdiri dari aplikasi inti (<strong>PHP core</strong>), dan fungsi tambahan (<strong>extension</strong>).
+   Dalam aplikasi inti PHP, PHP tidak menyediakan fungsi yang menangani 
+  database MySQL. Penanganan untuk fungsi database ini dipisahkan 
+menjadi   fungsi tambahan (<em>extension</em>). Selain <strong>database</strong>, <em>extension</em>
+ dalam PHP menyediakan berbagai fungsi lainnya untuk keperluan yang   
+lebih khusus, seperti pembuatan gambar, kriptografi, penanganan email,  
+ pembuatan PDF, dan lain-lain.</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<hr>
+<h3>Cara Setting mysql extension dengan php.ini</h3>
+<p>Untuk mengaktifkan <em>extension</em> dalam PHP, bisa dilakukan dari file setingan <strong>php.ini </strong>(cara membuka file <strong>php.ini</strong> telah kita pelajari pada tutorial <a href="http://www.duniailkom.com/cara-mengubah-file-konfigurasi-php-php-ini/">Cara Mengubah File Konfigurasi PHP (php.ini)</a>), lalu cari <strong>extension=php_mysql.dll</strong> dan <strong>extension=php_mysqli.dll</strong>, pastikan menghapus tanda titik koma di awal kedua <em>extension</em> ini untuk mengaktifkannya.</p>
+<p><img src="Index_files/MySQL-extension-pada-file-php.png" width="373" height="340" /></p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Masih pada file <strong>php.ini</strong>, pada bagian ini anda dapat melihat berbagai <em>extension</em> yang terdapat di dalam PHP, bahkan sebahagian besar tidak aktif secara default.</p>
+<p>File settingan <strong>php.ini</strong> menginstruksikan kepada PHP untuk mengaktifkan suatu <em>extension</em>, namun file <em>extension</em> itu sendiri juga harus ada di dalam PHP. Anda bisa membuka folder <strong>xampp\php\ext</strong> untuk melihat file-file <em>extension</em> yang digunakan untuk menambah fitur PHP.</p>
+<p><img src="Index_files/file-php_mysql.png" width="474" height="371" /></p>
+<p>Untuk memeriksa apakah setingan <strong>extension=php_mysql.dll</strong> sudah aktif, kita bisa menggunakan fungsi <strong>phpinfo().</strong> Anda bisa menjalankan fungsi <strong>phpinfo()</strong> didalam sebuah file php, atau bisa juga dengan men-klik menu <strong>phpinfo()</strong> dari halaman <em>localhost</em> dari <strong>XAMPP</strong>. Dalam halaman <strong>phpinfo(),</strong> carilah bagian mysql seperti tampilan berikut:</p>
+<p><img src="Index_files/Extension-mysql-telah-aktif-dari-menu-phpinfo.png" width="807" height="494" /></p>
+<p>Jika anda menemukan bagian mysql, berarti <em>extension</em> mysql telah aktif dan kita bisa mulaI membuat program untuk mengakses database melalui PHP.</p>
+<hr>
+<p>Dalam tutorial belajar PHP MySQL berikutnya, kita akan mulai membuat 
+  kode program PHP agar bisa terhubung dengan MySQL dalam tutorial&nbsp;<a title="Tutorial PHP MySQL Part 4: Cara Membuat Koneksi PHP dengan MySQL (mysql_connect)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-dengan-mysql-mysql_connect/">Cara Membuat Koneksi PHP-MySQL dengan fungsi mysql_connect</a>.</p>
+<p>Sumber :<a href="http://www.duniailkom.com/tutorial-php-mysql-pengertian-extension-php-dan-cara-setting-mysql-extension/"> http://www.duniailkom.com/tutorial-php-mysql-pengertian-extension-php-dan-cara-setting-mysql-extension</a>/</p>
+
+</div>
+</body></html>

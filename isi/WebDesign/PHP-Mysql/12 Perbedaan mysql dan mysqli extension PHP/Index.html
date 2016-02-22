@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 12: Perbedaan mysql dan mysqli extension PHP</h1>
+<p>&nbsp;</p>
+<p>Seperti yang pernah kita bahas dalam tutorial <a title="Tutorial PHP MySQL: Jenis Koneksi PHP – MySQL: PDO, mysqli, dan mysql extension" href="http://www.duniailkom.com/tutorial-php-mysql-jenis-koneksi-php-mysql-pdo-mysqli-dan-mysql-extension/">Jenis Koneksi PHP MySQL: PDO, mysqli, dan mysql extension</a>, penggunaan <strong>mysql extension</strong> tidak lagi direkomendasikan (<em>deprecated</em>). Dalam tutorial PHP MySQL kali ini, kita akan membahas perbedaan <strong>mysql</strong> extension yang “lama” dengan versi barunya, yakni <strong>mysqli</strong>. Extension <strong>mysqli</strong> juga hadir dengan 2 jenis “rasa”: <strong>procedural</strong> dan <strong>object oriented</strong>.</p>
+<hr>
+<h3>Perbedaan Antara mysql extension Dengan mysqli extension</h3>
+<p>Sepanjang tutorial PHP MySQL Part 4 sampai 11 di duniailkom ini, kita menggunakan <strong><em>extension mysql</em></strong> dari PHP untuk mengakses MySQL. Fungsi-fungsi yang kita pelajari tersebut (seperti fungsi <strong><em>mysql_connect, mysql_query, </em></strong>dan<strong><em> mysql_fetch_array</em></strong>)
+   memang sudah tidak disarankan lagi, tetapi saya tetap membahasnya   
+sebagai dasar bagi kita untuk masuk ke extension yang lebih baru: <strong>mysqli</strong> dan <strong>PDO</strong>.</p>
+<p>Terhitung dari PHP versi 5.5, extension <strong>mysql</strong> tidak lagi disarankan penggunaannya dan berstatus <em>deprecated</em>, yang berarti mungkin akan dihapus pada PHP versi berikutnya. Kita disarankan untuk mulai beralih menggunakan <strong>mysqli</strong> atau <strong>PDO</strong>. Mari kita bahas tentang <strong>mysqli</strong> terlebih dahulu.</p>
+<p><strong>Mysqli</strong> merupakan kependekan dari <strong>MySQL Improved Extension</strong>. Seperti yang terlihat dari namanya, extension ini merupakan versi perbaikan dan penambahan dari extension <strong>mysql</strong> sebelumnya yang umum digunakan. Extension <strong><em>mysqli</em></strong> dibuat untuk mendukung fitur-fitur terbaru dari MySQL Server versi 4.1 keatas.</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<p>Secara garis besar, tidak ada perbedaan mencolok antara <em>mysql extension</em> dengan <em>mysqli extension</em>. Nama-nama fungsi didalam mysqli sebagian besar mirip dengan apa yang telah kita pelajari (<em>extension mysql</em>).</p>
+<p>Sebagai contoh, untuk membuat koneksi dengan MySQL Server, di dalam mysql kita menggunakan fungsi <strong>mysql_connect()</strong>, sedangkan di dalam mysqli, kita menggunakan <strong>mysqli_connect()</strong>. Begitu juga dengan fungsi lain seperti <strong>mysql_query()</strong> menjadi <strong>mysqli_query()</strong>.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Selain menambah huruf “i” di dalam nama fungsi, argumen-argumen yang 
+  dibutuhkan juga hampir mirip. Perbedaannya, jika di dalam extension   
+mysql umumnya kita meletakkan argumen <em>resources</em> di akhir fungsi, maka di dalam <strong>mysqli</strong>, argumen ini diteletakkan di awal.</p>
+<p>Sebagai contoh, di dalam mysql kita menulis:</p>
+<div>
+  <div id="highlighter_592671" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">mysql_query(</code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">, </code><code class="php variable">$link</code><code class="php plain">)</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Sedangkan di dalam mysqli penulisannya menjadi:</p>
+<div>
+  <div id="highlighter_339040" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">)</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Namun perbedaan paling mendasar di dalam mysqli adalah: mysqli mendukung cara penulisan <strong>object oriented programming</strong>.</p>
+<hr>
+<h3>Mengenal 2 jenis Mysqli Style: Procedural dan Object Oriented</h3>
+<p>Agar proses “<em>migrasi</em>” dari <strong>mysql</strong> ke <strong>mysqli</strong> tidak terlalu menyusahkan, PHP memberikan 2 alternatif cara penulisan <strong>mysqli</strong>.</p>
+<ul class="list list_tick">
+  <li>Cara yang pertama adalah menggunakan <strong>procedural style</strong>. Cara ini mirip dengan extension mysql, dimana kita menggunakan fungsi-fungsi untuk mengakses database MySQL.</li>
+</ul>
+<ul class="list list_tick">
+  <li>Cara kedua adalah dengan <strong>object oriented style</strong>. Dengan cara ini, kita menggunakan aturan penulisan pemrograman objek untuk berkomunikasi dengan MySQL.</li>
+</ul>
+<p>Kedua jenis style pemrograman <strong>mysqli</strong> ini menggunakan nama fungsi dan method yang kurang lebih sama. Sebagai contoh, di dalam <em>procedural style</em> <strong>mysqli</strong>, terdapat fungsi <strong>mysqli_query(),</strong> sedangkan dalam <em>OOP style </em><strong>mysqli</strong>, kita menggunakan method <strong>$mysqli-&gt;query()</strong>. Kita akan membahas lebih dalam tentang cara penggunaan 2 style ini nantinya.</p>
+<hr>
+<p>Di dalam tutorial PHP MySQL kali ini kita telah membahas sekilas mengenai <a title="Tutorial PHP MySQL: Perbedaan mysql dan mysqli extension PHP" href="http://www.duniailkom.com/tutorial-php-mysql-perbedaan-mysql-dan-mysqli-extension-php/">perbedaan extension mysql dengan extension mysqli </a>yang lebih baru. Sesuai dengan instruksi dari manual MySQL, sebaiknya kita tidak menggunakan lagi extension mysql.</p>
+<p>Dalam tutorial selanjutnya, kita akan mulai membahas cara penggunaan 
+  mysqli extension. Berikutnya dalam tutorial PHP MySQL duniailkom: <a title="Tutorial PHP MySQL: Cara Menampilkan Data dengan mysqli PHP (procedural style)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-data-dengan-mysqli-procedural-style/">Cara Menampilkan Data dengan mysqli PHP menggunakan procedural style</a>.</p>
+<p>Sumber : <a href="http://www.duniailkom.com/tutorial-php-mysql-perbedaan-mysql-dan-mysqli-extension-php/">http://www.duniailkom.com/tutorial-php-mysql-perbedaan-mysql-dan-mysqli-extension-php/</a></p>
+</div>
+
+</body></html>

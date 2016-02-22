@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 15: Cara Menampilkan Pesan Kesalahan (Error) mysqli Extension</h1>
+<p>&nbsp;</p>
+<p>Jika dalam 2 tutorial sebelumnya kita membahas tentang cara menampilkan data MySQL menggunakan <a title="Tutorial PHP MySQL: Cara Menampilkan Data dengan mysqli PHP (Procedural Style)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-data-dengan-mysqli-procedural-style/">procedural style mysqli</a> dan <a title="Tutorial PHP MySQL: Cara Menampilkan Data dengan mysqli PHP (Object Style)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-data-dengan-mysqli-php-object-style/">object style mysqli</a>, dalam tutorial PHP MySQL kali ini kita akan mempelajari fungsi dan property yang bisa digunakan untuk <a title="Tutorial PHP MySQL: Cara Menampilkan Pesan Kesalahan (Error) mysqli Extension" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-pesan-kesalahan-error-mysqli-extension/">menampilkan pesan kesalahan (error) di dalam mysqli</a>.</p>
+<hr>
+<p>Pesan kesalahan atau error yang dimaksud dalam tutorial kali ini   
+adalah pesan error dari MySQL yang bisa ditampilkan apabila terjadi   
+kesalahan koneksi atau kesalahan penulisan query MySQL. Pesan error dari
+   PHP kadang tidak mencukupi, atau tidak bisa ditampilkan langsung 
+kepada   pengguna.</p>
+<p>Karena itu, kita perlu sebuah cara untuk mengetahui apa yang terjadi.
+   Misalkan apakah MySQL Server sudah berjalan, atau apakah kita salah  
+ menuliskan password user, database belum ada, salah penulisan query,   
+dll. Dalam tutorial ini kita akan membahasnya dengan lebih dalam.</p>
+<div id="stb-container-1185" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="Index_files/info-b.png" width="50" height="50" />
+  <div id="stb-box-1185" class="stb-info_box stb-box">Karena mysqli memiliki 2 cara penulisan, yakni <strong>procedural style</strong> dan <strong>object style</strong>, saya akan membahas keduanya secara terpisah.</div>
+</div>
+<hr>
+<h3>Cara Menampilkan Pesan Kesalahan (Error) Procedural Style mysqli</h3>
+<p>Untuk menampilkan pesan kesalahan dalam <strong>procedural style mysqli</strong>, kita akan menggunakan fungsi-fungsi. Beberapa diantaranya adalah fungsi <strong>mysqli_connect_errno(), mysqli_connect_ error (), mysqli_errno(), </strong>dan<strong> mysqli_error()</strong>. Agar mudah dipahami, kita akan langsung membahasnya menggunakan contoh kode program.</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<p>Pertama kali, saya akan mencoba membuat contoh kode program untuk   
+menampilkan kesalahan pada saat proses koneksi dengan MySQL Server.   
+Berikut adalah kode program PHPnya:</p>
+<div>
+  <div id="highlighter_601770" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">'localhost'</code><code class="php plain">, </code><code class="php string">'root'</code><code class="php plain">, </code><code class="php string">''</code><code class="php plain">, </code><code class="php string">'universitas'</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">// cek koneksi</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$link</code><code class="php plain">) {</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Koneksi Error : '</code><code class="php plain">.mysqli_connect_errno() </code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php plain">.</code><code class="php string">' - '</code><code class="php plain">.mysqli_connect_error());</code></div>
+            <div class="line number9 index8 alt2"><code class="php plain">}</code></div>
+            <div class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+            <div class="line number11 index10 alt2"><code class="php comments">// koneksi berhasil</code></div>
+            <div class="line number12 index11 alt1"><code class="php functions">echo</code> <code class="php string">'Koneksi Berhasil : '</code><code class="php plain">.mysqli_get_host_info(</code><code class="php variable">$link</code><code class="php plain">).</code><code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;</code>&nbsp;</div>
+            <div class="line number14 index13 alt1"><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number15 index14 alt2"><code class="php plain">mysqli_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number16 index15 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Pada kode program diatas, setelah proses koneksi dengan fungsi <strong>mysqli_connect()</strong>, saya memeriksa hasil koneksi dengan kondisi<strong> if(!$link).</strong> Fungsi <strong>mysqli_connect()</strong>
+ akan mengembalikan link koneksi apabila koneksi ke MySQL sukses   
+dilakukan. Tetapi jika koneksi gagal, fungsi ini akan mengembalikan   
+nilai <strong>FALSE</strong>. Nilai kembalian inilah yang bisa kita   
+manfaatkan untuk memeriksa apakah koneksi berhasil atau gagal. Karena   
+kondisi IF baru akan berjalan jika kondisi bernilai TRUE, maka saya   
+menambahkan tanda ! untuk membalik nilai <strong>FALSE</strong> menjadi <strong>TRUE</strong>. Kondisi <strong>if(!$link)</strong> baru akan dieksekusi ketika fungsi <strong>mysqli_connect()</strong> mengalami kegagalan.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Jika kondisi <strong>if(!link)</strong> menjadi <strong>TRUE</strong> (terdapat error), maka fungsi <strong>die()</strong> akan menghentikan proses PHP yang sedang berjalan. Selanjutnya, saya menampilkan pesan kesalahan menggunakan fungsi <strong>mysqli_connect_errno() </strong>dan <strong>mysqli_connect_ error()</strong>. Fungsi <em>mysqli_connect_errno()</em> akan menampilkan <strong>nomor kode error</strong>, sedangkan fungsi <em>mysqli_connect_error()</em> akan menampilkan <strong>pesan error</strong>.)</p>
+<p>Sebagai contoh, jika saya sengaja mengubah <strong>username</strong> menjadi “<em>teman_root</em>” (yang memang tidak ada di MySQL), maka kita bisa melihat error yang terjadi:</p>
+<div>
+  <div id="highlighter_158747" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">Koneksi Error : 1044 </code></div>
+            <div class="line number2 index1 alt1"><code class="php plain">- Access denied </code><code class="php keyword">for</code> <code class="php plain">user </code><code class="php string">''</code><code class="php plain">@</code><code class="php string">'localhost'</code> <code class="php plain">to database </code><code class="php string">'universitas'</code><code class="php plain">.</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Atau jika database saya ganti jadi “<em>universitas_tetangga”:</em></p>
+<div>
+  <div id="highlighter_81303" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">Koneksi Error : 1049 - Unknown database </code><code class="php string">'universitas_tetangga'</code><code class="php plain">.</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Pesan error yang dihasilkan ini selanjutnya bisa dikirim ke user agar bisa memperbaiki kesalahan tersebut.</p>
+<p>Apabila koneksi berhasil, fungsi <strong>mysqli_get_host_info()</strong>
+ bisa digunakan untuk menampilkan keterangan mengenai jenis koneksi apa 
+  yang saat ini diakses, apakah dari localhost atau alamat IP.</p>
+<p>Jika kita menggunakan fungsi mysqli_connect(‘localhost’, ‘root’, ”, ‘universitas’), maka hasil pemanggilan fungsi <strong>mysqli_get_host_info()</strong> adalah:</p>
+<div>
+  <div id="highlighter_773392" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">Koneksi berhasil : localhost via TCP/IP</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Jika saya mengubahnya menjadi mysqli_connect(‘127.0.0.1’, ‘root’, ”, ‘universitas’), hasilnya menjadi:</p>
+<div>
+  <div id="highlighter_806053" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">Koneksi berhasil : 127.0.0.1 via TCP/IP</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Selanjutnya, bagaimana cara menampilkan pesan error yang terjadi pada saat <strong>query</strong> di jalankan? Kita bisa menggunakan fungsi <strong>mysqli_errno()</strong> dan <strong>mysqli_error()</strong>. Berikut adalah contoh cara penggunaannya:</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<div>
+  <div id="highlighter_21601" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div>
+            <div class="line number18 index17 alt1">18</div>
+            <div class="line number19 index18 alt2">19</div>
+            <div class="line number20 index19 alt1">20</div>
+            <div class="line number21 index20 alt2">21</div>
+            <div class="line number22 index21 alt1">22</div>
+            <div class="line number23 index22 alt2">23</div>
+            <div class="line number24 index23 alt1">24</div>
+            <div class="line number25 index24 alt2">25</div>
+            <div class="line number26 index25 alt1">26</div>
+            <div class="line number27 index26 alt2">27</div>
+            <div class="line number28 index27 alt1">28</div>
+            <div class="line number29 index28 alt2">29</div>
+            <div class="line number30 index29 alt1">30</div>
+            <div class="line number31 index30 alt2">31</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">'localhost'</code><code class="php plain">, </code><code class="php string">'root'</code><code class="php plain">, </code><code class="php string">''</code><code class="php plain">, </code><code class="php string">'universitas'</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">// cek koneksi</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$link</code><code class="php plain">) {</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Koneksi Error : '</code><code class="php plain">.mysqli_connect_errno().</code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php string">' - '</code><code class="php plain">.mysqli_connect_error());</code></div>
+            <div class="line number9 index8 alt2"><code class="php plain">}</code></div>
+            <div class="line number10 index9 alt1">&nbsp;</div>
+            <div class="line number11 index10 alt2"><code class="php comments">// koneksi berhasil</code></div>
+            <div class="line number12 index11 alt1"><code class="php functions">echo</code> <code class="php string">'Koneksi Berhasil : '</code><code class="php plain">.mysqli_get_host_info(</code><code class="php variable">$link</code><code class="php plain">).</code><code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number14 index13 alt1"><code class="php comments">// jalankan query</code></div>
+            <div class="line number15 index14 alt2"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">,</code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">);</code></div>
+            <div class="line number16 index15 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number17 index16 alt2"><code class="php comments">// cek hasil query</code></div>
+            <div class="line number18 index17 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$result</code><code class="php plain">) {</code></div>
+            <div class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code><code class="php plain">.mysqli_errno(</code><code class="php variable">$link</code><code class="php plain">). </code></div>
+            <div class="line number20 index19 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php string">' - '</code><code class="php plain">.mysqli_error(</code><code class="php variable">$link</code><code class="php plain">));</code></div>
+            <div class="line number21 index20 alt2"><code class="php plain">}</code></div>
+            <div class="line number22 index21 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number23 index22 alt2"><code class="php comments">// tampilkan query &nbsp;</code></div>
+            <div class="line number24 index23 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysqli_fetch_row(</code><code class="php variable">$result</code><code class="php plain">)) {</code></div>
+            <div class="line number25 index24 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"$row[0] $row[1] $row[2] $row[3] $row[4]"</code><code class="php plain">;</code></div>
+            <div class="line number26 index25 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number27 index26 alt2"><code class="php plain">}</code></div>
+            <div class="line number28 index27 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number29 index28 alt2"><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number30 index29 alt1"><code class="php plain">mysqli_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number31 index30 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Dalam kode program diatas saya melakukan pengecekan apakah query berjalan sukses atau tidak dengan kondisi <strong>if (!$result). </strong>Jika di dalam query terdapat kesalahan, maka fungsi <strong>die()</strong> akan dijalankan. Sama seperti fungsi mysqli_connect(), fungsi mysqli_query() juga akan mengembalikan nilai <strong>FALSE</strong> jika query gagal dijalankan.</p>
+<p>Fungsi <strong>mysqli_errno()</strong> digunakan untuk menampilkan <strong>nomor kode error</strong>, dan fungsi <strong>mysqli_error()</strong> digunakan untuk menampilkan <strong>pesan error</strong> yang terjadi.</p>
+<p>Sebagai contoh, jika saya mengganti query menjadi <em>SELECT * FROM mahasiswa_mipa</em>, maka hasilnya adalah sebagai berikut:</p>
+<div>
+  <div id="highlighter_78023" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">Query Error : 1146 - Table </code><code class="php string">'universitas.mahasiswa_mipa'</code> <code class="php plain">doesn't exist</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Dimana dalam database <strong>universitas</strong> yang saya gunakan, memang tidak terdapat tabel <strong>mahasiswa_mipa</strong>. Pesan kesalahan ini sangat berguna terutama jika kita membuat program dimana user bisa menginput query sendiri.</p>
+<p>Dalam 2 contoh kode program diatas, saya menampilkan pesan kesalahan menggunakan mysqli dengan <em>procedural style</em>. Bagaimana dengan object style mysqli? Mari kita lihat cara penulisannya.</p>
+<hr>
+<h3>Cara Menampilkan Pesan Kesalahan (Error) Object Style mysqli</h3>
+<p>Untuk menampilkan pesan kesalahan dengan menggunakan <strong>object style mysqli</strong>, kita tidak lagi menggunakan fungsi, tetapi dengan memeriksa <strong>property</strong> error dari objek <strong>mysqli</strong>. Property yang digunakan untuk menampilkan pesan kesalahan ini memiliki nama yang mirip dengan fungsi yang digunakan pada <em>procedural style mysqli.</em></p>
+<p>Berikut adalah contoh kode program untuk menampilkan kesalahan MySQL menggunakan mysqli dengan object style:</p>
+<div>
+  <div id="highlighter_322272" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div>
+            <div class="line number18 index17 alt1">18</div>
+            <div class="line number19 index18 alt2">19</div>
+            <div class="line number20 index19 alt1">20</div>
+            <div class="line number21 index20 alt2">21</div>
+            <div class="line number22 index21 alt1">22</div>
+            <div class="line number23 index22 alt2">23</div>
+            <div class="line number24 index23 alt1">24</div>
+            <div class="line number25 index24 alt2">25</div>
+            <div class="line number26 index25 alt1">26</div>
+            <div class="line number27 index26 alt2">27</div>
+            <div class="line number28 index27 alt1">28</div>
+            <div class="line number29 index28 alt2">29</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$mysqli</code> <code class="php plain">= </code><code class="php keyword">new</code> <code class="php plain">mysqli(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">""</code><code class="php plain">,</code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">// cek koneksi</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;connect_errno) {</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Koneksi Error: '</code><code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;connect_errno. </code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php string">' - '</code><code class="php plain">. </code><code class="php variable">$mysqli</code><code class="php plain">-&gt;connect_error);</code></div>
+            <div class="line number9 index8 alt2"><code class="php plain">}</code></div>
+            <div class="line number10 index9 alt1">&nbsp;</div>
+            <div class="line number11 index10 alt2"><code class="php comments">// koneksi berhasil</code></div>
+            <div class="line number12 index11 alt1"><code class="php functions">echo</code> <code class="php string">'Koneksi Berhasil : '</code><code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;host_info.</code><code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number13 index12 alt2">&nbsp;</div>
+            <div class="line number14 index13 alt1"><code class="php comments">// jalankan query</code></div>
+            <div class="line number15 index14 alt2"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$mysqli</code><code class="php plain">-&gt;query(</code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">);</code></div>
+            <div class="line number16 index15 alt1">&nbsp;</div>
+            <div class="line number17 index16 alt2"><code class="php comments">// cek hasil query</code></div>
+            <div class="line number18 index17 alt1"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;errno) {</code></div>
+            <div class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">'Query Error : '</code><code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;errno.</code><code class="php string">' - '</code><code class="php plain">.</code><code class="php variable">$mysqli</code><code class="php plain">-&gt;error);</code></div>
+            <div class="line number20 index19 alt1"><code class="php plain">}</code></div>
+            <div class="line number21 index20 alt2"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number22 index21 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">= </code><code class="php variable">$result</code><code class="php plain">-&gt;fetch_row()) {</code></div>
+            <div class="line number23 index22 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"$row[0] $row[1] $row[2] $row[3] $row[4]"</code><code class="php plain">;&nbsp;&nbsp;</code></div>
+            <div class="line number24 index23 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number25 index24 alt2"><code class="php plain">}</code></div>
+            <div class="line number26 index25 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number27 index26 alt2"><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number28 index27 alt1"><code class="php variable">$mysqli</code><code class="php plain">-&gt;close();</code></div>
+            <div class="line number29 index28 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Perhatikan bahwa untuk mengecek apakah suatu koneksi dan proses query
+   berhasil atau tidak, kita bisa mengujinya dengan mengecek “isi” dari 
+  property<strong> $mysqli-&gt;connect_errno</strong> dan <strong>$mysqli-&gt;errno</strong>.
+   Kedua property ini tidak akan berisi apa-apa jika tidak ada 
+kesalahan,   dan baru akan berisi nilai jika terdapat error pada koneksi
+ MySQL atau   query MySQL.</p>
+<p>Dengan kata lain, untuk memeriksa apakah pada saat koneksi MySQL terjadi kesalahan, kita bisa mengujinya dengan kondisi <strong>if ($mysqli-&gt;connect_errno)</strong>. Sedangkan untuk mengecek query, bisa menggunakan <strong>if ($mysqli-&gt;errno)</strong>.</p>
+<p>Anda bisa menguji kode diatas dengan melakukan “<em>kesalahan</em>”, dan melihat apakah kode program diatas bisa menangkap error yang terjadi.</p>
+<div id="stb-container-9618" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="Index_files/info-b.png" width="50" height="50" />
+  <div id="stb-box-9618" class="stb-info_box stb-box">Cara penanganan error dalam contoh <em>object style mysqli</em> diatas sebenarnya belum murni “<em>objek</em>”. Menggunakan <strong>kondisi IF</strong> dan fungsi <strong>die()</strong> untuk menangani kesalahan merupakan “<em>cara procedural styl</em>e”. Di dalam OOP, kita sebaiknya menggunakan kondisi <strong>TRY…CATCH</strong> untuk penanganan kesalahan (kita akan melihat contohnya saat membahas tentang PDO dalam tutorial mengenai PDO PHP).
+    <p>Dalam tutorial ini saya tidak menggunakannya agar contoh kita menjadi lebih sederhana.</p>
+  </div>
+</div>
+<hr>
+<p>Dalam tutorial belajar PHP MySQL kali ini kita telah membahas cara   
+menangani dan menampilkan pesan kesalahan jika terjadi error pada saat  
+ koneksi MySQL maupun pada saat query dijalankan. Pesan error ini akan  
+ berguna jika kita membuat program dimana user bisa menginput query   
+sendiri. Sehingga jika terjadi salah penulisan query, kita bisa   
+menampilkan pesan yang sesuai.</p>
+<p>Dalam tutorial PHP MySQL berikutnya kita akan membahas tentang <a href="http://www.duniailkom.com/tutorial-php-mysql-pengertian-dan-cara-penggunaan-prepared-statements-mysqli/">Pengertian dan Cara Penggunaan Prepared Statements di dalam mysqli</a>.</p>
+<p>Sumber : <a href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-pesan-kesalahan-error-mysqli-extension/">http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-pesan-kesalahan-error-mysqli-extension/</a></p>
+
+</div>
+</body></html>

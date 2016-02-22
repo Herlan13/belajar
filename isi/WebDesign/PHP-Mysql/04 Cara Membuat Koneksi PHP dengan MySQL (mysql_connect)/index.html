@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body><div class="coklat">
+<h1 class="title single-title entry-title" itemprop="headline">Tutorial PHP MySQL Part 4: Cara Membuat Koneksi PHP dengan MySQL (mysql_connect)</h1>
+<p>&nbsp;</p>
+<p>Didalam tutorial kali ini kita akan mulai masuk dengan kode program   untuk membuat koneksi antara PHP dengan MySQL. Seperti yang pernah kita   bahas, PHP menyediakan 3 buah extension untuk koneksi PHP-MySQL. Mulai   dari tutorial ini dan beberapa tutorial kedepan, saya akan membahas cara   koneksi menggunakan <strong>mysql extension</strong>. Kali ini kita akan membahas <a title="Tutorial PHP MySQL Part 4: Cara Membuat Koneksi PHP dengan MySQL (mysql_connect())" href="http://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-dengan-mysql-mysql_connect/">cara membuat koneksi antara PHP dengan database MySQL</a>. Proses koneksi ini menggunakan fungsi <strong>mysql_connect()</strong>.</p>
+<div id="stb-container-1736" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="index_files/info-b.png" width="50" height="50" />
+  <div id="stb-box-1736" class="stb-info_box stb-box">Karena mysql extension sudah berstatus <strong>depracated</strong>, dimana tidak disarankan untuk digunakan lagi dan kemungkinan akan dihapus oleh PHP versi berikutnya, tutorial tentang <strong>mysql extension</strong> saya buat hanya sebagai bahan referensi, dan sebagai dasar bagi kita untuk masuk kedalam <strong>mysqli extension</strong> dan <strong>PDO</strong>.
+    <p>Untuk penulisan program, saya tidak menyarankan <strong>mysql extension</strong>, tetapi sebaiknya menggunakan <strong>mysqli extension</strong> dan <strong>PDO</strong>. Tutorial mengenai <em>mysqli</em> dan <em>PDO</em> akan kita bahas mulai dari tutorial PHP MySQL part 12 keatas.</p>
+  </div>
+</div>
+<hr />
+<h3>Mengenal Fungsi koneksi PHP-MySQL: mysql_connect()</h3>
+<p>Untuk membuat koneksi antara PHP dengan MySQL menggunakan <strong>mysql extension</strong>, PHP menyediakan fungsi <strong>mysql_connect().</strong></p>
+<p>Fungsi ini diibaratkan sebagai cara untuk login kedalam <strong>MySQL Server</strong>. Fungsi <strong>mysql_connect()</strong> membutuhkan 3 argumen, dan mengembalikan nilai fungsi berupa ‘<em>variabel koneksi’</em> ke MySQL.</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<p>Berikut adalah format dasar penulisan fungsi<strong> mysql_connect()</strong>:</p>
+<div>
+  <div id="highlighter_40201" class="syntaxhighlighter nogutter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php variable">$link</code> <code class="php plain">= mysql_connect(’mysql_host’, </code><code class="php string">'mysql_user'</code><code class="php plain">, </code><code class="php string">'mysql_password'</code><code class="php plain">);</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<ul class="list list_tick">
+  <li><strong>$link</strong> merupakan variabel yang akan menampung hasil dari fungsi <strong>mysql_connect ()</strong>. Jika berhasil terhubung dengan MySQL, <strong>$link</strong> akan berisi nilai yang berfungsi sebagai <em>’link koneksi’</em> dengan MySQL. <em>Link koneksi</em> ini akan dibutuhkan sepanjang program PHP-MySQL nantinya. Di dalam PHP, variabel $link ini dikenal dengan istilah <strong>handler</strong>, yakni variabel yang meng-<em>handle</em> koneksi ke MySQL.</li>
+</ul>
+<ul class="list list_tick">
+  <li><strong>mysql_host</strong> adalah argumen pertama dari fungsi <strong>mysql_connect()</strong>. Nilai <strong>mysql_host</strong> diisi dengan alamat komputer dimana <strong>MySQL Server</strong> berjalan. Jika anda menjalankan MySQL menggunakan XAMPP di komputer   yang sama dengan tempat web server Apache berjalan, maka alamat ini bisa   diisi dengan <strong>’localhost’</strong> atau <strong>’127.0.0.1’</strong>. Namun jika MySQL server dijalankan dari komputer lain, argumen ini akan berisi <strong>IP address</strong> dari komputer tersebut.</li>
+</ul>
+<ul class="list list_tick">
+  <li><strong>mysql_user</strong> adalah nama user MySQL dimana kita akan login. Seperti <strong>’root’</strong>, <strong>’admin’</strong>, <strong>’andi’</strong> dan lain-lain tergantung kepada user MySQL yang telah terdaftar di   server. Cara membuat dan menghapus user MySQL telah saya bahas pada   Tutorial Cara Membuat dan Menghapus User MySQL (CREATE USER). Jika anda   menggunakan MySQL bawaan XAMPP, user <strong>’root’</strong> dapat digunakan.</li>
+</ul>
+<ul class="list list_tick">
+  <li><strong>mysql_password</strong> diisi dengan password dari <em>user</em> yang dibuat pada argumen <strong>mysql_user</strong>.</li>
+</ul>
+<p>Variabel <strong>$link</strong> yang berisi <em>link koneksi</em> PHP-MySQL (hasil dari fungsi <strong>mysql_connect()</strong>), termasuk ke dalam kelompok tipe data khusus PHP yang disebut <strong>resources</strong>. Variabel <strong>Resources</strong> tidak bisa berdiri sendiri dan biasanya digunakan sebagai argumen untuk fungsi lain. Anda bebas mengganti nama variabel <strong>$link</strong> dengan nama lain, seperti $koneksi, $link_mysql, dll.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Jika koneksi dengan PHP gagal dilakukan, fungsi <strong>mysql_connect()</strong> akan mengembalikan nilai Boolean <strong>FALSE</strong>. Hasil <strong>FALSE</strong> ini akan disimpan dalam variabel $link dan bisa kita gunakan dalam perulangan IF untuk menampilkan error yang terjadi.</p>
+<hr />
+<h3>Cara Membuat Koneksi PHP dengan MySQL</h3>
+<p>Untuk mengetahui cara membuat koneksi antara MySQL dengan PHP,   langsung saja kita masuk kedalam contoh kode program cara penggunaan   fungsi <strong>mysql_connect()</strong>.</p>
+<p>Berikut adalah kode PHP untuk membuat koneksi dengan MySQL:</p>
+<div>
+  <div id="highlighter_414940" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div>
+            <div class="line number18 index17 alt1">18</div>
+            <div class="line number19 index18 alt2">19</div>
+            <div class="line number20 index19 alt1">20</div>
+            <div class="line number21 index20 alt2">21</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">//buat koneksi MySQL untuk user: root, tanpa password, alamat: localhost</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">//cek apakah koneksi dengan MySQL berhasil</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$link</code><code class="php plain">)</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">   </code><code class="php plain">{</code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces">     </code><code class="php comments">//koneksi berhasil</code></div>
+            <div class="line number9 index8 alt2"><code class="php spaces">     </code><code class="php functions">echo</code> <code class="php string">&quot;Koneksi dengan MySQL berhasil&quot;</code><code class="php plain">;</code></div>
+            <div class="line number10 index9 alt1"><code class="php spaces">   </code><code class="php plain">}</code></div>
+            <div class="line number11 index10 alt2"><code class="php keyword">else</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">   </code><code class="php plain">{</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">     </code><code class="php comments">//koneksi gagal</code></div>
+            <div class="line number14 index13 alt1"><code class="php spaces">     </code><code class="php functions">echo</code> <code class="php string">&quot;Koneksi dengan MySQL gagal&quot;</code><code class="php plain">;</code></div>
+            <div class="line number15 index14 alt2"><code class="php spaces">   </code><code class="php plain">}</code></div>
+            <div class="line number16 index15 alt1"> </div>
+            <div class="line number17 index16 alt2"><code class="php comments">//memeriksa nilai dari $link</code></div>
+            <div class="line number18 index17 alt1"><code class="php functions">echo</code> <code class="php string">&quot;&lt;br /&gt;&quot;</code><code class="php plain">;</code></div>
+            <div class="line number19 index18 alt2"><code class="php functions">echo</code> <code class="php string">'hasil var_dump variabel $link : '</code><code class="php plain">;</code></div>
+            <div class="line number20 index19 alt1"><code class="php plain">var_dump(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number21 index20 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Jika koneksi dengan MySQL berhasil, maka di dalam web browser akan tampil gambar seperti berikut ini:</p>
+<p><img src="index_files/Koneksi-dengan-PHP-dengan-MySQL-Server-Berhasil.png" width="419" height="267" /></p>
+
+<p>Pada bagian pertama kode program, saya membuat fungsi <strong>mysql_connect(‘localhost’,’root’,”)</strong>. Fungsi ini berarti saya mencoba login dengan MySQL Server yang berada di alamat <strong>localhost</strong> (komputer yang sama dengan web server berada), nama <em>user</em> <strong>’root’</strong> dan <em>password</em> <strong>’’</strong> (string kosong, yang berarti tanpa password).</p>
+<p>Fungsi <strong>mysql_connect()</strong> mengembalikan kondisi status koneksi ke dalam variabel <strong>$link</strong>. Variabel <strong>$link</strong> akan berisi link koneksi (bertipe <em>resources</em>) jika berhasil terkoneksi dengan MySQL, dan akan bernilai <strong>TRUE</strong> jika dikonversi menjadi <strong>Boolean</strong>.</p>
+<p>Namun variabel <strong>$link</strong> akan berisi nilai Boolean <strong>FALSE</strong> jika PHP gagal login ke MySQL. Nilai <strong>$link</strong> ini selanjutnya bisa digunakan untuk pengecekan apakah koneksi berhasil atau tidak.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Jika terjadi kesalahan, misalkan saja saya mengubah password <strong>root</strong> menjadi <em>’123456’</em>, maka tampilan web browser akan seperti berikut ini:</p>
+<p><img src="index_files/Koneksi-dengan-PHP-dengan-MySQL-Server-Gagal.png" width="626" height="267" /></p>
+<p>Seperti yang terlihat, PHP mengeluarkan pesan error <em>mysql_connect(): Access denied for user ‘root’@’localhost’ (using password: YES)</em>, yang berarti login ke MySQL gagal karena salah password untuk user root.</p>
+<p>Agar lebih informatif, diakhir program saya tampilkan nilai dari variabel <strong>$link</strong> dengan menggunakan fungsi <strong>var_dump()</strong>. Anda akan melihat bahwa variabel <strong>$link</strong> bertipe data <strong>’resources’</strong> jika koneksi berhasil, dan bertipe data Boolean <strong>FALSE</strong>, jika koneksi gagal.<br />
+</p>
+<div id="stb-container-6205" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="http://www.duniailkom.com/wp-content/plugins/wp-special-textboxes/images/info-b.png" alt="" class="colorbox-2608" />
+  <div id="stb-box-6205" class="stb-info_box stb-box">Sedikit catatan tentang user MySQL jika menggunakan MySQL Server dari XAMPP.
+    <p>Selain user <strong>root</strong>, <strong>MySQL</strong> bawaan <strong>XAMPP</strong> juga berisi beberapa user lain. Berikut adalah daftar user tersebut:</p>
+    <p><img src="index_files/Daftar-User-dalam-MySQL-Server-bawaan-XAMPP.png" width="554" height="167" /></p>
+    <p>Hal yang penting dari tabel diatas, MySQL membolehkan user dengan nama: <strong>ANY</strong>,   yang berarti MySQL bawaan XAMPP membolehkan user dengan nama apapun   untuk masuk ke MySQL Server, sehingga jika anda mengubah contoh kita   menjadi: <strong>$link=mysql_connect(‘localhost’,’aku_siapa’,”)</strong>, PHP akan tetap berhasil masuk kedalam MySQL Server.</p>
+    <p>MySQL versi XAMPP memang tidak dirancang untuk keamanan, namun lebih kepada kemudahan dalam membuat kode program PHP.<br />
+    </p>
+  </div>
+</div>
+<hr />
+<h3>Mengenal fungsi die() dan exit() dalam PHP</h3>
+<p>Salah satu fungsi PHP yang sering digunakan pada saat melakukan koneksi dengan MySQL adalah fungsi <strong>die()</strong> dan <strong>exit().</strong></p>
+<p>Sesuai dengan namanya, fungsi ini bertujuan untuk ’<em>membunuh</em>’ atau ’<em>keluar</em>’   dari PHP. Kedua fungsi ini bertujuan untuk membuat proses PHP berhenti   diproses pada saat itu juga (pada saat fungsi ini dipanggil).</p>
+<p>Sebelum <em>’bunuh diri’</em>, fungsi <strong>die()</strong> dan <strong>exit() </strong>bisa menampilkan “pesan terakhir”.</p>
+<p>Berikut adalah penggunaan fungsi <strong>die()</strong> dalam membuat koneksi antara PHP dengan MySQL:</p>
+<div>
+  <div id="highlighter_327402" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">//buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">'123'</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"> </div>
+            <div class="line number5 index4 alt2"><code class="php comments">//cek apakah koneksi dengan MySQL berhasil</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$link</code><code class="php plain">)</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">   </code><code class="php plain">{</code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces">     </code><code class="php comments">//koneksi berhasil</code></div>
+            <div class="line number9 index8 alt2"><code class="php spaces">     </code><code class="php functions">echo</code> <code class="php string">&quot;Koneksi dengan MySQL berhasil&quot;</code><code class="php plain">;</code></div>
+            <div class="line number10 index9 alt1"><code class="php spaces">   </code><code class="php plain">}</code></div>
+            <div class="line number11 index10 alt2"><code class="php keyword">else</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">   </code><code class="php plain">{</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">     </code><code class="php comments">//koneksi gagal</code></div>
+            <div class="line number14 index13 alt1"><code class="php spaces">     </code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">&quot;Koneksi dengan MySQL gagal&quot;</code><code class="php plain">);</code></div>
+            <div class="line number15 index14 alt2"><code class="php spaces">     </code><code class="php functions">echo</code> <code class="php string">&quot;Pesan ini tidak akan pernah ditampilkan&quot;</code><code class="php plain">;</code></div>
+            <div class="line number16 index15 alt1"><code class="php spaces">   </code><code class="php plain">}</code></div>
+            <div class="line number17 index16 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Fungsi <strong>die()</strong> pada kode diatas akan menyebabkan proses PHP berhenti jika login ke database MySQL gagal dilakukan. Dengan menggunakan fungsi <strong>die(),</strong> kita bisa memastikan bahwa PHP tidak akan mengeksekusi perintah-perintah selanjutnya.</p>
+<p>Apabila kita tidak menggunakan <strong>die(),</strong> maka PHP akan terus menjalankan proses berikutnya yang akan menghasilkan <strong>error</strong> (karena koneksi ke database memang tidak akan bisa dilakukan).</p>
+<hr />
+<h3>Menghentikan koneksi PHP MySQL dengan mysql_close()</h3>
+<p>Koneksi PHP dengan MySQL akan dihentikan secara otomatis pada saat   eksekusi program selesai, yaitu pada saat halaman PHP selesai diproses,   sehingga kita tidak perlu menghentikanya secara manual.</p>
+<p>Namun jika anda ingin menghentikan koneksi dengan MySQL pada saat program PHP sedang berjalan, PHP menyediakan fungsi <strong>mysql_close().</strong> Fungsi ini membutuhkan 1 buah argumen yang diisi dengan variabel ‘<em>link koneksi’</em> hasil pemanggilan fungsi <strong>mysql_connect().</strong> Variabel koneksi ini bersifat opsional, dan jika diabaikan maka PHP akan menggunakan koneksi mysql terakhir.</p>
+<p>Berikut adalah contoh penggunaan fungsi mysql_close():</p>
+<div>
+  <div id="highlighter_813393" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">//buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">'123'</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php comments">//...Kode Program PHP-MySQL</code></div>
+            <div class="line number5 index4 alt2"><code class="php comments">//...Kode Program PHP-MySQL</code></div>
+            <div class="line number6 index5 alt1"><code class="php comments">//...Kode Program PHP-MySQL</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces"> </code> </div>
+            <div class="line number8 index7 alt1"><code class="php comments">//menghentikan koneksi dengan MySQL</code></div>
+            <div class="line number9 index8 alt2"><code class="php plain">mysql_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number10 index9 alt1"><code class="php comments">//...Kode Program PHP</code></div>
+            <div class="line number11 index10 alt2"><code class="php comments">//...Kode Program PHP</code></div>
+            <div class="line number12 index11 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr />
+<p>Dalam tutorial kali ini, kita telah berhasil <a title="Tutorial PHP MySQL: Cara Membuat Koneksi PHP dengan MySQL (mysql_connect)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-dengan-mysql-mysql_connect/">membuat koneksi antara PHP dengan MySQL Server</a>.   Namun untuk </p>
+<p>’berkomunikasi’ dengan database dalam MySQL, harus   menggunakan “query”. Dalam tutorial berikutnya kita akan membahas <a title="Tutorial PHP MySQL Part 5: Cara Menjalankan query MySQL dari PHP (mysql_query)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menjalankan-query-mysql-dari-php-mysql_query/">cara menjalankan query MySQL dari PHP dengan fungsi mysql_query</a>.</p>
+Sumber :<a href="http://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-dengan-mysql-mysql_connect/"> http://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-dengan-mysql-mysql_connect/ </a></div>
+</body>
+</html>

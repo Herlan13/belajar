@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 5: Cara Menjalankan query MySQL dari PHP (mysql_query)</h1>
+<p>&nbsp;</p>
+<p>Jika <a title="Tutorial PHP MySQL Part 4: Cara Membuat Koneksi PHP dengan MySQL (mysql_connect())" href="http://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-dengan-mysql-mysql_connect/">koneksi antara PHP dan MySQL</a> telah dibuat, langkah selanjutnya adalah menjalankan query MySQL. Dalam tutorial kali ini kita akan mempelajari <a title="Tutorial PHP MySQL: Cara Menjalankan query MySQL dari PHP (mysql_query)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menjalankan-query-mysql-dari-php-mysql_query/">Cara Menjalankan query MySQL dari PHP dengan fungsi mysql_query</a>.</p>
+<hr>
+<h3>Mengenal Fungsi Query PHP-MySQL: mysql_query</h3>
+<p>Untuk menjalankan <strong>query</strong> MySQL, PHP menyediakan fungsi <strong>mysql_query().</strong> Fungsi ini dijalankan setelah koneksi berhasil dilakukan dengan fungsi <strong>mysql_connect().</strong></p>
+<p>Fungsi <strong>mysql_query()</strong> merupakan fungsi yang akan sering kita gunakan, karena dengan fungsi inilah PHP akan melakukan <em>’percakapan’</em> dengan MySQL. Hampir seluruh perintah query MySQL yang kita bahas pada <a title="Tutorial Belajar MySQL dan Index Artikel MySQL" href="http://www.duniailkom.com/tutorial-belajar-mysql-dan-index-artikel-mysql/">tutorial belajar MySQL Dasar</a>, dapat dijalankan dengan fungsi <strong>mysql_query()</strong>.</p>
+<p>Fungsi <strong>mysql_query()</strong> membutuhkan 2 argumen, dimana  
+ argumen pertama diisi dengan query MySQL, dan argumen kedua diisi 
+dengan   link koneksi hasil fungsi <strong>mysql_connect().</strong> Argumen kedua ini bersifat opsional.</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<p>Berikut adalah format dasar penulisan fungsi <strong>mysql_query()</strong> dalam PHP:</p>
+<div>
+  <div id="highlighter_963515" class="syntaxhighlighter nogutter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php variable">$result</code> <code class="php plain">= mysql_query(</code><code class="php string">"query_mysql"</code><code class="php plain">,[</code><code class="php variable">$link_koneksi_mysql</code><code class="php plain">]);</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<ul class="list list_tick">
+  <li><strong>$result</strong> adalah variabel yang akan menampung hasil dari fungsi <strong>mysql_query().</strong> Jika fungsi <strong>mysql_query()</strong> berhasil dijalankan, variabel <strong>$result</strong> akan berisi hasil query, namun jika query gagal, variabel ini akan berisi nilai boolean <strong>FALSE</strong>. Variabel <strong>$result</strong> bertipe <em>resources</em> (sama dengan hasil dari fungsi <strong>mysql_conncect()</strong>). Nama dari variabel ini tidak harus ditulis sebagai <strong>$result</strong>, anda bebas jika ingin menggantinya dengan nama lain.</li>
+</ul>
+<ul class="list list_tick">
+  <li><strong>‘query_mysql’</strong> adalah argumen pertama fungsi <strong>mysql_query().</strong>
+ Pada bagian inilah kita menulis query MySQL. Query tersebut selanjutnya
+   akan dikirim kepada MySQL Server untuk diproses. Argumen ini harus   
+pertipe string dan mengikuti aturan penulisan string didalam PHP. Contoh
+   query ini, misalnya <strong>“SELECT * FROM mahasiswa”</strong>, atau <strong>“CREATE DATABASE universitas”</strong>.</li>
+</ul>
+<ul class="list list_tick">
+  <li><strong>$link_koneksi_mysql</strong> adalah argumen kedua dari fungsi <strong>mysql_query().</strong> Argumen ini diisi dengan variabel hasil pemanggilan fungsi <strong>mysql_connect().</strong> Argumen ini bersifat opsional, dan jika diabaikan PHP akan menggunakan variabel <strong>mysql_connect()</strong> yang sedang terkoneksi saat ini.</li>
+</ul>
+<div id="stb-container-6484" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="Index_files/info-b.png" width="50" height="50" />
+  <div id="stb-box-6484" class="stb-info_box stb-box">Jika   anda belum 
+    memahami pengertian dan cara penulisan query SELECT MySQL,   duniailkom 
+  telah menyediakan tutorial dasar tentang query dalam <a title="Tutorial Belajar MySQL Part 21: Menampilkan Data dari Tabel MySQL (SELECT)" href="http://www.duniailkom.com/tutorial-mysql-menampilkan-data-dari-tabel-mysql-select/">Tutorial MySQL: Cara Penulisan Query SELECT MySQL</a>.</div>
+</div>
+<hr />
+<h3>Cara Menjalankan query MySQL dari PHP</h3>
+<p>Untuk memahami cara penggunaan fungsi <strong>mysql_query()</strong>,
+   langsung saja kita masuk kedalam contoh program. Dalam contoh program
+   berikut, saya akan membuat query untuk menampilkan seluruh database 
+yang   ada di dalam MYSQL.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Berikut adalah contoh program penulisan fungsi <strong>mysql_query</strong> dalam PHP:</p>
+<div>
+  <div id="highlighter_837061" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div>
+            <div class="line number17 index16 alt2">17</div>
+            <div class="line number18 index17 alt1">18</div>
+            <div class="line number19 index18 alt2">19</div>
+            <div class="line number20 index19 alt1">20</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">//buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">//jika koneksi gagal, langsung keluar dari PHP</code></div>
+            <div class="line number6 index5 alt1"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php variable">$link</code><code class="php plain">)</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></div>
+            <div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php keyword">die</code><code class="php plain">(</code><code class="php string">"Koneksi dengan MySQL gagal"</code><code class="php plain">);</code></div>
+            <div class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></div>
+            <div class="line number10 index9 alt1">&nbsp;</div>
+            <div class="line number11 index10 alt2"><code class="php comments">//jalankan query</code></div>
+            <div class="line number12 index11 alt1"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'SHOW DATABASES'</code><code class="php plain">,</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number13 index12 alt2">&nbsp;</div>
+            <div class="line number14 index13 alt1"><code class="php comments">//tampilkan hasil query</code></div>
+            <div class="line number15 index14 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code> <code class="php plain">= mysql_fetch_row(</code><code class="php variable">$result</code><code class="php plain">)) </code></div>
+            <div class="line number16 index15 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></div>
+            <div class="line number17 index16 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[0];</code></div>
+            <div class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></div>
+            <div class="line number20 index19 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Jika anda menjalankan perintah diatas, didalam web browser akan tampil semua nama database yang ada dalam MySQL.</p>
+<p>Pada baris ke-3 dari program diatas, saya membuat koneksi dengan MySQL menggunakan fungsi <strong>mysql_connect().</strong> Fungsi ini menggunakan user <strong>’root’</strong> dan tanpa password. Hasil koneksi fungsi saya simpan ke dalam variabel <strong>$link</strong>.</p>
+<p>Selanjutnya pada baris ke-6 saya memeriksa nilai dari koneksi <strong>mysql_connect()</strong> dengan cara membuat logika IF untuk variabel <strong>$link</strong>. Jika MySQL gagal diakses, maka fungsi <strong>die()</strong> akan memerintahkan PHP untuk menghentikan program.</p>
+<p>Namun jika koneksi berhasil, pada baris ke-12 saya membuat fungsi <strong>mysql_query() </strong>untuk menjalankan query ’<strong>SHOW DATABASES’</strong>. Query ini adalah perintah untuk menampilkan seluruh nama database yang ada pada <strong>MySQL</strong>.</p>
+<p>Kode program pada baris ke-15 digunakan untuk menampilkan hasil query. Fungsi <strong>mysql_fetch_row()</strong> belum saya bahas, dan akan kita pelajari pada tutorial berikutnya.</p>
+<p>Apabila query yang digunakan lebih panjang dan kompleks, anda bisa   
+menyimpannya di dalam sebuah variabel terlebih dahulu, baru kemudian   
+dijalankan dengan <strong>mysql_query(),</strong> seperti contoh berikut ini:</p>
+<div>
+  <div id="highlighter_764080" class="syntaxhighlighter nogutter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php variable">$query</code><code class="php plain">=</code><code class="php string">"SELECT * FROM mahasiswa WHERE IPK&gt;5"</code><code class="php plain">;</code></div>
+            <div class="line number2 index1 alt1"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php variable">$query</code><code class="php plain">,</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Dengan memindahkan query kedalam variabel, akan membuat program kita menjadi lebih rapi.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Argumen kedua dari fungsi <strong>mysql_query()</strong> juga boleh tidak ditulis, dan PHP akan menggunakan link koneksi <strong>MySQL </strong>terakhir yang tersedia, seperti contoh berikut:</p>
+<div>
+  <div id="highlighter_613897" class="syntaxhighlighter nogutter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php variable">$query</code><code class="php plain">=</code><code class="php string">"SELECT * FROM mahasiswa WHERE IPK&gt;5"</code><code class="php plain">;</code></div>
+            <div class="line number2 index1 alt1"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php variable">$query</code><code class="php plain">);</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Fungsi <strong>mysql_connect()</strong> dan <strong>mysql_query()</strong>
+ adalah fungsi paling dasar dalam koneksi PHP dengan MySQL. Untuk   
+menampilkan hasil dari query tersebut, PHP menyediakan berbagai cara   
+yang bisa digunakan untuk berbagai situasi. Cara pengaksesan ini akan   
+kita pelajari pada artikel-artikel selanjutnya.</p>
+<hr>
+<p>Dalam tutorial berikutnya, kita akan mempelajari cara <a title="Tutorial PHP MySQL Part 6: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_row)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_row/">Cara Menampilkan Hasil Query MySQL dari PHP dengan fungsi mysql_fetch_row()</a>.</p>
+<p>Sumber :<a href="http://www.duniailkom.com/tutorial-php-mysql-cara-menjalankan-query-mysql-dari-php-mysql_query/"> http://www.duniailkom.com/tutorial-php-mysql-cara-menjalankan-query-mysql-dari-php-mysql_query/</a></p>
+</div>
+
+</body></html>

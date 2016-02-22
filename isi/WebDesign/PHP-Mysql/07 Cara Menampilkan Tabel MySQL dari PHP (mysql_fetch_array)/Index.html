@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 7: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_array)</h1>
+<p>&nbsp;</p>
+<p>Selain menggunakan fungsi <strong>mysql_fetch_row()</strong>, PHP juga menyediakan fungsi lain untuk menampilkan data dari MySQL, yakni fungsi <strong>mysql_fetch_array()</strong>. Dalam tutorial kali ini kita akan <a title="Tutorial PHP MySQL Part 7: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_array)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_array/">membahas cara penggunaan fungsi mysql_fetch_array()</a>, dan perbedaanya dengan <a title="Tutorial PHP MySQL: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_row)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_row/">mysql_fetch_row()</a>.</p>
+<hr>
+<h3>Menampilkan Tabel MySQL dengan fungsi mysql_fetch_array</h3>
+<p>Fungsi <strong>mysql_fetch_array()</strong> pada dasarnya hampir sama dengan fungsi <strong>mysql_fetch_row(),</strong> namun fungsi <strong>mysql_fetch_array()</strong> memberikan alternatif cara menampilkan data MySQL dengan lebih mudah.</p>
+<p>Jika dalam fungsi <strong>mysql_fetch_row()</strong> hasil fungsinya berupa array dengan <em>key</em> atau<em> indexnya </em>berupa angka, seperti : <em>$row[1], $row[2] </em>dan<em> $row[3],</em> maka di dalam <strong>mysql_fetch_array()</strong>, kita bisa menggunakan nama kolom dari tabel MySQL sebagai <em>key</em> atau <em>index</em> array seperti berikut ini: <em>$row[‘nim’], $row[‘nama’] </em>dan<em> $row[‘umur’]. </em>Cara penulisan seperti ini akan memudahkan pembuatan program.</p>
+<p>Selain menggunakan <strong>nama kolom</strong> pada <strong>index</strong> array, fungsi <strong>mysql_fetch_array()</strong> juga bisa menggunakan index penomoran kolom seperti <strong>mysql_fetch_row()</strong>, atau bahkan keduanya sekaligus. Untuk mengatur fitur ini, fungsi <strong>mysql_fetch_array() </strong>membutuhkan parameter tambahan.</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<p>Berikut adalah format dasar penulisan fungsi <strong>mysql_fetch_array()</strong> dalam PHP:</p>
+<div>
+  <div id="highlighter_508387" class="syntaxhighlighter nogutter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php variable">$row</code><code class="php plain">= mysql_fetch_array(</code><code class="php variable">$result</code><code class="php plain">,[’tipe_hasil’])</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<ul class="list list_tick">
+  <li><strong>$row</strong> adalah variabel yang akan menampung hasil fungsi <strong>mysql_fetch_array()</strong>. Hasil dari fungsi mysql_fetch_array() berupa tipe data array dengan <strong>key</strong> yang bergantung kepada konstanta <strong>‘tipe_hasil’</strong>.</li>
+</ul>
+<ul class="list list_tick">
+  <li><strong>$result</strong> adalah variabel hasil menjalankan query MySQL yang berasar dari fungsi <strong>mysql_query().</strong></li>
+</ul>
+<ul class="list list_tick">
+  <li><strong>’tipe_hasil’</strong> merupakan konstanta <em>opsional</em> yang digunakan untuk mengatur index array dari hasil fungsi <strong>mysql_fetch_array()</strong>. Konstanta yang bisa digunakan adalah salah satu dari ketiga nilai berikut: <strong>MYSQL_NUM, MYSQL_ASSOC</strong> atau <strong>MYSQL_BOTH</strong>. Jika argumen ini tidak ditulis, nilai defaultnya adalah MYSQL_BOTH.</li>
+</ul>
+<hr>
+<h3>Perbedaan <strong>mysql_fetch_array</strong><strong>: MYSQL_NUM, MYSQL_ASSOC</strong> dan <strong>MYSQL_BOTH</strong></h3>
+<p>Cara mengakses array dari fungsi <strong>mysql_fetch_array()</strong> bergantung kepada argumen ‘tipe_hasil’. Argumen ‘<strong>tipe_hasil’</strong> hanya bisa berisi satu dari 3 konstanta: <strong>MYSQL_NUM, MYSQL_ASSOC </strong>atau<strong> MYSQL_BOTH.</strong></p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Jika argumen keduadari fungsi <em>mysql_fetch_array() </em>diisi <strong>MYSQL_NUM</strong>, maka index array akan menjadi angka (sama seperti hasil <strong>mysql_fetch_row()</strong>), dan bisa ditampilkan seperti: $row[1], $row[2] dan $row[3].</p>
+<p>Jika argumen kedua diisi <strong>MYSQL_ASSOC</strong>, index <em>array</em> akan menjadi nama kolom, dan bisa ditampilkan seperti: $row[‘nim’], $row[‘nama’] dan $row[‘umur’].</p>
+<p>Opsi ketiga, jika argumen diisi <strong>MYSQL_BOTH</strong> maka index array mendukung 2 pemanggilan, yakni berupa angka dan nama kolom.</p>
+<p>Sama seperti fungsi <strong>mysql_fetch_row(),</strong> <strong>mysql_fetch_row()</strong> hanya membaca 1 baris pada sekali pemanggilan. Jika tabel kita terdiri dari 5 baris, maka fungsi <strong>mysql_fecth_array()</strong> harus diulang sebanyak 5 kali (atau menggunakan metoda perulangan while seperti yang kita lakukan pada tutorial <strong>mysql_fetch_row().</strong></p>
+<hr>
+<h3>Cara Penggunaan Fungsi mysql_fecth_array()</h3>
+<p>Agar lebih mudah dipahami, langsung saja kita masuk kedalam contoh kode program. Masih menggunakan contoh database <em>universitas</em> yang dibuat pada tutorial <strong>mysql_fetch_row(),</strong> kali ini saya akan menggunakan fungsi <strong>mysql_fetch_array()</strong> untuk menampilkan hasilnya.</p>
+<p>Berikut adalah contoh penggunaan fungsi mysql_fetch_array() dalam PHP:</p>
+<div>
+  <div id="highlighter_916059" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">//buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">//gunakan database universitas</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'USE universitas'</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php comments">//tampilkan tabel mahasiswa_ilkom</code></div>
+            <div class="line number9 index8 alt2"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'SELECT * FROM mahasiswa_ilkom'</code><code class="php plain">);</code></div>
+            <div class="line number10 index9 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysql_fetch_array(</code><code class="php variable">$result</code><code class="php plain">, MYSQL_NUM))</code></div>
+            <div class="line number11 index10 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">{</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"$row[0] $row[1] $row[2] $row[3] $row[4]"</code><code class="php plain">;</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number14 index13 alt1"><code class="php spaces">&nbsp;</code><code class="php plain">}</code></div>
+            <div class="line number15 index14 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p><img src="Index_files/Contoh-Cara-Menampilkan-Tabel-MySQL-dengan-fungsi-mysql_fetc.png" width="452" height="286" />Dalam contoh diatas, baris 1-6 merupakan kode program untuk membuat koneksi dengan MySQL. Pada baris ke-9, saya membuat query <strong>‘SELECT * FROM mahasiswa_ilkom’</strong> yang akan mengembalikan seluruh isi tabel <strong>mahasiswa_ilkom.</strong></p>
+<p>Jika diperhatikan, kode program diatas sama persis dengan contoh terakhir pada tutorial <strong>mysql_fetch_row(),</strong> hanya pada baris ke 10 saya menggantinya dengan fungsi <strong>mysql_fetch_array().</strong></p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Konstanta <strong>MYSQL_NUM</strong> pada argumen ke-2 fungsi <strong>mysql_fetch_array(),</strong> menginstruksikan kepada PHP bahwa nilai kembalian untuk variabel <strong>$row</strong> adalah array dengan index <strong>angk</strong>, sehingga hasilnya sama persis dengan <strong>mysql_fetch_row() </strong>yang diakses dengan <strong>$row[0]</strong> untuk kolom pertama tabel, <strong>$row[1]</strong> untuk kolom kedua tabel, dan seterusnya.</p>
+<p>Jika menggunakan konstanta <strong>MYSQL_NUM</strong> akan membuat fungsi <em>mysql_fetch_array()</em> sama dengan <em>mysql_fetch_row(),</em> bagaimana dengan <strong>MYSQL_ASSOC</strong>? Dalam contoh berikut, saya akan mengubah konstanta fungsi mysql_fetch_array() dengan <strong>MYSQL_ASSOC</strong> :</p>
+<div>
+  <div id="highlighter_458983" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">//buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">//gunakan database universitas</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'USE universitas'</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php comments">//tampilkan tabel mahasiswa_ilkom</code></div>
+            <div class="line number9 index8 alt2"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'SELECT * FROM mahasiswa_ilkom'</code><code class="php plain">);</code></div>
+            <div class="line number10 index9 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysql_fetch_array(</code><code class="php variable">$result</code><code class="php plain">,MYSQL_ASSOC))</code></div>
+            <div class="line number11 index10 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">{</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'nim'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'nama'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'umur'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">;</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'tempat_lahir'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'IPK'</code><code class="php plain">];</code></div>
+            <div class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number15 index14 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">}</code></div>
+            <div class="line number16 index15 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Pada contoh kali ini, pada baris ke-10, fungsi <strong>mysql_fetch_array()</strong> saya panggil dengan konstanta <strong>MYSQL_ASSOC</strong> sebagai argumen kedua. Dengan cara ini, hasil kembalian query, berupa array dengan index nama kolom dari tabel MySQL.</p>
+<p>Karena menggunakan konstanta <strong>MYSQL_ASSOC</strong>, cara pengaksesan nilai <strong>$row</strong> harus menggunakan index nama kolom tabel. Jika di dalam MySQL nama kolom adalah <strong>‘nim’</strong>, maka untuk menampilkan data kolom tersebut, kita menggunakan <strong>$row[‘nim’]</strong>. Jika di dalam MySQL nama kolom adalah <strong>‘tempat_lahir’</strong>, untuk menampilkan data kolom tersebut, adalah dengan <strong>$row[‘tempat_lahir’]</strong>, dan seterusnya.</p>
+<p>Dengan cara ini, kita akan mudah untuk merancang tampilan tabel   
+MySQL, terutama jika urutan kolom tidak ditampilkan secara berurutan.</p>
+<div id="stb-container-2330" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="Index_files/info-b.png" width="50" height="50" />
+  <div id="stb-box-2330" class="stb-info_box stb-box">PHP juga memiliki fungsi <strong>mysql_fetch_assoc()</strong> yang hampir sama dengan fungsi <strong>mysql_fetch_array($result,MYSQL_ASSOC)</strong>. Fungsi <strong>mysql_fetch_assoc()</strong>
+    juga mengembalikan hasil array dengan nama kolom sebagai index array.  
+    Fungsi ini juga umum digunakan. Berikut adalah contoh penggunaan fungsi
+    <strong>mysql_fetch_assoc</strong>:
+    <div>
+      <div id="highlighter_226862" class="syntaxhighlighter php">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="gutter"><div class="line number1 index0 alt2">1</div>
+                <div class="line number2 index1 alt1">2</div>
+                <div class="line number3 index2 alt2">3</div>
+                <div class="line number4 index3 alt1">4</div>
+                <div class="line number5 index4 alt2">5</div>
+                <div class="line number6 index5 alt1">6</div>
+                <div class="line number7 index6 alt2">7</div>
+                <div class="line number8 index7 alt1">8</div>
+                <div class="line number9 index8 alt2">9</div>
+                <div class="line number10 index9 alt1">10</div></td>
+              <td class="code"><div class="container">
+                <div class="line number1 index0 alt2"><code class="php plain">&lt;?</code></div>
+                <div class="line number2 index1 alt1"><code class="php comments">//tampilkan tabel mahasiswa_ilkom</code></div>
+                <div class="line number3 index2 alt2"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'SELECT * FROM mahasiswa_ilkom'</code><code class="php plain">);</code></div>
+                <div class="line number4 index3 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysql_fetch_assoc(</code><code class="php variable">$result</code><code class="php plain">))</code></div>
+                <div class="line number5 index4 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">{</code></div>
+                <div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'nim'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'nama'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'umur'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">;</code></div>
+                <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'tempat_lahir'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'IPK'</code><code class="php plain">];</code></div>
+                <div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+                <div class="line number9 index8 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">}</code></div>
+                <div class="line number10 index9 alt1"><code class="php plain">?&gt;</code></div>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<p>Untuk pilihan konstanta terakhir: <strong>MYSQL_BOTH</strong>, MySQL akan mengembalikan nilai $row yang bisa diakses baik dengan <em>index angka</em> maupun dengan index <em>nama kolom</em>. Berikut adalah contoh kode programnya:</p>
+<div>
+  <div id="highlighter_993536" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div>
+            <div class="line number16 index15 alt1">16</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">//buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">//gunakan database universitas</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'USE universitas'</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php comments">//tampilkan tabel mahasiswa_ilkom</code></div>
+            <div class="line number9 index8 alt2"><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'SELECT * FROM mahasiswa_ilkom'</code><code class="php plain">);</code></div>
+            <div class="line number10 index9 alt1"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysql_fetch_array(</code><code class="php variable">$result</code><code class="php plain">,MYSQL_BOTH))</code></div>
+            <div class="line number11 index10 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">{</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[0].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'nama'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'umur'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">;</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[3].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'IPK'</code><code class="php plain">];</code></div>
+            <div class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number15 index14 alt2"><code class="php spaces">&nbsp;</code><code class="php plain">}</code></div>
+            <div class="line number16 index15 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Seperti yang terlihat, saya membuat perintah <strong>$row[0]</strong> dan <strong>$row[‘nama’]</strong> dalam pemanggilan yang sama, dan PHP dapat menampilkan hasil sesuai dengan yang diharapkan.</p>
+<div id="stb-container-5660" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="Index_files/info-b.png" width="50" height="50" />
+  <div id="stb-box-5660" class="stb-info_box stb-box">Perlu diketahui, dari panduan resmi PHP, fungsi <strong>mysql_fetch_array()</strong> ditegaskan tidak akan lebih lambat dari pada fungsi <strong>mysql_fetch_row() </strong>atau<strong> mysql_fetch_assoc(),</strong> walaupun fungsi <strong>mysql_fetch_array()</strong>
+    menawarkan fitur tambahan. Pengaksesan array hasil MySQL dengan   
+    menggunakan angka maupun nama kolom sebagai index array akan sama   
+  cepatnya.</div>
+</div>
+<hr>
+<p>Pada dasarnya, pengaksesan MySQL melalui PHP, hanya membutuhkan 3 fungsi utama, yakni <strong><a title="Tutorial PHP MySQL Part 4: Cara Membuat Koneksi PHP dengan MySQL (mysql_connect)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-membuat-koneksi-php-dengan-mysql-mysql_connect/">mysql_connect()</a>,</strong> <strong><a title="Tutorial PHP MySQL Part 5: Cara Menjalankan query MySQL dari PHP (mysql_query)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menjalankan-query-mysql-dari-php-mysql_query/">mysql_query()</a>,</strong> dan <strong><a title="Tutorial PHP MySQL Part 7: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_array)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_array/">mysql_fecth_array()</a>.</strong> Sampai disini, kita telah mempelajari ketiga fungsi penting tersebut.</p>
+<p>Dalam tutorial selanjutnya, kita akan mempelajari <a title="Tutorial PHP MySQL: Cara Menampilkan Pesan Error MySQL (mysql_errno dan mysql_error)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-pesan-error-mysql-mysql_errno-dan-mysql_error/">cara menampilkan pesan error dari MySQL</a> ketika query yang dijalankan tidak sesuai.</p>
+Sumber :<a href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_array/"> http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_array/</a>
+</div>
+
+</body></html>

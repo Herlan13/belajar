@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+a:link {
+	color: #666600;
+	text-decoration:none;
+	font-style: normal;
+	font-weight: bold;
+}
+a:visited {
+	color: #666600;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover {
+	color: #000000;
+	font-weight: bold;
+	background-image: url(images/th_stars1.gif);
+	text-decoration: none;
+}
+
+a:active {
+	color: #666;
+	padding-left: 0px;
+	text-decoration: none;
+}
+body {
+	background-color: #FFF;
+	background-image: url(images/black_wood.jpg);
+	background-attachment: fixed;
+	background-size:100% 100%;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+
+
+-->
+</style>
+
+<script src="SpryAssets/SpryAccordion.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryAccordion.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script>
+var numposts = 500;
+var standardstyling = true;
+</script>
+
+<script async='async' type="text/javascript">
+
+function showrecentposts(json) {
+  for (var i = 0; i < numposts; i++) {
+    var entry = json.feed.entry[i];
+    var posttitle = entry.title.$t;
+    var posturl;
+    if (i == json.feed.entry.length) break;
+    for (var k = 0; k < entry.link.length; k++) {
+      if (entry.link[k].rel == 'alternate') {
+        posturl = entry.link[k].href;
+        break;
+      }}
+    posttitle = posttitle.link(posturl);
+    if (standardstyling) document.write('<li>');
+    document.write(posttitle);}
+    if (standardstyling) document.write('</li>');
+document.write('<div style="font-family:Arial; font-size:85%; margin-top:5px;"><a href="http://herlanlesmana26.blogspot.com/2010/04/menampilkan-judul-artikel-dari-satu.html" target="_blank">Powered by Herlan Lesmana</a></div>');
+}
+</script>
+</head><base target="main">
+<body><div class="coklat">
+
+<div class="Accordion">
+<div class="Accordion" id="Accordion1" tabindex="0">
+<div class="AccordionPanel">
+<div class="AccordionPanelTab">PHP - MYSQL</div>
+<div class="AccordionPanelContent">
+  <ol>
+    <li> <a href="01  Cara Menjalankan MySQL dan PHP menggunakan XAMPP/Index.html">Cara Menjalankan MySQL dan PHP menggunakan XAMPP</a> </li>
+    <li><a href="02 Jenis Koneksi PHP – MySQL PDO, mysqli, dan mysql extension/Index.html">Jenis Koneksi PHP – MySQL PDO, mysqli, dan mysql extension</a></li>
+    <li><a href="03 Pengertian Extension PHP dan Cara Setting mysql extension/Index.html">Pengertian Extension PHP dan Cara Setting mysql extension</a></li>
+    <li><a href="04 Cara Membuat Koneksi PHP dengan MySQL (mysql_connect)/index.html">Cara Membuat Koneksi PHP dengan MySQL (mysql_connect)</a></li>
+    <li><a href="05 Cara Menjalankan query MySQL dari PHP (mysql_query)/Index.html">Cara Menjalankan query MySQL dari PHP (mysql_query)</a></li>
+    <li><a href="06 Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_row)/Index.html">Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_row)</a></li>
+    <li><a href="07 Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_array)/Index.html">Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_array)</a></li>
+    <li><a href="08 Cara Menampilkan Pesan Error MySQL (mysql_errno dan mysql_error)/Index.html">Cara Menampilkan Pesan Error MySQL (mysql_errno dan mysql_error)</a></li>
+    <li><a href="09 Cara Menampilkan Jumlah Baris Tabel MySQL (mysql_num_rows)/Index.html">Cara Menampilkan Jumlah Baris Tabel MySQL (mysql_num_rows)</a></li>
+    <li><a href="10 Cara Menampilkan Tabel MySQL dengan objek (mysql_fetch_object)/Index.html">Cara Menampilkan Tabel MySQL dengan objek (mysql_fetch_object)</a></li>
+    <li><a href="11 Cara Penyajian Data MySQL dalam bentuk tabel HTML dengan CSS/Index.html">Cara Penyajian Data MySQL dalam bentuk tabel HTML dengan CSS</a></li>
+    <li><a href="12 Perbedaan mysql dan mysqli extension PHP/Index.html">Perbedaan mysql dan mysqli extension PHP</a></li>
+    <li><a href="13 Cara Menampilkan Data dengan mysqli PHP (Procedural Style)/Index.html">Cara Menampilkan Data dengan mysqli PHP (Procedural Style)</a></li>
+    <li><a href="14 Cara Menampilkan Data dengan mysqli PHP (Object Style)/Index.html">Cara Menampilkan Data dengan mysqli PHP (Object Style)</a></li>
+    <li><a href="15 Cara Menampilkan Pesan Kesalahan (Error) mysqli Extension/Index.html">Cara Menampilkan Pesan Kesalahan (Error) mysqli Extension</a></li>
+  </ol>
+</div>
+</div>
+</div>
+</div>
+<br />
+<br />
+<script type="text/javascript">
+<!--
+var Accordion1 = new Spry.Widget.Accordion("Accordion1");
+//-->
+</script>
+</div>
+
+</body>
+</html>

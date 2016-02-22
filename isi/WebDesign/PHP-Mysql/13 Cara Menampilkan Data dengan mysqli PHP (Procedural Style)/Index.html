@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 13: Cara Menampilkan Data dengan mysqli PHP (Procedural Style)</h1>
+<p>&nbsp;</p>
+<p>Dalam tutorial PHP MySQL kali ini kita akan membahas <a title="Tutorial PHP MySQL: Cara Menampilkan Data dengan mysqli PHP (procedural style)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-data-dengan-mysqli-procedural-style/">cara menampilkan data MySQL dengan menggunakan mysqli extension</a>. Karena mysqli memiliki 2 cara penggunaan: <strong>procedural</strong> dan <strong>object-oriented</strong>, pada tutorial ini kita akan fokus pada penggunaan <em><strong>procedural style</strong></em>.</p>
+<hr>
+<p>Secara garis besar, cara penggunaan <strong>mysqli</strong> secara procedural (menggunakan fungsi-fungsi) sangat mirip dengan <em>mysql extension</em>. Karena itu jika anda sudah memahami cara pemakaian <em>mysql extension </em>(yang telah kita bahas), tidak akan kesulitan untuk beralih ke mysqli.</p>
+<div id="stb-container-2339" class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="Index_files/info-b.png" width="50" height="50" />
+  <div id="stb-box-2339" class="stb-info_box stb-box">Dalam   tutorial 
+    ini saya tidak akan membahas secara detail mengenai   fungsi-fungsi yang
+    ada, karena sebagian besar sangat mirip dengan fungsi   yang telah kita
+  pelajari di <strong>mysql extension</strong>. Jika anda merasa sedikit bingung dengan penjelasan disini, silahkan mempelajari kembali tutorial PHP MySQL dari part 4 s/d 11.</div>
+</div>
+<hr>
+<h3>Cara Membuat Koneksi MySQL Dengan Fungsi mysqli_connect()</h3>
+<p>Untuk membuat koneksi antara PHP dengan MySQL Server, kita menggunakan fungsi <strong>mysqli_connect()</strong>. Fungsi <em>mysqli_connect()</em> ini membutuhkan argumen yang sama dengan fungsi <em>mysql_connect()</em>, yakni: <strong>alamat host, nama user, </strong>dan<strong> password user</strong>.</p>
+<p>Sebagai contoh, untuk masuk kedalam MySQL di <strong>localhost </strong>menggunakan user <strong>root</strong> dan dengan password “<strong>qwerty</strong>”, kita menggunakan kode program sebagai berikut:</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<div>
+  <div id="highlighter_920986" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">"qwerty"</code><code class="php plain">);</code></div>
+            <div class="line number3 index2 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Sebagai fitur tambahan, fungsi <em>mysqli_connect()</em> memiliki argumen ke-4 yang bersifat opsional. Kita bisa menambahkan <strong>nama database</strong> yang ingin digunakan. Misalkan kita ingin sewaktu proses koneksi dengan MySQL, langsung memilih database “<em>universitas</em>”, maka contoh penulisannya adalah sebagai berikut:</p>
+<div>
+  <div id="highlighter_581269" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">"qwerty"</code><code class="php plain">,</code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number3 index2 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr>
+<h3>Cara Menutup Koneksi Dengan Fungsi mysqli_close()</h3>
+<p>Walaupun PHP akan menutup koneksi dengan MySQL pada saat halaman   
+selesai diproses, kita bisa menutupnya secara manual menggunakan fungsi <strong>mysqli_close()</strong>. Fungsi ini membutuhkan 1 argumen, yakni variabel <em>resources</em> hasil pemanggilan fungsi <em>mysqli_connect()</em>.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Berikut contoh penggunaan fungsi <em>mysqli_close()</em>:</p>
+<div>
+  <div id="highlighter_982838" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">// buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">"qwerty"</code><code class="php plain">,</code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">//.... proses PHP</code></div>
+            <div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">//.... proses PHP</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">//.... proses PHP</code></div>
+            <div class="line number8 index7 alt1">&nbsp;</div>
+            <div class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">// tutup koneksi</code></div>
+            <div class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php plain">mysqli_close(</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number11 index10 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr>
+<h3>Cara Menjalankan Query MySQL Dengan Fungsi mysqli_query()</h3>
+<p>Cara menjalankan query MySQL dengan <em>mysqli extension</em> juga mirip dengan <em>mysql extension</em>. Di dalam mysqli, kita menggunakan fungsi <strong>mysqli_query()</strong>. Namun berbeda dengan fungsi <em>mysql_query()</em> yang meletakkan variabel <em>resources</em> hasil <strong>mysql_connect()</strong> sebagai argumen kedua dan bersifat opsional, di dalam fungsi <em>mysqli_query()</em>, variabel ini diletakkan sebagai argumen pertama dan harus ditulis.</p>
+<p>Sebagai contoh, dengan menggunakan<em> mysql_extension</em>, kita biasa menulis kode PHP sebagai berikut:</p>
+<div>
+  <div id="highlighter_48908" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">//buat koneksi dengan MySQL</code></div>
+            <div class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$link</code><code class="php plain">=mysql_connect(</code><code class="php string">'localhost'</code><code class="php plain">,</code><code class="php string">'root'</code><code class="php plain">,</code><code class="php string">''</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">//gunakan database universitas</code></div>
+            <div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'USE universitas'</code><code class="php plain">,</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2">&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">//tampilkan tabel mahasiswa_ilkom</code></div>
+            <div class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$result</code><code class="php plain">=mysql_query(</code><code class="php string">'SELECT * FROM mahasiswa_ilkom'</code><code class="php plain">,</code><code class="php variable">$link</code><code class="php plain">);</code></div>
+            <div class="line number10 index9 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Sedangkan dengan menggunakan <em>mysqli extension</em>, berikut adalah perubahan cara penggunaannya:</p>
+<div>
+  <div id="highlighter_888314" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">""</code><code class="php plain">, </code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php comments">// jalankan query</code></div>
+            <div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Perhatikan bahwa kita menggunakan format: <strong>mysqli_query($link, “query_MySQL”)</strong> untuk menjalankan query MySQL.</p>
+<hr>
+<h3>Cara Menampilkan Data MySQL Dengan mysqli</h3>
+<p>Untuk menampilkan hasil query MySQL, <em>mysqli extension</em> memiliki banyak fungsi. Kali ini kita akan membahas 3 fungsi yang paling sering digunakan:&nbsp;<strong>mysqli_fetch_row(), mysqli_fetch_array(), </strong>dan<strong> mysqli_fetch_object()</strong>.</p>
+<p>Ketiga fungsi ini hampir sama cara penggunaannya dengan versi <em>mysql extension</em> yang telah kita bahas, yakni: <em>mysql_fetch_row(), mysql_fetch_array(), </em>dan<em> mysql_fetch_object()</em>. Jika anda perhatikan, perbedaan namanya hanya dengan menambah huruf “<strong>i</strong>”.</p>
+<p>Langsung saja kita masuk ke contoh program, untuk memahami cara   
+penggunaan ketiga fungsi ini. Di dalam contoh-contoh berikut saya   
+menggunakan tabel <strong>mahasiswa_ilkom</strong> di dalam database <strong>universitas</strong>. Tabel ini kita buat sewaktu membahas tentang <a title="Tutorial PHP MySQL: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_row)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_row/">fungsi mysql_fetch_row</a>.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Pertama, mari kita lihat cara menampilkan data MySQL dengan fungsi <strong>mysqli_fetch_row()</strong>:</p>
+<div>
+  <div id="highlighter_604960" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">""</code><code class="php plain">, </code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">// jalankan query</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2">&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number9 index8 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysqli_fetch_row(</code><code class="php variable">$result</code><code class="php plain">))</code></div>
+            <div class="line number10 index9 alt1"><code class="php plain">{</code></div>
+            <div class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"$row[0] $row[1] $row[2] $row[3] $row[4]"</code><code class="php plain">;</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number13 index12 alt2"><code class="php plain">}</code></div>
+            <div class="line number14 index13 alt1"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Fungsi <strong>mysqli_fetch_row()</strong> sama persis cara penggunaanya dengan fungsi <strong>mysql_fetch_row()</strong>, oleh karena itu saya tidak akan membahasnya lagi. Tapi jika anda ragu, bisa mengunjungi tutorialnya di <a title="Tutorial PHP MySQL: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_row)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_row/">Cara Menampilkan Tabel MySQL dari PHP dengan fungsi mysql_fetch_row</a>.</p>
+<p>Berikutnya, kita bahas cara menampilkan data MySQL dengan fungsi <strong>mysqli_fetch_array()</strong>:</p>
+<div>
+  <div id="highlighter_90822" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">""</code><code class="php plain">, </code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">// jalankan query</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2">&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number9 index8 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysqli_fetch_array(</code><code class="php variable">$result</code><code class="php plain">,MYSQLI_ASSOC))</code></div>
+            <div class="line number10 index9 alt1"><code class="php plain">{</code></div>
+            <div class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'nim'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'nama'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'umur'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">;</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'tempat_lahir'</code><code class="php plain">].</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">[</code><code class="php string">'IPK'</code><code class="php plain">];</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number14 index13 alt1"><code class="php plain">}</code></div>
+            <div class="line number15 index14 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Sedikit perbedaan antara fungsi <strong>mysqli_fetch_array(</strong>) dengan fungsi “kembarannya” <strong>mysql_fetch_array()</strong>,
+   kali ini string penentu metoda array berada pada argumen kedua. 
+Argumen   pertama adalah variabel resources hasil pemanggilan fungsi   
+mysqli_query(). String <strong>MYSQLI_ASSOC</strong> digunakan agar key array dapat diakses dengan nama. String lain yang bisa kita gunakan adalah <strong>MYSQL_NUM </strong>dan<strong> MYSQL_BOTH</strong>. Perbedaan ketiganya telah kita bahas lengkap dalam <a title="Tutorial PHP MySQL: Cara Menampilkan Tabel MySQL dari PHP (mysql_fetch_array)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dari-php-mysql_fetch_array/">Tutorial PHP MySQL: Cara Menampilkan Tabel MySQL dari PHP dengan mysql_fetch_array.</a></p>
+<p>Cara ketiga yang akan kita bahas adalah dengan menggunakan fungsi <strong>mysqli_fetch_object()</strong>. Fungsi ini sama dengan fungsi <strong>mysql_fetch_object()</strong>, dimana kita mengakses hasil query sebagai objek. Berikut adalah contoh kode PHPnya:</p>
+<div>
+  <div id="highlighter_745543" class="syntaxhighlighter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="gutter"><div class="line number1 index0 alt2">1</div>
+            <div class="line number2 index1 alt1">2</div>
+            <div class="line number3 index2 alt2">3</div>
+            <div class="line number4 index3 alt1">4</div>
+            <div class="line number5 index4 alt2">5</div>
+            <div class="line number6 index5 alt1">6</div>
+            <div class="line number7 index6 alt2">7</div>
+            <div class="line number8 index7 alt1">8</div>
+            <div class="line number9 index8 alt2">9</div>
+            <div class="line number10 index9 alt1">10</div>
+            <div class="line number11 index10 alt2">11</div>
+            <div class="line number12 index11 alt1">12</div>
+            <div class="line number13 index12 alt2">13</div>
+            <div class="line number14 index13 alt1">14</div>
+            <div class="line number15 index14 alt2">15</div></td>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// buat koneksi dengan MySQL, gunakan database: universitas</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysqli_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">""</code><code class="php plain">, </code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1">&nbsp;</div>
+            <div class="line number5 index4 alt2"><code class="php comments">// jalankan query</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$result</code> <code class="php plain">= mysqli_query(</code><code class="php variable">$link</code><code class="php plain">, </code><code class="php string">"SELECT * FROM mahasiswa_ilkom"</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2">&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php comments">// tampilkan query</code></div>
+            <div class="line number9 index8 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$row</code><code class="php plain">=mysqli_fetch_object(</code><code class="php variable">$result</code><code class="php plain">))</code></div>
+            <div class="line number10 index9 alt1"><code class="php plain">{</code></div>
+            <div class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">-&gt;nim.</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">-&gt;nama.</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">-&gt;umur.</code><code class="php string">" "</code><code class="php plain">;</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php variable">$row</code><code class="php plain">-&gt;tempat_lahir.</code><code class="php string">" "</code><code class="php plain">.</code><code class="php variable">$row</code><code class="php plain">-&gt;IPK;</code></div>
+            <div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"&lt;br /&gt;"</code><code class="php plain">;</code></div>
+            <div class="line number14 index13 alt1"><code class="php plain">}</code></div>
+            <div class="line number15 index14 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Jika anda butuh penjelasan mengenai cara penggunaan <strong>mysqli_fetch_object()</strong>, silahkan kunjungi <a title="Tutorial PHP MySQL: Cara Menampilkan Tabel MySQL dengan objek (mysql_fetch_object)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-tabel-mysql-dengan-objek-mysql_fetch_object/">Tutorial PHP MySQL : Cara Menampilkan Tabel dengan objek (mysql_fetch_object)</a>.</p>
+<hr>
+<p>Dalam tutorial PHP MySQL kali ini kita telah membahas tentang cara penggunaan mysqli untuk menampilkan data dari database MySQL.</p>
+<p>Seperti yang pernah kita bahas, <strong>mysqli</strong> memiliki 2   
+cara penulisan (2 jenis style). Selain dengan cara procedural seperti   
+dalam tutorial ini, di dalam tutorial selanjutnya kita akan membahas <a title="Tutorial PHP MySQL: Cara Menampilkan Data dengan mysqli PHP (Object Style)" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-data-dengan-mysqli-php-object-style/">cara penggunaan mysqli dengan object oriented style</a>.</p>
+<p>Sumber : <a href="http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-data-dengan-mysqli-procedural-style/">http://www.duniailkom.com/tutorial-php-mysql-cara-menampilkan-data-dengan-mysqli-procedural-style/</a></p>
+</div>
+
+</body></html>

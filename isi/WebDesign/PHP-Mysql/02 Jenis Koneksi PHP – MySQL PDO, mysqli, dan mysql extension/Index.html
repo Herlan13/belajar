@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body><div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 2: Jenis Koneksi PHP – MySQL: PDO, mysqli, dan mysql extension</h1>
+<p>&nbsp;</p>
+<p>Untuk dapat menggunakan dan mengakses database MySQL, PHP menyediakan 3 cara koneksi: menggunakan <a title="Tutorial PHP MySQL: Jenis Koneksi PHP – MySQL: PDO, mysqli, dan mysql extension" href="http://www.duniailkom.com/tutorial-php-mysql-jenis-koneksi-php-mysql-pdo-mysqli-dan-mysql-extension/">PDO (PHP Data Objects), mysqli extension dan mysql extension</a>. Dalam tutorial belajar PHP kali ini kita akan membahas keunggulan masing-masing, dan perbedaan ketiganya.</p>
+<hr>
+<h3>Perkembangan Cara Koneksi PHP dan MySQL</h3>
+<p>PHP merupakan bahasa pemograman yang selalu di update dan berkembang mengikuti teknologi terbaru. Saat ini, <strong>Pemrograman Berorientasi Objek</strong> (<em>Object Oriented Programming</em>) merupakan trend pemrograman PHP, dan hal ini juga mempengaruhi cara mengakses database MySQL dari PHP.</p>
+<p>PHP memiliki 3 cara pengaksesan MySQL, yakni melalui <strong>PDO (PHP Data Objects)</strong>, <strong>mysqli extension</strong> dan <strong>mysql extension</strong>. <strong>PDO</strong> menggunakan <em>pemrograman objek</em>, <strong>mysqli extension</strong> tersedia dalam bentuk <em>objek</em> dan <em>prosedural</em> (diakses melalui fungsi-fungsi) sedangkan <strong>mysql extension</strong> sepenuhnya menggunakan pemograman <em>prosedural</em>.</p>
+<p>Mari kita bahas pengertian dan perbedaan ketiga metode ini:</p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<hr>
+<h4>1. Koneksi MySQL dengan mysql extension</h4>
+<p>Saat pertama kali mempelajari PHP MySQL sekitar tahun 2008 (atau jika
+   anda pernah mempelajari PHP-MySQL beberapa tahun yang lalu), untuk   
+mengakses MySQL dari PHP, kita menggunakan fungsi-fungsi seperti <em>mysql_connect()</em>, <em>mysql_query(),</em> dan <em>mysql_fetch_array().</em> Fungsi-fungsi ini tergabung ke dalam <strong>mysql extension</strong> (saat itu <strong>PDO</strong> dan <strong>mysqli extension</strong> masih jarang digunakan)</p>
+<p>Namun sekarang (tepatnya mulai PHP versi 5.5.0) PHP memutuskan untuk membuat <strong>mysql extension</strong> berstatus <em>deprecated</em>. Yang artinya pengaksesan database MySQL menggunakan fungsi <em>mysql extension</em> sudah tidak disarankan lagi. Programmer PHP diharapkan pindah ke <strong>mysqli extension</strong> atau <strong>PDO</strong> yang berbasis objek.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Alasannya, MySQL versi terbaru memiliki fitur-fitur yang semakin   
+lengkap dan kompleks, sehingga PHP memutuskan untuk membuat fungsi   
+extension baru agar programmer PHP bisa menggunakan fitur-fitur ini.</p>
+<hr>
+<h4>2. Koneksi MySQL dengan mysqli extension</h4>
+<p>Sebagai pengganti <strong>mysql extension</strong>, PHP menyediakan <strong>mysqli extension</strong> (<strong>mysqli</strong> merupakan singkatan dari <strong>MySQL Improved</strong>). Mysqli extension ini pada dasarnya adalah perbaikan dari <em>mysql extension</em> dan dikembangkan untuk mendukung fitur-fitur terbaru untuk <strong>MySQL 4.1</strong> keatas.</p>
+<p>Hampir semua fungsi yang ada pada <em>mysql extension</em> juga tersedia pada <em>mysqli</em>. Syntax (aturan penulisan) <strong>mysqli</strong> sangat mirip dengan <strong>mysql</strong>
+ extension. Sehingga jika anda telah lama menggunakan mysql extension,  
+ akan sangat mudah untuk beralih menggunakan mysqli extension.</p>
+<p>Selain menggunakan mysql maupun mysqli extension, cara ketiga untuk  
+ pengaksesan database MySQL dari PHP adalah dengan menggunakan PHP Data 
+  Objects (atau sering disingkat dengan <strong>PDO</strong>).</p>
+<hr>
+<h4>3. Koneksi MySQL dengan PDO (PHP Data Objects)</h4>
+<p><strong>PDO </strong>(PHP Data Objects), adalah <em>extension</em> atau penambahan fitur dalam PHP yang dirancang sebagai <em>interface universal</em> untuk pengaksesan berbagai jenis database (tidak hanya MySQL). Contohnya, jika kita menggunakan <strong>PDO</strong> dalam menulis kode pemograman, lalu suatu saat website kita bertukar database dari <strong>MySQL</strong> ke <strong>Oracle</strong>, maka kita tidak perlu mengubah semua kode program, cukup mengubah cara pemanggilan <strong>PDO</strong> diawal program saja.</p>
+<p>Dari ketiga cara koneksi PHP dengan MySQL ini, metode yang disarankan adalah menggunakan <strong>mysqli</strong> atau <strong>PDO</strong>.</p>
+<hr>
+<h3>Perbandingan antara mysqli, PDO dan mysql extension</h3>
+<p>Sebagai perbandingan fitur antara ketiga jenis koneksi PHP-MySQL ini,
+   berikut adalah tabel perbandingan antara mysqli, PDO dan mysql   
+extension yang bersumber dari manual resmi PHP:</p>
+<p><img src="Index_files/Perbandingan-Jenis-Koneksi-PHP-MySQL-PDO-mysqli-dan-mysql-ex.png" width="650" height="473" /></p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<hr>
+<h3>Cara Penulisan mysql extension, mysqli extension, dan PDO (PHP Data Objects)</h3>
+<p>Untuk mengetahui secara sekilas perbedaan cara pengaksesan database MySQL menggunakan <strong>mysql extension</strong>, <strong>mysqli extension</strong>, dan <strong>PDO</strong>, berikut contoh kode PHPnya:</p>
+<div>
+  <div id="highlighter_793226" class="syntaxhighlighter nogutter php">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="code"><div class="container">
+            <div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div>
+            <div class="line number2 index1 alt1"><code class="php comments">// cara mengakses MySQL menggunakan mysql extension:</code></div>
+            <div class="line number3 index2 alt2"><code class="php variable">$link</code> <code class="php plain">= mysql_connect(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">"qwerty"</code><code class="php plain">);</code></div>
+            <div class="line number4 index3 alt1"><code class="php plain">mysql_select_db(</code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number5 index4 alt2"><code class="php variable">$result</code> <code class="php plain">= mysql_query(</code><code class="php string">"SELECT * FROM mahasiswa"</code><code class="php plain">);</code></div>
+            <div class="line number6 index5 alt1"><code class="php variable">$row</code> <code class="php plain">= mysql_fetch_assoc(</code><code class="php variable">$result</code><code class="php plain">);</code></div>
+            <div class="line number7 index6 alt2"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number8 index7 alt1"><code class="php comments">// cara mengakses MySQL menggunakan mysqli extension:</code></div>
+            <div class="line number9 index8 alt2"><code class="php variable">$mysqli</code> <code class="php plain">= </code><code class="php keyword">new</code> <code class="php plain">mysqli(</code><code class="php string">"localhost"</code><code class="php plain">, </code><code class="php string">"root"</code><code class="php plain">, </code><code class="php string">"qwerty"</code><code class="php plain">, </code><code class="php string">"universitas"</code><code class="php plain">);</code></div>
+            <div class="line number10 index9 alt1"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$mysqli</code><code class="php plain">-&gt;query(</code><code class="php string">"SELECT * FROM mahasiswa"</code><code class="php plain">);</code></div>
+            <div class="line number11 index10 alt2"><code class="php variable">$row</code> <code class="php plain">= </code><code class="php variable">$result</code><code class="php plain">-&gt;fetch_assoc();</code></div>
+            <div class="line number12 index11 alt1"><code class="php spaces">&nbsp;</code>&nbsp;</div>
+            <div class="line number13 index12 alt2"><code class="php comments">// cara mengakses MySQL menggunakan PDO:</code></div>
+            <div class="line number14 index13 alt1"><code class="php variable">$pdo</code> <code class="php plain">= </code><code class="php keyword">new</code> <code class="php plain">PDO(</code><code class="php string">'mysql:host=localhost;dbname=universitas'</code><code class="php plain">, </code><code class="php string">'root'</code><code class="php plain">, </code><code class="php string">'qwerty'</code><code class="php plain">);</code></div>
+            <div class="line number15 index14 alt2"><code class="php variable">$statement</code> <code class="php plain">= </code><code class="php variable">$pdo</code><code class="php plain">-&gt;query(</code><code class="php string">"SELECT * FROM mahasiswa"</code><code class="php plain">);</code></div>
+            <div class="line number16 index15 alt1"><code class="php variable">$row</code> <code class="php plain">= </code><code class="php variable">$statement</code><code class="php plain">-&gt;fetch(PDO::FETCH_ASSOC);</code></div>
+            <div class="line number17 index16 alt2"><code class="php plain">?&gt;</code></div>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>Dalam contoh diatas, dianggap bahwa user MySQL adalah <strong>root</strong>, password <strong>’qwerty’</strong>, dan nama database <strong>’universitas’</strong>.</p>
+<p>Anda tidak perlu memahami kode program diatas, karena kita akan   
+membahasnya dengan lengkap dalam tutorial belajar PHP MySQL di   
+duniailkom ini.</p>
+<p>Untuk tahap pertama, saya akan menggunakan metode <strong>mysql extension</strong>
+ yang berbasis fungsi terlebih dahulu. Walaupun metode ini tidak   
+disarankan lagi, namun metode inilah yang paling mudah dipelajari dan   
+telah dikenal luas.</p>
+<p>Setelah selesai membahas <strong>mysql extension</strong>, selanjutnya kita akan beralih ke <strong>mysqli extension </strong>yang bisa ditulis dengan <em>procedural style</em> (menggunakan fungsi-fungsi) ataupun dengan <em>object style</em>.
+   Terakhir, kita akan membahas cara membuat koneksi PHP MySQL 
+menggunakan   PDO. Cara pengaksesan MySQL dengan PDO yang berbasis objek
+ akan lebih   mudah dipahami jika anda telah mempelajari <a title="Tutorial Belajar OOP PHP: Pemrograman Berbasis Objek PHP" href="http://www.duniailkom.com/tutorial-belajar-oop-php-pemrograman-berbasis-objek-php/">pemrograman berbasis objek</a>.</p>
+<hr>
+<p>Dalam tutorial selanjutnya, kita akan membahas pengertian extension  
+ PHP, dan cara pengaturan PHP (setingan PHP) agar kita dapat menggunakan
+   mysql extension, dalam tutorial <a title="Tutorial PHP MySQL: Pengertian Extension PHP dan Cara Setting mysql extension" href="http://www.duniailkom.com/tutorial-php-mysql-pengertian-extension-php-dan-cara-setting-mysql-extension/">Pengertian extension PHP dan cara setting mysql extension</a>.</p>
+<p>Sumber :<a href="http://www.duniailkom.com/tutorial-php-mysql-jenis-koneksi-php-mysql-pdo-mysqli-dan-mysql-extension/"> http://www.duniailkom.com/tutorial-php-mysql-jenis-koneksi-php-mysql-pdo-mysqli-dan-mysql-extension</a>/</p>
+
+</div>
+</body></html>

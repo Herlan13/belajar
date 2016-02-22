@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body> <div class="coklat">
+<h1 itemprop="headline">Tutorial PHP MySQL Part 1: Cara Menjalankan MySQL dan PHP menggunakan XAMPP</h1>
+<p>Syarat pertama untuk bisa membuat koneksi antara <strong>PHP</strong> dengan <strong>MySQL</strong> tentunya dengan menjalankan kedua aplikasi ini terlebih dahulu. Dalam <em>tutorial belajar PHP MySQL</em> bagian pertama ini, kita akan mempelajari <a title="Tutorial PHP MySQL: Cara Menjalankan MySQL dan PHP menggunakan XAMPP" href="http://www.duniailkom.com/tutorial-php-mysql-cara-menjalankan-mysql-dan-php-menggunakan-xampp/">cara menjalankan PHP dan MySQL menggunakan aplikasi XAMPP</a>, maupun secara terpisah .</p>
+<hr>
+<h3>Cara Menjalankan PHP dan MySQL menggunakan XAMPP</h3>
+<p>PHP dijalankan dari <em>web server</em> <strong>Apache</strong>, dan jika anda mengikuti <a href="http://www.duniailkom.com/tutorial-belajar-php-dasar-untuk-pemula/">Tutorial PHP Dasar Untuk Pemula</a> di duniailkom, maka di komputer anda telah terinstall aplikasi <strong>XAMPP</strong>.</p>
+<div id="stb-container-1562"><span class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none"><img src="Index_files/info-b.png" width="50" height="50" />
+  </span>
+  <div class="stb-container-css stb-info-container stb-image-big stb-ltr stb-corners stb-border stb-side-none" id="stb-box-1562">Untuk tutorial cara menginstall XAMPP, duniailkom telah membuat 2 tutorial lengkap, yakni <a title="Tutorial Belajar PHP: Cara Menginstall PHP dengan XAMPP 1.8.3" href="http://www.duniailkom.com/cara-menginstall-php-dengan-xampp/">cara menginstall XAMPP 1.8.3</a>, atau versi yang lebih baru: <a title="Tutorial Belajar: Cara Menginstall XAMPP di Windows" href="http://www.duniailkom.com/tutorial-belajar-wordpress-cara-menginstall-xampp-di-windows/">cara menginstall XAMPP 5.6.3</a></div>
+</div>
+<p>Selain modul <strong>Apache</strong>, <strong>XAMPP</strong> juga memiliki paket bawaan <strong>MySQL Server</strong>. Untuk menjalankan keduanya, anda tinggal men-klik tombol <strong>Start</strong> pada jendela <em>XAMPP Control Panel</em> seperti gambar dibawah ini:</p>
+<p><img src="Index_files/MySQL-Server-sudah-berjalan-dari-XAMPP-Control-Panel.png" width="616" height="193" /></p>
+<div style="float:none;margin:15px 0 15px 0;text-align:center;">
+  <div style="width:100%; clear:both; margin-top: 10px;"> </div>
+</div>
+<p>Jika tidak ada masalah, modul MySQL akan berwana hijau yang menandakan <em>MySQL Server</em> sudah berjalan. Sampai disini, Web Server Apache dan database MySQL sudah siap digunakan.</p>
+<hr>
+<h3>Cara Menjalankan MySQL dan PHP secara Terpisah</h3>
+<p>Jika anda telah mengikuti <a href="http://www.duniailkom.com/tutorial-belajar-mysql-dan-index-artikel-mysql">Tutorial MySQL Dasar</a> di duniailkom, pada tutorial tersebut saya menginstall <strong>MySQL</strong> secara terpisah (bukan dari aplikasi <em>XAMPP</em>), kita juga bisa menggunakan aplikasi MySQL ini untuk diakses dari web server <strong>Apache</strong> yang berasal dari aplikasi <strong>XAMPP</strong>.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p>Namun, seperti yang telah kita bahas pada <a href="http://www.duniailkom.com/tutorial-mysql-menjalankan-mysql-server/">tutorial cara menjalankan MySQL Server</a>, bahwa di dalam sebuah komputer hanya bisa berjalan 1 buah <strong>MySQL Server</strong>. Sehingga jika anda menemukan pesan <em>error</em> seperti gambar dibawah ini, berarti ada aplikasi <strong>MySQL Server</strong> yang sedang aktif.</p>
+<p><img src="Index_files/Error-Saat-Menjalankan-MySQL-Server-dari-XAMPP-Control-Panel.png" width="879" height="434" /></p>
+<p>Untuk memeriksa apakah MySQL Server sedang aktif atau tidak, bisa dilakukan melalui <strong>task manager</strong>. Silahkan buka <strong>task manager</strong>,dan cari proses dengan nama: <strong>mysqld.exe</strong>. Jika ditemukan, berarti MySQL Server telah berjalan di latar belakang.</p>
+<p><img src="Index_files/Cara-Mengecek-Apakah-MySQL-Server-sudah-berjalan.png" width="422" height="459" /></p>
+<p>Anda boleh menggunakan MySQL versi <em>stand alone</em> ini, atau mematikannya dan menggunakan MySQL versi bawaan <strong>XAMPP</strong>.</p>
+<hr>
+<h3>Cara Menguji Koneksi PHP MySQL Dengan Phpmyadmin</h3>
+<p>Untuk menguji apakah aplikasi <strong>PHP</strong> dapat mengakses database <strong>MySQL</strong>, kita bisa menggunakan aplikasi <strong>Phpmyadmin</strong> bawaan <strong>XAMPP</strong>.</p>
+<p>Aplikasi <strong>Phpmyadmin</strong> adalah sebuah aplikasi manajemen database MySQL yang berbasis web. <strong>XAMPP</strong> menambahkan aplikasi ini untuk mempermudah pengaksesan database yang biasanya diakses menggunakan <em>console</em>, atau <em>cmd</em> <em>Windows</em>. Namun saya tidak akan membahas cara penggunaan aplikasi <strong>phpmyadmin</strong> pada tutorial kali ini. Kita hanya menggunakannya untuk mengecek koneksi dari aplikasi PHP ke MySQL.</p>
+<p>Untuk masuk ke menu <strong>phpmyadmin</strong>, anda bisa mengetik alamat berikut pada web browser: <strong>http://localhost/phpmyadmin/</strong>. Atau bisa juga dari halaman <em>localhost</em> <strong>XAMPP</strong>, lalu cari menu <strong>phpmyadmin</strong> yang berada pada pojok kiri halaman localhost.</p>
+<div style="float:none;margin:0px;">
+  <div style="width: 100%; clear: both; margin-bottom: 12px;"> </div>
+</div>
+<p><img src="Index_files/Letak-Menu-Phpmyadmin-dalam-XAMPP-localhost.png" width="770" height="627" /></p>
+<p>Jika anda menggunakan aplikasi MySQL bawaan XAMPP, dan apabila tidak ada masalah akan tampil halaman awal <strong>Phpmyadmin</strong> seperti gambar dibawah ini:</p>
+<p><img src="Index_files/Tampilan-awal-Phpmyadmin-pada-aplikasi-XAMPP.png" width="705" height="452" /></p>
+<p>Tampilnya halaman tersebut menandakan bahwa PHP dan MySQL telah terhubung secara sempurna. Namun jika tampilan <strong>phpmyadmin</strong> seperti gambar berikut ini, maka dapat disimpulkan bahwa <strong>MySQL Server</strong> belum berjalan.</p>
+<p><img src="Index_files/Pesan-error-Phpmyadmin-pada-aplikasi-XAMPP-MySQL-Server-belu.png" width="591" height="501" /></p>
+<p>Jika anda mendapati tampilan tersebut, permasalahan terdapat pada aplikasi <strong>MySQL Server</strong> yang belum dijalankan. Silahkan jalankan aplikasi <strong>MySQL</strong> dari <em>XAMPP Control Panel</em>.</p>
+<p>Apabila anda menggunakan aplikasi MySQL yang terpisah (bukan bawaan <em>XAMPP</em>), maka menu <strong>phpmyadmin</strong> seharusnya akan menjadi seperti gambar berikut:</p>
+<p><img src="Index_files/Pesan-error-Phpmyadmin-pada-aplikasi-XAMPP-MySQL-Server-sala.png" width="591" height="552" /></p>
+<p>Namun jangan khawatir, pesan error tersebut terjadi karena phpmyadmin mencoba masuk ke MySQL Server dengan <em>user</em> <strong>’root’</strong> dan <strong>tanpa password</strong>. Pesan <em>error #1045 – Access denied for user ‘root’@’localhost’ (using password: NO)</em> merupakan pesan error ketika kita salah memasukkan password untuk user <strong>root</strong>. Jika anda mengikuti <a title="Tutorial Belajar MySQL dan Index Artikel MySQL" href="http://www.duniailkom.com/tutorial-belajar-mysql-dan-index-artikel-mysql/">tutorial MySQL</a> di duniailkom, user root akan memiliki password <strong>’qwerty’</strong> dan bukan kosong, sehingga hal inilah yang menyebabkan tampilan error tersebut.</p>
+<p>Tampilan error diatas sebenarnya berarti <strong>MySQL Server</strong> telah berjalan, dan bisa diakses dari PHP.</p>
+<hr />
+<p>Jika <strong>MySQL Server</strong> dan <strong>Web Server Apache</strong> telah dijalankan, maka saatnya kita masuk ke dalam tutorial PHP MySQL berikutnya, yaitu <a title="Tutorial PHP MySQL: Jenis Koneksi PHP – MySQL: PDO, mysqli, dan mysql extension" href="http://www.duniailkom.com/tutorial-php-mysql-jenis-koneksi-php-mysql-pdo-mysqli-dan-mysql-extension/">mengenal jenis-jenis koneksi PHP dengan MySQL</a>.</p>
+<p>Sumber : <a href="http://www.duniailkom.com/tutorial-php-mysql-cara-menjalankan-mysql-dan-php-menggunakan-xampp/">http://www.duniailkom.com/tutorial-php-mysql</a></p>
+</div>
+
+</body></html>
