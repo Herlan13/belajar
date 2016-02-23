@@ -24,6 +24,68 @@ a:link:hover {
 	text-transform: uppercase;
 	color: #FF0000;
 }
+h2.post-title {border-top:1px solid #444;border-bottom:1px solid #444;color:#000;}
+.post-body {margin:4px 0px;border:none;color:#000;text-shadow:none;}
+#blog-pager, .breadcrumbs {display:none;}
+.comments {border:none}
+#main-wrapper {box-shadow:none}
+#sitemap-menu{
+  border-bottom: 4px solid #080;
+  color: black;
+  overflow: hidden;
+  padding: 3px 0;}
+
+.isi-content{overflow:hidden}
+.sb77-left{
+  float:left;
+  height: 22px;
+  line-height: 20px;
+  text-align: left;
+  width: 49%;}
+
+.sb77-right{float:right;width:50%}
+.isi-content select{width:100%;border:1px dotted #ccc;padding:1px;background-color:#39f;color:white}
+.isi-content input{border:0;outline:0;margin:0;width:100%;background:#ddd;}
+.isi-content form{padding:0;}
+ul#feedContainer,ul#feedContainer li{margin:0;list-style:none;padding:0;overflow:hidden}
+ul#feedContainer li{
+  background-color: #d9ead3;
+  border: 1px solid #cccccc;
+  display: block;
+  float: left;
+  height: 95px;
+  margin: 5px;
+  padding: 10px 10px;
+  position: relative;
+  width: 40.0%;}
+
+.inner img{
+  background:#cccccc;
+  border: 2px solid #080;
+  float: left;
+  margin: 4px 6px 0 0;
+  padding: 2px;
+  box-shadow:
+  inset 1px 1px 4px rgba(0,0,0,0.5),
+  0 2px 3px rgba(0,0,0,0.6);}
+
+.toc-title{font-family:'Coda';font-size:14px;color: blue !important;}
+.inner strong{font-weight:normal;font-size:10px;color:#b30000}
+.news-text{font-size:11px;line-height:13px;color:#000000 !important}
+
+#feedNav .next,#feedNav .front,#feedNav .loadingx, #feedNav span{
+  width:100%;
+  display:block;
+  text-align:center;
+  height:30px;
+  line-height:30px;
+  background-color:#080;
+  color:white;}
+
+@media only screen and (min-width:768px) and (max-width:989px){ul#feedContainer li {height: 108px;width: 100%;margin: 0}}
+@media only screen and (max-width:767px){ul#feedContainer li {height: 108px;width: auto;margin: 0}}
+@media only screen and (max-width:479px){ul#feedContainer li {width: auto;margin: 0;height: 135px;}}
+
 -->
 </style>
 
@@ -34,9 +96,65 @@ a:link:hover {
     
      Koleksi Lukisan dari Para pelukis terkenal dunia , kami mempunyai 1000 lebih Tokoh pelukis dunia
 <p>&nbsp;</p>
+<div id="table-contents">
+   <div id="sitemap-menu">
+     <div class="isi-content">
+       <div class="sb77-left">
+        <label>Cari Artikel Berdasarkan:</label>
+   </div>
+         <div class="sb77-right">
+<select id="orderFeedBy"><option selected="" value="published">Posting Terbaru</option><option value="updated">Posting Diperbaharui</option></select>
+        </div>
+      </div>
+   <div class="isi-content">
+         <div class="sb77-left">
+          <label>Mencari Artikel Berdasarkan File:</label>
+         </div>
+         <div class="sb77-right">
+<span id="labelSorter"><select disabled=""><option selected="">Category File...</option></select></span>
+         </div>
+      </div>
+                 <div class="isi-content">
+                     <div class="sb77-left">
+  <label>Temukan Dengan Mudah, Ketik Teks Anda <span style="color:red;">&#10142;</span></label>
+                     </div>
+          <div class="sb77-right">
+    <form id="postSearcher">
+ <input type="text" />
+   </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+<header id="resultDesc" style="color: white; font-weight: bold;"></header>
+
+<ul id="feedContainer"></ul>
+  <div id="feedNav">
+     <span class="loadingx">Loading...
+     </span>
+  </div>
+  
+  <script src="https://s-blogger77.googlecode.com/svn/trunk/siteMap-style-menu-show.js"></script>
+<script>
+document.body.oncontextmenu=function() {return false;}
+var tocConfig = {
+    url: "http://hayang-modol.blogspot.com",
+    feedNum: 14,
+    labelName: (window.location.hash && window.location.hash != '#0' && window.location.hash != '#search') ? encodeURIComponent(window.location.hash.substr(1)) : false,
+    numChars: 100,
+    thumbWidth: 70,
+    navText: "Load More &#9660;",
+    frontText: "Top &uArr;",
+    noImage: "http://1.bp.blogspot.com/-kjOxg7UqWTs/UW_X2JC8O6I/AAAAAAAAA_k/3KYB6uDKvFI/s1600/512px-No_image_available.svg.png",
+    loading: "<span>Memuat...</span>",
+    searching: "<span>Mencari...</span>",
+    noResult: "Tak Ditemukan"
+};
+</script>
 <p>Salam </p>
       <p><a href="https://plus.google.com/u/0/104997929673090286351" target="_blank">Herlan lesmana</a></p>
-      <p>&nbsp;</p><!-- Akhir Content --> </div>
+      <p>&nbsp;</p><!-- Akhir Content --> </div> 
  
       
 <p align="center">Design by :<span class="style5 style2">Herlan Lesmana</span></p>
