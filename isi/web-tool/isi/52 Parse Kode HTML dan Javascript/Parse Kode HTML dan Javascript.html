@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Parse Kode HTML</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.cantik {
+	background-color: #FFF;
+	margin: 10px;
+	padding: 15px;
+	height: 250px;
+	width: 475px;
+	border-radius : 20px;
+	border:solid #999 2px;
+	overflow: auto;
+	-moz-box-shadow: inset 0px 0px 18px 2px #cc4300;
+	-webkit-box-shadow: inset 0px 0px 18px 2px #cc4300;
+	box-shadow: inset 0px 0px 18px 2px #cc4300;/*Inner elements should not cover inner shadows*//*IE 7 AND 8 DO NOT SUPPORT INSET SHADOWS*/
+
+}
+
+.BB {
+	background-color: #FFF;
+	margin: 2px;
+	padding: 5px;
+	height: auto;
+	width: auto;
+	border-radius : 5px;
+	border:solid #999 2px;
+	overflow: auto;
+	-moz-box-shadow: inset 0px 0px 18px 2px #cc4300;
+	-webkit-box-shadow: inset 0px 0px 18px 2px #cc4300;
+	box-shadow: inset 0px 0px 18px 2px #cc4300;/*Inner elements should not cover inner shadows*//*IE 7 AND 8 DO NOT SUPPORT INSET SHADOWS*/
+}
+
+.BB:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #9e5325) );
+	background:-moz-linear-gradient( center top, #d29105 5%, #9e5325 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#9e5325');
+	background-color:#d29105;
+}.BB:active {
+	position:relative;
+	top:1px;
+}
+.batas {
+	background-color: #FFF;
+	margin: 2px;
+	padding: 5px;
+	height: auto;
+	width: 550px;
+	overflow: auto;
+	}
+-->
+</style></head>
+
+<body>
+<script type="text/javascript">
+// < ![CDATA[
+var _0xa838=["\x68\x74\x6D\x6C\x70\x61\x72\x73\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x76\x61\x6C\x75\x65","\x26\x6C\x74\x3B","\x72\x65\x70\x6C\x61\x63\x65","\x26\x67\x74\x3B","\x26\x71\x75\x6F\x74\x3B","\x26\x23\x30\x33\x39\x3B","\x26\x70\x6C\x75\x73\x6D\x6E\x3B","\x26\x63\x6F\x70\x79\x3B","\x26\x72\x65\x67\x3B","\x26\x61\x6D\x70\x3B"];function parse(){var _0xfd35x2=document[_0xa838[1]](_0xa838[0]);var _0xfd35x3;_0xfd35x3=_0xfd35x2[_0xa838[2]];_0xfd35x3=_0xfd35x3[_0xa838[4]](/</ig,_0xa838[3]);_0xfd35x3=_0xfd35x3[_0xa838[4]](/>/ig,_0xa838[5]);_0xfd35x3=_0xfd35x3[_0xa838[4]](/"/ig,_0xa838[6]);_0xfd35x3=_0xfd35x3[_0xa838[4]](/'/ig,_0xa838[7]);_0xfd35x3=_0xfd35x3[_0xa838[4]](/&#177;/ig,_0xa838[8]);_0xfd35x3=_0xfd35x3[_0xa838[4]](/&#169;/ig,_0xa838[9]);_0xfd35x3=_0xfd35x3[_0xa838[4]](/&#174;/ig,_0xa838[10]);_0xfd35x3=_0xfd35x3[_0xa838[4]](/&#038;/ig,_0xa838[11]);_0xfd35x2[_0xa838[2]]=_0xfd35x3;} ;
+// ]]&gt;
+</script>
+
+
+
+<form method="POST">
+<textarea id="htmlparse" name="html" class="cantik"></textarea><div class="batas">
+<input onClick="parse();" value="Parse HTML Code" type="button" class="BB">
+<input onClick="javascript:this.form.html.focus();this.form.html.select();" value="Block All" type="button" class="BB">
+
+<input value="Reset" type="reset" class="BB"></div>
+</form>
+
+Cara menggunakan <b><b>Parser HTML Code Tool</b></b> :
+<ol style="text-align: justify;">
+<li>Paste kode (<b>HTML, PHP, Java Script</b>, dll) yang ingin di parse pada form yang ada.</li>
+<li>Klik tombol "<b>Parse HTML Code</b>" dan kode yang ada akan secara otomatis muncul dengan kode yang benar.</li>
+<li>Klik tombol "<b>Block All</b>" agar kode hasil parse ter-block semua
+ /terpilih untuk bisa di salin (copy dan paste) di tempat Mas Bos 
+meletakkan kode-kode tersebut.</li>
+<li>Jika anda ingin memulai parse kode baru / yang lain, Klik "<b>Reset</b>" agar form / kolom kembali kosong.</li>
+</ol>
+
+
+Semoga bermanfaat (",)
+
+
+</body>
+</html>
